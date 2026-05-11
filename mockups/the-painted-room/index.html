@@ -1,0 +1,3443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Spanier Painting — The Painted Room · St. Cloud, MN</title>
+<meta name="description" content="Spanier Painting — residential and commercial painters in St. Cloud, Minnesota. Interior, exterior, cabinets, heritage, decks, and commercial. Est. 2014. Licensed and insured.">
+<meta name="keywords" content="painter St. Cloud, interior painter Minnesota, cabinet refinishing St. Cloud, commercial painter Central MN">
+<link rel="canonical" href="https://spanierpainting.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Painter",
+  "name": "Spanier Painting",
+  "image": "https://spanierpainting.com/assets/logo.png",
+  "url": "https://spanierpainting.com",
+  "telephone": "+1-320-250-9100",
+  "email": "lukas@spanierpainting.com",
+  "founder": "Lukas Spanier",
+  "foundingDate": "2014",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "St. Cloud",
+    "addressRegion": "MN",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    "St. Cloud", "Sartell", "Sauk Rapids", "Waite Park",
+    "Cold Spring", "Avon", "Albany", "Monticello"
+  ],
+  "openingHours": "Mo-Fr 07:00-18:00",
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "42"
+  }
+}
+</script>
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  --paper:       #FFFFFF;
+  --paper-soft:  #F6F7F9;
+  --paper-deep:  #ECEEF2;
+  --ink:         #14161B;
+  --ink-light:   #2B2E36;
+  --cobalt:      #1E3F8A;
+  --cobalt-dark: #16306B;
+  --cobalt-tint: rgba(30,63,138,0.08);
+  --rule:        rgba(20,22,27,0.14);
+  --rule-light:  rgba(20,22,27,0.08);
+  --muted:       #5F6470;
+  --muted-light: #8A8F99;
+  --chip-shadow: 0 2px 12px rgba(20,22,27,0.22), 0 0 0 1px rgba(20,22,27,0.08);
+  --ease:        cubic-bezier(.2,.7,.2,1);
+  --ease-out:    cubic-bezier(.16,1,.3,1);
+}
+
+/* ============================================================
+   RESET + BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+/* Global focus-visible — keyboard nav only, doesn't affect mouse users */
+:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* Suppress default outline for mouse clicks */
+:focus:not(:focus-visible) { outline: none; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; background: transparent; border: 0; padding: 0; }
+
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
+.f-display {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+}
+.f-mono {
+  font-family: "DM Mono", "Courier New", monospace;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+  height: 64px;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid var(--rule-light);
+  transition: background 0.3s var(--ease);
+}
+.nav.nav-scrolled {
+  background: rgba(255,255,255,0.97);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+/* O — stacked broadsheet logo in nav */
+.nav-logo {
+  width: auto;
+  height: 36px;
+  color: var(--ink);
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s var(--ease);
+  position: relative;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s var(--ease-out);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.nav-cta {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  border: 1px solid var(--cobalt);
+  padding: 0.45rem 1rem;
+  border-radius: 2px;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+.nav-cta:hover {
+  background: var(--cobalt);
+  color: #fff;
+}
+.nav-cta:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 3px;
+}
+.nav-cta-short { display: none; }
+
+/* ============================================================
+   MOBILE FLOATING CALL PILL
+   ============================================================ */
+.mobile-call-pill {
+  display: none;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 90;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--cobalt);
+  color: #fff;
+  font-family: "DM Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+  box-shadow: 0 6px 24px rgba(20,22,27,0.28), 0 2px 8px rgba(30,63,138,0.32);
+  transition: transform 0.2s var(--ease), background 0.2s var(--ease);
+}
+.mobile-call-pill:hover,
+.mobile-call-pill:focus-visible {
+  background: var(--cobalt-dark);
+  transform: translateY(-1px);
+}
+.mobile-call-pill:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   HERO — MAGAZINE COVER SPREAD
+   ============================================================ */
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 680px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  /* gentle vignette — bottom heavy for text legibility */
+}
+/* REPLACE: Unsplash — freshly painted living room, warm natural light, cream/white walls, visible trim detail, residential, editorial photography style, no people */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(26,24,20,0.72) 0%, rgba(26,24,20,0.18) 45%, transparent 70%),
+    linear-gradient(to right, rgba(26,24,20,0.28) 0%, transparent 50%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.hero-left {}
+
+.hero-kicker {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  color: rgba(251,248,242,0.6);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.hero-contributors {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(251,248,242,0.32);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.hero-contributors span::before {
+  content: "·";
+  margin-right: 0.6rem;
+  opacity: 0.5;
+}
+.hero-contributors span:first-child::before { display: none; }
+
+.hero-headline {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: clamp(3.25rem, 8vw, 7rem);
+  line-height: 0.92;
+  color: var(--paper);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.hero-headline em {
+  font-style: italic;
+  font-weight: 200;
+}
+
+.hero-sub {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgba(251,248,242,0.72);
+  line-height: 1.6;
+  max-width: 36ch;
+  letter-spacing: 0.01em;
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.hero-issue-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(251,248,242,0.45);
+  text-align: right;
+  line-height: 1.8;
+}
+
+.hero-scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.hero-scroll-hint span {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(251,248,242,0.4);
+  writing-mode: vertical-rl;
+}
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(251,248,242,0.4), transparent);
+  animation: scrollPulse 2.4s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50%       { opacity: 0.8; transform: scaleY(1.15); }
+}
+
+/* ============================================================
+   INTRO / MANIFESTO
+   ============================================================ */
+.intro {
+  background: var(--paper);
+  padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 5vw, 4rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: start;
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+.intro-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.intro-label::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--cobalt);
+}
+
+.intro-statement {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.intro-statement em {
+  font-style: italic;
+  font-weight: 200;
+  color: var(--cobalt);
+}
+
+.intro-right {
+  padding-top: 3.5rem;
+}
+
+.intro-body {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 48ch;
+  margin-bottom: 2.5rem;
+}
+
+.intro-services-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+  margin-bottom: 1rem;
+}
+
+.intro-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  list-style: none;
+}
+.intro-services li {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  background: var(--paper-soft);
+  border: 1px solid var(--rule-light);
+  border-radius: 2px;
+  padding: 0.3rem 0.65rem;
+}
+
+/* ============================================================
+   SECTION DIVIDER
+   ============================================================ */
+.section-rule {
+  border: 0;
+  height: 1px;
+  background: var(--rule-light);
+  margin: 0 clamp(1.5rem, 5vw, 4rem);
+}
+
+/* ============================================================
+   CASE STUDIES — FULL-BLEED PHOTO SECTIONS
+   ============================================================ */
+.case-label-bar {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: clamp(3.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem) 1.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.case-label-bar-left {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+.case-section-tag {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.case-section-num {
+  font-family: "DM Mono", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  color: var(--cobalt);
+}
+
+.case-study {
+  position: relative;
+  margin-bottom: 0;
+}
+
+/* Full bleed photo container */
+.case-photo-wrap {
+  position: relative;
+  width: 100%;
+  /* 16:9ish, tall enough on mobile */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+@media (max-width: 768px) {
+  .case-photo-wrap { aspect-ratio: 4 / 5; }
+}
+
+.case-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 9s cubic-bezier(.2,.7,.2,1);
+}
+.case-study:hover .case-photo {
+  transform: scale(1.025);
+}
+
+/* Subtle bottom gradient for metadata readability */
+.case-photo-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(26,24,20,0.6) 0%,
+    rgba(26,24,20,0.12) 35%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* ============================================================
+   COLOR CHIPS — FLOATING ANNOTATED DOTS
+   ============================================================ */
+.chip {
+  position: absolute;
+  z-index: 10;
+  /* chip is a small dot */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(251,248,242,0.9);
+  box-shadow: var(--chip-shadow);
+  cursor: pointer;
+  /* Keyboard accessible — tabindex set in markup */
+  transition: transform 0.22s var(--ease-out), box-shadow 0.22s var(--ease-out);
+}
+.chip:focus-visible {
+  outline: 2px solid rgba(251,248,242,0.9);
+  outline-offset: 4px;
+}
+.chip:focus-visible .chip-popover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.chip::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(251,248,242,0.35);
+  animation: chipPulse 3s ease-in-out infinite;
+}
+@keyframes chipPulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%       { opacity: 0; transform: scale(1.5); }
+}
+
+.chip:hover,
+.chip.active {
+  transform: scale(1.22);
+  box-shadow: 0 6px 24px rgba(26,24,20,0.3), 0 0 0 3px rgba(250,250,250,0.9), 0 0 0 4.5px rgba(26,24,20,0.18);
+}
+
+/* Popover — base state (collapsed + offset) */
+.chip-popover {
+  position: absolute;
+  bottom: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--paper);
+  border: 1px solid rgba(26,24,20,0.12);
+  border-top: 2.5px solid var(--ink);          /* editorial accent rule at top */
+  border-radius: 2px;
+  padding: 0.75rem 1rem 0.8rem;
+  min-width: 210px;
+  box-shadow: 0 12px 40px rgba(26,24,20,0.16), 0 2px 8px rgba(26,24,20,0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+  white-space: nowrap;
+}
+/* Caret arrow */
+.chip-popover::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(26,24,20,0.12);
+  border-bottom: 0;
+  filter: drop-shadow(0 1px 0 rgba(26,24,20,0.07));
+}
+/* Hover / tap active state */
+.chip:hover .chip-popover,
+.chip.active .chip-popover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+/* Popover layout — flip down when chip is near bottom edge */
+.chip[data-flip="down"] .chip-popover {
+  bottom: auto;
+  top: calc(100% + 16px);
+  transform: translateX(-50%) translateY(-8px);
+  border-top: 1px solid rgba(26,24,20,0.12);
+  border-bottom: 2.5px solid var(--ink);
+}
+.chip[data-flip="down"]:hover .chip-popover,
+.chip[data-flip="down"].active .chip-popover {
+  transform: translateX(-50%) translateY(0);
+}
+.chip[data-flip="down"] .chip-popover::after {
+  top: auto;
+  bottom: 100%;
+  border-top-color: transparent;
+  border-bottom-color: rgba(26,24,20,0.12);
+  border-top: 0;
+  border-bottom-width: 6px;
+  filter: none;
+}
+
+/* "Paint annotation" label — reinforces that chips are labels, not selectors */
+.chip-popover::before {
+  content: "Paint annotation";
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.4375rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(26,24,20,0.3);
+  margin-bottom: 0.5rem;
+}
+
+.popover-swatch {
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 1px;
+  margin-bottom: 0.7rem;
+}
+.popover-name {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: var(--ink);
+  letter-spacing: 0.005em;
+  line-height: 1.25;
+  margin-bottom: 0.3rem;
+}
+.popover-meta {
+  font-family: "DM Mono", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.popover-application {
+  font-size: 0.6875rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 0.45rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid rgba(26,24,20,0.07);
+  font-family: "DM Mono", monospace;
+  font-style: italic;
+  white-space: normal;
+  max-width: 22ch;
+  letter-spacing: 0.02em;
+}
+
+/* On touch devices: suppress CSS hover popovers (JS tap handler takes over) */
+@media (hover: none) {
+  .chip:hover .chip-popover { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  .chip[data-flip="down"]:hover .chip-popover { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+  .chip::after { display: none; }    /* no pulse ring on touch — too noisy */
+}
+
+/* ============================================================
+   CASE STUDY META — BELOW PHOTO
+   ============================================================ */
+.case-meta-row {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 2.25rem clamp(1.5rem, 5vw, 4rem) clamp(3.5rem, 6vw, 5rem);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem 4rem;
+  align-items: start;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.case-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: clamp(1.5rem, 3vw, 2.125rem);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 0.875rem;
+}
+.case-title em { font-style: italic; }
+
+.case-caption {
+  font-size: 0.9375rem;
+  line-height: 1.72;
+  color: var(--muted);
+  max-width: 56ch;
+}
+
+.case-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 200px;
+}
+.case-detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--rule-light);
+}
+.case-detail-item:last-child { border-bottom: 0; }
+.detail-key {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+.detail-val {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-light);
+  text-align: right;
+}
+
+/* Type badge — residential vs commercial */
+.project-type-badge {
+  display: inline-block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 2px;
+  margin-left: 0.75rem;
+  vertical-align: middle;
+}
+.badge-residential {
+  background: rgba(20,22,27,0.05);
+  color: var(--ink-light);
+  border: 1px solid rgba(20,22,27,0.14);
+}
+.badge-commercial {
+  background: var(--cobalt-tint);
+  color: var(--cobalt);
+  border: 1px solid rgba(30,63,138,0.22);
+}
+
+/* ============================================================
+   SERVICES SECTION
+   ============================================================ */
+.services {
+  background: var(--paper-soft);
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--rule-light);
+}
+
+.services-inner {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: clamp(3rem, 6vw, 7rem);
+  align-items: start;
+}
+
+.services-intro {}
+
+.services-eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.services-eyebrow::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--cobalt);
+}
+
+.services-headline {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.services-headline em { font-style: italic; color: var(--cobalt); }
+
+.services-note {
+  font-size: 0.9375rem;
+  line-height: 1.72;
+  color: var(--muted);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.service-item {
+  padding: 1.75rem 0 1.75rem 0;
+  border-bottom: 1px solid var(--rule-light);
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+.service-item:nth-child(odd) { padding-right: 2rem; border-right: 1px solid var(--rule-light); }
+.service-item:nth-child(even) { padding-left: 2rem; }
+.service-item:last-child { border-bottom: 0; }
+.service-item:nth-last-child(2):nth-child(odd) { border-bottom: 0; }
+
+.service-num {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  color: var(--muted-light);
+  padding-top: 0.25rem;
+  flex-shrink: 0;
+  min-width: 1.5rem;
+}
+.service-body {}
+.service-name {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 0.375rem;
+}
+.service-desc {
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* ============================================================
+   TESTIMONIAL
+   ============================================================ */
+.testimonial {
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+  background: var(--paper);
+  border-top: 1px solid var(--rule-light);
+}
+
+.testimonial-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testimonial-mark {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 3.5rem;
+  color: var(--cobalt);
+  line-height: 0.6;
+  margin-bottom: 1.75rem;
+  display: block;
+}
+
+.testimonial-quote {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  line-height: 1.42;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+
+.testimonial-attr {
+  font-family: "DM Mono", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ============================================================
+   SERVICE AREA
+   ============================================================ */
+.area {
+  background: var(--paper-soft);
+  border-top: 1px solid var(--rule-light);
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(1.5rem, 5vw, 4rem);
+}
+
+.area-inner {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.area-left {}
+
+.area-eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.area-eyebrow::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--cobalt);
+}
+
+.area-headline {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+.area-headline em { color: var(--cobalt); }
+
+.area-note {
+  font-size: 0.9375rem;
+  line-height: 1.72;
+  color: var(--muted);
+}
+
+.area-right {}
+
+.area-cities-kicker {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.9375rem;
+  color: var(--muted);
+  letter-spacing: 0.005em;
+  margin-bottom: 1.1rem;
+}
+
+.area-cities {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rule-light);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.area-city {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--rule-light);
+  border-right: 1px solid var(--rule-light);
+  font-family: "DM Mono", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+  transition: background 0.15s, color 0.15s;
+}
+.area-city:nth-child(3n) { border-right: 0; }
+.area-city:nth-last-child(-n+3) { border-bottom: 0; }
+.area-city.primary {
+  color: var(--cobalt);
+  background: var(--cobalt-tint);
+  font-weight: 500;
+}
+.area-city:hover {
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+
+/* ============================================================
+   CTA SECTION
+   ============================================================ */
+.cta-section {
+  background: var(--cobalt);
+  padding: clamp(4.5rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+  border-top: 1px solid rgba(30,63,138,0.4);
+}
+
+.cta-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(251,248,242,0.45);
+  margin-bottom: 1.5rem;
+}
+
+.cta-headline {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--paper);
+  margin-bottom: 0.875rem;
+}
+.cta-headline em { font-style: italic; }
+
+.cta-sub {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: rgba(251,248,242,0.6);
+  margin-bottom: 2.75rem;
+}
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.cta-byline {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(251,248,242,0.32);
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--paper);
+  color: var(--cobalt);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.25rem;
+  border-radius: 2px;
+  border: 1px solid var(--paper);
+  transition: background 0.22s var(--ease), color 0.22s var(--ease);
+  display: inline-block;
+}
+.btn-primary:hover {
+  background: transparent;
+  color: var(--paper);
+}
+.btn-primary:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 3px;
+}
+
+.btn-secondary {
+  color: rgba(251,248,242,0.72);
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.22s var(--ease);
+}
+.btn-secondary:hover { color: var(--paper); }
+.btn-secondary:hover svg { opacity: 1; }
+.btn-secondary svg { opacity: 0.6; transition: opacity 0.22s var(--ease); }
+.btn-secondary:focus-visible {
+  outline: 2px solid rgba(251,248,242,0.5);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--ink);
+  color: rgba(251,248,242,0.55);
+  padding: clamp(4rem, 7vw, 6rem) clamp(1.5rem, 5vw, 4rem) 2.5rem;
+}
+
+.footer-inner {
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(251,248,242,0.08);
+  margin-bottom: 2rem;
+}
+
+.footer-brand {}
+
+.footer-bio {
+  font-size: 0.8125rem;
+  line-height: 1.75;
+  max-width: 32ch;
+  margin-bottom: 1.5rem;
+}
+
+.footer-contact-item {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  line-height: 2;
+}
+.footer-contact-item a {
+  transition: color 0.2s var(--ease);
+}
+.footer-contact-item a:hover { color: var(--paper); }
+
+.footer-col {}
+.footer-col-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(251,248,242,0.25);
+  margin-bottom: 1.25rem;
+}
+.footer-col-links {
+  list-style: none;
+}
+.footer-col-links li { margin-bottom: 0.7rem; }
+.footer-col-links a {
+  font-size: 0.8125rem;
+  color: rgba(251,248,242,0.55);
+  transition: color 0.2s var(--ease);
+  text-underline-offset: 3px;
+}
+.footer-col-links a:hover {
+  color: var(--paper);
+  text-decoration: underline;
+  text-decoration-color: rgba(251,248,242,0.25);
+}
+
+.footer-hours {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  line-height: 2;
+}
+
+/* Footer logo */
+.footer-logo {
+  width: auto;
+  height: 32px;
+  color: var(--paper);
+  opacity: 0.85;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+/* Footer masthead strip — above the grid */
+.footer-masthead {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer-masthead-rule {
+  flex-basis: 100%;        /* force full-width row in the flex container */
+  display: block;
+  width: 100%;
+  margin: 1.1rem 0 0;
+  border: 0;
+  height: 0;
+  /* stacked hairlines — broadsheet ornament */
+  border-top: 2px solid rgba(251,248,242,0.22);
+  box-shadow: 0 2px 0 rgba(251,248,242,0.07);
+}
+/* .footer-top top-margin: the double hairline rule provides visual separation */
+.footer-top { margin-top: 2.75rem; }
+.footer-masthead-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  text-transform: uppercase;
+  line-height: 1;
+}
+.footer-masthead-meta {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(251,248,242,0.42); /* bumped for legibility */
+  text-align: right;
+  line-height: 1.9;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+.footer-copyright {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  color: rgba(251,248,242,0.32); /* bumped from 0.18 for WCAG legibility */
+}
+.footer-tagline {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-style: italic;
+  font-size: 0.8125rem;
+  color: rgba(251,248,242,0.22);
+  letter-spacing: 0.01em;
+}
+
+/* ============================================================
+   REVEAL ANIMATION
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .intro { grid-template-columns: 1fr; gap: 2rem; }
+  .intro-right { padding-top: 0; }
+  .services-inner { grid-template-columns: 1fr; }
+  .area-inner { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  /* Nav CTA stays — condensed label on mobile */
+  .nav-cta {
+    font-size: 0.625rem;
+    padding: 0.4rem 0.75rem;
+    letter-spacing: 0.1em;
+  }
+  .nav-cta-full { display: none; }
+  .nav-cta-short { display: inline; }
+  /* Sticky bottom-right phone pill */
+  .mobile-call-pill { display: inline-flex; }
+  .hero-content { grid-template-columns: 1fr; }
+  /* Show hero-right value-prop inline on mobile (was: display:none) */
+  .hero-right { align-items: flex-start; padding-top: 1.25rem; }
+  .hero-scroll-hint { display: none; }
+  .hero-issue-label { text-align: left; }
+  .case-meta-row { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-item:nth-child(odd) { border-right: 0; padding-right: 0; }
+  .service-item:nth-child(even) { padding-left: 0; }
+  .area-cities { grid-template-columns: 1fr 1fr; }
+  .area-city:nth-child(3n) { border-right: 1px solid var(--rule-light); }
+  .area-city:nth-child(2n) { border-right: 0; }
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  /* Chip popover: clamp to viewport, scroll internally if needed */
+  .chip-popover {
+    min-width: 180px;
+    max-width: min(220px, calc(100vw - 2rem));
+    white-space: normal;
+  }
+  /* On touch, enlarge tap target */
+  .chip {
+    width: 26px;
+    height: 26px;
+  }
+  /* Footer masthead: stack on small screens */
+  .footer-masthead { flex-direction: column; gap: 0.4rem; }
+  .footer-masthead-meta { text-align: left; }
+}
+
+/* ============================================================
+   PROCESS — STEP DOSSIER
+   ============================================================ */
+.process {
+  background: var(--paper);
+  border-top: 1px solid var(--rule-light);
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+}
+.process-inner {
+  max-width: 1380px;
+  margin: 0 auto;
+}
+.process-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  align-items: end;
+}
+.process-eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.process-eyebrow::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--cobalt);
+}
+.process-headline {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.process-headline em { font-style: italic; color: var(--cobalt); }
+.process-deck {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 44ch;
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.process-step {
+  padding: 2rem 1.75rem 2.25rem;
+  border-right: 1px solid var(--rule-light);
+  position: relative;
+}
+.process-step:last-child { border-right: 0; }
+.process-step-num {
+  font-family: "DM Mono", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  color: var(--cobalt);
+  margin-bottom: 1.5rem;
+}
+.process-step-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+.process-step-body {
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.process-tease {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.tease-card {
+  border: 1px solid var(--rule-light);
+  border-left: 2.5px solid var(--cobalt);
+  padding: 1.5rem 1.75rem 1.6rem;
+  background: var(--paper-soft);
+  border-radius: 2px;
+}
+.tease-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  margin-bottom: 0.75rem;
+}
+.tease-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.125rem;
+  color: var(--ink);
+  margin-bottom: 0.45rem;
+}
+.tease-body {
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--muted);
+  margin-bottom: 0.65rem;
+}
+.tease-meta {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+
+/* ============================================================
+   ABOUT — ORIGIN PAGE
+   ============================================================ */
+.about {
+  background: var(--paper-soft);
+  border-top: 1px solid var(--rule-light);
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+}
+.about-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.about-masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.9rem;
+  margin-bottom: 2rem;
+}
+.about-section-tag {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.about-folio {
+  font-family: "DM Mono", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  color: var(--cobalt);
+}
+.about-headline {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 2rem;
+  max-width: 20ch;
+}
+.about-headline em { font-style: italic; }
+.about-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  column-rule: 1px solid var(--rule-light);
+  border-top: 1px solid var(--rule-light);
+  padding-top: 1.75rem;
+}
+.about-body-col p {
+  font-size: 0.9375rem;
+  line-height: 1.78;
+  color: var(--ink-light);
+  margin-bottom: 1rem;
+}
+.about-body-col p:first-child::first-letter {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 300;
+  font-size: 3.25rem;
+  float: left;
+  line-height: 0.9;
+  padding: 0.3rem 0.55rem 0 0;
+  color: var(--cobalt);
+}
+.about-credentials {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.about-cred {
+  padding: 1.25rem 1.25rem;
+  border-right: 1px solid var(--rule-light);
+}
+.about-cred:last-child { border-right: 0; }
+.about-cred-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+  margin-bottom: 0.45rem;
+}
+.about-cred-val {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+/* ============================================================
+   MORE WORK INDEX
+   ============================================================ */
+.more-work {
+  background: var(--paper);
+  border-top: 1px solid var(--rule-light);
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(1.5rem, 5vw, 4rem);
+}
+.more-work-inner { max-width: 1380px; margin: 0 auto; }
+.more-work-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.75rem;
+}
+.more-work-eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.more-work-folio {
+  font-family: "DM Mono", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  color: var(--cobalt);
+}
+.more-work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 clamp(2rem, 5vw, 4rem);
+}
+.more-work-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem 1.5rem;
+  align-items: baseline;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule-light);
+}
+.more-work-item:last-child,
+.more-work-item:nth-last-child(2) { border-bottom: 0; }
+.mwi-name {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  color: var(--ink);
+}
+.mwi-name em { font-style: italic; }
+.mwi-desc {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--muted);
+  grid-column: 1 / -1;
+}
+.mwi-meta {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   REVIEWS — GOOGLE BLOCK
+   ============================================================ */
+.reviews {
+  background: var(--paper-soft);
+  border-top: 1px solid var(--rule-light);
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+}
+.reviews-inner { max-width: 1180px; margin: 0 auto; }
+.reviews-masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.9rem;
+  margin-bottom: 2rem;
+}
+.reviews-headline {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  max-width: 18ch;
+}
+.reviews-headline em { font-style: italic; color: var(--cobalt); }
+.google-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  margin-bottom: 2.5rem;
+}
+.google-stamp svg { display: block; }
+.google-rating-num {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: var(--ink);
+  line-height: 1;
+}
+.google-stars {
+  font-family: "DM Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #F4B400;
+}
+.google-meta {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.review-card {
+  padding: 2rem 1.75rem 2.25rem;
+  border-right: 1px solid var(--rule-light);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.review-card:last-child { border-right: 0; }
+.review-folio {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  color: var(--cobalt);
+}
+.review-quote {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.review-quote::before { content: "\201C"; color: var(--cobalt); margin-right: 0.1rem; }
+.review-quote::after { content: "\201D"; color: var(--cobalt); margin-left: 0.05rem; }
+.review-attr {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--rule-light);
+}
+
+/* ============================================================
+   FAQ — MAGAZINE Q&A
+   ============================================================ */
+.faq {
+  background: var(--paper);
+  border-top: 1px solid var(--rule-light);
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+}
+.faq-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+}
+.faq-left {}
+.faq-eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.faq-eyebrow::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--cobalt);
+}
+.faq-headline {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+.faq-headline em { font-style: italic; color: var(--cobalt); }
+.faq-note {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.faq-list { list-style: none; }
+.faq-item {
+  border-bottom: 1px solid var(--rule-light);
+  padding: 1.5rem 0 1.75rem;
+}
+.faq-item:first-child { border-top: 1px solid var(--rule); padding-top: 1.5rem; }
+.faq-q {
+  display: flex;
+  gap: 1.1rem;
+  align-items: baseline;
+  margin-bottom: 0.6rem;
+}
+.faq-q-mark {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: var(--cobalt);
+  flex-shrink: 0;
+  width: 1.5rem;
+}
+.faq-q-text {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+.faq-a {
+  display: flex;
+  gap: 1.1rem;
+  align-items: baseline;
+}
+.faq-a-mark {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: var(--muted-light);
+  flex-shrink: 0;
+  width: 1.5rem;
+}
+.faq-a-text {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* ============================================================
+   QUOTE — JOBBER PLACEHOLDER
+   ============================================================ */
+.quote {
+  background: var(--paper-soft);
+  border-top: 1px solid var(--rule-light);
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+}
+.quote-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+}
+.quote-left .faq-eyebrow,
+.quote-eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.quote-eyebrow::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--cobalt);
+}
+.quote-headline {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+.quote-headline em { font-style: italic; color: var(--cobalt); }
+.quote-deck {
+  font-size: 0.9375rem;
+  line-height: 1.72;
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+  max-width: 40ch;
+}
+.quote-contact { list-style: none; }
+.quote-contact li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--rule-light);
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1rem;
+  align-items: baseline;
+}
+.quote-contact li:first-child { border-top: 1px solid var(--rule); }
+.qc-key {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+.qc-val {
+  font-family: "DM Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.qc-val a { color: var(--ink); }
+.qc-val a:hover { color: var(--cobalt); text-decoration: underline; text-underline-offset: 3px; }
+.jobber-placeholder {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 2.5px solid var(--cobalt);
+  border-radius: 2px;
+  padding: 2rem 2rem 2.25rem;
+  position: relative;
+}
+.jobber-stamp {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+}
+.jobber-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.005em;
+}
+.jobber-deck {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+.jobber-field {
+  display: block;
+  margin-bottom: 1rem;
+}
+.jobber-field-label {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+  margin-bottom: 0.4rem;
+}
+.jobber-field-input {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  border-radius: 2px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.875rem;
+  color: var(--ink);
+}
+.jobber-field-input:focus {
+  outline: none;
+  border-color: var(--cobalt);
+}
+.jobber-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+.jobber-submit {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: var(--cobalt);
+  color: var(--paper);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border-radius: 2px;
+  border: 1px solid var(--cobalt);
+  cursor: pointer;
+  transition: background 0.22s var(--ease), color 0.22s var(--ease);
+}
+.jobber-submit:hover { background: var(--cobalt-dark); }
+
+/* ============================================================
+   TIDIO FAB — CHAT BUBBLE
+   ============================================================ */
+.chat-fab {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 95;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--cobalt);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 28px rgba(20,22,27,0.28), 0 2px 8px rgba(30,63,138,0.32);
+  cursor: pointer;
+  transition: transform 0.2s var(--ease), background 0.2s var(--ease);
+}
+.chat-fab:hover {
+  transform: translateY(-2px);
+  background: var(--cobalt-dark);
+}
+.chat-fab:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 4px;
+}
+.chat-fab-tip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "DM Mono", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.75rem;
+  border-radius: 2px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s var(--ease);
+}
+.chat-fab:hover .chat-fab-tip,
+.chat-fab:focus-visible .chat-fab-tip { opacity: 1; }
+@media (max-width: 768px) {
+  .chat-fab { right: 1rem; bottom: 4.25rem; width: 48px; height: 48px; }
+}
+
+@media (max-width: 1024px) {
+  .process-header { grid-template-columns: 1fr; gap: 1rem; }
+  .process-grid { grid-template-columns: 1fr 1fr; }
+  .process-step { border-right: 0; border-bottom: 1px solid var(--rule-light); }
+  .process-step:nth-child(odd) { border-right: 1px solid var(--rule-light); }
+  .process-tease { grid-template-columns: 1fr; }
+  .about-body-grid { grid-template-columns: 1fr; }
+  .about-credentials { grid-template-columns: 1fr 1fr; }
+  .about-cred { border-right: 0; border-bottom: 1px solid var(--rule-light); padding: 1rem 1.25rem; }
+  .about-cred:nth-child(odd) { border-right: 1px solid var(--rule-light); }
+  .more-work-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .review-card { border-right: 0; border-bottom: 1px solid var(--rule-light); }
+  .review-card:last-child { border-bottom: 0; }
+  .faq-inner { grid-template-columns: 1fr; }
+  .quote-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .process-grid { grid-template-columns: 1fr; }
+  .process-step { border-right: 0 !important; }
+  .about-credentials { grid-template-columns: 1fr; }
+  .about-cred { border-right: 0 !important; }
+  .jobber-row { grid-template-columns: 1fr; }
+  .quote-contact li { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+
+/* ============================================================
+   PHOTO PLACEHOLDER OVERLAY (remove in production)
+   ============================================================ */
+.photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper-deep);
+}
+.photo-placeholder-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+  background: rgba(251,248,242,0.85);
+  padding: 0.4rem 0.85rem;
+  border-radius: 2px;
+  max-width: 28rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" aria-label="Main navigation">
+  <a class="nav-brand" href="#" aria-label="Spanier Painting — home">
+    <!-- O · Stacked broadsheet logo — Fraunces display, editorial masthead register -->
+    <svg class="nav-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 130" role="img" aria-label="Spanier Painting" focusable="false">
+      <text x="200" y="58"
+            font-family="'Fraunces', 'Playfair Display', 'DM Serif Display', Georgia, serif"
+            font-weight="400"
+            font-size="62"
+            letter-spacing="2"
+            text-anchor="middle"
+            fill="currentColor">SPANIER</text>
+      <line x1="100" y1="76" x2="300" y2="76" stroke="currentColor" stroke-width="0.6" opacity="0.45"/>
+      <text x="200" y="106"
+            font-family="'Fraunces', 'Playfair Display', Georgia, serif"
+            font-weight="300"
+            font-size="22"
+            letter-spacing="14"
+            text-anchor="middle"
+            fill="currentColor">PAINTING</text>
+    </svg>
+  </a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <a class="nav-cta" href="#quote">
+    <span class="nav-cta-full">Get a quote</span>
+    <span class="nav-cta-short" aria-hidden="true">Quote</span>
+  </a>
+</nav>
+
+<!-- Mobile floating phone CTA — visible only ≤768px -->
+<a class="mobile-call-pill" href="tel:3202509100" aria-label="Call Spanier Painting at 320-250-9100">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.84.59 2.8.72A2 2 0 0 1 22 16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span>320·250·9100</span>
+</a>
+
+
+<!-- ============================================================
+     HERO — MAGAZINE COVER
+     ============================================================ -->
+<section class="hero" aria-label="Hero — painted living room">
+  <!-- REPLACE: nano-banana — open-plan living room interior, St. Cloud MN craftsman-style home, freshly painted walls in warm off-white (Benjamin Moore White Dove), crisp semi-gloss white trim on wide casings and crown, afternoon light flooding from south-facing double-hung windows, white oak flooring, no people, no drop cloths, editorial residential magazine photograph, full-bleed landscape orientation -->
+  <!-- TODO: swap for Spanier portfolio photo -->
+  <img
+    class="hero-photo"
+    src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=2400&q=85&auto=format&fit=crop"
+    alt="Freshly painted open-plan living room, warm off-white walls with crisp white trim — Spanier Painting, St. Cloud, MN"
+    loading="eager"
+    fetchpriority="high"
+  >
+
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <p class="hero-kicker">ROOM №47 · PAINTED, MAY 2026 · ST. CLOUD</p>
+      <p class="hero-contributors" aria-hidden="true">
+        <span>From the studio archive</span>
+        <span>Color by Lukas Spanier</span>
+        <span>St. Cloud, MN</span>
+      </p>
+      <h1 class="hero-headline f-display">
+        Spanier<br>
+        <em>Painting</em>
+      </h1>
+      <p class="hero-sub">Spanier Painting has operated out of St. Cloud since 2014 — a small, skilled crew that treats color as a considered decision, not a commodity. Every room is finished to a standard the work can stand behind.</p>
+    </div>
+
+    <div class="hero-right">
+      <p class="hero-issue-label">
+        EST. 2014<br>
+        ST. CLOUD, MN<br>
+        RESIDENTIAL + COMMERCIAL
+      </p>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     INTRO / MANIFESTO
+     ============================================================ -->
+<section class="intro" aria-label="Studio introduction">
+  <div class="intro-left reveal">
+    <p class="intro-label">Studio — St. Cloud, MN</p>
+    <h2 class="intro-statement f-display">
+      Paint is not the work.<br>
+      <em>Color</em> is the work —<br>
+      the room is the proof.
+    </h2>
+  </div>
+
+  <div class="intro-right reveal reveal-delay-2">
+    <p class="intro-body">
+      I started Spanier Painting in St. Cloud in 2014 — just me and a van. Over eleven years it has grown into a small crew that I still personally show up with every day. We don't sub out. We don't rush the prep. Color in Minnesota behaves differently than it does in a showroom: the light shifts hard between November and June, and what looks right on a chip under fluorescent can read cold or flat once it's on a twelve-foot wall in January. We learned to test before we commit.
+    </p>
+    <p class="intro-body">
+      The work runs from kitchen cabinetry in Sartell to heritage exteriors in Cold Spring to commercial suites in Avon. The standard is the same across all of it: we leave a surface better than we found it, and we leave the room looking like itself — not like it was just painted.
+    </p>
+    <p class="intro-services-label">What we do</p>
+    <ul class="intro-services" role="list">
+      <li>Interior painting</li>
+      <li>Exterior painting</li>
+      <li>Cabinet finishing</li>
+      <li>Heritage trim</li>
+      <li>Commercial buildouts</li>
+      <li>Deck restoration</li>
+      <li>Color consultation</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="section-rule" aria-hidden="true"><!-- ============================================================
+     CASE STUDIES — SELECTED WORK
+     ============================================================ -->
+<div id="work" style="scroll-margin-top: 64px;"></div>
+
+<!-- ── CASE 01 ──────────────────────────────────────────────── -->
+<div class="case-label-bar reveal">
+  <div class="case-label-bar-left">
+    <span class="case-section-tag">Selected Work</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.5625rem;color:var(--muted-light);letter-spacing:0.1em;">/</span>
+    <span class="case-section-num">01 of 04</span>
+  </div>
+  <span class="case-section-tag" style="font-size:0.625rem;color:var(--muted-light);">Residential</span>
+</div>
+
+<article class="case-study reveal" aria-label="Case study 1 — Sartell kitchen cabinetry">
+  <div class="case-photo-wrap">
+    <!-- REPLACE: nano-banana — Sartell MN residential kitchen interior, hand-brushed white shaker cabinetry (Benjamin Moore White Dove OC-17, semi-gloss enamel), warm white painted cabinet faces and doors, quartz or natural stone countertop, engineered hardwood floors, morning light from east-facing window, no people, no painting equipment, editorial interior magazine photograph, wide-angle landscape -->
+    <!-- TODO: swap for Spanier portfolio photo -->
+    <img
+      class="case-photo"
+      src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1800&q=85&auto=format&fit=crop"
+      alt="Hand-brushed white shaker kitchen cabinetry finished in Benjamin Moore White Dove semi-gloss enamel — Sartell, MN"
+      loading="lazy"
+    >
+
+    <div class="case-photo-gradient" aria-hidden="true"></div>
+
+    <!-- Color Chips -->
+    <!-- Cabinet Color -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#F4F0E6; left:28%; top:45%;"
+         data-color="#F4F0E6"
+         data-name="White Dove"
+         data-brand="Benjamin Moore"
+         data-sheen="Semi-Gloss"
+         data-application="Cabinet faces, doors &amp; drawer fronts"
+         aria-label="Color chip: Benjamin Moore White Dove — cabinet color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#F4F0E6; border: 1px solid rgba(26,24,20,0.1);"></span>
+        <p class="popover-name">White Dove · OC-17</p>
+        <p class="popover-meta">Benjamin Moore · Semi-Gloss</p>
+        <p class="popover-application">Cabinet faces, doors &amp; drawer fronts — 2 coats topcoat, hand-brushed</p>
+      </div>
+    </div>
+
+    <!-- Wall Color -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#E8DFD0; left:62%; top:32%;"
+         data-color="#E8DFD0"
+         data-name="Linen White"
+         data-brand="Benjamin Moore"
+         data-sheen="Eggshell"
+         data-application="Kitchen walls &amp; open plan ceiling"
+         aria-label="Color chip: Benjamin Moore Linen White — wall color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#E8DFD0;"></span>
+        <p class="popover-name">Linen White · OC-146</p>
+        <p class="popover-meta">Benjamin Moore · Eggshell</p>
+        <p class="popover-application">Kitchen walls &amp; open plan ceiling</p>
+      </div>
+    </div>
+
+    <!-- Ceiling Color -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#F9F7F2; left:50%; top:14%;"
+         data-color="#F9F7F2"
+         data-name="Chantilly Lace"
+         data-brand="Benjamin Moore"
+         data-sheen="Flat"
+         data-application="Ceiling — full kitchen span"
+         aria-label="Color chip: Benjamin Moore Chantilly Lace — ceiling">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#F9F7F2; border: 1px solid rgba(26,24,20,0.08);"></span>
+        <p class="popover-name">Chantilly Lace · OC-65</p>
+        <p class="popover-meta">Benjamin Moore · Flat</p>
+        <p class="popover-application">Ceiling — full kitchen span</p>
+      </div>
+    </div>
+
+    <!-- Trim Color -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#ECE6D8; left:14%; top:68%;"
+         data-color="#ECE6D8"
+         data-name="Simply White"
+         data-brand="Benjamin Moore"
+         data-sheen="Semi-Gloss"
+         data-application="Window trim, baseboards &amp; island base"
+         aria-label="Color chip: Benjamin Moore Simply White — trim">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#ECE6D8;"></span>
+        <p class="popover-name">Simply White · OC-117</p>
+        <p class="popover-meta">Benjamin Moore · Semi-Gloss</p>
+        <p class="popover-application">Window trim, baseboards &amp; island base — applied as topcoat over BM primer</p>
+      </div>
+    </div>
+  </div><!-- /.case-photo-wrap -->
+
+  <div class="case-meta-row reveal">
+    <div>
+      <h3 class="case-title f-display">
+        Hand-brushed shaker cabinetry<span class="project-type-badge badge-residential">Residential</span>
+      </h3>
+      <p class="case-caption">The builder left the cabinets unfinished — raw maple interiors, no primer, no prep. Lukas spent three days sealing and building before a brush touched the face. Final enamel hand-applied in two coats; no lap marks, no rollered orange-peel. White Dove reads faintly warm at 7am, near-white by noon. The client said it was exactly the kitchen they had been describing for two years and couldn't find at a showroom.</p>
+    </div>
+    <div class="case-details">
+      <div class="case-detail-item">
+        <span class="detail-key">Location</span>
+        <span class="detail-val">Sartell, MN</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Year</span>
+        <span class="detail-val">2025</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Scope</span>
+        <span class="detail-val">Cabinet finishing</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Finish</span>
+        <span class="detail-val">Semi-gloss enamel</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Days on site</span>
+        <span class="detail-val">7 days</span>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<!-- ── CASE 02 ──────────────────────────────────────────────── -->
+<div class="case-label-bar reveal">
+  <div class="case-label-bar-left">
+    <span class="case-section-tag">Selected Work</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.5625rem;color:var(--muted-light);letter-spacing:0.1em;">/</span>
+    <span class="case-section-num">02 of 04</span>
+  </div>
+  <span class="case-section-tag" style="font-size:0.625rem;color:var(--muted-light);">Residential</span>
+</div>
+
+<article class="case-study reveal" aria-label="Case study 2 — Sauk River ranch interior">
+  <div class="case-photo-wrap">
+    <!-- REPLACE: nano-banana — 1960s ranch house interior, Sartell MN on the Sauk River, freshly painted white trim and wide baseboards (Benjamin Moore Cloud White OC-130, semi-gloss), contrasting warm greige walls (Pale Oak OC-20, eggshell), original uneven oak hardwood floors, wide double-hung windows with afternoon light, open living-dining floor plan, no people, editorial interior photograph, landscape wide-angle -->
+    <!-- TODO: swap for Spanier portfolio photo -->
+    <img
+      class="case-photo"
+      src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1800&q=85&auto=format&fit=crop"
+      alt="Freshly painted white trim and Pale Oak walls in a 1960s Sauk River ranch — Spanier Painting, Sartell, MN"
+      loading="lazy"
+    >
+
+    <div class="case-photo-gradient" aria-hidden="true"></div>
+
+    <!-- Trim Color -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#F5F2EB; left:18%; top:72%;"
+         aria-label="Color chip: trim color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#F5F2EB; border: 1px solid rgba(26,24,20,0.08);"></span>
+        <p class="popover-name">Cloud White · OC-130</p>
+        <p class="popover-meta">Benjamin Moore · Semi-Gloss</p>
+        <p class="popover-application">All trim, doors, casings &amp; baseboards</p>
+      </div>
+    </div>
+
+    <!-- Wall Color 1 — Living -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#C2B49A; left:38%; top:40%;"
+         aria-label="Color chip: living room wall color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#C2B49A;"></span>
+        <p class="popover-name">Pale Oak · OC-20</p>
+        <p class="popover-meta">Benjamin Moore · Eggshell</p>
+        <p class="popover-application">Living room &amp; entry walls</p>
+      </div>
+    </div>
+
+    <!-- Wall Color 2 — Dining -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#A89880; left:66%; top:38%;"
+         data-flip="down"
+         aria-label="Color chip: dining room wall color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#A89880;"></span>
+        <p class="popover-name">Carrington Beige · HC-93</p>
+        <p class="popover-meta">Benjamin Moore · Eggshell</p>
+        <p class="popover-application">Dining room &amp; hallway</p>
+      </div>
+    </div>
+
+    <!-- Ceiling -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#F8F6F1; left:82%; top:15%;"
+         aria-label="Color chip: ceiling color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#F8F6F1; border: 1px solid rgba(26,24,20,0.06);"></span>
+        <p class="popover-name">Decorators White · OC-149</p>
+        <p class="popover-meta">Benjamin Moore · Flat</p>
+        <p class="popover-application">Ceiling — full main floor</p>
+      </div>
+    </div>
+  </div><!-- /.case-photo-wrap -->
+
+  <div class="case-meta-row reveal">
+    <div>
+      <h3 class="case-title f-display">
+        Painted-trim interior, 1960s ranch<span class="project-type-badge badge-residential">Residential</span>
+      </h3>
+      <p class="case-caption">Original 1962 wood casings — never touched. The previous owners had rolled flat latex straight over bare wood and called it done. We stripped back, sanded to grain, primed, and finished in Cloud White semi-gloss: the period proportions came back immediately. Two wall colors divide the open floor plan without a partition. The worn oak floors stayed as they were — they didn't need us, they needed the trim to stop competing with them.</p>
+    </div>
+    <div class="case-details">
+      <div class="case-detail-item">
+        <span class="detail-key">Location</span>
+        <span class="detail-val">Sartell, MN</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Year</span>
+        <span class="detail-val">2024</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Scope</span>
+        <span class="detail-val">Full interior refresh</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Finish</span>
+        <span class="detail-val">Eggshell + semi-gloss</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Days on site</span>
+        <span class="detail-val">11 days</span>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<!-- ── CASE 03 ──────────────────────────────────────────────── -->
+<div class="case-label-bar reveal">
+  <div class="case-label-bar-left">
+    <span class="case-section-tag">Selected Work</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.5625rem;color:var(--muted-light);letter-spacing:0.1em;">/</span>
+    <span class="case-section-num">03 of 04</span>
+  </div>
+  <span class="case-section-tag" style="font-size:0.625rem;color:var(--muted-light);">Commercial</span>
+</div>
+
+<article class="case-study reveal" aria-label="Case study 3 — Avon Family Dental reception">
+  <div class="case-photo-wrap">
+    <!-- REPLACE: nano-banana — Avon MN professional dental office reception area, warm white painted walls (Benjamin Moore White Sand OC-10, eggshell), single feature accent wall behind reception desk in Newburyport Blue HC-155 (deep calm slate blue, eggshell), clean painted millwork and trim in White Dove semi-gloss, north-facing windows with soft natural light, no people, no patients or staff, editorial commercial interior photograph, landscape wide-angle -->
+    <!-- TODO: mismatch — needs real Spanier photo of dental-office reception with blue accent wall (current Unsplash is a generic interior, not verified as a dental reception) -->
+    <img
+      class="case-photo"
+      src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=1800&q=85&auto=format&fit=crop"
+      alt="Avon Family Dental reception — White Sand walls with Newburyport Blue accent behind the desk — Avon, MN"
+      loading="lazy"
+    >
+
+    <div class="case-photo-gradient" aria-hidden="true"></div>
+
+    <!-- Reception wall -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#E9E2D4; left:22%; top:35%;"
+         aria-label="Color chip: reception wall color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#E9E2D4;"></span>
+        <p class="popover-name">White Sand · OC-10</p>
+        <p class="popover-meta">Benjamin Moore · Eggshell</p>
+        <p class="popover-application">Reception &amp; waiting room walls</p>
+      </div>
+    </div>
+
+    <!-- Accent wall -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#4A5E6A; left:58%; top:42%;"
+         aria-label="Color chip: accent wall color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#4A5E6A;"></span>
+        <p class="popover-name">Newburyport Blue · HC-155</p>
+        <p class="popover-meta">Benjamin Moore · Eggshell</p>
+        <p class="popover-application">Feature wall behind reception desk — tested at 9am, noon &amp; 4pm before committing</p>
+      </div>
+    </div>
+
+    <!-- Trim -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#F2EDE2; left:36%; top:72%;"
+         data-flip="down"
+         aria-label="Color chip: trim color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#F2EDE2; border: 1px solid rgba(26,24,20,0.08);"></span>
+        <p class="popover-name">White Dove · OC-17</p>
+        <p class="popover-meta">Benjamin Moore · Semi-Gloss</p>
+        <p class="popover-application">Trim, casings &amp; millwork</p>
+      </div>
+    </div>
+
+    <!-- Ceiling -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#F6F4EF; left:72%; top:12%;"
+         aria-label="Color chip: ceiling">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#F6F4EF; border: 1px solid rgba(26,24,20,0.07);"></span>
+        <p class="popover-name">Chantilly Lace · OC-65</p>
+        <p class="popover-meta">Benjamin Moore · Flat</p>
+        <p class="popover-application">Ceiling — full suite</p>
+      </div>
+    </div>
+
+    <!-- Base -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#D4CCB8; left:82%; top:76%;"
+         data-flip="down"
+         aria-label="Color chip: base color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#D4CCB8;"></span>
+        <p class="popover-name">Antique White · OC-75</p>
+        <p class="popover-meta">Benjamin Moore · Semi-Gloss</p>
+        <p class="popover-application">Base molding — full perimeter</p>
+      </div>
+    </div>
+  </div><!-- /.case-photo-wrap -->
+
+  <div class="case-meta-row reveal">
+    <div>
+      <h3 class="case-title f-display">
+        Avon Family Dental — reception buildout<span class="project-type-badge badge-commercial">Commercial</span>
+      </h3>
+      <p class="case-caption">The client's brief was "calm — not clinical." Dental offices default to bright white because no one wants to be responsible for getting it wrong. We tested Newburyport Blue on the feature wall behind the desk at 9am, noon, and 4pm over two days. In flat afternoon light through north-facing glass it stays composed; it doesn't go cool. White Sand holds the perimeter and keeps the millwork readable. The practice manager said patients comment on the room before they sit down.</p>
+    </div>
+    <div class="case-details">
+      <div class="case-detail-item">
+        <span class="detail-key">Location</span>
+        <span class="detail-val">Avon, MN</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Year</span>
+        <span class="detail-val">2025</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Scope</span>
+        <span class="detail-val">Commercial buildout</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Finish</span>
+        <span class="detail-val">Eggshell + semi-gloss</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Days on site</span>
+        <span class="detail-val">5 days</span>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<!-- ── CASE 04 ──────────────────────────────────────────────── -->
+<div class="case-label-bar reveal">
+  <div class="case-label-bar-left">
+    <span class="case-section-tag">Selected Work</span>
+    <span style="font-family:'DM Mono',monospace;font-size:0.5625rem;color:var(--muted-light);letter-spacing:0.1em;">/</span>
+    <span class="case-section-num">04 of 04</span>
+  </div>
+  <span class="case-section-tag" style="font-size:0.625rem;color:var(--muted-light);">Residential · Exterior</span>
+</div>
+
+<article class="case-study reveal" aria-label="Case study 4 — Cold Spring cottage exterior">
+  <div class="case-photo-wrap">
+    <!-- REPLACE: nano-banana — late-Victorian cottage exterior, Cold Spring MN, freshly painted four-color heritage scheme: muted sage green body (Sherwin-Williams Sage Mountain 461, satin), warm cream trim fascia and soffits (Antler Velvet SW 7567, satin), deeper sage sash on all window frames (Rosemary SW 6187, semi-gloss), single front door in deep brownish red (Rookwood Deep Red SW 2802, high-gloss), lush summer yard, no people, no ladders or painting equipment visible, editorial residential exterior photograph, wide-angle landscape -->
+    <!-- TODO: swap for Spanier portfolio photo -->
+    <img
+      class="case-photo"
+      src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1800&q=85&auto=format&fit=crop"
+      alt="Painted cottage exterior with painted siding, trim, sash and front door — Cold Spring, MN"
+      loading="lazy"
+    >
+
+    <div class="case-photo-gradient" aria-hidden="true"></div>
+
+    <!-- Body color -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#9BA88A; left:30%; top:52%;"
+         aria-label="Color chip: body color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#9BA88A;"></span>
+        <p class="popover-name">Sage Mountain · 461</p>
+        <p class="popover-meta">SW Exterior · Satin</p>
+        <p class="popover-application">Main body — all exterior siding</p>
+      </div>
+    </div>
+
+    <!-- Trim -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#F0EBE0; left:60%; top:44%;"
+         aria-label="Color chip: trim color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#F0EBE0; border: 1px solid rgba(26,24,20,0.08);"></span>
+        <p class="popover-name">Antler Velvet · SW 7567</p>
+        <p class="popover-meta">Sherwin-Williams · Satin</p>
+        <p class="popover-application">Trim, fascia, soffits &amp; rake boards</p>
+      </div>
+    </div>
+
+    <!-- Sash -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#6E7D6A; left:44%; top:28%;"
+         data-flip="down"
+         aria-label="Color chip: sash color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#6E7D6A;"></span>
+        <p class="popover-name">Rosemary · SW 6187</p>
+        <p class="popover-meta">Sherwin-Williams · Semi-Gloss</p>
+        <p class="popover-application">Window sash — all openings</p>
+      </div>
+    </div>
+
+    <!-- Door -->
+    <div class="chip" tabindex="0" role="button"
+         style="background:#3B2E2A; left:18%; top:65%;"
+         data-flip="down"
+         aria-label="Color chip: door color">
+      <div class="chip-popover" role="tooltip">
+        <span class="popover-swatch" style="background:#3B2E2A;"></span>
+        <p class="popover-name">Rookwood Deep Red · SW 2802</p>
+        <p class="popover-meta">Sherwin-Williams · High-Gloss</p>
+        <p class="popover-application">Front door &amp; screen door frame — 3 coats high-gloss, sanded between coats</p>
+      </div>
+    </div>
+  </div><!-- /.case-photo-wrap -->
+
+  <div class="case-meta-row reveal">
+    <div>
+      <h3 class="case-title f-display">
+        Heritage exterior, Cold Spring cottage<span class="project-type-badge badge-residential">Residential</span>
+      </h3>
+      <p class="case-caption">Four decades of wrong choices: a blue-grey body and flat white trim that had turned the cottage into a blur. The homeowner brought 1940s photographs — the original color scheme was sage and cream. We matched the spirit rather than the formula, landing on Sage Mountain for the body and Antler Velvet trim. The sash drops a shade deeper to pull the windows forward; the door (Rookwood Deep Red, high-gloss) is the first thing you see from the street. Three coats throughout; back-rolled against the grain on the north face where freeze-thaw splits film coatings after one winter.</p>
+    </div>
+    <div class="case-details">
+      <div class="case-detail-item">
+        <span class="detail-key">Location</span>
+        <span class="detail-val">Cold Spring, MN</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Year</span>
+        <span class="detail-val">2024</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Scope</span>
+        <span class="detail-val">Full exterior recoat</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Finish</span>
+        <span class="detail-val">Satin + high-gloss door</span>
+      </div>
+      <div class="case-detail-item">
+        <span class="detail-key">Days on site</span>
+        <span class="detail-val">9 days</span>
+      </div>
+    </div>
+  </div>
+</article>
+
+<hr class="section-rule" aria-hidden="true">
+
+
+<!-- ============================================================
+     SERVICES
+     ============================================================ -->
+<section class="services" id="services" aria-label="Services">
+  <div class="services-inner">
+    <div class="services-intro reveal">
+      <p class="services-eyebrow">What we offer</p>
+      <h2 class="services-headline f-display">
+        Every surface,<br>
+        one <em>standard</em>
+      </h2>
+      <p class="services-note">Cabinetry to commercial buildouts. A single accent wall or a whole-house exterior. Lukas is on site for all of it — the crew stays small so the standard stays consistent.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-item reveal">
+        <span class="service-num">01</span>
+        <div class="service-body">
+          <p class="service-name">Interior painting</p>
+          <p class="service-desc">Walls, ceilings, and trim — prep included. Gaps caulked, surfaces sanded, holes filled before a brush touches the room.</p>
+        </div>
+      </div>
+
+      <div class="service-item reveal reveal-delay-1">
+        <span class="service-num">02</span>
+        <div class="service-body">
+          <p class="service-name">Exterior painting</p>
+          <p class="service-desc">Siding, trim, soffits, fascia, and decks. We use formulas that hold through Central Minnesota freeze-thaw — not products rated for Georgia winters.</p>
+        </div>
+      </div>
+
+      <div class="service-item reveal reveal-delay-1">
+        <span class="service-num">03</span>
+        <div class="service-body">
+          <p class="service-name">Cabinet finishing</p>
+          <p class="service-desc">Factory, builder, or custom boxes — hand-brushed or spray-applied enamel with full prep. No lap marks. No grain telegraph. Furniture finish on site.</p>
+        </div>
+      </div>
+
+      <div class="service-item reveal reveal-delay-2">
+        <span class="service-num">04</span>
+        <div class="service-body">
+          <p class="service-name">Heritage trim</p>
+          <p class="service-desc">Color and finish selection for historic and pre-war homes. We research the build era and match the spirit — not a generic "heritage" formula off the rack.</p>
+        </div>
+      </div>
+
+      <div class="service-item reveal reveal-delay-2">
+        <span class="service-num">05</span>
+        <div class="service-body">
+          <p class="service-name">Commercial buildouts</p>
+          <p class="service-desc">Offices, clinics, retail, and multi-family. Scheduled in phases around your operation — we have worked weekends and after-hours to keep businesses open during a buildout.</p>
+        </div>
+      </div>
+
+      <div class="service-item reveal reveal-delay-3">
+        <span class="service-num">06</span>
+        <div class="service-body">
+          <p class="service-name">Deck restoration</p>
+          <p class="service-desc">Strip, clean, seal, and refinish decking and railings with a product rated for Minnesota sun and ice. Semi-transparent stain or solid-color depending on wood condition.</p>
+        </div>
+      </div>
+
+      <div class="service-item reveal reveal-delay-3">
+        <span class="service-num">07</span>
+        <div class="service-body">
+          <p class="service-name">Color consultation</p>
+          <p class="service-desc">Two hours, in your space. Lukas reads the light at different times of day and leaves you with a specific palette — not a range of options to sort through, a recommendation with samples on the wall.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PROCESS — 4 STEP DOSSIER + PHASE 3 TEASE
+     ============================================================ -->
+<section class="process" id="process" aria-label="Our process">
+  <div class="process-inner">
+    <div class="process-header">
+      <div class="reveal">
+        <p class="process-eyebrow">No. 03 · The Process</p>
+        <h2 class="process-headline f-display">
+          Four visits,<br>
+          one <em>standard</em>.
+        </h2>
+      </div>
+      <p class="process-deck reveal reveal-delay-1">
+        Every project, residential or commercial, moves through the same four stages — a walkthrough, a color decision, the prep + paint, and a final inspection backed by a written two-year warranty.
+      </p>
+    </div>
+
+    <ol class="process-grid" role="list">
+      <li class="process-step reveal">
+        <p class="process-step-num">Step 01</p>
+        <h3 class="process-step-title f-display">Walkthrough</h3>
+        <p class="process-step-body">Lukas walks the property with you, takes photos, and measures every surface with iPad LiDAR. Accurate square footage in, an accurate quote out — no per-hour guesses.</p>
+      </li>
+      <li class="process-step reveal reveal-delay-1">
+        <p class="process-step-num">Step 02</p>
+        <h3 class="process-step-title f-display">Color</h3>
+        <p class="process-step-body">Preview your palette on the actual wall with Sherwin-Williams ColorSnap AR, or bring your own swatch. Sample patches optional. See your color before we touch a wall.</p>
+      </li>
+      <li class="process-step reveal reveal-delay-2">
+        <p class="process-step-num">Step 03</p>
+        <h3 class="process-step-title f-display">Prep + paint</h3>
+        <p class="process-step-body">Drop cloths down, hardware off, surfaces prepped to spec. Two coats unless otherwise noted. Daily clean-up. Lukas is on every job, every day.</p>
+      </li>
+      <li class="process-step reveal reveal-delay-3">
+        <p class="process-step-num">Step 04</p>
+        <h3 class="process-step-title f-display">Walk + warranty</h3>
+        <p class="process-step-body">Final inspection together — anything that needs another pass gets one. Then it's signed off, in writing, with a two-year workmanship warranty.</p>
+      </li>
+    </ol>
+
+    <div class="process-tease">
+      <!-- TODO: Phase 3 -->
+      <div class="tease-card reveal">
+        <p class="tease-label">In development — Spring 2026</p>
+        <p class="tease-title f-display">Instant ballpark estimate</p>
+        <p class="tease-body">Upload a photo of your room. Get a price range in 30 seconds. Powered by Claude.</p>
+        <p class="tease-meta">Coming soon · Phase 3</p>
+      </div>
+      <!-- TODO: Phase 3 -->
+      <div class="tease-card reveal reveal-delay-1">
+        <p class="tease-label">In development — Spring 2026</p>
+        <p class="tease-title f-display">AI room designer</p>
+        <p class="tease-body">See your space rendered in three color schemes before the first brushstroke.</p>
+        <p class="tease-meta">Coming soon · Phase 3</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ABOUT — ORIGIN STORY
+     ============================================================ -->
+<section class="about" id="about" aria-label="About Spanier Painting">
+  <div class="about-inner">
+    <div class="about-masthead reveal">
+      <span class="about-section-tag">No. 04 · The Studio</span>
+      <span class="about-folio">Est. 2014 · Folio of Lukas Spanier</span>
+    </div>
+
+    <h2 class="about-headline f-display reveal">
+      The painter Central Minnesota<br>
+      recommends <em>by name</em>.
+    </h2>
+
+    <div class="about-body-grid">
+      <div class="about-body-col reveal">
+        <p>Spanier Painting has been the painter Central Minnesota families recommend by name since 2014. Lukas Spanier started the company at nineteen — a one-man crew, one ladder, a willingness to do the prep no one else wanted to.</p>
+        <p>Twelve years later, Spanier Painting is a four-painter studio working across the St. Cloud region on everything from heritage Queen Annes to two-day commercial turnarounds.</p>
+      </div>
+      <div class="about-body-col reveal reveal-delay-2">
+        <p>The crew stays small on purpose. Lukas is on every job, every day. We don't sub the work out and we don't rush the prep — the prep is the work that decides whether a paint job lasts two years or twelve.</p>
+        <p>Licensed and insured in the state of Minnesota. EPA RRP certified for lead-safe practice on pre-1978 homes. Sherwin-Williams and Benjamin Moore trade partners. Every project closes with a written two-year workmanship warranty.</p>
+      </div>
+    </div>
+
+    <dl class="about-credentials reveal reveal-delay-2">
+      <div class="about-cred">
+        <dt class="about-cred-label">Founded</dt>
+        <dd class="about-cred-val">2014 · St. Cloud</dd>
+      </div>
+      <div class="about-cred">
+        <dt class="about-cred-label">Crew</dt>
+        <dd class="about-cred-val">Four-painter studio</dd>
+      </div>
+      <div class="about-cred">
+        <dt class="about-cred-label">Credentials</dt>
+        <dd class="about-cred-val">Licensed · Insured · EPA RRP</dd>
+      </div>
+      <div class="about-cred">
+        <dt class="about-cred-label">Warranty</dt>
+        <dd class="about-cred-val">Two years, in writing</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MORE WORK — INDEX OF PROJECTS (Spec §6 names)
+     ============================================================ -->
+<section class="more-work" aria-label="More projects from the studio archive">
+  <div class="more-work-inner">
+    <div class="more-work-head reveal">
+      <span class="more-work-eyebrow">No. 05 · From the studio archive</span>
+      <span class="more-work-folio">Eight more projects, 2023 – 2025</span>
+    </div>
+    <div class="more-work-grid">
+      <article class="more-work-item reveal">
+        <p class="mwi-name f-display"><em>Riverbend Residence</em></p>
+        <p class="mwi-meta">Sartell · Interior · 2024</p>
+        <p class="mwi-desc">Whole-home repaint — white kitchen, Hague Blue dining room, two-coat eggshell throughout.</p>
+      </article>
+      <article class="more-work-item reveal">
+        <p class="mwi-name f-display"><em>Granite Ridge Kitchen</em></p>
+        <p class="mwi-meta">St. Cloud · Cabinetry · 2025</p>
+        <p class="mwi-desc">42 doors removed and refinished off-site, conversion varnish, BM Simply White OC-117.</p>
+      </article>
+      <article class="more-work-item reveal">
+        <p class="mwi-name f-display"><em>Cold Spring Farmhouse</em></p>
+        <p class="mwi-meta">Cold Spring · Exterior · 2024</p>
+        <p class="mwi-desc">Hardiplank repaint, sage exterior with cream trim, back-rolled on the north face.</p>
+      </article>
+      <article class="more-work-item reveal">
+        <p class="mwi-name f-display"><em>Northgate Dental</em></p>
+        <p class="mwi-meta">Waite Park · Commercial · 2025</p>
+        <p class="mwi-desc">Two-day turnaround, anti-microbial latex on patient rooms, after-hours scheduling.</p>
+      </article>
+      <article class="more-work-item reveal">
+        <p class="mwi-name f-display"><em>Heritage Avenue</em></p>
+        <p class="mwi-meta">St. Cloud · Heritage · 2023</p>
+        <p class="mwi-desc">1908 Queen Anne — lead-safe prep, historic green body, period-correct trim.</p>
+      </article>
+      <article class="more-work-item reveal">
+        <p class="mwi-name f-display"><em>Pine Lake Deck</em></p>
+        <p class="mwi-meta">Avon · Decks · 2024</p>
+        <p class="mwi-desc">800 sqft cedar deck, semi-transparent stain, lakefront UV exposure.</p>
+      </article>
+      <article class="more-work-item reveal">
+        <p class="mwi-name f-display"><em>Sauk Rapids Office</em></p>
+        <p class="mwi-meta">Sauk Rapids · Commercial · 2025</p>
+        <p class="mwi-desc">4,200 sqft, after-hours work, no business interruption — open Monday morning.</p>
+      </article>
+      <article class="more-work-item reveal">
+        <p class="mwi-name f-display"><em>The Annual House</em></p>
+        <p class="mwi-meta">Albany · Interior · 2024</p>
+        <p class="mwi-desc">Trim refresh + ceiling repair, BM Decorator's White semi-gloss on all millwork.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TESTIMONIAL — featured pull quote (kept from original)
+     ============================================================ -->
+<section class="testimonial" aria-label="Client testimonial">
+  <div class="testimonial-inner reveal">
+    <span class="testimonial-mark" aria-hidden="true">"</span>
+    <blockquote>
+      <p class="testimonial-quote">
+        We had four Benjamin Moore chips taped to the wall for two years. Lukas came in, looked at the wall at 8am and again at 11, and told us why none of them were working. He left us with two options on the wall that afternoon. We picked one and have not thought about it since.
+      </p>
+      <footer>
+        <cite class="testimonial-attr">— Karen &amp; Jeff M. · Waite Park, MN · Whole-interior refresh, fall 2024</cite>
+      </footer>
+    </blockquote>
+  </div>
+</section>
+
+<hr class="section-rule" aria-hidden="true">
+
+
+<!-- ============================================================
+     SERVICE AREA
+     ============================================================ -->
+<section class="area" id="area" aria-label="Service area">
+  <div class="area-inner">
+    <div class="area-left reveal">
+      <p class="area-eyebrow">Where we work</p>
+      <h2 class="area-headline f-display">
+        Central Minnesota,<br>
+        <em>radius of 60 miles</em>
+      </h2>
+      <p class="area-note">Based out of St. Cloud since 2014 with regular work across a sixty-mile radius. Rural access is not a problem. Travel is not billed separately for projects within the standard area — we factor it into the scope from the start.</p>
+    </div>
+
+    <div class="area-right reveal reveal-delay-2">
+      <p class="area-cities-kicker">Primary and surrounding service cities.</p>
+      <ul class="area-cities" role="list" aria-label="Cities served">
+        <li class="area-city primary">St. Cloud</li>
+        <li class="area-city primary">Sartell</li>
+        <li class="area-city primary">Sauk Rapids</li>
+        <li class="area-city">Waite Park</li>
+        <li class="area-city">Avon</li>
+        <li class="area-city">Foley</li>
+        <li class="area-city">Rice</li>
+        <li class="area-city">Cold Spring</li>
+        <li class="area-city">Albany</li>
+        <li class="area-city">Becker</li>
+        <li class="area-city">Big Lake</li>
+        <li class="area-city">Monticello</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     REVIEWS — GOOGLE LOGOMARK + 3 PULL QUOTES (Spec §8)
+     ============================================================ -->
+<section class="reviews" id="reviews" aria-label="Client reviews">
+  <div class="reviews-inner">
+    <div class="reviews-masthead reveal">
+      <span class="about-section-tag">No. 07 · The Letters Page</span>
+      <span class="about-folio">Reviews · Verified by Google</span>
+    </div>
+
+    <h2 class="reviews-headline f-display reveal">
+      What clients<br>
+      <em>actually said</em>.
+    </h2>
+
+    <!-- TODO: Google Reviews widget — Phase 1 scope -->
+    <div class="google-stamp reveal" role="img" aria-label="5.0 stars on Google Reviews">
+      <!-- Google logomark -->
+      <svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <path fill="#4285F4" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+        <path fill="#34A853" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
+        <path fill="#FBBC05" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
+        <path fill="#EA4335" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+      </svg>
+      <span class="google-rating-num">5.0</span>
+      <span class="google-stars" aria-hidden="true">★★★★★</span>
+      <span class="google-meta">Google Reviews · 42 verified</span>
+    </div>
+
+    <div class="reviews-grid">
+      <!-- TODO: replace with real Google Review when Lukas pulls them -->
+      <article class="review-card reveal">
+        <p class="review-folio">Letter 01 · Interior</p>
+        <p class="review-quote">Lukas painted three rooms in our 1923 bungalow and you genuinely cannot see a brushstroke. He's the only painter we'll call now.</p>
+        <p class="review-attr">Jen &amp; Marcus K. · Sartell, MN</p>
+      </article>
+      <!-- TODO: replace with real Google Review when Lukas pulls them -->
+      <article class="review-card reveal reveal-delay-1">
+        <p class="review-folio">Letter 02 · Commercial</p>
+        <p class="review-quote">We had two-day downtime for our dental office. Spanier was in and out, off-hours, perfectly clean. The patients didn't notice a thing.</p>
+        <p class="review-attr">Dr. Pavlov · Northgate Dental, Waite Park</p>
+      </article>
+      <!-- TODO: replace with real Google Review when Lukas pulls them -->
+      <article class="review-card reveal reveal-delay-2">
+        <p class="review-folio">Letter 03 · Cabinetry</p>
+        <p class="review-quote">He talked me out of a color I would have hated. That's worth the whole project price.</p>
+        <p class="review-attr">Heather B. · St. Cloud, MN</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FAQ — MAGAZINE Q&A (Spec §9)
+     ============================================================ -->
+<section class="faq" id="faq" aria-label="Frequently asked questions">
+  <div class="faq-inner">
+    <div class="faq-left reveal">
+      <p class="faq-eyebrow">No. 08 · Q &amp; A</p>
+      <h2 class="faq-headline f-display">
+        Asked,<br>
+        <em>and answered</em>.
+      </h2>
+      <p class="faq-note">The questions Lukas hears on a walkthrough, answered in plain language. Anything missing? Pick up the phone — 320-250-9100.</p>
+    </div>
+    <ol class="faq-list reveal reveal-delay-1" role="list">
+      <li class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark" aria-hidden="true">Q.</span>
+          <p class="faq-q-text">What areas do you serve?</p>
+        </div>
+        <div class="faq-a">
+          <span class="faq-a-mark" aria-hidden="true">A.</span>
+          <p class="faq-a-text">Central Minnesota — St. Cloud, Sartell, Sauk Rapids, Waite Park, Cold Spring, Avon, Albany, Monticello, Foley, Rice, Becker, Big Lake. Roughly a 60-mile radius from St. Cloud.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark" aria-hidden="true">Q.</span>
+          <p class="faq-q-text">How much does a typical project cost?</p>
+        </div>
+        <div class="faq-a">
+          <span class="faq-a-mark" aria-hidden="true">A.</span>
+          <p class="faq-a-text">Interior repaints start around $2.50–$4.50 per square foot of wall area; full exteriors $4,000–$12,000 depending on size, prep, and condition. We give you a real number after a walkthrough — not a per-hour estimate.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark" aria-hidden="true">Q.</span>
+          <p class="faq-q-text">Are you licensed and insured?</p>
+        </div>
+        <div class="faq-a">
+          <span class="faq-a-mark" aria-hidden="true">A.</span>
+          <p class="faq-a-text">Yes — licensed and insured in Minnesota, plus EPA RRP certified for lead-safe work on pre-1978 homes.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark" aria-hidden="true">Q.</span>
+          <p class="faq-q-text">What paint brands do you use?</p>
+        </div>
+        <div class="faq-a">
+          <span class="faq-a-mark" aria-hidden="true">A.</span>
+          <p class="faq-a-text">Sherwin-Williams and Benjamin Moore are the defaults. We'll work with whatever you specify.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark" aria-hidden="true">Q.</span>
+          <p class="faq-q-text">How long does a typical interior repaint take?</p>
+        </div>
+        <div class="faq-a">
+          <span class="faq-a-mark" aria-hidden="true">A.</span>
+          <p class="faq-a-text">A 1,500 sqft repaint is usually three to five working days. Cabinetry runs five to seven days. Exteriors run one to two weeks depending on weather and prep.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark" aria-hidden="true">Q.</span>
+          <p class="faq-q-text">Do you do commercial work?</p>
+        </div>
+        <div class="faq-a">
+          <span class="faq-a-mark" aria-hidden="true">A.</span>
+          <p class="faq-a-text">Yes — offices, dental and medical, restaurants, retail. Most commercial work is scheduled after-hours or weekends so you don't lose business days.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark" aria-hidden="true">Q.</span>
+          <p class="faq-q-text">Is there a warranty?</p>
+        </div>
+        <div class="faq-a">
+          <span class="faq-a-mark" aria-hidden="true">A.</span>
+          <p class="faq-a-text">Two-year workmanship warranty in writing. If a coat fails because of how we applied it, we come back and fix it.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     QUOTE — JOBBER WORK REQUEST FORM (Phase 2 placeholder)
+     ============================================================ -->
+<section class="quote" id="quote" aria-label="Request a quote">
+  <div class="quote-inner">
+    <div class="quote-left reveal">
+      <p class="quote-eyebrow">No. 09 · Begin the conversation</p>
+      <h2 class="quote-headline f-display">
+        Start<br>
+        <em>a project</em>.
+      </h2>
+      <p class="quote-deck">Send the basics — the room, the surface, what isn't working. Lukas will come out for a walkthrough and return a written scope, no obligation.</p>
+
+      <ul class="quote-contact" role="list">
+        <li>
+          <span class="qc-key">Phone</span>
+          <span class="qc-val"><a href="tel:3202509100">320·250·9100</a></span>
+        </li>
+        <li>
+          <span class="qc-key">Alt</span>
+          <span class="qc-val"><a href="tel:3202909516">320·290·9516</a></span>
+        </li>
+        <li>
+          <span class="qc-key">Email</span>
+          <span class="qc-val"><a href="mailto:lukas@spanierpainting.com">lukas@spanierpainting.com</a></span>
+        </li>
+        <li>
+          <span class="qc-key">Hours</span>
+          <span class="qc-val">Mon–Fri 7am–6pm · Sat by appt.</span>
+        </li>
+        <li>
+          <span class="qc-key">Studio</span>
+          <span class="qc-val">St. Cloud, MN · Est. 2014</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="jobber-placeholder reveal reveal-delay-1" role="form" aria-label="Quote request form">
+      <!-- TODO: Jobber Work Request Form embed (Phase 2) — script goes here -->
+      <span class="jobber-stamp">Work request · Phase 2 embed</span>
+      <p class="jobber-title f-display">Request a quote</p>
+      <p class="jobber-deck">Submit the details below. Lukas reviews requests daily and replies within one business day.</p>
+
+      <label class="jobber-field">
+        <span class="jobber-field-label">Name</span>
+        <input class="jobber-field-input" type="text" name="name" placeholder="Your full name" autocomplete="name">
+      </label>
+      <div class="jobber-row">
+        <label class="jobber-field">
+          <span class="jobber-field-label">Email</span>
+          <input class="jobber-field-input" type="email" name="email" placeholder="you@example.com" autocomplete="email">
+        </label>
+        <label class="jobber-field">
+          <span class="jobber-field-label">Phone</span>
+          <input class="jobber-field-input" type="tel" name="phone" placeholder="320-555-0100" autocomplete="tel">
+        </label>
+      </div>
+      <label class="jobber-field">
+        <span class="jobber-field-label">City</span>
+        <input class="jobber-field-input" type="text" name="city" placeholder="St. Cloud, Sartell, etc." autocomplete="address-level2">
+      </label>
+      <label class="jobber-field">
+        <span class="jobber-field-label">Tell us about the project</span>
+        <textarea class="jobber-field-input" rows="4" name="message" placeholder="Rooms, surfaces, timing, what isn't working — anything that helps Lukas plan the walkthrough."></textarea>
+      </label>
+      <button type="submit" class="jobber-submit">Send request</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="cta-section" id="contact" aria-label="Get a quote">
+  <div class="cta-inner reveal">
+    <p class="cta-eyebrow">Start a project</p>
+    <h2 class="cta-headline f-display">
+      Tell us about<br>
+      <em>your space</em>
+    </h2>
+    <p class="cta-sub">Send the basics — the room, the surface, what isn't working. Lukas will come out for a walkthrough and return a written scope within the week, no obligation.</p>
+    <div class="cta-actions">
+      <a class="btn-primary" href="#quote" aria-label="Get a quote — opens the work request form">Get a quote</a>
+      <a class="btn-secondary" href="tel:3202509100" aria-label="Call Spanier Painting at 320-250-9100">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.84.59 2.8.72A2 2 0 0 1 22 16.92Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        320·250·9100
+      </a>
+    </div>
+    <p class="cta-byline">By appointment · Lukas Spanier, founding painter · St. Cloud, MN</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer" aria-label="Site footer">
+  <div class="footer-inner">
+
+    <!-- Masthead strip -->
+    <div class="footer-masthead" aria-hidden="true">
+      <p class="footer-masthead-title">The Painted Room</p>
+      <p class="footer-masthead-meta">
+        Issue №47 · Studio Archive · May 2026 · St. Cloud, MN<br>
+        Staff · Lukas Spanier &amp; Crew · Distribution · By Appointment
+      </p>
+      <hr class="footer-masthead-rule">
+    </div>
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <!-- O · Stacked broadsheet logo in footer -->
+        <svg class="footer-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 130" role="img" aria-label="Spanier Painting" focusable="false">
+          <text x="200" y="58"
+                font-family="'Fraunces', 'Playfair Display', Georgia, serif"
+                font-weight="400"
+                font-size="62"
+                letter-spacing="2"
+                text-anchor="middle"
+                fill="currentColor">SPANIER</text>
+          <line x1="100" y1="76" x2="300" y2="76" stroke="currentColor" stroke-width="0.6" opacity="0.4"/>
+          <text x="200" y="106"
+                font-family="'Fraunces', 'Playfair Display', Georgia, serif"
+                font-weight="300"
+                font-size="22"
+                letter-spacing="14"
+                text-anchor="middle"
+                fill="currentColor">PAINTING</text>
+        </svg>
+        <p class="footer-bio">A residential and commercial paint studio operating out of St. Cloud, Minnesota since 2014. Small crew. High standard. Work that disappears into the room.</p>
+        <p class="footer-contact-item"><a href="tel:3202509100">320·250·9100</a></p>
+        <p class="footer-contact-item"><a href="tel:3202909516">320·290·9516</a></p>
+        <p class="footer-contact-item"><a href="mailto:lukas@spanierpainting.com">lukas@spanierpainting.com</a></p>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-label">Sections</p>
+        <ul class="footer-col-links" role="list">
+          <li><a href="#work">Selected work</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#quote">Get a quote</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-label">Services</p>
+        <ul class="footer-col-links" role="list">
+          <li><a href="#services">Interior painting</a></li>
+          <li><a href="#services">Exterior painting</a></li>
+          <li><a href="#services">Cabinet refinishing</a></li>
+          <li><a href="#services">Heritage / historic</a></li>
+          <li><a href="#services">Decks + fences</a></li>
+          <li><a href="#services">Specialty coatings</a></li>
+          <li><a href="#services">Commercial buildouts</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-label">Hours</p>
+        <p class="footer-hours">
+          Mon–Fri · 7am – 6pm<br>
+          Sat · By appointment<br>
+          Sun · Closed
+        </p>
+        <br>
+        <p class="footer-col-label">Credentials</p>
+        <p class="footer-hours">Licensed + insured · MN<br>EPA RRP certified<br>Est. 2014</p>
+        <br>
+        <p class="footer-col-label">Social</p>
+        <p class="footer-hours">
+          <a href="#" aria-label="Instagram (placeholder)">Instagram</a><br>
+          <a href="#" aria-label="Facebook (placeholder)">Facebook</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 Spanier Painting LLC · St. Cloud, Minnesota · All rights reserved</p>
+      <p class="footer-tagline">Color is the work.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     TIDIO CHAT FAB — bottom-right (Phase 2 placeholder)
+     ============================================================ -->
+<!-- TODO: Tidio Free chatbot widget embed (Phase 2) -->
+<button class="chat-fab" aria-label="Open chat — Talk to Lukas" type="button">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M21 12a9 9 0 1 1-3.5-7.1L21 3v6h-6" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="chat-fab-tip">Talk to Lukas</span>
+</button>
+
+
+<!-- ============================================================
+     JAVASCRIPT — IntersectionObserver + Chip Behavior
+     ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── Reveal on scroll ──────────────────────────────────── */
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    revealEls.forEach((el) => observer.observe(el));
+  } else {
+    // Fallback — show everything
+    revealEls.forEach((el) => el.classList.add('visible'));
+  }
+
+  /* ── Color chip popover behavior ─────────────────────── */
+  // Popovers use CSS :hover for desktop.
+  // For touch devices we toggle the .active class on tap.
+  const chips = document.querySelectorAll('.chip');
+
+  const toggleChip = (chip, e) => {
+    const isActive = chip.classList.contains('active');
+    chips.forEach((c) => c.classList.remove('active'));
+    if (!isActive) {
+      chip.classList.add('active');
+      e.stopPropagation();
+    }
+  };
+
+  chips.forEach((chip) => {
+    // Touch tap / mouse click — toggle
+    chip.addEventListener('click', (e) => toggleChip(chip, e));
+    // Keyboard: Enter and Space activate; Escape closes
+    chip.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleChip(chip, e);
+      }
+      if (e.key === 'Escape') {
+        chips.forEach((c) => c.classList.remove('active'));
+        chip.blur();
+      }
+    });
+  });
+
+  // Clicking anywhere else closes open chip
+  document.addEventListener('click', () => {
+    chips.forEach((c) => c.classList.remove('active'));
+  });
+
+  /* ── Nav — active scroll detection ─────────────────────── */
+  const nav = document.querySelector('.nav');
+  const onScroll = () => {
+    nav.classList.toggle('nav-scrolled', window.scrollY > 80);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ── Hero — auto-advance kicker text ───────────────────── */
+  const kicker = document.querySelector('.hero-kicker');
+  if (kicker) {
+    const variants = [
+      'ROOM №47 · PAINTED, MAY 2026 · ST. CLOUD, MN',
+      'LUKAS SPANIER · FOUNDING PAINTER SINCE 2014',
+      'CRAFT INTERIOR · CENTRAL MINNESOTA · EST. 2014',
+    ];
+    let idx = 0;
+    // Set transition before the first interval fires (not after)
+    kicker.style.transition = 'opacity 0.35s ease';
+    setInterval(() => {
+      idx = (idx + 1) % variants.length;
+      kicker.style.opacity = '0';
+      setTimeout(() => {
+        kicker.textContent = variants[idx];
+        kicker.style.opacity = '1';
+      }, 360);
+    }, 4400);
+  }
+
+})();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!-- Variant D: Wordmark + small mark — typographic-first. No badge needed.
+     A small cobalt brush-stroke mark sits to the left of the wordmark. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-label="Spanier Painting">
+  <!-- Small mark: a single short brushstroke (paint dragged across surface) -->
+  <path d="M10 32
+           C18 28  34 28  46 33
+           C40 38  26 39  16 36
+           C32 36  46 37  56 41"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="6"
+        stroke-linecap="round"/>
+  <!-- Wordmark — set in a distinctive serif italic for character.
+       Using inline text with font-family fallbacks so the SVG renders
+       in any host (Cormorant Garamond preferred). -->
+  <text x="76" y="46"
+        font-family="'Cormorant Garamond', 'Crimson Pro', Georgia, serif"
+        font-style="italic"
+        font-weight="500"
+        font-size="38"
+        letter-spacing="-0.5"
+        fill="currentColor">Spanier Painting</text>
+  <!-- Sub-imprint -->
+  <text x="76" y="62"
+        font-family="'JetBrains Mono', 'IBM Plex Mono', monospace"
+        font-size="8"
+        letter-spacing="2.6"
+        fill="currentColor"
+        opacity="0.65">EST. MMXIV · ST. CLOUD, MN</text>
+</svg>

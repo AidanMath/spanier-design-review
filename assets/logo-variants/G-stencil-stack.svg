@@ -1,0 +1,18 @@
+<!-- G · Stencil SPANIER / PAINTING — two-line stencil, industrial paint-by-
+     template register. Matches ref #3. Falls back gracefully without Stardos. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 130" role="img" aria-label="Spanier Painting">
+  <text x="200" y="66"
+        font-family="'Stardos Stencil', 'Allerta Stencil', 'Big Shoulders Stencil Display', 'Bebas Neue', Impact, sans-serif"
+        font-weight="700"
+        font-size="76"
+        letter-spacing="2"
+        text-anchor="middle"
+        fill="currentColor">SPANIER</text>
+  <text x="200" y="106"
+        font-family="'Stardos Stencil', 'Allerta Stencil', 'Big Shoulders Stencil Display', 'Bebas Neue', Impact, sans-serif"
+        font-weight="700"
+        font-size="40"
+        letter-spacing="6"
+        text-anchor="middle"
+        fill="currentColor">PAINTING</text>
+</svg>

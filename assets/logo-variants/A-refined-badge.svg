@@ -1,0 +1,18 @@
+<!-- Variant A: Refined badge — single ring, flat brushstroke S, no separate
+     brush icon, no wordmark inside. Simplest evolution of current logo. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Spanier Painting badge">
+  <!-- Ring -->
+  <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="2"/>
+  <!-- Brushstroke S (flat, single weight, slight taper at top + bottom) -->
+  <path d="M44.5 42
+           C44.5 35  56  31  64  33
+           C73 35.5  76 41  74 45
+           C72 49  64 51  58 53
+           C50 56  44 60  44 67
+           C44 75.5  53 81  62 81.5
+           C71 82  78 78  79 73"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="9"
+        stroke-linecap="round"/>
+</svg>

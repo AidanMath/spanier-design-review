@@ -1,0 +1,3157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Spanier Painting — Residential & Commercial Painters in St. Cloud, Minnesota</title>
+<meta name="description" content="Spanier Painting — residential and commercial painters in St. Cloud, Minnesota. Interior, exterior, cabinets, heritage, decks, and commercial. Est. 2014. Licensed and insured.">
+<meta name="keywords" content="painter St. Cloud, interior painter Minnesota, cabinet refinishing St. Cloud, commercial painter Central MN">
+<link rel="canonical" href="https://spanierpainting.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Painter",
+  "name": "Spanier Painting",
+  "image": "https://spanierpainting.com/assets/logo.png",
+  "url": "https://spanierpainting.com",
+  "telephone": "+1-320-250-9100",
+  "email": "lukas@spanierpainting.com",
+  "founder": "Lukas Spanier",
+  "foundingDate": "2014",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "St. Cloud",
+    "addressRegion": "MN",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    "St. Cloud", "Sartell", "Sauk Rapids", "Waite Park",
+    "Cold Spring", "Avon", "Albany", "Monticello"
+  ],
+  "openingHours": "Mo-Fr 07:00-18:00",
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "42"
+  }
+}
+</script>
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  --porcelain:    #FFFFFF;           /* pure white — brand-rule compliant */
+  --cobalt:       #4A6FA5;           /* primary accent — Delft china-blue (signature) */
+  --brand-cobalt: #1E3F8A;           /* official Spanier brand cobalt — deeper accent */
+  --soft-blue:    color-mix(in srgb, var(--cobalt) 45%, white);   /* derived; re-paints w/ cobalt */
+  --ink:          #0F1730;
+  --rule:         var(--cobalt);     /* hairlines pick up the chosen accent */
+  --cobalt-pale:  color-mix(in srgb, var(--cobalt) 8%, transparent);
+  --cobalt-mid:   color-mix(in srgb, var(--cobalt) 18%, transparent);
+  --cobalt-wash:  color-mix(in srgb, var(--cobalt) 4%, transparent);
+  --paper-tint:   var(--porcelain);
+
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-body:    "Crimson Pro", Georgia, serif;
+  --font-accent:  "Playfair Display", "Cormorant Garamond", serif;
+  --font-label:   "Inter", system-ui, sans-serif;
+
+  --container: 1280px;
+  --gutter: clamp(1.5rem, 5vw, 4rem);
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--paper-tint);
+  transition: background 600ms ease;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; background: transparent; border: 0; }
+
+/* ============================================================
+   TILE BACKGROUND PATTERN (subtle Delft tile grid)
+   ============================================================ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--cobalt) 6%, transparent) 1px, transparent 0);
+  background-size: 40px 40px;
+  opacity: 0.5;
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+.t-display {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+.t-accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+}
+.t-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.72;
+}
+.t-label {
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.section-pad {
+  padding-block: clamp(5rem, 10vw, 9rem);
+}
+
+/* ============================================================
+   REVEAL ANIMATION
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.22s; }
+.reveal-delay-3 { transition-delay: 0.34s; }
+.reveal-delay-4 { transition-delay: 0.46s; }
+
+/* ============================================================
+   FOCUS VISIBLE — keyboard navigation
+   ============================================================ */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 3px;
+}
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem var(--gutter);
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--cobalt-mid);
+  transition: box-shadow 0.3s ease;
+}
+.site-nav.scrolled {
+  box-shadow: 0 2px 20px rgba(15,23,48,0.07);
+}
+.nav-wordmark {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--cobalt);
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.nav-wordmark svg {
+  width: auto;
+  height: 36px;
+  flex-shrink: 0;
+}
+.nav-links {
+  display: flex;
+  gap: 2.2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-label);
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.7;
+  position: relative;
+  transition: opacity 0.2s, color 0.2s;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--cobalt);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.25s cubic-bezier(.2,.7,.2,1);
+}
+.nav-links a:hover {
+  opacity: 1;
+  color: var(--cobalt);
+}
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+.nav-cta {
+  font-family: var(--font-label);
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--porcelain);
+  background: var(--brand-cobalt);
+  border: 1px solid var(--brand-cobalt);
+  padding: 0.55rem 1.2rem;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.nav-cta:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem var(--gutter) 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.22) saturate(0.5) sepia(0.3);
+}
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(15,23,48,0.55), transparent 80%),
+    linear-gradient(to bottom, rgba(15,23,48,0.4), color-mix(in srgb, var(--cobalt) 25%, transparent) 50%, rgba(15,23,48,0.6));
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+.hero-cartouche {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-emblem {
+  width: 56px;
+  height: 56px;
+  color: var(--soft-blue);
+  opacity: 0.85;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  color: var(--porcelain);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 30px rgba(15,23,48,0.5);
+}
+.hero-title em {
+  font-style: normal;
+  color: var(--soft-blue);
+}
+.hero-sub {
+  margin-top: 1.5rem;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: rgba(252,250,245,0.72);
+  letter-spacing: 0.03em;
+}
+.hero-rule {
+  margin: 2rem auto;
+  width: 60px;
+  height: 1px;
+  background: var(--soft-blue);
+  opacity: 0.6;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+.hero-meta-item {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--soft-blue) 85%, transparent);
+}
+.hero-scroll-cue {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.5;
+  animation: bob 2.4s ease-in-out infinite;
+}
+.hero-scroll-cue span {
+  font-family: var(--font-label);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--soft-blue);
+}
+@keyframes bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ============================================================
+   SVG DIVIDERS
+   ============================================================ */
+.divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 1rem;
+  color: var(--cobalt);
+}
+.divider svg {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+}
+/* Divider that bridges porcelain → cobalt sections */
+.delft-cartouche-divider {
+  background: var(--porcelain);
+  padding-block: 0.25rem 0;
+  /* Bottom edge matches the tile-explorer cobalt — seamless join */
+  border-bottom: 0;
+}
+
+/* ============================================================
+   SECTION RULE — typographic earned separator
+   ============================================================ */
+.section-rule {
+  background: var(--porcelain);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 1.5rem;
+  position: relative;
+}
+.section-rule::before,
+.section-rule::after {
+  content: "";
+  flex: 1;
+  max-width: 280px;
+  height: 1px;
+  background: color-mix(in srgb, var(--cobalt) 18%, transparent);
+  margin-inline: 1.5rem;
+}
+.section-rule__text {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  opacity: 0.45;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   MANIFESTO
+   ============================================================ */
+.manifesto {
+  background: var(--porcelain);
+  position: relative;
+  z-index: 1;
+  border-top: 2px solid var(--cobalt);  /* thin cobalt entry rule — earns its space */
+}
+.manifesto-inner {
+  max-width: 680px;
+  margin-inline: auto;
+  text-align: center;
+  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-inline: var(--gutter);
+}
+.manifesto-eyebrow {
+  display: inline-block;
+  margin-bottom: 1.8rem;
+}
+.manifesto-body {
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.82;
+  letter-spacing: 0.01em;
+}
+.manifesto-sig {
+  margin-top: 2.2rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--cobalt);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   TILE EXPLORER (signature interactive moment)
+   ============================================================ */
+.tile-explorer {
+  background: var(--cobalt);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+/* Subtle Delft tile dot-grid atmosphere */
+.tile-explorer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(252,250,250,0.055) 1px, transparent 0);
+  background-size: 36px 36px;
+  pointer-events: none;
+}
+.tile-explorer-inner {
+  padding-block: clamp(5rem, 9vw, 8rem);
+  padding-inline: var(--gutter);
+  max-width: var(--container);
+  margin-inline: auto;
+}
+.tile-explorer-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.tile-explorer-header .t-label {
+  color: var(--soft-blue);
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
+.tile-explorer-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  color: var(--porcelain);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.tile-explorer-desc {
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(252,250,250,0.55);
+  max-width: 460px;
+  line-height: 1.7;
+}
+
+/* ── The tile grid itself ── */
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: color-mix(in srgb, var(--soft-blue) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--soft-blue) 20%, transparent);
+}
+.tile-cell {
+  background: color-mix(in srgb, var(--cobalt) 95%, black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.75rem 1rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.28s cubic-bezier(.2,.7,.2,1);
+  position: relative;
+  overflow: hidden;
+  min-height: 140px;
+  /* Subtle inner top highlight */
+  box-shadow: inset 0 1px 0 rgba(252,250,250,0.06);
+}
+/* Active indicator — top edge bar */
+.tile-cell::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--soft-blue);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.tile-cell:hover {
+  background: color-mix(in srgb, var(--soft-blue) 14%, var(--cobalt));
+  box-shadow: inset 0 1px 0 rgba(252,250,250,0.1), 0 -2px 0 0 rgba(252,250,250,0.08);
+}
+.tile-cell:hover::before {
+  opacity: 0.55;
+}
+.tile-cell.active {
+  background: color-mix(in srgb, var(--soft-blue) 22%, var(--cobalt));
+  box-shadow: inset 0 1px 0 rgba(252,250,250,0.12);
+}
+.tile-cell.active::before {
+  opacity: 1;
+  background: var(--porcelain);
+}
+.tile-cell-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--soft-blue);
+  opacity: 0.6;
+  transition: opacity 0.25s, color 0.25s, transform 0.25s cubic-bezier(.2,.7,.2,1);
+  flex-shrink: 0;
+}
+.tile-cell:hover .tile-cell-icon {
+  opacity: 0.9;
+  color: var(--porcelain);
+  transform: translateY(-2px);
+}
+.tile-cell.active .tile-cell-icon {
+  opacity: 1;
+  color: var(--porcelain);
+}
+.tile-cell-label {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft-blue);
+  opacity: 0.6;
+  text-align: center;
+  line-height: 1.4;
+  transition: opacity 0.25s, color 0.25s;
+}
+.tile-cell:hover .tile-cell-label,
+.tile-cell.active .tile-cell-label {
+  opacity: 1;
+  color: rgba(250,250,250,0.8);
+}
+
+/* ── Info panel below tiles ── */
+.tile-info {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 2px 2fr;
+  gap: 0 2.5rem;
+  align-items: start;
+  min-height: 5rem;
+}
+.tile-info-left {
+  text-align: right;
+  padding-top: 0.15rem;
+}
+.tile-info-rule {
+  width: 1px;
+  background: color-mix(in srgb, var(--soft-blue) 35%, transparent);
+  align-self: stretch;
+  min-height: 3rem;
+}
+.tile-info-right {
+  padding-top: 0;
+}
+.tile-info-label {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--soft-blue);
+  opacity: 0.6;
+  margin-bottom: 0.35rem;
+}
+.tile-info-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--porcelain);
+  line-height: 1.1;
+  transition: opacity 0.3s;
+}
+.tile-info-desc {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(252,250,250,0.6);
+  margin-top: 0.6rem;
+  line-height: 1.72;
+  max-width: 480px;
+  transition: opacity 0.3s;
+}
+.tile-info-prompt {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(252,250,250,0.3);
+  padding-top: 0.2rem;
+}
+
+/* ── Photo gallery ── */
+.tile-photos {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 5fr 4fr 4fr;
+  gap: 3px;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s cubic-bezier(.2,.7,.2,1), transform 0.5s cubic-bezier(.2,.7,.2,1);
+  pointer-events: none;
+}
+.tile-photos.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.tile-photo {
+  position: relative;
+  overflow: hidden;
+  background: rgba(252,250,250,0.04);
+}
+/* First photo is taller — featured */
+.tile-photo:first-child {
+  aspect-ratio: 3/4;
+}
+.tile-photo:not(:first-child) {
+  aspect-ratio: 4/5;
+}
+.tile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.88) contrast(1.06);
+  transition: transform 700ms cubic-bezier(.2,.7,.2,1), filter 500ms ease;
+}
+.tile-photo:hover img {
+  transform: scale(1.04);
+  filter: saturate(1) contrast(1.02);
+}
+.tile-photo-cap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 1.2rem 0.85rem 0.7rem;
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--porcelain);
+  background: linear-gradient(to top, rgba(15,23,48,0.82) 0%, rgba(15,23,48,0) 100%);
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.tile-photo:hover .tile-photo-cap {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 720px) {
+  .tile-photos {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tile-photo:first-child { aspect-ratio: 4/3; grid-column: 1 / -1; }
+  .tile-photo:not(:first-child) { aspect-ratio: 4/3; }
+}
+@media (max-width: 540px) {
+  .tile-info {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .tile-info-left { text-align: left; }
+  .tile-info-rule { display: none; }
+}
+
+/* ============================================================
+   CASE STUDIES
+   ============================================================ */
+.case-studies {
+  background: var(--porcelain);
+  position: relative;
+  z-index: 1;
+}
+.case-studies-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  color: var(--ink);
+  line-height: 1.12;
+  margin-top: 0.75rem;
+}
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem 3rem;
+}
+.case-article {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.case-image-wrap {
+  position: relative;
+  overflow: visible;
+}
+.case-image-frame {
+  position: relative;
+}
+.case-image-frame img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  filter: sepia(0.08) saturate(0.92);
+  transition: filter 0.4s ease;
+}
+.case-article:hover .case-image-frame img {
+  filter: sepia(0) saturate(1);
+}
+/* Delft scalloped border — clean CSS inset frame */
+.case-image-frame::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 1px solid color-mix(in srgb, var(--cobalt) 22%, transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+/* Removed redundant outer border and scallop — corners alone carry the heritage signature */
+.case-image-scallop {
+  display: none; /* stripped — was redundant third border */
+}
+/* Corner flourishes on case image */
+.case-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  color: var(--cobalt);
+  opacity: 0.45;
+}
+.case-corner--tl { top: -10px; left: -10px; }
+.case-corner--tr { top: -10px; right: -10px; transform: scaleX(-1); }
+.case-corner--bl { bottom: -10px; left: -10px; transform: scaleY(-1); }
+.case-corner--br { bottom: -10px; right: -10px; transform: scale(-1); }
+.case-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.2rem;
+  margin-top: 0.25rem;
+}
+.case-meta-item {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  opacity: 0.7;
+}
+.case-meta-item + .case-meta-item::before {
+  content: "·";
+  margin-right: 0.5rem;
+  opacity: 0.4;
+  display: inline-block;
+}
+.case-title {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.case-caption {
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  line-height: 1.72;
+  color: rgba(15,23,48,0.7);
+  font-style: italic;
+}
+.case-number {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--soft-blue);
+  opacity: 0.65;
+}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.services {
+  background: var(--ink);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-top: 2px solid rgba(252,250,250,0.07); /* subtle entry from white case-studies */
+}
+.services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--soft-blue) 7%, transparent) 1px, transparent 0);
+  background-size: 36px 36px;
+  pointer-events: none;
+}
+.services-inner {
+  position: relative;
+  z-index: 1;
+}
+.services-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+.services-header .section-title {
+  color: var(--porcelain);
+}
+.services-header .t-label {
+  color: var(--soft-blue);
+  opacity: 0.75;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid color-mix(in srgb, var(--soft-blue) 18%, transparent);
+}
+.service-card {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid color-mix(in srgb, var(--soft-blue) 15%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--soft-blue) 15%, transparent);
+  position: relative;
+  transition: background 0.3s ease;
+}
+.service-card:hover {
+  background: color-mix(in srgb, var(--soft-blue) 7%, transparent);
+}
+.service-card:nth-child(3n) {
+  border-right: 0;
+}
+.service-card:nth-last-child(-n+3) {
+  border-bottom: 0;
+}
+.service-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--soft-blue);
+  opacity: 0.7;
+  margin-bottom: 1.2rem;
+}
+.service-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--porcelain);
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+.service-desc {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: rgba(252,250,250,0.58);
+  font-style: normal; /* roman weight gives visual rest against italic display type */
+}
+.service-detail {
+  margin-top: 1rem;
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--soft-blue);
+  opacity: 0.5;
+}
+
+/* ============================================================
+   TESTIMONIAL
+   ============================================================ */
+.testimonial {
+  background: var(--porcelain);
+  position: relative;
+  z-index: 1;
+}
+.testimonial-inner {
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-inline: var(--gutter);
+}
+.testimonial-mark {
+  width: 48px;
+  height: 48px;
+  color: var(--cobalt);
+  opacity: 0.25;
+  margin: 0 auto 1.5rem;
+}
+.testimonial-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  color: var(--ink);
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+}
+.testimonial-attribution {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  align-items: center;
+}
+.testimonial-name {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--cobalt);
+}
+.testimonial-location {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.45;
+}
+
+/* ============================================================
+   SERVICE AREA
+   ============================================================ */
+.service-area {
+  background: var(--porcelain);
+  border-top: 1px solid var(--cobalt-mid);
+  position: relative;
+  z-index: 1;
+}
+.service-area-inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: start;
+  padding-block: clamp(4rem, 8vw, 6rem);
+  padding-inline: var(--gutter);
+  max-width: var(--container);
+  margin-inline: auto;
+}
+.service-area-left .section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  margin-top: 0.6rem;
+}
+.service-area-body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(15,23,48,0.65);
+  margin-top: 1rem;
+  line-height: 1.75;
+}
+.cities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem 2rem;
+  margin-top: 1rem;
+}
+.city-name {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--cobalt-mid);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.city-name::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--soft-blue);
+  flex-shrink: 0;
+}
+.city-name.primary {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--cobalt);
+}
+.city-name.primary::before {
+  background: var(--cobalt);
+  width: 6px;
+  height: 6px;
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta-section {
+  background: var(--cobalt);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
+}
+.cta-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(252,250,245,0.06) 1px, transparent 0);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+.cta-inner {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(5rem, 10vw, 9rem);
+  padding-inline: var(--gutter);
+}
+.cta-eyebrow {
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--soft-blue);
+  opacity: 0.75;
+  margin-bottom: 1.5rem;
+}
+.cta-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  color: var(--porcelain);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.cta-sub {
+  margin-top: 1.2rem;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: rgba(252,250,245,0.6);
+}
+.cta-actions {
+  margin-top: 2.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--porcelain);
+  background: var(--brand-cobalt);
+  border: 1px solid var(--brand-cobalt);
+  padding: 0.85rem 2.2rem;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn-primary:hover {
+  background: var(--ink);
+  color: var(--porcelain);
+  border-color: var(--ink);
+}
+.btn-ghost {
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--porcelain);
+  background: transparent;
+  border: 1px solid rgba(252,250,245,0.35);
+  padding: 0.85rem 2.2rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-ghost:hover {
+  border-color: var(--porcelain);
+  background: rgba(252,250,245,0.06);
+}
+.cta-phone {
+  margin-top: 2.2rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: rgba(252,250,245,0.5);
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+}
+.cta-phone:hover {
+  color: var(--porcelain);
+}
+.cta-phone a {
+  color: inherit;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--ink);
+  color: var(--porcelain);
+  position: relative;
+  z-index: 1;
+}
+.footer-upper {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 4rem;
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
+  padding-inline: var(--gutter);
+  max-width: var(--container);
+  margin-inline: auto;
+  border-bottom: 1px solid color-mix(in srgb, var(--soft-blue) 15%, transparent);
+}
+.footer-brand .nav-wordmark {
+  color: var(--porcelain);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+.footer-bio {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  font-style: italic;
+  color: rgba(252,250,250,0.52);
+  line-height: 1.78;
+  margin-bottom: 0.75rem;
+}
+.footer-credentials {
+  font-family: var(--font-label);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(252,250,250,0.25);
+  margin-top: 0.25rem;
+}
+.footer-col-title {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--soft-blue);
+  opacity: 0.6;
+  margin-bottom: 1.2rem;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.footer-links a {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  font-style: italic;
+  color: rgba(252,250,245,0.55);
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: var(--porcelain);
+}
+.footer-contact-line {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  color: rgba(252,250,245,0.55);
+  margin-bottom: 0.4rem;
+  font-style: italic;
+}
+.footer-contact-line a {
+  color: color-mix(in srgb, var(--soft-blue) 85%, transparent);
+  transition: color 0.2s;
+}
+.footer-contact-line a:hover {
+  color: var(--soft-blue);
+}
+.footer-hours {
+  margin-top: 1rem;
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(252,250,245,0.3);
+  line-height: 1.9;
+}
+.footer-lower {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 1.5rem var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer-copy {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(252,250,245,0.25);
+}
+.footer-est {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(252,250,245,0.2);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .case-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .service-card:nth-child(3n) {
+    border-right: 1px solid color-mix(in srgb, var(--soft-blue) 15%, transparent);
+  }
+  .service-card:nth-child(2n) {
+    border-right: 0;
+  }
+  .footer-upper {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .service-area-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .tile-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .tile-cell {
+    min-height: 120px;
+  }
+  .tile-info {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .tile-info-left { text-align: left; }
+  .tile-info-rule { display: none; }
+}
+@media (max-width: 768px) {
+  .nav-toggle { display: inline-flex; }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--porcelain);
+    border-bottom: 1px solid var(--cobalt-mid);
+    box-shadow: 0 14px 28px -18px rgba(15,23,48,0.18);
+    padding: 0.4rem 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.28s ease, opacity 0.22s ease;
+    pointer-events: none;
+  }
+  .site-nav.menu-open .nav-links {
+    max-height: 320px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: block;
+    padding: 0.9rem var(--gutter);
+    font-size: 0.72rem;
+  }
+  .nav-links a::after { display: none; }
+  .nav-cta { font-size: 0.62rem; padding: 0.5rem 0.9rem; }
+  .hero-title { font-size: clamp(2.5rem, 8vw, 4rem); }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .service-card:nth-child(n) {
+    border-right: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--soft-blue) 15%, transparent);
+  }
+  .cities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-upper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .cta-actions {
+    flex-direction: column;
+  }
+  .tile-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .tile-cell {
+    padding: 1.25rem 0.75rem 1rem;
+    min-height: 100px;
+  }
+  .tile-cell-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .tile-cell-label {
+    font-size: 0.52rem;
+  }
+}
+@media (max-width: 480px) {
+  .tile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tile-cell {
+    min-height: 90px;
+    gap: 0.5rem;
+  }
+  .cities-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-rule::before,
+  .section-rule::after { max-width: 80px; }
+  .tile-photos {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  .tile-photo:first-child { aspect-ratio: 4/3; }
+  .tile-photo:not(:first-child) { aspect-ratio: 4/3; }
+  .hero-meta { gap: 1.2rem; }
+  .hero-meta-item { font-size: 0.55rem; }
+  .cta-actions { gap: 0.85rem; }
+}
+@media (max-width: 375px) {
+  .hero-title { font-size: clamp(2.2rem, 10vw, 3rem); }
+  .manifesto-body { font-size: 1.1rem; }
+  .cta-title { font-size: clamp(2rem, 9vw, 3rem); }
+  .footer-upper { padding-inline: 1.25rem; }
+  .tile-cell-label { font-size: 0.48rem; letter-spacing: 0.1em; }
+}
+
+/* ============================================================
+   PROCESS — manuscript-style numbered process
+   ============================================================ */
+.process {
+  background: var(--porcelain);
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--cobalt-mid);
+}
+.process-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-inline: var(--gutter);
+}
+.process-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem 2rem;
+}
+.process-step {
+  position: relative;
+  padding-top: 2.6rem;
+  border-top: 1px solid var(--cobalt-mid);
+}
+.process-step-num {
+  position: absolute;
+  top: -1.05rem;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid var(--cobalt);
+  background: var(--porcelain);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--cobalt);
+  letter-spacing: 0.02em;
+}
+.process-step-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+.process-step-body {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.72;
+  color: rgba(15,23,48,0.7);
+  font-style: italic;
+}
+.process-feature-row {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.process-feature {
+  position: relative;
+  border: 1px solid var(--cobalt-mid);
+  padding: 1.4rem 1.6rem 1.5rem;
+  background: var(--cobalt-wash);
+}
+.process-feature::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid color-mix(in srgb, var(--cobalt) 14%, transparent);
+  pointer-events: none;
+}
+.process-feature-label {
+  font-family: var(--font-label);
+  font-size: 0.56rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+.process-feature-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.process-feature-body {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-style: italic;
+  color: rgba(15,23,48,0.65);
+  line-height: 1.65;
+}
+.process-feature-tag {
+  margin-top: 0.7rem;
+  font-family: var(--font-label);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  opacity: 0.55;
+}
+
+/* ============================================================
+   REVIEWS — three framed pull quotes, Google logomark
+   ============================================================ */
+.reviews {
+  background: var(--porcelain);
+  position: relative;
+  z-index: 1;
+}
+.reviews-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-inline: var(--gutter);
+}
+.reviews-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.reviews-rating {
+  margin: 1rem auto 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--cobalt-mid);
+  padding: 0.5rem 0.95rem;
+}
+.reviews-stars {
+  color: var(--cobalt);
+  letter-spacing: 0.1em;
+}
+.reviews-google-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: none;
+  color: var(--ink);
+}
+.reviews-google-logo svg { width: 14px; height: 14px; }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.review-card {
+  position: relative;
+  padding: 2rem 1.75rem 1.75rem;
+  border: 1px solid var(--cobalt-mid);
+  background: var(--porcelain);
+}
+.review-card::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid color-mix(in srgb, var(--cobalt) 14%, transparent);
+  pointer-events: none;
+}
+.review-mark {
+  width: 28px;
+  height: 28px;
+  color: var(--cobalt);
+  opacity: 0.4;
+  margin-bottom: 0.8rem;
+}
+.review-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+}
+.review-attr {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--cobalt);
+}
+.review-meta {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--font-label);
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(15,23,48,0.45);
+}
+
+/* ============================================================
+   FAQ — heritage trade pamphlet
+   ============================================================ */
+.faq {
+  background: var(--porcelain);
+  border-top: 1px solid var(--cobalt-mid);
+  position: relative;
+  z-index: 1;
+}
+.faq-inner {
+  max-width: 820px;
+  margin-inline: auto;
+  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-inline: var(--gutter);
+}
+.faq-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.faq-item {
+  border-top: 1px solid var(--cobalt-mid);
+  padding: 1.4rem 0;
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--cobalt-mid);
+}
+.faq-q {
+  display: grid;
+  grid-template-columns: 2.2rem 1fr auto;
+  align-items: baseline;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--cobalt);
+  opacity: 0.7;
+}
+.faq-q-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.faq-q-mark {
+  width: 16px;
+  height: 16px;
+  color: var(--cobalt);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+details[open] .faq-q-mark { transform: rotate(45deg); }
+.faq-a {
+  padding-left: 3.2rem;
+  padding-top: 0.9rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.72;
+  color: rgba(15,23,48,0.72);
+  max-width: 640px;
+}
+
+/* ============================================================
+   QUOTE / CONTACT CARD — Jobber form placeholder
+   ============================================================ */
+.quote {
+  background: var(--porcelain);
+  border-top: 1px solid var(--cobalt-mid);
+  position: relative;
+  z-index: 1;
+}
+.quote-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-inline: var(--gutter);
+}
+.quote-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.quote-frame {
+  position: relative;
+  padding: 3rem 2.5rem;
+  border: 1px solid var(--cobalt);
+  background: var(--porcelain);
+}
+.quote-frame::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid color-mix(in srgb, var(--cobalt) 22%, transparent);
+  pointer-events: none;
+}
+.quote-frame::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px dashed color-mix(in srgb, var(--cobalt) 12%, transparent);
+  pointer-events: none;
+}
+.quote-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 1px 1fr;
+  gap: 0 2.5rem;
+  align-items: start;
+  z-index: 2;
+}
+.quote-divider-v {
+  background: var(--cobalt-mid);
+  align-self: stretch;
+  min-height: 12rem;
+}
+.quote-form-area {
+  min-height: 14rem;
+  border: 1px dashed var(--cobalt-mid);
+  background: var(--cobalt-wash);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+.quote-form-area .t-label {
+  margin-bottom: 0.6rem;
+}
+.quote-form-placeholder {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.quote-form-note {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: rgba(15,23,48,0.55);
+  max-width: 320px;
+  line-height: 1.6;
+}
+.quote-contact-block {
+  padding-top: 0.25rem;
+}
+.quote-contact-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.quote-contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.8rem;
+}
+.quote-contact-list li {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  color: var(--ink);
+  font-style: italic;
+}
+.quote-contact-list a {
+  color: var(--cobalt);
+  border-bottom: 1px solid color-mix(in srgb, var(--cobalt) 28%, transparent);
+  transition: color 0.2s;
+}
+.quote-contact-list a:hover { color: var(--brand-cobalt); }
+.quote-contact-hours {
+  margin-top: 1.4rem;
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  opacity: 0.7;
+  line-height: 1.9;
+}
+.quote-cta-row {
+  margin-top: 1.6rem;
+}
+.btn-cobalt {
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--porcelain);
+  background: var(--brand-cobalt);
+  border: 1px solid var(--brand-cobalt);
+  padding: 0.75rem 1.6rem;
+  display: inline-block;
+  transition: background 0.2s, border-color 0.2s;
+}
+.btn-cobalt:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+/* ============================================================
+   PHASE 3 TEASE CARDS — added inside Process feature row
+   (no new component class needed)
+   ============================================================ */
+
+/* ============================================================
+   CHAT FAB — Tidio placeholder
+   ============================================================ */
+.chat-fab {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--brand-cobalt);
+  color: var(--porcelain);
+  border: 1px solid var(--brand-cobalt);
+  z-index: 200;
+  box-shadow: 0 8px 24px -10px rgba(15,23,48,0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.chat-fab:hover {
+  background: var(--cobalt);
+  transform: translateY(-2px);
+}
+.chat-fab::after {
+  content: "Talk to Lukas";
+  position: absolute;
+  right: 100%;
+  margin-right: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--ink);
+  color: var(--porcelain);
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.chat-fab:hover::after { opacity: 1; }
+
+/* ============================================================
+   RESPONSIVE — additions for new sections
+   ============================================================ */
+@media (max-width: 900px) {
+  .process-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.5rem; }
+  .reviews-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .quote-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .quote-divider-v { display: none; height: 1px; min-height: 0; width: 100%; }
+  .process-feature-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 540px) {
+  .process-grid { grid-template-columns: 1fr; }
+  .faq-q { grid-template-columns: 1.6rem 1fr auto; gap: 0.6rem; }
+  .faq-q-text { font-size: 1.05rem; }
+  .faq-a { padding-left: 2.2rem; }
+  .quote-frame { padding: 2rem 1.25rem; }
+}
+
+/* ─── MOBILE NAV TOGGLE ────────────────────────────────────────── */
+.nav-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--cobalt-mid);
+  color: var(--cobalt);
+  cursor: pointer;
+  margin-left: 0.6rem;
+}
+.nav-toggle svg { width: 18px; height: 18px; }
+.nav-toggle .icon-close { display: none; }
+.site-nav.menu-open .nav-toggle .icon-open { display: none; }
+.site-nav.menu-open .nav-toggle .icon-close { display: block; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="site-nav" id="site-nav" role="navigation" aria-label="Primary">
+  <a href="#" class="nav-wordmark" aria-label="Spanier Painting home">
+    <!-- Logo D: Wordmark + brushstroke mark -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-label="Spanier Painting">
+      <path d="M10 32
+               C18 28  34 28  46 33
+               C40 38  26 39  16 36
+               C32 36  46 37  56 41"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="6"
+            stroke-linecap="round"/>
+      <text x="76" y="46"
+            font-family="'Cormorant Garamond', 'Crimson Pro', Georgia, serif"
+            font-style="italic"
+            font-weight="500"
+            font-size="38"
+            letter-spacing="-0.5"
+            fill="currentColor">Spanier Painting</text>
+      <text x="76" y="62"
+            font-family="'JetBrains Mono', 'IBM Plex Mono', monospace"
+            font-size="8"
+            letter-spacing="2.6"
+            fill="currentColor"
+            opacity="0.65">EST. MMXIV · ST. CLOUD, MN</text>
+    </svg>
+  </a>
+  <ul class="nav-links" id="nav-links" role="list">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#quote" class="nav-cta" aria-label="Get a quote">Get a Quote</a>
+  <button class="nav-toggle" type="button" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">
+    <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
+      <line x1="4" y1="7" x2="20" y2="7"/>
+      <line x1="4" y1="12" x2="20" y2="12"/>
+      <line x1="4" y1="17" x2="20" y2="17"/>
+    </svg>
+    <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
+      <line x1="6" y1="6" x2="18" y2="18"/>
+      <line x1="18" y1="6" x2="6" y2="18"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=2400&q=85&auto=format&fit=crop"
+      alt=""
+      loading="eager"
+      fetchpriority="high"
+    >
+    <!-- REPLACE: nano-banana — [Craftsman interior room freshly painted in deep blue, natural afternoon light, Central Minnesota home, wide angle] -->
+  </div>
+
+  <div class="hero-content">
+    <!-- Refined badge emblem (Logo A variant — single ring, brushstroke S) -->
+    <div class="hero-cartouche reveal">
+      <svg class="hero-emblem" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="1" opacity="0.7"/>
+        <!-- Brushstroke S — flat, single weight, slight taper -->
+        <path d="M22.5 22
+                 C22.5 17.5  29 15  33.5 16.5
+                 C38.5 18  40.5 21.5  39 24
+                 C37.5 26.5  33 27.5  30 29
+                 C26 31  22.5 33.5  22.5 37.5
+                 C22.5 42.5  27.5 45.5  32.5 45.75
+                 C37 46  41 43.5  41.5 40"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+              fill="none"/>
+      </svg>
+    </div>
+
+    <h1 class="hero-title reveal reveal-delay-1">
+      Spanier<br><em>Painting</em>
+    </h1>
+    <p class="hero-sub reveal reveal-delay-2">Deliberate craft. Careful preparation. Paint that earns its place on the wall.</p>
+
+    <div class="hero-rule reveal reveal-delay-3"></div>
+
+    <div class="hero-meta reveal reveal-delay-3">
+      <span class="hero-meta-item">Est. 2014</span>
+      <span class="hero-meta-item">St. Cloud, MN</span>
+      <span class="hero-meta-item">Interior · Exterior · Cabinetry</span>
+      <span class="hero-meta-item">Heritage Trim · Color Consultation</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll-cue" aria-hidden="true">
+    <span>Scroll</span>
+    <svg width="14" height="20" viewBox="0 0 14 20" fill="none" style="color: var(--soft-blue);">
+      <line x1="7" y1="0" x2="7" y2="18" stroke="currentColor" stroke-width="1"/>
+      <path d="M2 13 L7 18 L12 13" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+</header>
+
+<!-- Hero → Manifesto: no divider; dark hero to white manifesto creates a clean break -->
+
+<!-- ============================================================
+     MANIFESTO
+     ============================================================ -->
+<section class="manifesto section-pad" id="about" aria-label="Studio manifesto">
+  <div class="manifesto-inner">
+    <div class="manifesto-eyebrow reveal">
+      <span class="t-label">The Studio</span>
+    </div>
+    <p class="manifesto-body reveal reveal-delay-1">
+      Spanier Painting has been the painter Central Minnesota families recommend by name since 2014.
+      I started this company at 19 — a one-man crew, one ladder, a willingness to do the prep no one
+      else wanted to. Twelve years later, we are a four-painter studio working across the St. Cloud
+      region on everything from heritage Queen Annes to two-day commercial turnarounds. Licensed
+      and insured. EPA RRP certified.
+    </p>
+    <p class="manifesto-sig reveal reveal-delay-2">— Lukas Spanier, founded 2014</p>
+    <div class="reveal reveal-delay-2" style="margin-top: 1.8rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 1.4rem;">
+      <span class="t-label" style="opacity:0.75;">Licensed + Insured · MN</span>
+      <span class="t-label" style="opacity:0.75;">EPA RRP Certified</span>
+      <span class="t-label" style="opacity:0.75;">Sherwin-Williams + Benjamin Moore</span>
+      <span class="t-label" style="opacity:0.75;">2-Year Workmanship Warranty</span>
+      <span class="t-label" style="opacity:0.75;">4-Painter Studio · Est. 2014</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ORNAMENT DIVIDER 2 — Refined Dutch tile cartouche
+     Earns its space: bridges white manifesto → cobalt explorer
+     ============================================================ -->
+<div class="divider delft-cartouche-divider" aria-hidden="true">
+  <svg viewBox="0 0 900 72" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <!-- Outer rule lines -->
+    <line x1="0" y1="36" x2="310" y2="36" style="stroke:var(--cobalt);" stroke-width="0.6" opacity="0.25"/>
+    <line x1="590" y1="36" x2="900" y2="36" style="stroke:var(--cobalt);" stroke-width="0.6" opacity="0.25"/>
+    <!-- Tile pairs flanking the central cartouche -->
+    <rect x="48" y="24" width="22" height="22" rx="0" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.28"/>
+    <path d="M48 24 Q59 35 70 24 M48 46 Q59 35 70 46" style="stroke:var(--cobalt);" stroke-width="0.6" fill="none" opacity="0.22"/>
+    <rect x="78" y="24" width="22" height="22" rx="0" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.28"/>
+    <path d="M78 24 Q89 35 100 24 M78 46 Q89 35 100 46" style="stroke:var(--cobalt);" stroke-width="0.6" fill="none" opacity="0.22"/>
+    <!-- Mirror right -->
+    <rect x="808" y="24" width="22" height="22" rx="0" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.28"/>
+    <path d="M808 24 Q819 35 830 24 M808 46 Q819 35 830 46" style="stroke:var(--cobalt);" stroke-width="0.6" fill="none" opacity="0.22"/>
+    <rect x="838" y="24" width="22" height="22" rx="0" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.28"/>
+    <path d="M838 24 Q849 35 860 24 M838 46 Q849 35 860 46" style="stroke:var(--cobalt);" stroke-width="0.6" fill="none" opacity="0.22"/>
+    <!-- Central oval cartouche — clean, single ring -->
+    <ellipse cx="450" cy="36" rx="108" ry="28" style="stroke:var(--cobalt);" stroke-width="1" fill="var(--porcelain)" opacity="1"/>
+    <!-- Flanking dots at oval ends -->
+    <circle cx="343" cy="36" r="2.5" style="fill:var(--cobalt);" opacity="0.4"/>
+    <circle cx="557" cy="36" r="2.5" style="fill:var(--cobalt);" opacity="0.4"/>
+    <!-- Side swells into oval -->
+    <path d="M343 36 C365 24 395 32 405 36" style="stroke:var(--cobalt);" stroke-width="0.7" fill="none" opacity="0.25"/>
+    <path d="M343 36 C365 48 395 40 405 36" style="stroke:var(--cobalt);" stroke-width="0.7" fill="none" opacity="0.25"/>
+    <path d="M557 36 C535 24 505 32 495 36" style="stroke:var(--cobalt);" stroke-width="0.7" fill="none" opacity="0.25"/>
+    <path d="M557 36 C535 48 505 40 495 36" style="stroke:var(--cobalt);" stroke-width="0.7" fill="none" opacity="0.25"/>
+    <!-- Sprigs top/bottom of oval -->
+    <path d="M422 14 Q436 6 450 10 Q464 6 478 14" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.38"/>
+    <path d="M422 58 Q436 66 450 62 Q464 66 478 58" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.38"/>
+  </svg>
+</div>
+
+<!-- ============================================================
+     TILE EXPLORER — signature interactive moment
+     ============================================================ -->
+<section class="tile-explorer" id="explore" aria-label="Service tile explorer">
+  <div class="tile-explorer-inner">
+    <div class="tile-explorer-header reveal">
+      <span class="t-label">The Craft</span>
+      <h2 class="tile-explorer-title">The Studio's Practice</h2>
+      <p class="tile-explorer-desc">Select a category to see finished project photographs and learn how we approach each scope of work.</p>
+    </div>
+
+    <div class="tile-grid reveal reveal-delay-1" id="tile-grid" role="group" aria-label="Select a service category">
+      <!-- Interior Walls -->
+      <div class="tile-cell" role="button" aria-pressed="false" data-name="Interior Walls" data-desc="Patching, sanding, spot-prime, then a full two-coat finish — ceiling to baseboard, never reversed. We work one room at a time, completely, and do not leave until the tape is pulled clean." tabindex="0" aria-label="Interior Walls — view project photos">
+        <svg class="tile-cell-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="5" y="8" width="30" height="24" stroke="currentColor" stroke-width="1.3" rx="0"/>
+          <line x1="5" y1="18" x2="35" y2="18" stroke="currentColor" stroke-width="0.7" opacity="0.5"/>
+          <line x1="5" y1="25" x2="35" y2="25" stroke="currentColor" stroke-width="0.7" opacity="0.5"/>
+        </svg>
+        <span class="tile-cell-label">Interior</span>
+      </div>
+      <!-- Exterior Siding -->
+      <div class="tile-cell" role="button" aria-pressed="false" data-name="Exterior Siding" data-desc="Pressure-wash, caulk every seam, spot-prime bare wood — then topcoat with products chosen for Central Minnesota's freeze-thaw cycles. Siding, trim, soffits, fascia. Prep is the job." tabindex="0" aria-label="Exterior Siding — view project photos">
+        <svg class="tile-cell-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 28 L20 10 L35 28 Z" stroke="currentColor" stroke-width="1.3" fill="none"/>
+          <rect x="8" y="28" width="24" height="8" stroke="currentColor" stroke-width="1"/>
+          <rect x="16" y="28" width="8" height="8" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+        <span class="tile-cell-label">Exterior</span>
+      </div>
+      <!-- Cabinet Finishing -->
+      <div class="tile-cell" role="button" aria-pressed="false" data-name="Cabinet Finishing" data-desc="Doors off, hinges pulled, surfaces scuff-sanded and de-glossed. Spray-applied conversion varnish or catalyzed lacquer. Factory-smooth finish that holds up to kitchens." tabindex="0" aria-label="Cabinet Finishing — view project photos">
+        <svg class="tile-cell-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="5" y="8" width="13" height="26" stroke="currentColor" stroke-width="1.3" rx="0"/>
+          <rect x="22" y="8" width="13" height="26" stroke="currentColor" stroke-width="1.3" rx="0"/>
+          <circle cx="17.5" cy="21" r="1.5" stroke="currentColor" stroke-width="0.9"/>
+          <circle cx="22.5" cy="21" r="1.5" stroke="currentColor" stroke-width="0.9"/>
+        </svg>
+        <span class="tile-cell-label">Cabinetry</span>
+      </div>
+      <!-- Heritage Trim -->
+      <div class="tile-cell" role="button" aria-pressed="false" data-name="Heritage Trim" data-desc="Three coats stripped, grain filled, oil-based primer, alkyd topcoat. For crown, wainscoting, and built-ins whose profiles no current catalogue reproduces — the kind of work that reads right in an old house." tabindex="0" aria-label="Heritage Trim — view project photos">
+        <svg class="tile-cell-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 30 Q5 8 20 8 Q35 8 35 30" stroke="currentColor" stroke-width="1.3" fill="none"/>
+          <line x1="5" y1="30" x2="35" y2="30" stroke="currentColor" stroke-width="1.3"/>
+          <line x1="8" y1="34" x2="32" y2="34" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+        </svg>
+        <span class="tile-cell-label">Heritage Trim</span>
+      </div>
+      <!-- Deck Restoration -->
+      <div class="tile-cell" role="button" aria-pressed="false" data-name="Deck Restoration" data-desc="Power-wash, wood-brightener rinse, then solid or semi-transparent stain applied in two passes. UV and moisture barrier built in. Cedar decks, fences, pergolas, dock boards." tabindex="0" aria-label="Deck Restoration — view project photos">
+        <svg class="tile-cell-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="5" y1="14" x2="35" y2="14" stroke="currentColor" stroke-width="1.3"/>
+          <line x1="5" y1="20" x2="35" y2="20" stroke="currentColor" stroke-width="1.3"/>
+          <line x1="5" y1="26" x2="35" y2="26" stroke="currentColor" stroke-width="1.3"/>
+          <line x1="10" y1="10" x2="10" y2="32" stroke="currentColor" stroke-width="0.7" opacity="0.5"/>
+          <line x1="20" y1="10" x2="20" y2="32" stroke="currentColor" stroke-width="0.7" opacity="0.5"/>
+          <line x1="30" y1="10" x2="30" y2="32" stroke="currentColor" stroke-width="0.7" opacity="0.5"/>
+        </svg>
+        <span class="tile-cell-label">Deck & Wood</span>
+      </div>
+      <!-- Color Consultation -->
+      <div class="tile-cell" role="button" aria-pressed="false" data-name="Color Consultation" data-desc="One hour on-site: Lukas walks your rooms, reads the light at morning and afternoon, studies what you already own. He returns with a palette — sample chips, specific Benjamin Moore or Farrow &amp; Ball codes, and his reasoning." tabindex="0" aria-label="Color Consultation — view project photos">
+        <svg class="tile-cell-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M20 7 A13 13 0 0 1 33 20" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" opacity="0.7"/>
+          <path d="M33 20 A13 13 0 0 1 20 33" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" opacity="0.45"/>
+          <circle cx="20" cy="20" r="2.8" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+        <span class="tile-cell-label">Colour Consult</span>
+      </div>
+    </div>
+
+    <!-- Info panel — left column: name; right column: description -->
+    <div class="tile-info" id="tile-info" aria-live="polite" aria-atomic="true">
+      <div class="tile-info-left">
+        <p class="tile-info-label" id="tile-info-label">Select a service</p>
+        <p class="tile-info-name" id="tile-name" style="opacity:0.25">—</p>
+      </div>
+      <div class="tile-info-rule" aria-hidden="true"></div>
+      <div class="tile-info-right">
+        <p class="tile-info-prompt" id="tile-prompt">Choose a tile above to see finished project photos and service details.</p>
+        <p class="tile-info-desc" id="tile-desc"></p>
+      </div>
+    </div>
+
+    <!-- Photos for the selected service category — populated on tile click -->
+    <div class="tile-photos" id="tile-photos" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- Section transition: cobalt → porcelain via background colour block alone — no divider needed -->
+
+<!-- ============================================================
+     SELECTED WORK
+     ============================================================ -->
+<section class="case-studies section-pad" id="work" aria-label="Selected work">
+  <div class="container">
+    <header class="case-studies-header reveal">
+      <span class="t-label">Selected Work</span>
+      <h2 class="section-title">A Record of the Work</h2>
+      <p style="margin-top: 1rem; font-family: var(--font-body); font-style: italic; color: rgba(15,23,48,0.6); font-size: 1rem;">
+        Eight representative projects from across Central Minnesota. <a href="#quote" style="color: var(--cobalt); border-bottom: 1px solid currentColor;">Before-and-after photo slider</a> coming soon on the work page.
+        <!-- TODO: Before/after photo slider — Phase 1 scope deliverable -->
+      </p>
+    </header>
+
+    <div class="case-grid">
+
+      <!-- 01 — Riverbend Residence -->
+      <article class="case-article reveal">
+        <span class="case-number">No. 01 · Interior</span>
+        <div class="case-image-wrap">
+          <div class="case-image-frame">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800&q=85&auto=format&fit=crop"
+                 alt="Riverbend Residence — whole-home repaint in Sartell" loading="lazy">
+            <!-- REPLACE: nano-banana — [Riverbend Residence, Sartell MN — whole-home repaint, white kitchen + Hague Blue dining room, 2024] -->
+            <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--br" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+          </div>
+        </div>
+        <div class="case-meta-row">
+          <span class="case-meta-item">Sartell</span>
+          <span class="case-meta-item">Interior</span>
+          <span class="case-meta-item">2024</span>
+        </div>
+        <h3 class="case-title">Riverbend Residence</h3>
+        <p class="case-caption">Whole-home repaint. White kitchen with a Hague Blue dining room, two-coat eggshell throughout, trim restored in alkyd semi-gloss.</p>
+      </article>
+
+      <!-- 02 — Granite Ridge Kitchen -->
+      <article class="case-article reveal reveal-delay-1">
+        <span class="case-number">No. 02 · Cabinetry</span>
+        <div class="case-image-wrap">
+          <div class="case-image-frame">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1800&q=85&auto=format&fit=crop"
+                 alt="Granite Ridge Kitchen — 42 cabinet doors in St. Cloud" loading="lazy">
+            <!-- REPLACE: nano-banana — [Granite Ridge Kitchen, St. Cloud MN — 42 cabinet doors, conversion varnish, BM Simply White OC-117, 2025] -->
+            <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--br" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+          </div>
+        </div>
+        <div class="case-meta-row">
+          <span class="case-meta-item">St. Cloud</span>
+          <span class="case-meta-item">Cabinetry</span>
+          <span class="case-meta-item">2025</span>
+        </div>
+        <h3 class="case-title">Granite Ridge Kitchen</h3>
+        <p class="case-caption">42 cabinet doors and drawer fronts removed and finished off-site. Conversion varnish in BM Simply White OC-117. Factory-smooth, no brush marks.</p>
+      </article>
+
+      <!-- 03 — Cold Spring Farmhouse -->
+      <article class="case-article reveal">
+        <span class="case-number">No. 03 · Exterior</span>
+        <div class="case-image-wrap">
+          <div class="case-image-frame">
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1800&q=85&auto=format&fit=crop"
+                 alt="Cold Spring Farmhouse — sage exterior with cream trim" loading="lazy">
+            <!-- TODO: mismatch — needs real Spanier photo of Hardiplank exterior in sage with cream trim -->
+            <!-- REPLACE: nano-banana — [Cold Spring Farmhouse, Cold Spring MN — Hardiplank repaint, sage exterior with cream trim, 2024] -->
+            <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--br" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+          </div>
+        </div>
+        <div class="case-meta-row">
+          <span class="case-meta-item">Cold Spring</span>
+          <span class="case-meta-item">Exterior</span>
+          <span class="case-meta-item">2024</span>
+        </div>
+        <h3 class="case-title">Cold Spring Farmhouse</h3>
+        <p class="case-caption">Full Hardiplank repaint in sage with cream trim. Power-washed, scraped, primed and back-rolled. Alkyd-hybrid on the woodwork.</p>
+      </article>
+
+      <!-- 04 — Northgate Dental -->
+      <article class="case-article reveal reveal-delay-1">
+        <span class="case-number">No. 04 · Commercial</span>
+        <div class="case-image-wrap">
+          <div class="case-image-frame">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1800&q=85&auto=format&fit=crop"
+                 alt="Northgate Dental — anti-microbial latex repaint, Waite Park" loading="lazy">
+            <!-- REPLACE: nano-banana — [Northgate Dental, Waite Park MN — two-day turnaround, anti-microbial latex on patient rooms, 2025] -->
+            <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--br" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+          </div>
+        </div>
+        <div class="case-meta-row">
+          <span class="case-meta-item">Waite Park</span>
+          <span class="case-meta-item">Commercial</span>
+          <span class="case-meta-item">2025</span>
+        </div>
+        <h3 class="case-title">Northgate Dental</h3>
+        <p class="case-caption">Two-day turnaround. Anti-microbial latex on patient rooms, after-hours work. No business interruption — the doors opened on Monday clean.</p>
+      </article>
+
+      <!-- 05 — Heritage Avenue -->
+      <article class="case-article reveal">
+        <span class="case-number">No. 05 · Heritage</span>
+        <div class="case-image-wrap">
+          <div class="case-image-frame">
+            <img src="https://images.unsplash.com/photo-1571939228382-b2f2b585ce15?w=1800&q=85&auto=format&fit=crop"
+                 alt="Heritage Avenue — 1908 Queen Anne lead-safe repaint" loading="lazy">
+            <!-- TODO: mismatch — needs real Spanier photo of 1908 Queen Anne with historic green -->
+            <!-- REPLACE: nano-banana — [Heritage Avenue, St. Cloud MN — 1908 Queen Anne, lead-safe prep, historic green, 2023] -->
+            <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--br" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+          </div>
+        </div>
+        <div class="case-meta-row">
+          <span class="case-meta-item">St. Cloud</span>
+          <span class="case-meta-item">Heritage</span>
+          <span class="case-meta-item">2023</span>
+        </div>
+        <h3 class="case-title">Heritage Avenue</h3>
+        <p class="case-caption">1908 Queen Anne, lead-safe prep under EPA RRP. Color-matched historic green from the original turn-of-the-century paint chips.</p>
+      </article>
+
+      <!-- 06 — Pine Lake Deck -->
+      <article class="case-article reveal reveal-delay-1">
+        <span class="case-number">No. 06 · Decks</span>
+        <div class="case-image-wrap">
+          <div class="case-image-frame">
+            <img src="https://images.unsplash.com/photo-1598300188904-6287d52746ad?w=1800&q=85&auto=format&fit=crop"
+                 alt="Pine Lake Deck — cedar deck refinish in Avon" loading="lazy">
+            <!-- REPLACE: nano-banana — [Pine Lake Deck, Avon MN — 800 sqft cedar, semi-transparent stain, lakefront, 2024] -->
+            <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--br" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+          </div>
+        </div>
+        <div class="case-meta-row">
+          <span class="case-meta-item">Avon</span>
+          <span class="case-meta-item">Decks</span>
+          <span class="case-meta-item">2024</span>
+        </div>
+        <h3 class="case-title">Pine Lake Deck</h3>
+        <p class="case-caption">800 sqft of cedar on a lakefront property. Penetrating oil base, then semi-transparent stain — built for the freeze-thaw cycles.</p>
+      </article>
+
+      <!-- 07 — Sauk Rapids Office -->
+      <article class="case-article reveal">
+        <span class="case-number">No. 07 · Commercial</span>
+        <div class="case-image-wrap">
+          <div class="case-image-frame">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1800&q=85&auto=format&fit=crop"
+                 alt="Sauk Rapids Office — 4,200 sqft after-hours commercial repaint" loading="lazy">
+            <!-- TODO: mismatch — needs real Spanier photo of freshly painted office walls + trim -->
+            <!-- REPLACE: nano-banana — [Sauk Rapids Office, Sauk Rapids MN — 4,200 sqft, after-hours work, no business interruption, 2025] -->
+            <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--br" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+          </div>
+        </div>
+        <div class="case-meta-row">
+          <span class="case-meta-item">Sauk Rapids</span>
+          <span class="case-meta-item">Commercial</span>
+          <span class="case-meta-item">2025</span>
+        </div>
+        <h3 class="case-title">Sauk Rapids Office</h3>
+        <p class="case-caption">4,200 sqft of office walls and trim — scheduled after-hours and weekends so the company never lost a working day.</p>
+      </article>
+
+      <!-- 08 — The Annual House -->
+      <article class="case-article reveal reveal-delay-1">
+        <span class="case-number">No. 08 · Interior</span>
+        <div class="case-image-wrap">
+          <div class="case-image-frame">
+            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1800&q=85&auto=format&fit=crop"
+                 alt="The Annual House — trim refresh and ceiling repair, Albany" loading="lazy">
+            <!-- REPLACE: nano-banana — [The Annual House, Albany MN — trim refresh + ceiling repair, BM Decorator's White, 2024] -->
+            <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+            <svg class="case-corner case-corner--br" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
+          </div>
+        </div>
+        <div class="case-meta-row">
+          <span class="case-meta-item">Albany</span>
+          <span class="case-meta-item">Interior</span>
+          <span class="case-meta-item">2024</span>
+        </div>
+        <h3 class="case-title">The Annual House</h3>
+        <p class="case-caption">Trim refresh plus ceiling plaster repair in a 1920s home. Walls in BM Decorator's White, trim restored to a clean semi-gloss line.</p>
+      </article>
+
+    </div><!-- /.case-grid -->
+  </div>
+</section>
+
+<!-- Section transition: porcelain → ink via background colour block alone — no divider needed -->
+
+<!-- ============================================================
+     SERVICES
+     ============================================================ -->
+<section class="services section-pad" id="services" aria-label="Services">
+  <div class="container services-inner">
+    <header class="services-header reveal">
+      <span class="t-label">What We Do</span>
+      <h2 class="section-title">The Studio's Practice</h2>
+    </header>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="4" y="6" width="28" height="24" stroke="currentColor" stroke-width="1.2" rx="0"/>
+          <line x1="4" y1="14" x2="32" y2="14" stroke="currentColor" stroke-width="0.7" opacity="0.5"/>
+          <line x1="4" y1="22" x2="32" y2="22" stroke="currentColor" stroke-width="0.7" opacity="0.5"/>
+        </svg>
+        <h3 class="service-name">Interior Painting</h3>
+        <p class="service-desc">Walls, ceilings, trim, doors. Two coats over a primed surface. Eggshell on walls, semi-gloss on trim, flat ceilings unless specified. Drop cloths and protected hardware standard.</p>
+        <p class="service-detail">Eggshell · Semi-gloss · Flat · 2-coat</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 26 L18 8 L32 26 Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+          <rect x="7" y="26" width="22" height="6" stroke="currentColor" stroke-width="1"/>
+          <rect x="15" y="26" width="6" height="6" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+        <h3 class="service-name">Exterior Painting</h3>
+        <p class="service-desc">Siding, soffits, fascia, trim, garages. Power-washed, scraped, primed and back-rolled. Alkyd-hybrid on woodwork, elastomeric where bridging is required.</p>
+        <p class="service-detail">Alkyd-hybrid · Elastomeric · Back-rolled</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="4" y="6" width="12" height="24" stroke="currentColor" stroke-width="1.2" rx="0"/>
+          <rect x="20" y="6" width="12" height="24" stroke="currentColor" stroke-width="1.2" rx="0"/>
+          <circle cx="16" cy="18" r="1.5" stroke="currentColor" stroke-width="0.8"/>
+          <circle cx="20" cy="18" r="1.5" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+        <h3 class="service-name">Cabinet Refinishing</h3>
+        <p class="service-desc">Kitchens, vanities, built-ins. Doors and drawer fronts removed and finished off-site for an even, dust-free coat. Conversion varnish or pigmented lacquer depending on the cabinetry.</p>
+        <p class="service-detail">Conversion varnish · Pigmented lacquer</p>
+      </div>
+
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 28 Q4 6 18 6 Q32 6 32 28" stroke="currentColor" stroke-width="1.2" fill="none"/>
+          <line x1="4" y1="28" x2="32" y2="28" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="7" y1="32" x2="29" y2="32" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+        </svg>
+        <h3 class="service-name">Heritage / Historic Homes</h3>
+        <p class="service-desc">Older homes, lead-safe practice, color-matching original paint, plaster repair. EPA RRP certified. Patient detail work on profiles no catalogue reproduces.</p>
+        <p class="service-detail">EPA RRP Certified · Lead-safe · Plaster repair</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="4" y1="12" x2="32" y2="12" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="4" y1="18" x2="32" y2="18" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="4" y1="24" x2="32" y2="24" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="9"  y1="8" x2="9"  y2="28" stroke="currentColor" stroke-width="0.7" opacity="0.5"/>
+          <line x1="18" y1="8" x2="18" y2="28" stroke="currentColor" stroke-width="0.7" opacity="0.5"/>
+          <line x1="27" y1="8" x2="27" y2="28" stroke="currentColor" stroke-width="0.7" opacity="0.5"/>
+        </svg>
+        <h3 class="service-name">Decks + Fences</h3>
+        <p class="service-desc">Stain, seal, refresh. Penetrating oils, semi-transparent stains, or solid-body coatings depending on age and exposure. Built for the Minnesota freeze-thaw cycle.</p>
+        <p class="service-detail">Penetrating oil · Semi-transparent · Solid body</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="18" cy="18" r="12" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M18 6 A12 12 0 0 1 30 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+          <path d="M30 18 A12 12 0 0 1 18 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
+          <circle cx="18" cy="18" r="3" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+        <h3 class="service-name">Specialty Coatings</h3>
+        <p class="service-desc">Garage floors (epoxy), commercial walls, fire-rated coatings, anti-graffiti finishes, kitchen-safe cabinetry refresh.</p>
+        <p class="service-detail">Epoxy · Fire-rated · Anti-graffiti</p>
+      </div>
+
+    </div><!-- /.services-grid -->
+  </div>
+</section>
+
+<!-- ============================================================
+     ORNAMENT DIVIDER 5 — Fleur rule: ink services → porcelain process
+     ============================================================ -->
+<div class="divider" aria-hidden="true" style="background: var(--porcelain); padding-block: 1.25rem;">
+  <svg viewBox="0 0 900 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <line x1="0" y1="24" x2="390" y2="24" style="stroke:var(--cobalt);" stroke-width="0.6" opacity="0.18"/>
+    <line x1="510" y1="24" x2="900" y2="24" style="stroke:var(--cobalt);" stroke-width="0.6" opacity="0.18"/>
+    <!-- Fleur de lis — slightly more defined -->
+    <path d="M450 10 L450 24" style="stroke:var(--cobalt);" stroke-width="0.8" opacity="0.45"/>
+    <path d="M441 16 Q450 8 459 16" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.42"/>
+    <path d="M437 24 Q441 15 450 13 Q459 15 463 24" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.38"/>
+    <path d="M435 24 Q436 30 441 32 Q450 36 459 32 Q464 30 465 24" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.32"/>
+    <line x1="435" y1="24" x2="465" y2="24" style="stroke:var(--cobalt);" stroke-width="0.7" opacity="0.32"/>
+    <!-- Side diamonds — slightly more visible -->
+    <path d="M404 24 L414 17 L424 24 L414 31 Z" style="stroke:var(--cobalt);" stroke-width="0.7" fill="none" opacity="0.25"/>
+    <path d="M476 24 L486 17 L496 24 L486 31 Z" style="stroke:var(--cobalt);" stroke-width="0.7" fill="none" opacity="0.25"/>
+  </svg>
+</div>
+
+<!-- ============================================================
+     PROCESS — manuscript-style numbered process
+     ============================================================ -->
+<section class="process" id="process" aria-label="How we work">
+  <div class="process-inner">
+    <header class="process-header reveal">
+      <span class="t-label">How We Work</span>
+      <h2 class="section-title">The Process,<br><em>in Four Movements</em></h2>
+    </header>
+
+    <div class="process-grid">
+      <article class="process-step reveal">
+        <span class="process-step-num">I</span>
+        <h3 class="process-step-title">Walkthrough</h3>
+        <p class="process-step-body">Lukas walks the property with you, takes photos, and measures with iPad LiDAR for accurate square-footage. No per-hour guesswork — a real number after a real walk-through.</p>
+      </article>
+      <article class="process-step reveal reveal-delay-1">
+        <span class="process-step-num">II</span>
+        <h3 class="process-step-title">Color</h3>
+        <p class="process-step-body">Sherwin-Williams ColorSnap AR previews on your wall, or bring your own swatch. Sample patches optional. See the colour before we touch a wall.</p>
+      </article>
+      <article class="process-step reveal reveal-delay-2">
+        <span class="process-step-num">III</span>
+        <h3 class="process-step-title">Prep + Paint</h3>
+        <p class="process-step-body">Drop cloths, hardware off, surfaces prepped, two coats unless spec'd otherwise. Daily clean-up. One room at a time, completely, never reversed.</p>
+      </article>
+      <article class="process-step reveal reveal-delay-3">
+        <span class="process-step-num">IV</span>
+        <h3 class="process-step-title">Walk-through + Warranty</h3>
+        <p class="process-step-body">Final inspection together. Two-year workmanship warranty in writing — if a coat fails because of how we applied it, we come back and fix it.</p>
+      </article>
+    </div>
+
+    <!-- Phase 3 tease cards — coming soon -->
+    <div class="process-feature-row">
+      <article class="process-feature reveal">
+        <!-- TODO: Phase 3 -->
+        <p class="process-feature-label">Coming Soon</p>
+        <h3 class="process-feature-title">Instant Ballpark Estimate</h3>
+        <p class="process-feature-body">Upload a photo of your room. Get a price range in 30 seconds. Powered by Claude.</p>
+        <p class="process-feature-tag">In development · Spring 2026</p>
+      </article>
+      <article class="process-feature reveal reveal-delay-1">
+        <!-- TODO: Phase 3 -->
+        <p class="process-feature-label">Coming Soon</p>
+        <h3 class="process-feature-title">AI Room Designer</h3>
+        <p class="process-feature-body">See your space in three color schemes before the first brushstroke.</p>
+        <p class="process-feature-tag">In development · Spring 2026</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS — three framed pull quotes with Google logomark
+     ============================================================ -->
+<section class="reviews" id="reviews" aria-label="Client reviews">
+  <div class="reviews-inner">
+    <header class="reviews-header reveal">
+      <span class="t-label">Client Reviews</span>
+      <h2 class="section-title">Recommended<br><em>by Name</em></h2>
+      <div class="reviews-rating" role="img" aria-label="5.0 stars on Google">
+        <span class="reviews-stars" aria-hidden="true">★★★★★</span>
+        <span>5.0</span>
+        <span class="reviews-google-logo">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.84z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/>
+          </svg>
+          Google Reviews
+        </span>
+      </div>
+      <!-- TODO: Google Reviews widget — Phase 1 scope -->
+    </header>
+
+    <div class="reviews-grid">
+      <!-- TODO: replace with real Google Review when Lukas pulls them -->
+      <figure class="review-card reveal">
+        <svg class="review-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M8 32 Q8 16 20 12 Q14 22 16 30 Q20 30 20 36 Q20 42 14 42 Q8 42 8 36 Z" fill="currentColor"/>
+          <path d="M28 32 Q28 16 40 12 Q34 22 36 30 Q40 30 40 36 Q40 42 34 42 Q28 42 28 36 Z" fill="currentColor"/>
+        </svg>
+        <blockquote class="review-quote">
+          "Lukas painted three rooms in our 1923 bungalow and you genuinely cannot see a brushstroke. He's the only painter we'll call now."
+        </blockquote>
+        <figcaption>
+          <span class="review-attr">Jen &amp; Marcus K.</span>
+          <span class="review-meta">Sartell · Interior</span>
+        </figcaption>
+      </figure>
+
+      <!-- TODO: replace with real Google Review when Lukas pulls them -->
+      <figure class="review-card reveal reveal-delay-1">
+        <svg class="review-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M8 32 Q8 16 20 12 Q14 22 16 30 Q20 30 20 36 Q20 42 14 42 Q8 42 8 36 Z" fill="currentColor"/>
+          <path d="M28 32 Q28 16 40 12 Q34 22 36 30 Q40 30 40 36 Q40 42 34 42 Q28 42 28 36 Z" fill="currentColor"/>
+        </svg>
+        <blockquote class="review-quote">
+          "We had two-day downtime for our dental office. Spanier was in and out, off-hours, perfectly clean. The patients didn't notice a thing."
+        </blockquote>
+        <figcaption>
+          <span class="review-attr">Dr. Pavlov</span>
+          <span class="review-meta">Northgate Dental · Commercial</span>
+        </figcaption>
+      </figure>
+
+      <!-- TODO: replace with real Google Review when Lukas pulls them -->
+      <figure class="review-card reveal reveal-delay-2">
+        <svg class="review-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M8 32 Q8 16 20 12 Q14 22 16 30 Q20 30 20 36 Q20 42 14 42 Q8 42 8 36 Z" fill="currentColor"/>
+          <path d="M28 32 Q28 16 40 12 Q34 22 36 30 Q40 30 40 36 Q40 42 34 42 Q28 42 28 36 Z" fill="currentColor"/>
+        </svg>
+        <blockquote class="review-quote">
+          "He talked me out of a colour I would have hated. That's worth the whole project price."
+        </blockquote>
+        <figcaption>
+          <span class="review-attr">Heather B.</span>
+          <span class="review-meta">St. Cloud · Cabinetry</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ — heritage trade pamphlet
+     ============================================================ -->
+<section class="faq" id="faq" aria-label="Frequently asked questions">
+  <div class="faq-inner">
+    <header class="faq-header reveal">
+      <span class="t-label">Questions Often Asked</span>
+      <h2 class="section-title">A Pamphlet of<br><em>Plain Answers</em></h2>
+    </header>
+    <div class="faq-list">
+      <details class="faq-item reveal" open>
+        <summary class="faq-q">
+          <span class="faq-q-num">I.</span>
+          <span class="faq-q-text">What areas do you serve?</span>
+          <svg class="faq-q-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-a">Central Minnesota — St. Cloud, Sartell, Sauk Rapids, Waite Park, Cold Spring, Avon, Albany, Monticello, Foley, Rice, Becker, Big Lake. Roughly a 60-mile radius from St. Cloud.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">
+          <span class="faq-q-num">II.</span>
+          <span class="faq-q-text">How much does a typical project cost?</span>
+          <svg class="faq-q-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-a">Interior repaints start around $2.50–$4.50/sqft of wall area; full exteriors $4,000–$12,000 depending on size, prep, and condition. We give you a real number after a walkthrough — not a per-hour estimate.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">
+          <span class="faq-q-num">III.</span>
+          <span class="faq-q-text">Do you give free estimates?</span>
+          <svg class="faq-q-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-a">Yes. A walkthrough, photos, measurements, and a written quote — at no cost.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">
+          <span class="faq-q-num">IV.</span>
+          <span class="faq-q-text">Are you licensed and insured?</span>
+          <svg class="faq-q-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-a">Yes — licensed and insured in Minnesota, plus EPA RRP certified for lead-safe work on pre-1978 homes.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">
+          <span class="faq-q-num">V.</span>
+          <span class="faq-q-text">What paint brands do you use?</span>
+          <svg class="faq-q-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-a">Sherwin-Williams and Benjamin Moore are the defaults. We'll work with whatever you specify.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">
+          <span class="faq-q-num">VI.</span>
+          <span class="faq-q-text">How long does a typical interior repaint take?</span>
+          <svg class="faq-q-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-a">A 1,500 sqft repaint is usually 3–5 working days. Cabinetry runs 5–7 days. Exteriors run 1–2 weeks depending on weather and prep.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">
+          <span class="faq-q-num">VII.</span>
+          <span class="faq-q-text">Do you do commercial work?</span>
+          <svg class="faq-q-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-a">Yes — offices, dental and medical, restaurants, retail. Most commercial work is scheduled after-hours or weekends so you don't lose business days.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">
+          <span class="faq-q-num">VIII.</span>
+          <span class="faq-q-text">Is there a warranty?</span>
+          <svg class="faq-q-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-a">Two-year workmanship warranty in writing. If a coat fails because of how we applied it, we come back and fix it.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUOTE / CONTACT — framed with thin Delft border
+     ============================================================ -->
+<section class="quote" id="quote" aria-label="Plan your project">
+  <div class="quote-inner">
+    <header class="quote-header reveal">
+      <span class="t-label">Plan Your Project</span>
+      <h2 class="section-title">Begin the<br><em>Conversation</em></h2>
+      <p style="margin-top: 0.8rem; font-family: var(--font-body); font-style: italic; color: rgba(15,23,48,0.6); font-size: 1rem;">
+        A walkthrough, photos, measurements, and a written quote — at no cost. Lukas responds personally within one business day.
+      </p>
+    </header>
+
+    <div class="quote-frame reveal reveal-delay-1">
+      <div class="quote-grid">
+        <div class="quote-contact-block">
+          <p class="t-label" style="margin-bottom: 0.4rem;">Direct from Lukas</p>
+          <h3 class="quote-contact-title">Talk to the painter,<br>not a call centre.</h3>
+          <ul class="quote-contact-list">
+            <li>Phone · <a href="tel:3202509100">320-250-9100</a></li>
+            <li>Alt · <a href="tel:3202909516">320-290-9516</a></li>
+            <li>Email · <a href="mailto:lukas@spanierpainting.com">lukas@spanierpainting.com</a></li>
+            <li>Studio · St. Cloud, Minnesota</li>
+          </ul>
+          <p class="quote-contact-hours">
+            Mon–Fri · 7am–6pm<br>
+            Sat · By appointment<br>
+            Sun · Closed
+          </p>
+          <div class="quote-cta-row">
+            <a href="tel:3202509100" class="btn-cobalt">Call to Start a Project</a>
+          </div>
+        </div>
+
+        <div class="quote-divider-v" aria-hidden="true"></div>
+
+        <div>
+          <p class="t-label" style="margin-bottom: 0.4rem;">Or send a request</p>
+          <div class="quote-form-area">
+            <!-- TODO: Jobber Work Request Form embed (Phase 2) — script goes here -->
+            <span class="t-label">Jobber Request Form</span>
+            <p class="quote-form-placeholder">Form embeds here.</p>
+            <p class="quote-form-note">A short form for project details, address, and preferred dates. Goes directly into Lukas's schedule.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION BREAK — earned typographic rule between testimonial + service area
+     ============================================================ -->
+<div class="section-rule" aria-hidden="true">
+  <span class="section-rule__text">Est. MMXIV</span>
+</div>
+
+<!-- ============================================================
+     SERVICE AREA
+     ============================================================ -->
+<section class="service-area" id="area" aria-label="Service area">
+  <div class="service-area-inner">
+    <div class="service-area-left reveal">
+      <span class="t-label">Where We Work</span>
+      <h2 class="section-title">Central<br><em>Minnesota</em></h2>
+      <p class="service-area-body">
+        The studio serves St. Cloud and the surrounding communities of Central Minnesota — roughly
+        a 60-mile radius. Walkthroughs and written quotes at no cost within the service area.
+        Travel available by arrangement for larger projects.
+      </p>
+    </div>
+    <div class="service-area-right reveal reveal-delay-1">
+      <div class="cities-grid">
+        <span class="city-name primary">St. Cloud</span>
+        <span class="city-name primary">Sartell</span>
+        <span class="city-name primary">Sauk Rapids</span>
+        <span class="city-name">Waite Park</span>
+        <span class="city-name">Avon</span>
+        <span class="city-name">Foley</span>
+        <span class="city-name">Rice</span>
+        <span class="city-name">Cold Spring</span>
+        <span class="city-name">Albany</span>
+        <span class="city-name">Becker</span>
+        <span class="city-name">Big Lake</span>
+        <span class="city-name">Monticello</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="cta-section section-pad" id="contact" aria-label="Start a project">
+  <div class="cta-inner">
+    <!-- Cartouche above CTA -->
+    <div class="reveal" aria-hidden="true">
+      <svg viewBox="0 0 400 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: min(400px, 80vw); margin: 0 auto 2rem; display: block; opacity: 0.35; color: var(--soft-blue);">
+        <line x1="0" y1="20" x2="140" y2="20" stroke="currentColor" stroke-width="0.6"/>
+        <path d="M140 20 Q160 8 180 20 Q200 32 220 20 Q240 8 260 20" stroke="currentColor" stroke-width="0.8" fill="none"/>
+        <line x1="260" y1="20" x2="400" y2="20" stroke="currentColor" stroke-width="0.6"/>
+        <circle cx="200" cy="20" r="3" fill="currentColor" opacity="0.6"/>
+      </svg>
+    </div>
+    <p class="cta-eyebrow reveal">Start a Project</p>
+    <h2 class="cta-title reveal reveal-delay-1">
+      Let's talk about<br><em>your rooms.</em>
+    </h2>
+    <p class="cta-sub reveal reveal-delay-2">
+      Painted by hand. Built to last. Lukas responds personally within one business day.
+    </p>
+    <div class="cta-actions reveal reveal-delay-3">
+      <a href="#quote" class="btn-primary">Get a Quote</a>
+      <a href="tel:3202509100" class="btn-ghost">Call 320-250-9100</a>
+    </div>
+    <p class="cta-phone reveal reveal-delay-4">
+      <a href="mailto:lukas@spanierpainting.com">lukas@spanierpainting.com</a>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer" id="footer" role="contentinfo">
+  <div class="footer-upper">
+    <div class="footer-brand">
+      <div class="nav-wordmark" style="margin-bottom: 1rem;">
+        <!-- Logo D: Wordmark + brushstroke mark -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" style="height:40px;width:auto;" role="img" aria-label="Spanier Painting">
+          <path d="M10 32
+                   C18 28  34 28  46 33
+                   C40 38  26 39  16 36
+                   C32 36  46 37  56 41"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="6"
+                stroke-linecap="round"/>
+          <text x="76" y="46"
+                font-family="'Cormorant Garamond', 'Crimson Pro', Georgia, serif"
+                font-style="italic"
+                font-weight="500"
+                font-size="38"
+                letter-spacing="-0.5"
+                fill="currentColor">Spanier Painting</text>
+          <text x="76" y="62"
+                font-family="'JetBrains Mono', 'IBM Plex Mono', monospace"
+                font-size="8"
+                letter-spacing="2.6"
+                fill="currentColor"
+                opacity="0.65">EST. MMXIV · ST. CLOUD, MN</text>
+        </svg>
+      </div>
+      <p class="footer-bio">
+        Spanier Painting · St. Cloud, Minnesota.<br>
+        320-250-9100 · lukas@spanierpainting.com<br>
+        Mon–Fri 7–6 · Sat by appointment
+      </p>
+      <p class="footer-credentials">
+        Licensed + Insured · EPA RRP Certified · Est. 2014
+      </p>
+      <p class="footer-bio" style="margin-top: 0.9rem;">
+        Service area · St. Cloud · Sartell · Sauk Rapids · Waite Park · Cold Spring · Avon · Albany · Monticello · Foley · Rice · Becker · Big Lake.
+      </p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigation</p>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#quote">Quote</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Services</p>
+      <ul class="footer-links">
+        <li><a href="#services">Interior Painting</a></li>
+        <li><a href="#services">Exterior Painting</a></li>
+        <li><a href="#services">Cabinet Refinishing</a></li>
+        <li><a href="#services">Heritage / Historic</a></li>
+        <li><a href="#services">Decks + Fences</a></li>
+        <li><a href="#services">Specialty Coatings</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Contact</p>
+      <p class="footer-contact-line"><a href="tel:3202509100">320-250-9100</a></p>
+      <p class="footer-contact-line"><a href="tel:3202909516">320-290-9516 (alt)</a></p>
+      <p class="footer-contact-line"><a href="mailto:lukas@spanierpainting.com">lukas@spanierpainting.com</a></p>
+      <p class="footer-contact-line" style="margin-top: 0.8rem;">St. Cloud, Minnesota</p>
+      <p class="footer-hours">
+        Mon–Fri · 7am – 6pm<br>
+        Saturday · By appointment<br>
+        Sunday · Closed
+      </p>
+      <p class="footer-col-title" style="margin-top: 1.2rem; margin-bottom: 0.6rem;">Follow</p>
+      <p class="footer-contact-line"><a href="#">Instagram</a> · <a href="#">Facebook</a></p>
+    </div>
+  </div>
+  <div class="footer-lower">
+    <p class="footer-copy">&copy; 2026 Spanier Painting &mdash; St. Cloud, Minnesota &middot; All rights reserved</p>
+    <p class="footer-copy" style="opacity: 0.22; font-style: italic; font-family: var(--font-body); letter-spacing: 0.03em; text-transform: none; font-size: 0.78rem;">Painted by hand. Built to last.</p>
+    <p class="footer-est">Est. 2014 · Site by Aidan</p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     CHAT FAB — Tidio placeholder (Phase 2)
+     ============================================================ -->
+<!-- TODO: Tidio Free chatbot widget embed (Phase 2) -->
+<button class="chat-fab" aria-label="Open chat — Talk to Lukas" type="button">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M21 12a9 9 0 1 1-3.5-7.1L21 3v6h-6"/>
+  </svg>
+</button>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* --- Nav scroll state --- */
+  const nav = document.getElementById('site-nav');
+  function onScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* --- IntersectionObserver reveals --- */
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add('visible'));
+  }
+
+  /* --- Tile explorer interaction --- */
+  const tiles = document.querySelectorAll('.tile-cell');
+  const tileName = document.getElementById('tile-name');
+  const tileDesc = document.getElementById('tile-desc');
+  const tileInfo = document.getElementById('tile-info');
+  const tilePhotos = document.getElementById('tile-photos');
+  const tilePrompt = document.getElementById('tile-prompt');
+  const tileInfoLabel = document.getElementById('tile-info-label');
+
+  /* Three finished-project photos per service category, mapped by data-name.
+     Marked for nano-banana replacement with real Spanier project assets. */
+  /* REPLACE: All photo src values below are Unsplash placeholders.
+     Swap each for a real Spanier project asset per the nano-banana comment on the figure. */
+  const tileCategoryPhotos = {
+    'Interior Walls': [
+      /* REPLACE: nano-banana — [Interior living room, eggshell walls, natural light, Sauk Rapids MN home, freshly painted 2023] */
+      { src: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=900&q=85&auto=format&fit=crop', cap: 'Living room — BM Pale Oak, eggshell · Sauk Rapids · 2023' },
+      /* REPLACE: nano-banana — [Bedroom interior, flat white ceiling, satin walls, warm afternoon light, St. Cloud MN 2024] */
+      { src: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=85&auto=format&fit=crop', cap: 'Primary bedroom — BM Revere Pewter, satin · St. Cloud · 2024' },
+      /* REPLACE: nano-banana — [Home library or study, deep navy walls two coats, built-in shelves, Avon MN 2025] */
+      { src: 'https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=900&q=85&auto=format&fit=crop', cap: 'Study — F&B Hague Blue, flat · Avon · 2025' }
+    ],
+    'Exterior Siding': [
+      /* REPLACE: nano-banana — [Residential home exterior, freshly painted clapboard siding, classic white, Cold Spring MN, summer 2023] */
+      { src: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=900&q=85&auto=format&fit=crop', cap: 'Clapboard siding — SW Alabaster, satin · Cold Spring · 2023' },
+      /* REPLACE: nano-banana — [Craftsman exterior, dark trim, painted siding, Sartell MN suburban home, 2024] */
+      { src: 'https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?w=900&q=85&auto=format&fit=crop', cap: 'Full exterior repaint — BM Kendall Charcoal trim · Sartell · 2024' },
+      /* REPLACE: nano-banana — [Ranch-style home exterior, white siding, blue trim, lake lot, Big Lake MN 2024] */
+      { src: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=85&auto=format&fit=crop', cap: 'Ranch exterior — two-coat acrylic satin · Big Lake · 2024' }
+    ],
+    'Cabinet Finishing': [
+      /* REPLACE: nano-banana — [Kitchen shaker cabinets, spray-finished white, conversion varnish, Sartell MN home 2024] */
+      { src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=85&auto=format&fit=crop', cap: '42 cabinet faces — conversion varnish, BM White Dove · Sartell · 2024' },
+      /* REPLACE: nano-banana — [Kitchen cabinet doors sprayed white, factory-smooth finish, no brush marks, St. Cloud MN 2025] */
+      { src: 'https://images.unsplash.com/photo-1556909011-7309f48f79b6?w=900&q=85&auto=format&fit=crop', cap: 'Full kitchen — catalyzed lacquer, satin sheen · St. Cloud · 2025' },
+      /* REPLACE: nano-banana — [Bathroom vanity cabinet painted matte blue, new hardware, Avon MN 2024] */
+      { src: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=900&q=85&auto=format&fit=crop', cap: 'Vanity refinish — BM Hale Navy, semi-gloss · Avon · 2024' }
+    ],
+    'Heritage Trim': [
+      /* REPLACE: nano-banana — [1908 four-square foyer, original millwork, painted white alkyd finish, St. Cloud Pantown neighborhood 2025] */
+      { src: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=900&q=85&auto=format&fit=crop', cap: '1908 four-square foyer — alkyd semi-gloss · Pantown, St. Cloud · 2025' },
+      /* REPLACE: nano-banana — [Heritage wainscoting and door surround, period millwork, repainted white, Sartell MN 2024] */
+      /* TODO: mismatch — needs real Spanier photo of wainscoting + door surround in oil-based enamel */
+      { src: 'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=900&q=85&auto=format&fit=crop', cap: 'Wainscoting + door surround — oil-based enamel · Sartell · 2024' },
+      /* REPLACE: nano-banana — [Crown moulding close-up, freshly painted white, clean lines, Minnesota craftsman home 2023] */
+      { src: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=85&auto=format&fit=crop', cap: 'Crown moulding restoration — stripped, re-primed · Foley · 2023' }
+    ],
+    'Deck Restoration': [
+      /* REPLACE: nano-banana — [Cedar deck boards after staining, warm brown solid stain, Becker MN backyard 2024] */
+      { src: 'https://images.unsplash.com/photo-1598300188904-6287d52746ad?w=900&q=85&auto=format&fit=crop', cap: 'Cedar deck — solid-color stain, UV barrier · Becker · 2024' },
+      /* REPLACE: nano-banana — [Front porch floor, painted grey, solid-stain finish, railing repainted white, Albany MN 2023] */
+      { src: 'https://images.unsplash.com/photo-1605276373954-0c4a0dac5b12?w=900&q=85&auto=format&fit=crop', cap: 'Front porch + railings — solid stain · Albany · 2023' },
+      /* REPLACE: nano-banana — [Lake dock boards and dock railings, stained, Big Lake MN summer 2024] */
+      { src: 'https://images.unsplash.com/photo-1518883041-2cb88f1ddc60?w=900&q=85&auto=format&fit=crop', cap: 'Dock + railings — semi-transparent stain · Big Lake · 2024' }
+    ],
+    'Color Consultation': [
+      /* REPLACE: nano-banana — [Lukas Spanier on-site consultation, holding paint fan deck, natural light, Minnesota home 2025] */
+      { src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=85&auto=format&fit=crop', cap: 'On-site walk-through — paint fan in hand · St. Cloud · 2025' },
+      /* REPLACE: nano-banana — [Kitchen and dining room after palette consultation, warm cohesive colours, MN home 2024] */
+      { src: 'https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=900&q=85&auto=format&fit=crop', cap: 'Kitchen–dining palette — BM White Dove + Hague Blue · 2024' },
+      /* REPLACE: nano-banana — [Open-plan interior, whole-home cohesive palette result, Sauk Rapids MN 2024] */
+      { src: 'https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?w=900&q=85&auto=format&fit=crop', cap: 'Whole-home colour plan · Sauk Rapids · 2024' }
+    ]
+  };
+
+  function renderTilePhotos(name) {
+    if (!tilePhotos) return;
+    const set = tileCategoryPhotos[name] || [];
+    if (!set.length) {
+      tilePhotos.classList.remove('visible');
+      tilePhotos.innerHTML = '';
+      return;
+    }
+    tilePhotos.innerHTML = set.map(function(p, i) {
+      /* REPLACE: nano-banana — swap src for real Spanier project asset per caption label */
+      return '<figure class="tile-photo">' +
+        '<img src="' + p.src + '" alt="Spanier Painting project: ' + p.cap + '" loading="lazy">' +
+        '<figcaption class="tile-photo-cap">' + p.cap + '</figcaption>' +
+      '</figure>';
+    }).join('');
+    /* Allow paint to settle then animate in */
+    requestAnimationFrame(() => tilePhotos.classList.add('visible'));
+  }
+
+  function activateTile(tile) {
+    tiles.forEach((t) => {
+      t.classList.remove('active');
+      t.setAttribute('aria-pressed', 'false');
+    });
+    tile.classList.add('active');
+    tile.setAttribute('aria-pressed', 'true');
+    const name = tile.dataset.name || '';
+    const desc = tile.dataset.desc || '';
+    tileName.style.opacity = '1';
+    tileName.textContent = name;
+    tileDesc.textContent = desc;
+    if (tileInfoLabel) tileInfoLabel.textContent = 'Service';
+    /* Hide prompt once a tile is selected */
+    if (tilePrompt) tilePrompt.style.display = 'none';
+    /* Briefly hide existing gallery for a clean swap */
+    if (tilePhotos) tilePhotos.classList.remove('visible');
+    setTimeout(() => renderTilePhotos(name), 220);
+  }
+
+  tiles.forEach((tile) => {
+    tile.addEventListener('click', () => activateTile(tile));
+    tile.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        activateTile(tile);
+      }
+    });
+    tile.addEventListener('mouseenter', () => {
+      const active = document.querySelector('.tile-cell.active');
+      if (!active) {
+        tileName.style.opacity = '0.5';
+        tileName.textContent = tile.dataset.name || '';
+      }
+    });
+    tile.addEventListener('mouseleave', () => {
+      const active = document.querySelector('.tile-cell.active');
+      if (active) {
+        tileName.style.opacity = '1';
+        tileName.textContent = active.dataset.name || '';
+        tileDesc.textContent = active.dataset.desc || '';
+      } else {
+        tileName.style.opacity = '0.25';
+        tileName.textContent = '—';
+      }
+    });
+  });
+
+  /* --- Activate first tile by default after a moment --- */
+  setTimeout(() => {
+    if (tiles.length > 0) activateTile(tiles[0]);
+  }, 600);
+
+})();
+
+/* ─── MOBILE NAV TOGGLE ───────────────────────────────────────── */
+(function () {
+  var nav = document.getElementById('site-nav');
+  var toggle = document.getElementById('nav-toggle');
+  var links = document.getElementById('nav-links');
+  if (!nav || !toggle || !links) return;
+
+  function closeMenu () {
+    nav.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+  function openMenu () {
+    nav.classList.add('menu-open');
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+
+  toggle.addEventListener('click', function () {
+    if (nav.classList.contains('menu-open')) closeMenu();
+    else openMenu();
+  });
+
+  links.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') closeMenu();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('menu-open')) {
+      closeMenu();
+      toggle.focus();
+    }
+  });
+})();
+</script>
+</body>
+</html>

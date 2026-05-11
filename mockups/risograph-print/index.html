@@ -1,0 +1,3841 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Spanier Painting — St. Cloud MN — Residential &amp; Commercial</title>
+<meta name="description" content="Spanier Painting — residential and commercial painters in St. Cloud, Minnesota. Interior, exterior, cabinets, heritage, decks, and commercial. Est. 2014. Licensed and insured.">
+<meta name="keywords" content="painter St. Cloud, interior painter Minnesota, cabinet refinishing St. Cloud, commercial painter Central MN">
+<link rel="canonical" href="https://spanierpainting.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=VT323&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Painter",
+  "name": "Spanier Painting",
+  "image": "https://spanierpainting.com/assets/logo.png",
+  "url": "https://spanierpainting.com",
+  "telephone": "+1-320-250-9100",
+  "email": "lukas@spanierpainting.com",
+  "founder": "Lukas Spanier",
+  "foundingDate": "2014",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "St. Cloud",
+    "addressRegion": "MN",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    "St. Cloud", "Sartell", "Sauk Rapids", "Waite Park",
+    "Cold Spring", "Avon", "Albany", "Monticello"
+  ],
+  "openingHours": "Mo-Fr 07:00-18:00",
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "42"
+  }
+}
+</script>
+
+<style>
+/* ═══════════════════════════════════════════
+   TOKENS & RESET
+   ═══════════════════════════════════════════ */
+:root {
+  --paper:       #FFFFFF;            /* pure white per brand rule */
+  --fluoro-pink: #3E6FE0;            /* re-aliased: brighter sky-cobalt — second riso pass, makes misregistration visible against #1E3F8A */
+  --electric-blue: #1E3F8A;          /* badge cobalt — primary blue */
+  --ink:         #14140E;
+  --ink-80:      rgba(20,20,14,0.8);
+  --pink-10:     rgba(10,46,138,0.10);
+  --blue-10:     rgba(30,63,138,0.10);
+  --pink-20:     rgba(10,46,138,0.20);
+  --blue-20:     rgba(30,63,138,0.20);
+
+  /* Registration offset for mis-print effect */
+  --reg-offset: 3px;
+
+  --display: "Bricolage Grotesque", "Space Grotesk", system-ui, sans-serif;
+  --body: "DM Sans", system-ui, sans-serif;
+  --mono: "VT323", monospace;
+
+  --container: 1340px;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: 0; background: none; }
+
+/* ═══════════════════════════════════════════
+   GRAIN TEXTURE (SVG noise overlay)
+   ═══════════════════════════════════════════ */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.45;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  mix-blend-mode: multiply;
+}
+
+/* ═══════════════════════════════════════════
+   MISREGISTRATION UTILITY
+   ═══════════════════════════════════════════ */
+.misreg {
+  position: relative;
+  display: inline-block;
+}
+.misreg::before {
+  content: attr(data-text);
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--fluoro-pink);
+  z-index: -1;
+  pointer-events: none;
+}
+.misreg-blue {
+  position: relative;
+}
+.misreg-blue::before {
+  content: attr(data-text);
+  position: absolute;
+  top: calc(-1 * var(--reg-offset));
+  left: var(--reg-offset);
+  color: var(--electric-blue);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════
+   LAYOUT UTILITIES
+   ═══════════════════════════════════════════ */
+.wrap {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ═══════════════════════════════════════════
+   REVEAL ANIMATION
+   ═══════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s cubic-bezier(.2,.8,.2,1), transform 0.55s cubic-bezier(.2,.8,.2,1);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+
+/* ═══════════════════════════════════════════
+   SECTION PLATE STAMP
+   ═══════════════════════════════════════════ */
+.plate-stamp {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  color: var(--fluoro-pink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  border: 1.5px solid var(--fluoro-pink);
+  line-height: 1;
+}
+.plate-stamp.blue {
+  color: var(--electric-blue);
+  border-color: var(--electric-blue);
+}
+
+/* ═══════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════ */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+  transition: border-bottom-width 0.15s, box-shadow 0.15s;
+}
+header.scrolled {
+  border-bottom-width: 3px;
+  box-shadow: 0 2px 0 var(--fluoro-pink);
+}
+.nav-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-wordmark {
+  color: var(--ink);
+  line-height: 1;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.nav-wordmark-riso {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--fluoro-pink);
+  opacity: 0.7;
+  margin-left: 0.75rem;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 2vw, 2.5rem);
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--fluoro-pink); }
+.nav-cta {
+  background: transparent !important;
+  color: var(--ink) !important;
+  border: 2px solid var(--ink) !important;
+  padding: 0.45rem 1.1rem;
+  font-weight: 700 !important;
+  transition: background 0.15s !important, color 0.15s !important, box-shadow 0.15s !important;
+}
+.nav-cta:hover {
+  background: var(--ink) !important;
+  color: var(--paper) !important;
+  box-shadow: 3px 3px 0 var(--fluoro-pink) !important;
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════ */
+.hero {
+  padding-top: 72px; /* nav height */
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+/* Background abstract shapes */
+.hero-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-halfcircle {
+  position: absolute;
+  top: -120px;
+  right: -180px;
+  width: 580px;
+  height: 580px;
+  border-radius: 50%;
+  background: var(--fluoro-pink);
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+}
+.hero-slash {
+  position: absolute;
+  bottom: 60px;
+  left: -60px;
+  width: 8px;
+  height: 380px;
+  background: var(--electric-blue);
+  transform: rotate(-15deg);
+  opacity: 0.25;
+}
+.hero-slash-2 {
+  position: absolute;
+  bottom: 80px;
+  left: -40px;
+  width: 8px;
+  height: 380px;
+  background: var(--fluoro-pink);
+  transform: rotate(-15deg);
+  opacity: 0.4;
+}
+.hero-dot-grid {
+  position: absolute;
+  top: 80px;
+  left: 60px;
+  opacity: 0.15;
+}
+
+/* Grain on hero shapes */
+.hero-halfcircle::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='0.6'/%3E%3C/svg%3E");
+  background-size: 200px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(3rem, 8vw, 7rem) var(--gutter) clamp(2rem, 5vw, 4rem);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-kicker {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  color: var(--electric-blue);
+  letter-spacing: 0.06em;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 36px;
+  height: 2px;
+  background: var(--electric-blue);
+}
+
+/* GIANT WORDMARK */
+.hero-wordmark {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(4.5rem, 12vw, 13rem);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  color: var(--electric-blue);
+  position: relative;
+  display: block;
+  margin-bottom: 0.15em;
+  text-transform: uppercase;
+}
+.hero-wordmark::before {
+  content: "SPANIER";
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--fluoro-pink);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.85;
+}
+.hero-wordmark-2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(4.5rem, 12vw, 13rem);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  position: relative;
+  display: block;
+  margin-bottom: 0.6em;
+  text-transform: uppercase;
+}
+.hero-wordmark-2::before {
+  content: "PAINTING";
+  position: absolute;
+  top: calc(-1 * var(--reg-offset));
+  left: var(--reg-offset);
+  color: var(--fluoro-pink);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.hero-sub {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(2rem, 6vw, 6rem);
+  flex-wrap: wrap;
+}
+.hero-desc {
+  font-family: var(--body);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--ink-80);
+  max-width: 38ch;
+}
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+.hero-meta-item {
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.hero-meta-item span {
+  color: var(--fluoro-pink);
+}
+
+.hero-cta-row {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 1rem 2rem;
+  border: 2px solid var(--ink);
+  position: relative;
+  transition: all 0.15s;
+  box-shadow: 4px 4px 0 var(--electric-blue);
+}
+.btn-primary:hover {
+  background: var(--fluoro-pink);
+  color: var(--paper);
+  border-color: var(--fluoro-pink);
+  box-shadow: 4px 4px 0 var(--electric-blue);
+  transform: translate(-1px, -1px);
+}
+.btn-secondary {
+  font-family: var(--body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--electric-blue);
+  border-bottom: 2px solid var(--electric-blue);
+  padding-bottom: 2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.btn-secondary:hover {
+  color: var(--fluoro-pink);
+  border-color: var(--fluoro-pink);
+}
+
+/* Hero bottom strip */
+.hero-strip {
+  background: var(--ink);
+  padding: 0.85rem var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+.hero-strip-text {
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: var(--paper);
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+.hero-strip-text em {
+  color: var(--fluoro-pink);
+  font-style: normal;
+}
+.hero-strip-sep {
+  color: var(--electric-blue);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION RULE — riso mis-reg double line
+   ═══════════════════════════════════════════ */
+.riso-rule {
+  height: 5px;
+  background: var(--ink);
+  position: relative;
+}
+.riso-rule::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--fluoro-pink);
+  opacity: 0.55;
+}
+
+/* ═══════════════════════════════════════════
+   MANIFESTO
+   ═══════════════════════════════════════════ */
+.manifesto {
+  background: var(--ink);
+  padding: clamp(5rem, 10vw, 9rem) var(--gutter);
+  position: relative;
+  overflow: hidden;
+}
+.manifesto::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: var(--fluoro-pink);
+  opacity: 0.08;
+  pointer-events: none;
+}
+.manifesto::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  left: 10%;
+  width: 280px;
+  height: 280px;
+  background: var(--electric-blue);
+  opacity: 0.1;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  pointer-events: none;
+}
+.manifesto-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(2rem, 6vw, 7rem);
+  align-items: start;
+}
+.manifesto-label {
+  padding-top: 0.5rem;
+}
+.manifesto-label .plate-stamp {
+  color: var(--fluoro-pink);
+  border-color: var(--fluoro-pink);
+  margin-bottom: 1.5rem;
+}
+.manifesto-side-text {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: rgba(255,254,248,0.35);
+  line-height: 2;
+  writing-mode: horizontal-tb;
+  max-width: 16ch;
+}
+.manifesto-quote {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2rem, 4.5vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--paper);
+  position: relative;
+}
+.manifesto-quote strong {
+  color: var(--fluoro-pink);
+  display: inline;
+  position: relative;
+}
+.manifesto-quote strong::before {
+  content: attr(data-text);
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--electric-blue);
+  opacity: 0.6;
+  z-index: -1;
+}
+.manifesto-body {
+  margin-top: 2.5rem;
+  font-family: var(--body);
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(255,254,248,0.7);
+  max-width: 58ch;
+}
+
+/* ═══════════════════════════════════════════
+   SELECTED WORK — case studies
+   ═══════════════════════════════════════════ */
+.selected-work {
+  padding: clamp(4rem, 9vw, 9rem) var(--gutter);
+  background: var(--paper);
+  position: relative;
+}
+.selected-work::before {
+  content: "WORK";
+  position: absolute;
+  top: 50%;
+  left: -0.05em;
+  transform: translateY(-50%);
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(10rem, 22vw, 22rem);
+  color: var(--fluoro-pink);
+  opacity: 0.04;
+  pointer-events: none;
+  white-space: nowrap;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+.work-header {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.work-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 5.5vw, 5rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--ink);
+  position: relative;
+}
+.work-title::after {
+  content: "SELECTED WORK";
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--fluoro-pink);
+  z-index: -1;
+  opacity: 0.5;
+}
+.work-count {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--ink);
+  opacity: 0.45;
+}
+
+/* Case study grid */
+.work-grid {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+}
+.case-study {
+  border: 3px solid var(--ink);
+  position: relative;
+  background: var(--paper);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.case-study:hover {
+  box-shadow: 6px 6px 0 var(--fluoro-pink);
+  transform: translate(-2px, -2px);
+  z-index: 2;
+}
+.case-study:nth-child(2) { border-color: var(--electric-blue); }
+.case-study:nth-child(2):hover { box-shadow: 6px 6px 0 var(--electric-blue); }
+.case-study:nth-child(3) { border-color: var(--fluoro-pink); }
+.case-study:nth-child(3):hover { box-shadow: 6px 6px 0 var(--electric-blue); }
+.case-study:nth-child(4) { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; }
+
+.case-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--ink);
+}
+.case-study:nth-child(4) .case-img-wrap {
+  aspect-ratio: auto;
+  min-height: 320px;
+}
+.case-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.6) contrast(1.05);
+  transition: filter 0.4s, transform 0.4s;
+}
+/* Riso color grade overlay */
+.case-img-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10,46,138,0.18) 0%, rgba(0,64,229,0.18) 100%);
+  mix-blend-mode: multiply;
+  z-index: 1;
+  pointer-events: none;
+}
+/* Grain on image */
+.case-img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='0.45'/%3E%3C/svg%3E");
+  background-size: 200px;
+  mix-blend-mode: multiply;
+  z-index: 2;
+  pointer-events: none;
+}
+.case-study:hover .case-img-wrap img {
+  filter: saturate(0.8) contrast(1.08);
+  transform: scale(1.02);
+}
+.case-plate-stamp {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 3;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 0.2rem 0.55rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  border: 1px solid rgba(255,254,248,0.3);
+}
+.case-body {
+  padding: 1.75rem 2rem 2rem;
+}
+.case-study:nth-child(4) .case-body {
+  padding: 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.case-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+  line-height: 1.05;
+}
+.case-caption {
+  font-family: var(--body);
+  font-size: 0.88rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink-80);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 40ch;
+}
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  border-top: 1.5px solid var(--ink);
+  padding-top: 1rem;
+}
+.case-meta-item {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+.case-meta-item strong {
+  color: var(--electric-blue);
+  font-weight: 400;
+}
+
+/* ═══════════════════════════════════════════
+   SERVICES
+   ═══════════════════════════════════════════ */
+.services {
+  background: var(--fluoro-pink);
+  padding: clamp(4rem, 9vw, 8rem) var(--gutter);
+  position: relative;
+  overflow: hidden;
+}
+.services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  background-size: 256px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.services-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+.services-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-bottom: clamp(3rem, 6vw, 5.5rem);
+}
+.services-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+.services-desc {
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--ink);
+  opacity: 0.75;
+  max-width: 44ch;
+  padding-top: 0.5rem;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+.service-card {
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  padding: 2rem 1.75rem;
+  position: relative;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+.service-card:hover {
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 5px 5px 0 var(--electric-blue);
+  transform: translate(-2px, -2px);
+}
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='128' height='128' filter='url(%23g)' opacity='0.25'/%3E%3C/svg%3E");
+  background-size: 128px;
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+}
+.service-card:hover::before { opacity: 1; }
+.service-num {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--electric-blue);
+  margin-bottom: 1rem;
+  transition: color 0.15s;
+}
+.service-card:hover .service-num { color: rgba(250,250,250,0.55); }
+.service-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+  transition: color 0.15s;
+}
+.service-card:hover .service-name { color: var(--paper); }
+.service-desc {
+  font-family: var(--body);
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--ink);
+  opacity: 0.7;
+  transition: color 0.15s, opacity 0.15s;
+}
+.service-card:hover .service-desc {
+  color: rgba(255,254,248,0.65);
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════
+   MANIFESTO QUOTE (big punchy)
+   ═══════════════════════════════════════════ */
+.big-quote {
+  background: var(--electric-blue);
+  padding: clamp(5rem, 10vw, 10rem) var(--gutter);
+  position: relative;
+  overflow: hidden;
+}
+.big-quote::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  background-size: 256px;
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.big-quote-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+.big-quote-mark {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(4rem, 10vw, 9rem);
+  color: var(--fluoro-pink);
+  line-height: 0.6;
+  margin-bottom: 1.5rem;
+  display: block;
+  opacity: 0.7;
+}
+.big-quote-text {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 3.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--paper);
+  max-width: 22ch;
+  position: relative;
+}
+.big-quote-text em {
+  font-style: normal;
+  color: var(--fluoro-pink);
+  position: relative;
+  display: inline;
+}
+.big-quote-text em::before {
+  content: attr(data-text);
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--paper);
+  opacity: 0.25;
+  z-index: -1;
+}
+.big-quote-attr {
+  margin-top: 2.5rem;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: rgba(255,254,248,0.5);
+  letter-spacing: 0.06em;
+}
+.big-quote-attr strong {
+  color: var(--paper);
+  font-weight: 400;
+}
+
+/* ═══════════════════════════════════════════
+   TESTIMONIAL
+   ═══════════════════════════════════════════ */
+.testimonial {
+  background: var(--paper);
+  padding: clamp(4rem, 8vw, 8rem) var(--gutter);
+  border-bottom: 3px solid var(--ink);
+}
+.testimonial-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(3rem, 6vw, 7rem);
+  align-items: center;
+}
+.testimonial-deco {
+  width: 120px;
+  height: 120px;
+  background: var(--fluoro-pink);
+  border: 3px solid var(--ink);
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 4px 4px 0 var(--electric-blue);
+}
+.testimonial-deco::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23g)' opacity='0.45'/%3E%3C/svg%3E");
+  background-size: 120px;
+  mix-blend-mode: multiply;
+}
+.testimonial-deco-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 3rem;
+  color: var(--ink);
+  z-index: 1;
+}
+.testimonial-content {}
+.testimonial-quote {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.5vw, 1.9rem);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.testimonial-quote::before {
+  content: "\201C";
+  color: var(--fluoro-pink);
+}
+.testimonial-quote::after {
+  content: "\201D";
+  color: var(--fluoro-pink);
+}
+.testimonial-attribution {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--electric-blue);
+  letter-spacing: 0.04em;
+}
+.testimonial-attribution span {
+  color: var(--ink);
+  opacity: 0.4;
+}
+
+/* ═══════════════════════════════════════════
+   SERVICE AREA
+   ═══════════════════════════════════════════ */
+.service-area {
+  background: var(--ink);
+  padding: clamp(4rem, 8vw, 8rem) var(--gutter);
+  position: relative;
+  overflow: hidden;
+}
+.service-area::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  background-size: 256px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.service-area-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+.area-header {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+.area-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--paper);
+  text-transform: uppercase;
+}
+.area-title strong {
+  color: var(--fluoro-pink);
+  display: block;
+  position: relative;
+}
+.area-title strong::before {
+  content: "ST. CLOUD";
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--electric-blue);
+  z-index: -1;
+  opacity: 0.6;
+}
+.area-desc {
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255,254,248,0.6);
+  line-height: 1.7;
+  max-width: 44ch;
+  padding-top: 0.75rem;
+}
+.area-cities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.area-city {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  color: var(--paper);
+  padding: 0.45rem 1rem;
+  border: 1.5px solid rgba(255,254,248,0.2);
+  letter-spacing: 0.04em;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  cursor: default;
+}
+.area-city:hover {
+  background: var(--fluoro-pink);
+  border-color: var(--fluoro-pink);
+  color: var(--ink);
+}
+.area-city.primary {
+  background: var(--fluoro-pink);
+  border-color: var(--fluoro-pink);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════
+   CTA
+   ═══════════════════════════════════════════ */
+.cta-section {
+  background: var(--paper);
+  padding: clamp(5rem, 11vw, 11rem) var(--gutter);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-top: 3px solid var(--ink);
+}
+.cta-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(5rem, 18vw, 18rem);
+  color: var(--fluoro-pink);
+  opacity: 0.05;
+  white-space: nowrap;
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  user-select: none;
+}
+.cta-inner {
+  max-width: 720px;
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+.cta-stamp {
+  margin-bottom: 2rem;
+}
+.cta-headline {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.cta-headline span {
+  color: var(--electric-blue);
+  display: block;
+  position: relative;
+}
+.cta-headline span::before {
+  content: "BEGIN.";
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--fluoro-pink);
+  opacity: 0.5;
+  z-index: -1;
+}
+.cta-sub {
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink-80);
+  line-height: 1.65;
+  margin-bottom: 3rem;
+  max-width: 44ch;
+  margin-inline: auto;
+}
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.cta-phone {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  display: inline-block;
+  border-bottom: 3px solid var(--fluoro-pink);
+  padding-bottom: 4px;
+  margin-top: 1.5rem;
+  transition: color 0.15s, border-color 0.15s;
+}
+.cta-phone:hover {
+  color: var(--electric-blue);
+  border-color: var(--electric-blue);
+}
+.cta-mono {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--ink);
+  opacity: 0.4;
+  letter-spacing: 0.06em;
+  margin-top: 1rem;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+footer {
+  background: var(--ink);
+  padding: clamp(3rem, 6vw, 5rem) var(--gutter) 2rem;
+  position: relative;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  background-size: 256px;
+  mix-blend-mode: multiply;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.footer-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,254,248,0.1);
+  margin-bottom: 2.5rem;
+}
+.footer-brand-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.75rem;
+  letter-spacing: -0.03em;
+  color: var(--paper);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+.footer-brand-name::before {
+  content: "SPANIER";
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--fluoro-pink);
+  z-index: -1;
+  opacity: 0.6;
+}
+.footer-bio {
+  font-family: var(--body);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(255,254,248,0.45);
+  line-height: 1.65;
+  max-width: 32ch;
+  margin-bottom: 1.5rem;
+}
+.footer-contact-link {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--fluoro-pink);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+  transition: color 0.15s;
+}
+.footer-contact-link:hover { color: var(--paper); }
+.footer-col-title {
+  font-family: var(--body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,254,248,0.3);
+  margin-bottom: 1.25rem;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.footer-links a {
+  font-family: var(--body);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(255,254,248,0.55);
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: var(--fluoro-pink); }
+.footer-hours-item {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: rgba(255,254,248,0.4);
+  line-height: 1.8;
+}
+.footer-hours-item strong {
+  color: rgba(255,254,248,0.65);
+  font-weight: 400;
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer-legal {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: rgba(255,254,248,0.2);
+  letter-spacing: 0.04em;
+}
+.footer-edition {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--fluoro-pink);
+  opacity: 0.55;
+  letter-spacing: 0.04em;
+}
+
+
+/* ═══════════════════════════════════════════
+   MOBILE HAMBURGER
+   ═══════════════════════════════════════════ */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  padding: 4px;
+  border: 2px solid var(--ink);
+  background: none;
+  position: relative;
+  z-index: 910;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.2s, opacity 0.2s;
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-drawer {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0; right: 0;
+  background: var(--paper);
+  border-bottom: 3px solid var(--ink);
+  box-shadow: 0 4px 0 var(--fluoro-pink);
+  z-index: 850;
+  padding: 1.5rem var(--gutter) 2rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+.nav-drawer.open { display: flex; }
+.nav-drawer a {
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(20,20,14,0.1);
+  transition: color 0.15s;
+}
+.nav-drawer a:hover { color: var(--fluoro-pink); }
+.nav-drawer .nav-cta {
+  margin-top: 0.5rem;
+  text-align: center;
+  border: 2px solid var(--ink) !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 700 !important;
+}
+
+/* ═══════════════════════════════════════════
+   PRINTED MATTER — editorial section
+   ═══════════════════════════════════════════ */
+.printed-matter {
+  background: var(--paper);
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  padding: clamp(4rem, 9vw, 8rem) var(--gutter);
+  position: relative;
+  overflow: hidden;
+}
+/* large ghosted "RISO" watermark */
+.printed-matter::before {
+  content: "RISO";
+  position: absolute;
+  bottom: -0.15em;
+  right: -0.04em;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(8rem, 22vw, 20rem);
+  color: var(--fluoro-pink);
+  opacity: 0.04;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  pointer-events: none;
+  user-select: none;
+}
+.printed-matter-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: clamp(3rem, 7vw, 8rem);
+  align-items: start;
+}
+.pm-left {
+  position: sticky;
+  top: 100px;
+}
+.pm-label {
+  margin-bottom: 2rem;
+}
+.pm-headline {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+/* misreg on headline — ghost shadow via box-shadow trick avoids pseudo content newline issues */
+.pm-headline {
+  text-shadow:
+    calc(-1 * var(--reg-offset)) var(--reg-offset) 0 rgba(10,46,138,0.40);
+}
+.pm-sub {
+  font-family: var(--body);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--ink-80);
+  max-width: 32ch;
+}
+/* Riso process diagram */
+.pm-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 2.5rem;
+}
+.pm-layer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--ink);
+  margin-bottom: -2px;
+  position: relative;
+  background: var(--paper);
+  transition: background 0.15s, color 0.15s;
+}
+.pm-layer:hover { background: var(--ink); color: var(--paper); }
+.pm-layer:hover .pm-layer-label { color: var(--paper); }
+.pm-layer-swatch {
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--ink);
+  flex-shrink: 0;
+}
+.pm-layer-swatch.deep  { background: #3E6FE0; }
+.pm-layer-swatch.cobalt { background: #1E3F8A; }
+.pm-layer-swatch.over  {
+  background: linear-gradient(135deg, #3E6FE0 50%, #1E3F8A 50%);
+}
+.pm-layer-label {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  transition: color 0.15s;
+  flex: 1;
+}
+.pm-layer-desc {
+  font-family: var(--body);
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--ink-80);
+  letter-spacing: 0;
+  transition: color 0.15s;
+}
+.pm-layer:hover .pm-layer-desc { color: rgba(250,250,250,0.6); }
+
+/* Right column: manifesto pull-quote + zine notes */
+.pm-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+/* Big pull-quote with full misreg treatment */
+.pm-pullquote {
+  border: 3px solid var(--ink);
+  padding: 2.5rem 2.5rem 2rem;
+  position: relative;
+  background: var(--electric-blue);
+}
+.pm-pullquote::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='0.35'/%3E%3C/svg%3E");
+  background-size: 200px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.pm-pullquote-kicker {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--fluoro-pink);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+.pm-pullquote-text {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--paper);
+  position: relative;
+  z-index: 1;
+}
+.pm-pullquote-text em {
+  font-style: normal;
+  color: var(--fluoro-pink);
+  position: relative;
+}
+/* misreg on the em word */
+.pm-pullquote-text em::before {
+  content: attr(data-text);
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--paper);
+  opacity: 0.22;
+  z-index: -1;
+}
+.pm-pullquote-source {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: rgba(250,250,250,0.45);
+  letter-spacing: 0.06em;
+  margin-top: 1.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Three zine-notes / trivia cards */
+.pm-notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+.pm-note {
+  border: 2px solid var(--ink);
+  padding: 1.25rem 1rem 1.5rem;
+  background: var(--paper);
+}
+.pm-note-num {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--electric-blue);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.65rem;
+  display: block;
+}
+.pm-note-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.pm-note-body {
+  font-family: var(--body);
+  font-size: 0.78rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--ink-80);
+}
+
+@media (max-width: 768px) {
+  .printed-matter-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .pm-left { position: static; }
+  .pm-notes { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════
+   HERO IMAGE
+   ═══════════════════════════════════════════ */
+.hero-image-panel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: clamp(320px, 45vw, 680px);
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  background: var(--ink);
+  flex-shrink: 0;
+}
+.hero-image-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.5) contrast(1.08);
+  display: block;
+}
+/* Riso blue cast on hero image */
+.hero-image-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(10,46,138,0.22) 0%, rgba(30,63,138,0.22) 100%);
+  mix-blend-mode: multiply;
+  z-index: 1;
+  pointer-events: none;
+}
+/* Grain on hero image */
+.hero-image-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23g)' opacity='0.40'/%3E%3C/svg%3E");
+  background-size: 256px;
+  mix-blend-mode: multiply;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-image-caption {
+  position: absolute;
+  bottom: 1.25rem;
+  right: var(--gutter);
+  z-index: 4;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--paper);
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ═══════════════════════════════════════════
+   CASE STUDY — SECONDARY INLINE IMAGE
+   ═══════════════════════════════════════════ */
+.case-detail-img {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16/9;
+  margin: 1.25rem 0 0;
+  border-top: 1.5px solid var(--ink);
+  background: var(--ink);
+}
+.case-detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.55) contrast(1.06);
+  display: block;
+  transition: filter 0.4s, transform 0.4s;
+}
+.case-study:hover .case-detail-img img {
+  filter: saturate(0.75) contrast(1.08);
+  transform: scale(1.015);
+}
+.case-detail-img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10,46,138,0.16) 0%, rgba(30,63,138,0.16) 100%);
+  mix-blend-mode: multiply;
+  z-index: 1;
+  pointer-events: none;
+}
+.case-detail-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='0.38'/%3E%3C/svg%3E");
+  background-size: 200px;
+  mix-blend-mode: multiply;
+  z-index: 2;
+  pointer-events: none;
+}
+.case-detail-caption {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  opacity: 0.45;
+  margin-top: 0.45rem;
+  display: block;
+}
+
+/* Wide case (4th) — detail image placed differently */
+.case-study:nth-child(4) .case-detail-img {
+  aspect-ratio: 16/7;
+}
+
+/* ═══════════════════════════════════════════
+   PHOTO GALLERY — Recent Work grid
+   ═══════════════════════════════════════════ */
+.gallery-section {
+  background: var(--paper);
+  border-top: 3px solid var(--ink);
+  padding: clamp(4rem, 9vw, 8rem) var(--gutter);
+  position: relative;
+  overflow: hidden;
+}
+.gallery-section::before {
+  content: "GALLERY";
+  position: absolute;
+  top: 50%;
+  right: -0.04em;
+  transform: translateY(-50%);
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(8rem, 18vw, 18rem);
+  color: var(--fluoro-pink);
+  opacity: 0.035;
+  pointer-events: none;
+  white-space: nowrap;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+.gallery-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+}
+.gallery-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.gallery-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--ink);
+  position: relative;
+  text-transform: uppercase;
+}
+.gallery-title::after {
+  content: "RECENT WORK";
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--fluoro-pink);
+  z-index: -1;
+  opacity: 0.45;
+}
+.gallery-count {
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  color: var(--ink);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+/* First item spans 2 columns for editorial weight */
+.gallery-item:first-child {
+  grid-column: span 2;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  transition: border-color 0.2s;
+}
+.gallery-item:first-child {
+  aspect-ratio: 16/9;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.55) contrast(1.07);
+  display: block;
+  transition: filter 0.35s, transform 0.35s;
+}
+.gallery-item:hover img {
+  filter: saturate(0.8) contrast(1.1);
+  transform: scale(1.025);
+}
+/* Riso overlay on gallery images */
+.gallery-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10,46,138,0.17) 0%, rgba(30,63,138,0.17) 100%);
+  mix-blend-mode: multiply;
+  z-index: 1;
+  pointer-events: none;
+}
+/* Grain on gallery images */
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.76' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='0.38'/%3E%3C/svg%3E");
+  background-size: 200px;
+  mix-blend-mode: multiply;
+  z-index: 2;
+  pointer-events: none;
+}
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 0.6rem 0.85rem 0.7rem;
+  background: linear-gradient(to top, rgba(20,20,14,0.72) 0%, transparent 100%);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--paper);
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
+}
+.gallery-item:hover .gallery-caption {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item:first-child { grid-column: span 2; }
+  .hero-image-panel { height: clamp(220px, 50vw, 360px); }
+}
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item:first-child { grid-column: auto; aspect-ratio: 4/3; }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  :root { --reg-offset: 2px; }
+
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+
+  .hero-wordmark, .hero-wordmark-2 { font-size: clamp(3.5rem, 16vw, 6rem); }
+
+  .manifesto-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .manifesto-side-text { display: none; }
+
+  .work-grid { grid-template-columns: 1fr; gap: 0; }
+  .case-study:nth-child(4) { grid-column: auto; display: block; }
+  .case-study:nth-child(4) .case-img-wrap { min-height: 240px; }
+
+  .services-header { grid-template-columns: 1fr; gap: 1.5rem; }
+  .services-grid { grid-template-columns: 1fr; }
+
+  .testimonial-inner { grid-template-columns: 1fr; gap: 2rem; }
+
+  .area-header { grid-template-columns: 1fr; gap: 2rem; }
+
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+}
+@media (max-width: 480px) {
+  .footer-top { grid-template-columns: 1fr; }
+}
+
+/* ─── 375px mobile tightening ─── */
+@media (max-width: 420px) {
+  .hero-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding: 0.75rem var(--gutter);
+  }
+  .hero-strip-sep { display: none; }
+  .hero-strip-text { white-space: normal; font-size: 0.88rem; }
+
+  .cta-headline { font-size: clamp(2rem, 14vw, 3.5rem); }
+  .services-title { font-size: clamp(2rem, 12vw, 3.5rem); }
+
+  .pm-notes { grid-template-columns: 1fr; }
+
+  .nav-inner { height: 60px; }
+  .nav-drawer { top: 60px; }
+  .hero { padding-top: 60px; }
+}
+
+
+/* ─── Zine Flatplan (footer reference — Hato Press style) ─── */
+.flatplan {
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(2.4rem, 5vw, 4rem) 0;
+  border-top: 4px solid var(--fluoro-pink);
+  border-bottom: 4px solid var(--electric-blue);
+  position: relative;
+  overflow: hidden;
+}
+.flatplan::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.18;
+  pointer-events: none;
+}
+.flatplan__inner {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(1.4rem, 4vw, 3rem);
+}
+.flatplan__head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 1.6rem;
+  margin-bottom: 1.8rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,254,248,0.22);
+}
+.flatplan__title {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  margin: 0;
+  text-transform: uppercase;
+}
+.flatplan__title span {
+  color: var(--fluoro-pink);
+}
+.flatplan__cite {
+  font-family: "VT323", "Departure Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--electric-blue);
+  text-transform: uppercase;
+  text-align: right;
+  line-height: 1.5;
+}
+.flatplan__grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.5rem;
+}
+.flatplan__page {
+  aspect-ratio: 0.72;
+  background: rgba(255,254,248,0.04);
+  border: 1px solid rgba(255,254,248,0.28);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 6px;
+  position: relative;
+  font-family: "VT323", "Departure Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--paper);
+  overflow: hidden;
+}
+.flatplan__page--cover {
+  background: var(--fluoro-pink);
+  color: var(--ink);
+  border-color: var(--fluoro-pink);
+}
+.flatplan__page--feature {
+  background: var(--electric-blue);
+  color: var(--paper);
+  border-color: var(--electric-blue);
+}
+.flatplan__page-num {
+  font-size: 8px;
+  opacity: 0.75;
+}
+.flatplan__page-name {
+  font-size: 9px;
+  line-height: 1.15;
+  font-weight: 400;
+}
+.flatplan__page--cover .flatplan__page-num,
+.flatplan__page--feature .flatplan__page-num {
+  opacity: 0.85;
+}
+.flatplan__legend {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 1.4rem;
+  font-family: "VT323", "Departure Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.75;
+  flex-wrap: wrap;
+}
+.flatplan__legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.flatplan__legend i {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border: 1px solid rgba(255,254,248,0.35);
+}
+.flatplan__legend i.pk { background: var(--fluoro-pink); border-color: var(--fluoro-pink); }
+.flatplan__legend i.bl { background: var(--electric-blue); border-color: var(--electric-blue); }
+@media (max-width: 768px) {
+  .flatplan__grid { grid-template-columns: repeat(4, 1fr); }
+  .flatplan__head { grid-template-columns: 1fr; }
+  .flatplan__cite { text-align: left; }
+}
+
+/* ═══════════════════════════════════════════
+   PROCESS PLATE (4-block) — print spread
+   ═══════════════════════════════════════════ */
+.process {
+  background: var(--paper);
+  padding: clamp(4rem, 8vw, 8rem) var(--gutter);
+  border-bottom: 3px solid var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+.process-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.10;
+  background-image: radial-gradient(circle, var(--electric-blue) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+  background-position: 0 0;
+  mix-blend-mode: multiply;
+}
+.process-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  position: relative;
+}
+.process-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 6rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  align-items: end;
+}
+.process-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+.process-title strong {
+  color: var(--electric-blue);
+  font-weight: 800;
+  position: relative;
+}
+.process-title strong::before {
+  content: attr(data-text);
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--fluoro-pink);
+  z-index: -1;
+  pointer-events: none;
+}
+.process-lede {
+  font-family: var(--body);
+  font-size: 1.05rem;
+  color: var(--ink-80);
+  line-height: 1.65;
+  max-width: 38ch;
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--ink);
+  border-left: 2px solid var(--ink);
+}
+.process-block {
+  border-right: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--paper);
+  position: relative;
+  min-height: 320px;
+}
+.process-block::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='gn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23gn)' opacity='0.25'/%3E%3C/svg%3E");
+  background-size: 200px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+.process-block-num {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  color: var(--fluoro-pink);
+  border: 1.5px solid var(--fluoro-pink);
+  padding: 0.2rem 0.6rem;
+  display: inline-block;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.process-block-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.process-block-name strong {
+  color: var(--electric-blue);
+  font-weight: 800;
+}
+.process-block-body {
+  font-family: var(--body);
+  font-size: 0.97rem;
+  line-height: 1.55;
+  color: var(--ink-80);
+}
+.process-block-tag {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--electric-blue);
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.process-tease {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.process-tease-card {
+  border: 2px solid var(--ink);
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  background: var(--paper);
+  position: relative;
+  box-shadow: 4px 4px 0 var(--fluoro-pink);
+}
+.process-tease-kicker {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--fluoro-pink);
+  margin-bottom: 0.5rem;
+}
+.process-tease-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+.process-tease-body {
+  font-family: var(--body);
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--ink-80);
+  margin-bottom: 0.6rem;
+}
+.process-tease-foot {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  color: var(--electric-blue);
+  text-transform: uppercase;
+}
+@media (max-width: 900px) {
+  .process-header { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-tease { grid-template-columns: 1fr; }
+}
+@media (max-width: 500px) {
+  .process-grid { grid-template-columns: 1fr; }
+  .process-block { min-height: 0; }
+}
+
+/* ═══════════════════════════════════════════
+   TESTIMONY PLATES — bordered review cards
+   ═══════════════════════════════════════════ */
+.testimony {
+  background: var(--paper);
+  padding: clamp(4rem, 8vw, 8rem) var(--gutter);
+  border-bottom: 3px solid var(--ink);
+  position: relative;
+}
+.testimony-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+}
+.testimony-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  align-items: end;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 1.5rem;
+}
+.testimony-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+.testimony-title strong {
+  color: var(--electric-blue);
+  font-weight: 800;
+  position: relative;
+}
+.testimony-title strong::before {
+  content: attr(data-text);
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--fluoro-pink);
+  z-index: -1;
+  pointer-events: none;
+}
+.testimony-google {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 1.1rem;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 3px 3px 0 var(--fluoro-pink);
+}
+.testimony-google-rating {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--ink);
+  line-height: 1;
+}
+.testimony-stars {
+  color: var(--fluoro-pink);
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+.testimony-google-meta {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--electric-blue);
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+.testimony-google-mark {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.testimony-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+.testimony-plate {
+  border: 2px solid var(--ink);
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  background: var(--paper);
+  position: relative;
+  box-shadow: 4px 4px 0 var(--electric-blue);
+}
+.testimony-plate:nth-child(2) {
+  box-shadow: 4px 4px 0 var(--fluoro-pink);
+}
+.testimony-plate::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='gn2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23gn2)' opacity='0.22'/%3E%3C/svg%3E");
+  background-size: 180px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+.testimony-plate-stars {
+  color: var(--fluoro-pink);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  margin-bottom: 1.1rem;
+}
+.testimony-plate-quote {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 1.4rem;
+  position: relative;
+  z-index: 1;
+}
+.testimony-plate-quote::before { content: "\201C"; color: var(--fluoro-pink); }
+.testimony-plate-quote::after { content: "\201D"; color: var(--fluoro-pink); }
+.testimony-plate-attr {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: var(--electric-blue);
+  text-transform: uppercase;
+  line-height: 1.4;
+  position: relative;
+  z-index: 1;
+}
+.testimony-plate-attr span { color: var(--ink); opacity: 0.45; }
+.testimony-widget {
+  margin-top: 2.5rem;
+  padding: 1.2rem 1.5rem;
+  border: 2px dashed var(--electric-blue);
+  background: rgba(30,63,138,0.04);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--electric-blue);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .testimony-grid { grid-template-columns: 1fr; }
+  .testimony-header { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════
+   COMMON QUESTIONS PLATE SET (FAQ)
+   ═══════════════════════════════════════════ */
+.faq {
+  background: var(--paper);
+  padding: clamp(4rem, 8vw, 8rem) var(--gutter);
+  border-bottom: 3px solid var(--ink);
+}
+.faq-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(260px, 380px) 1fr;
+  gap: clamp(2rem, 5vw, 6rem);
+}
+.faq-side .plate-stamp { margin-bottom: 1.5rem; }
+.faq-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+.faq-title strong {
+  color: var(--electric-blue);
+  font-weight: 800;
+  position: relative;
+}
+.faq-title strong::before {
+  content: attr(data-text);
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--fluoro-pink);
+  z-index: -1;
+  pointer-events: none;
+}
+.faq-lede {
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink-80);
+}
+.faq-list {
+  border-top: 2px solid var(--ink);
+}
+.faq-item {
+  border-bottom: 2px solid var(--ink);
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: start;
+}
+.faq-num {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--fluoro-pink);
+  border: 1.5px solid var(--fluoro-pink);
+  padding: 0.18rem 0.55rem;
+  line-height: 1;
+  white-space: nowrap;
+  margin-top: 0.45rem;
+}
+.faq-q {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 0.55rem;
+}
+.faq-a {
+  font-family: var(--body);
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: var(--ink-80);
+}
+@media (max-width: 900px) {
+  .faq-inner { grid-template-columns: 1fr; }
+  .faq-item { grid-template-columns: 1fr; }
+  .faq-num { justify-self: start; }
+}
+
+/* ═══════════════════════════════════════════
+   COLOPHON / QUOTE — Jobber form placeholder
+   ═══════════════════════════════════════════ */
+.colophon {
+  background: var(--paper);
+  padding: clamp(4rem, 8vw, 8rem) var(--gutter);
+  border-bottom: 3px solid var(--ink);
+  position: relative;
+}
+.colophon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--fluoro-pink) 0.8px, transparent 1.2px);
+  background-size: 18px 18px;
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+}
+.colophon-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  position: relative;
+}
+.colophon-head {
+  margin-bottom: 1.5rem;
+}
+.colophon-head .plate-stamp { margin-bottom: 1.5rem; }
+.colophon-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.colophon-title strong {
+  color: var(--electric-blue);
+  font-weight: 800;
+  position: relative;
+}
+.colophon-title strong::before {
+  content: attr(data-text);
+  position: absolute;
+  top: var(--reg-offset);
+  left: calc(-1 * var(--reg-offset));
+  color: var(--fluoro-pink);
+  z-index: -1;
+  pointer-events: none;
+}
+.colophon-lede {
+  font-family: var(--body);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--ink-80);
+  margin-bottom: 1.5rem;
+  max-width: 40ch;
+}
+.colophon-credentials {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.colophon-credentials li {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--electric-blue);
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border: 1.5px solid var(--electric-blue);
+  line-height: 1;
+}
+.colophon-meta {
+  border-top: 2px solid var(--ink);
+  padding-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 2rem;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.colophon-meta dt {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--fluoro-pink);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+.colophon-meta dd {
+  font-family: var(--body);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.colophon-meta dd a { color: var(--electric-blue); text-decoration: underline; text-underline-offset: 3px; }
+.colophon-meta dd a:hover { color: var(--fluoro-pink); }
+.colophon-form {
+  border: 2px solid var(--ink);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--paper);
+  position: relative;
+  box-shadow: 6px 6px 0 var(--electric-blue);
+}
+.colophon-form::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='gn3'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23gn3)' opacity='0.2'/%3E%3C/svg%3E");
+  background-size: 180px;
+  mix-blend-mode: multiply;
+  opacity: 0.45;
+}
+.colophon-form-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  position: relative;
+  z-index: 1;
+}
+.colophon-form-sub {
+  font-family: var(--body);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink-80);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+.colophon-form-embed {
+  border: 2px dashed var(--electric-blue);
+  padding: 2.5rem 1rem;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--electric-blue);
+  background: rgba(30,63,138,0.03);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+}
+.colophon-form-embed strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+.colophon-form-foot {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--electric-blue);
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 900px) {
+  .colophon-inner { grid-template-columns: 1fr; }
+  .colophon-meta { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════
+   TIDIO CHAT FAB
+   ═══════════════════════════════════════════ */
+.chat-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 950;
+  width: 56px;
+  height: 56px;
+  background: var(--electric-blue);
+  border: 2.5px solid var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 0 var(--fluoro-pink);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.chat-fab:hover {
+  transform: translate(-1px,-1px);
+  box-shadow: 5px 5px 0 var(--fluoro-pink);
+}
+.chat-fab:active {
+  transform: translate(2px,2px);
+  box-shadow: 2px 2px 0 var(--fluoro-pink);
+}
+.chat-fab::after {
+  content: "Talk to Lukas";
+  position: absolute;
+  right: calc(100% + 0.6rem);
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  padding: 0.3rem 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+.chat-fab:hover::after { opacity: 1; }
+@media (max-width: 500px) {
+  .chat-fab { width: 50px; height: 50px; bottom: 1rem; right: 1rem; }
+  .chat-fab::after { display: none; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Skip-to-content — accessibility -->
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- Grain overlay — fixed, always on top -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════════ -->
+<header>
+  <nav class="nav-inner" aria-label="Primary navigation">
+    <a href="#top" class="nav-wordmark" aria-label="Spanier Painting — home">
+      <!-- G · Stencil-stack logo — riso edition -->
+      <svg width="120" height="40" viewBox="0 0 400 130" aria-hidden="true" focusable="false" style="display:block;color:var(--ink)">
+        <text x="200" y="66"
+              font-family="'Stardos Stencil','Allerta Stencil','Big Shoulders Stencil Display','Bebas Neue',Impact,sans-serif"
+              font-weight="700" font-size="76" letter-spacing="2" text-anchor="middle" fill="currentColor">SPANIER</text>
+        <text x="200" y="106"
+              font-family="'Stardos Stencil','Allerta Stencil','Big Shoulders Stencil Display','Bebas Neue',Impact,sans-serif"
+              font-weight="700" font-size="40" letter-spacing="6" text-anchor="middle" fill="currentColor">PAINTING</text>
+      </svg>
+      <!-- misreg ghost layer -->
+      <svg width="120" height="40" viewBox="0 0 400 130" aria-hidden="true" focusable="false"
+           style="display:block;position:absolute;top:3px;left:-3px;color:var(--fluoro-pink);opacity:0.55;pointer-events:none">
+        <text x="200" y="66"
+              font-family="'Stardos Stencil','Allerta Stencil','Big Shoulders Stencil Display','Bebas Neue',Impact,sans-serif"
+              font-weight="700" font-size="76" letter-spacing="2" text-anchor="middle" fill="currentColor">SPANIER</text>
+        <text x="200" y="106"
+              font-family="'Stardos Stencil','Allerta Stencil','Big Shoulders Stencil Display','Bebas Neue',Impact,sans-serif"
+              font-weight="700" font-size="40" letter-spacing="6" text-anchor="middle" fill="currentColor">PAINTING</text>
+      </svg>
+      <span class="nav-wordmark-riso" aria-hidden="true">VOL. 01 / 2026</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#quote" class="nav-cta">Get a quote</a></li>
+    </ul>
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="nav-drawer" role="navigation" aria-label="Mobile navigation">
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="#area">Area</a>
+    <a href="#quote" class="nav-cta">Get a quote</a>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════ -->
+<main id="main-content">
+<section id="top" aria-label="Hero">
+  <div class="hero">
+    <!-- Abstract background shapes -->
+    <div class="hero-shapes" aria-hidden="true">
+      <div class="hero-halfcircle"></div>
+      <div class="hero-slash"></div>
+      <div class="hero-slash-2"></div>
+      <!-- Dot grid SVG -->
+      <svg class="hero-dot-grid" width="200" height="200" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <pattern id="dots" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+            <circle cx="3" cy="3" r="2" fill="#1E3F8A" opacity="0.9"/>
+          </pattern>
+        </defs>
+        <rect width="200" height="200" fill="url(#dots)"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-kicker reveal">VOL. 01 / 2026 &mdash; ST. CLOUD, MN &mdash; EST. 2014</p>
+
+      <div aria-hidden="true">
+        <span class="hero-wordmark" data-text="SPANIER" aria-hidden="true">SPANIER</span>
+        <span class="hero-wordmark-2" data-text="PAINTING" aria-hidden="true">PAINTING</span>
+      </div>
+      <h1 class="sr-only">Spanier Painting — Residential paint studio, St. Cloud Minnesota</h1>
+
+      <div class="hero-sub">
+        <p class="hero-desc reveal reveal-delay-1">
+          A residential paint studio in Central Minnesota. We paint houses, restore cabinetry, revive trim, and consult on color — with the attention of people who care about craft.
+        </p>
+        <div class="hero-meta reveal reveal-delay-2">
+          <div class="hero-meta-item"><span>▸</span> Interior &amp; Exterior</div>
+          <div class="hero-meta-item"><span>▸</span> Cabinet refinishing</div>
+          <div class="hero-meta-item"><span>▸</span> Heritage / historic homes</div>
+          <div class="hero-meta-item"><span>▸</span> Decks + specialty coatings</div>
+        </div>
+      </div>
+
+      <div class="hero-cta-row reveal reveal-delay-3">
+        <a href="#quote" class="btn-primary">Get a quote ↗</a>
+        <a href="#work" class="btn-secondary">See the work</a>
+      </div>
+    </div>
+
+    <!-- Hero full-bleed image panel -->
+    <div class="hero-image-panel" aria-hidden="false">
+      <!-- REPLACE: nano-banana — wide exterior view of a freshly painted Central Minnesota residential home in summer, bright Minnesota sky, lush green lawn, crisp white trim and siding, finished result, no workers or ladders visible -->
+      <img
+        src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=2400&q=85&auto=format&fit=crop"
+        alt="Freshly painted Minnesota home exterior — Spanier Painting"
+        loading="eager"
+        fetchpriority="high"
+      >
+      <span class="hero-image-caption" aria-hidden="true">ST. CLOUD AREA · EST. 2014</span>
+    </div>
+
+    <!-- Bottom info strip -->
+    <div class="hero-strip" aria-label="Quick contact">
+      <span class="hero-strip-text">
+        <em>320·250·9100</em>
+      </span>
+      <span class="hero-strip-sep" aria-hidden="true">✶</span>
+      <span class="hero-strip-text">lukas@spanierpainting.com</span>
+      <span class="hero-strip-sep" aria-hidden="true">✶</span>
+      <span class="hero-strip-text">St. Cloud + <em>surrounding cities</em></span>
+      <span class="hero-strip-sep" aria-hidden="true">✶</span>
+      <span class="hero-strip-text">Mon–Fri 7am–6pm &middot; Sat by appointment</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION BREAK
+     ═══════════════════════════════════════════ -->
+<div class="riso-rule" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════
+     MANIFESTO
+     ═══════════════════════════════════════════ -->
+<section id="about" aria-labelledby="manifesto-heading">
+  <div class="manifesto">
+    <div class="manifesto-inner">
+      <div class="manifesto-label">
+        <div class="plate-stamp">FROM THE STUDIO — LETTER NO. 01</div>
+        <p class="manifesto-side-text">Spanier Painting · Est. 2014 · St. Cloud, MN · Residential &amp; Commercial · 4-painter studio</p>
+      </div>
+      <div>
+        <h2 id="manifesto-heading" class="manifesto-quote reveal">
+          The painter Central Minnesota families recommend <strong data-text="by name">by name</strong> since 2014.
+        </h2>
+        <p class="manifesto-body reveal reveal-delay-1">
+          Lukas Spanier started the company at 19 — a one-man crew, one ladder, a willingness to do the prep no one else wanted to. Twelve years later, Spanier Painting is a four-painter studio working across the St. Cloud region on everything from heritage Queen Annes to two-day commercial turnarounds. Same crew on every job. Owner on every walkthrough. Licensed and insured. EPA RRP certified for lead-safe work.
+        </p>
+        <p class="manifesto-body reveal reveal-delay-2" style="margin-top:1rem;font-family:var(--mono);font-size:0.85rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--electric-blue)">
+          Licensed + insured · EPA RRP certified · SW + BM trade partner · 2-year workmanship warranty · 12+ years · 4-painter studio
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PRINTED MATTER — editorial / riso origin story
+     ═══════════════════════════════════════════ -->
+<section aria-labelledby="printed-matter-heading">
+  <div class="printed-matter">
+    <div class="printed-matter-inner">
+
+      <!-- LEFT: sticky label + riso layer diagram -->
+      <div class="pm-left reveal">
+        <div class="pm-label">
+          <div class="plate-stamp blue">THE PRINT EDITION</div>
+        </div>
+        <h2 id="printed-matter-heading" class="pm-headline">THE PRINT<br>EDITION.</h2>
+        <p class="pm-sub">This edition is printed in two-color risograph — deep cobalt and brand cobalt — on 70lb uncoated stock. Edition of 50, hand-numbered and bound at the studio.</p>
+
+        <!-- Riso ink layer diagram -->
+        <div class="pm-diagram" aria-label="Risograph ink layers">
+          <div class="pm-layer">
+            <div class="pm-layer-swatch deep" aria-hidden="true"></div>
+            <span class="pm-layer-label">LAYER 01 — SKY COBALT</span>
+            <span class="pm-layer-desc">#3E6FE0</span>
+          </div>
+          <div class="pm-layer">
+            <div class="pm-layer-swatch cobalt" aria-hidden="true"></div>
+            <span class="pm-layer-label">LAYER 02 — BRAND COBALT</span>
+            <span class="pm-layer-desc">#1E3F8A</span>
+          </div>
+          <div class="pm-layer">
+            <div class="pm-layer-swatch over" aria-hidden="true"></div>
+            <span class="pm-layer-label">OVERPRINT — REGISTRATION</span>
+            <span class="pm-layer-desc">±3px</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: pull-quote + trivia cards -->
+      <div class="pm-right">
+
+        <!-- Pull-quote with misreg -->
+        <blockquote class="pm-pullquote reveal">
+          <p class="pm-pullquote-kicker">FROM THE STUDIO &nbsp;·&nbsp; VOL. 01 / 2026</p>
+          <p class="pm-pullquote-text">
+            A riso press doesn't fake <em data-text="texture">texture</em>. Neither does a good paint crew. Both leave evidence of the hand — and that's the point.
+          </p>
+          <footer class="pm-pullquote-source">— Lukas Spanier · Spanier Painting Studio · Est. 2014</footer>
+        </blockquote>
+
+        <!-- Three zine-note trivia cards -->
+        <div class="pm-notes">
+          <div class="pm-note reveal">
+            <span class="pm-note-num">NOTE 01</span>
+            <h3 class="pm-note-title">The Riso Press</h3>
+            <p class="pm-note-body">Risograph prints one ink at a time, drum by drum. Each pass is slightly off — the "misregistration" is a feature, not a flaw. That small slip is what makes riso feel alive.</p>
+          </div>
+          <div class="pm-note reveal reveal-delay-1">
+            <span class="pm-note-num">NOTE 02</span>
+            <h3 class="pm-note-title">Two-Color Blue</h3>
+            <p class="pm-note-body">This edition uses only blue — deep cobalt on brand cobalt. Overlapping layers create a third tone. The grain is inherent to the ink; we amplified it, not manufactured it.</p>
+          </div>
+          <div class="pm-note reveal reveal-delay-2">
+            <span class="pm-note-num">NOTE 03</span>
+            <h3 class="pm-note-title">Zine Influence</h3>
+            <p class="pm-note-body">Independent publishers like Hato Press and Nieves prove that the most considered design still fits in a hand. This site takes that energy — print logic, web medium.</p>
+          </div>
+        </div>
+
+      </div><!-- /pm-right -->
+    </div><!-- /printed-matter-inner -->
+  </div>
+</section>
+
+<div class="riso-rule" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════
+     PROCESS — 4-block plate
+     ═══════════════════════════════════════════ -->
+<section id="process" aria-labelledby="process-heading">
+  <div class="process">
+    <div class="process-bg" aria-hidden="true"></div>
+    <div class="process-inner">
+      <div class="process-header">
+        <div>
+          <div class="plate-stamp blue" style="margin-bottom:1.5rem">HOW WE WORK · FOUR PLATES</div>
+          <h2 id="process-heading" class="process-title reveal">
+            Four passes.<br>One <strong data-text="finish.">finish.</strong>
+          </h2>
+        </div>
+        <p class="process-lede reveal reveal-delay-1">Every project runs through the same four plates. Same crew, same prep standard, same warranty in writing — whether it's a powder room or a 4,200-square-foot office.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-block reveal">
+          <span class="process-block-num">PLATE 01</span>
+          <h3 class="process-block-name"><strong>Walkthrough.</strong></h3>
+          <p class="process-block-body">Lukas walks the property with you, takes photos, measures with iPad LiDAR for accurate square-footage. You get the same scope of work he uses to quote.</p>
+          <span class="process-block-tag">LiDAR · iPad Pro</span>
+        </div>
+        <div class="process-block reveal reveal-delay-1">
+          <span class="process-block-num">PLATE 02</span>
+          <h3 class="process-block-name"><strong>Color.</strong></h3>
+          <p class="process-block-body">Sherwin-Williams ColorSnap AR previews on your actual wall, or bring your own swatch. Sample patches optional. See your color before we touch a wall.</p>
+          <span class="process-block-tag">ColorSnap AR</span>
+        </div>
+        <div class="process-block reveal reveal-delay-2">
+          <span class="process-block-num">PLATE 03</span>
+          <h3 class="process-block-name"><strong>Prep + paint.</strong></h3>
+          <p class="process-block-body">Drop cloths down, hardware off, surfaces prepped to spec. Two coats unless we agreed otherwise. Daily clean-up. The site looks lived-in again at 6pm.</p>
+          <span class="process-block-tag">SW / BM · 2-coat</span>
+        </div>
+        <div class="process-block reveal reveal-delay-3">
+          <span class="process-block-num">PLATE 04</span>
+          <h3 class="process-block-name"><strong>Walk + warranty.</strong></h3>
+          <p class="process-block-body">Final inspection together. You point at anything that's not right, we fix it. Two-year workmanship warranty handed over in writing — not buried in fine print.</p>
+          <span class="process-block-tag">2-year warranty</span>
+        </div>
+      </div>
+
+      <!-- Phase 3 tease cards -->
+      <div class="process-tease">
+        <!-- TODO: Phase 3 -->
+        <div class="process-tease-card reveal">
+          <p class="process-tease-kicker">COMING SOON · PLATE 00</p>
+          <h3 class="process-tease-title">Instant ballpark estimate.</h3>
+          <p class="process-tease-body">Upload a photo of your room. Get a price range in 30 seconds. Powered by Claude.</p>
+          <p class="process-tease-foot">In development — Spring 2026</p>
+        </div>
+        <!-- TODO: Phase 3 -->
+        <div class="process-tease-card reveal reveal-delay-1">
+          <p class="process-tease-kicker">COMING SOON · OVERPRINT</p>
+          <h3 class="process-tease-title">AI room designer.</h3>
+          <p class="process-tease-body">See your space in three color schemes before the first brushstroke.</p>
+          <p class="process-tease-foot">In development — Spring 2026</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SELECTED WORK
+     ═══════════════════════════════════════════ -->
+<section id="work" aria-labelledby="work-heading">
+  <div class="selected-work">
+    <div class="work-header">
+      <h2 id="work-heading" class="work-title reveal" data-text="SELECTED WORK">Selected Work</h2>
+      <span class="work-count reveal reveal-delay-1">4 projects</span>
+    </div>
+
+    <div class="work-grid">
+
+      <!-- Case 01 -->
+      <article class="case-study reveal">
+        <div class="case-img-wrap">
+          <span class="case-plate-stamp">PROJECT 01 — VOL. 01 / 2026</span>
+          <img src="https://images.unsplash.com/photo-1560440021-33f9b867899d?w=1800&q=85&auto=format&fit=crop" alt="Full interior repaint — Craftsman home in Sartell" loading="lazy" decoding="async">
+          <!-- REPLACE: nano-banana — Minnesota Craftsman-style home interior, warm painted walls, white crown molding, hardwood floors, natural light, residential, high quality finish -->
+        </div>
+        <div class="case-body">
+          <h3 class="case-title">Craftsman Full Repaint, Sartell</h3>
+          <p class="case-caption">The owners had lived with builder-grade white for twelve years. We pulled every room in one direction — a warm greige on the main floor that shifted to a cooler slate upstairs. Trim in high-gloss white. Six days, two coats everywhere.</p>
+          <!-- Secondary detail image -->
+          <div class="case-detail-img">
+            <!-- REPLACE: nano-banana — close detail of freshly painted white crown molding meeting a warm greige wall, Minnesota Craftsman interior, clean brush line, natural window light, high-gloss trim finish, no people -->
+            <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=1200&q=80&auto=format&fit=crop" alt="Detail — crown molding and trim finish, Sartell Craftsman" loading="lazy" decoding="async">
+          </div>
+          <span class="case-detail-caption">DETAIL — CROWN MOLDING · SARTELL 2024</span>
+          <dl class="case-meta">
+            <div class="case-meta-item"><strong>Location</strong> &nbsp;Sartell, MN</div>
+            <div class="case-meta-item"><strong>Year</strong> &nbsp;2024</div>
+            <div class="case-meta-item"><strong>Scope</strong> &nbsp;Interior full home</div>
+            <div class="case-meta-item"><strong>Finish</strong> &nbsp;Eggshell + gloss trim</div>
+            <div class="case-meta-item"><strong>Days</strong> &nbsp;6</div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- Case 02 -->
+      <article class="case-study reveal reveal-delay-1">
+        <div class="case-img-wrap">
+          <span class="case-plate-stamp">PROJECT 02 — VOL. 01 / 2026</span>
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1800&q=85&auto=format&fit=crop" alt="Cabinet restoration — St. Cloud kitchen" loading="lazy" decoding="async">
+          <!-- REPLACE: nano-banana — Minnesota kitchen cabinet repainting, white painted cabinets, clean finish, residential kitchen, before/after style, high quality spray finish -->
+        </div>
+        <div class="case-body">
+          <h3 class="case-title">Kitchen Cabinet Restoration, St. Cloud</h3>
+          <p class="case-caption">Solid-wood cabinets, dated oak stain, client budget-conscious about a full remodel. We stripped, sanded, primed, and sprayed a furniture-grade white with soft-close hardware paint. The kitchen looks new. Cost: one tenth of a replacement.</p>
+          <!-- Secondary detail image -->
+          <div class="case-detail-img">
+            <!-- REPLACE: nano-banana — wide kitchen view after cabinet repaint, freshly sprayed bright white cabinet doors closed, clean satin finish, Minnesota residential kitchen, no tools or people, natural daylight from window -->
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80&auto=format&fit=crop&crop=bottom" alt="Wide view — completed kitchen cabinet repaint, St. Cloud" loading="lazy" decoding="async">
+          </div>
+          <span class="case-detail-caption">CONTEXT — KITCHEN FULL VIEW · ST. CLOUD 2024</span>
+          <dl class="case-meta">
+            <div class="case-meta-item"><strong>Location</strong> &nbsp;St. Cloud, MN</div>
+            <div class="case-meta-item"><strong>Year</strong> &nbsp;2024</div>
+            <div class="case-meta-item"><strong>Scope</strong> &nbsp;Cabinetry</div>
+            <div class="case-meta-item"><strong>Finish</strong> &nbsp;Sprayed satin</div>
+            <div class="case-meta-item"><strong>Days</strong> &nbsp;3</div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- Case 03 -->
+      <article class="case-study reveal reveal-delay-2">
+        <div class="case-img-wrap">
+          <span class="case-plate-stamp">PROJECT 03 — VOL. 01 / 2026</span>
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1800&q=85&auto=format&fit=crop" alt="Victorian exterior, Avon" loading="lazy" decoding="async">
+          <!-- REPLACE: nano-banana — Victorian-era Minnesota home exterior repainting, detailed trim work, two-tone color scheme, freshly painted siding, summer Minnesota residential street -->
+        </div>
+        <div class="case-body">
+          <h3 class="case-title">Victorian Exterior, Heritage Trim — Avon</h3>
+          <p class="case-caption">Built in 1904, this house had seventeen distinct trim profiles. We matched period-appropriate colors from the Benjamin Moore Historic collection and used a flexible oil-based formula on the sills. The fishscale shingles got a contrasting accent — done by hand.</p>
+          <!-- Secondary detail image -->
+          <div class="case-detail-img">
+            <!-- REPLACE: nano-banana — close detail of Victorian-era gingerbread trim and fishscale shingles freshly painted in contrasting accent color, Central Minnesota home exterior, summer, crisp paint line, no people -->
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&q=80&auto=format&fit=crop&crop=top" alt="Detail — fishscale shingles and heritage trim, Avon Victorian" loading="lazy" decoding="async">
+          </div>
+          <span class="case-detail-caption">DETAIL — HERITAGE TRIM · AVON 2023</span>
+          <dl class="case-meta">
+            <div class="case-meta-item"><strong>Location</strong> &nbsp;Avon, MN</div>
+            <div class="case-meta-item"><strong>Year</strong> &nbsp;2023</div>
+            <div class="case-meta-item"><strong>Scope</strong> &nbsp;Exterior + heritage trim</div>
+            <div class="case-meta-item"><strong>Finish</strong> &nbsp;Satin + oil sills</div>
+            <div class="case-meta-item"><strong>Days</strong> &nbsp;10</div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- Case 04 — wide -->
+      <article class="case-study reveal reveal-delay-3">
+        <div class="case-img-wrap">
+          <span class="case-plate-stamp">PROJECT 04 — VOL. 01 / 2026</span>
+          <img src="https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=1800&q=85&auto=format&fit=crop" alt="Deck restoration — Waite Park" loading="lazy" decoding="async">
+          <!-- REPLACE: nano-banana — Minnesota residential deck restoration, freshly stained cedar deck, clean railing work, backyard summer, St. Cloud area home, professional finish -->
+        </div>
+        <div class="case-body">
+          <h3 class="case-title">Cedar Deck Restoration — Waite Park</h3>
+          <p class="case-caption">Five-year-old cedar that hadn't been sealed. Cracking boards, grey patina, failing rail posts. We power-washed, brightened, sanded, and applied a premium penetrating oil stain — two coats on every face. The grain came back. The owners cried (good tears).</p>
+          <!-- Secondary detail image -->
+          <div class="case-detail-img">
+            <!-- REPLACE: nano-banana — wide view of finished cedar deck after restoration, rich warm stain on deck boards, white painted railing, Minnesota summer backyard, green lawn beyond, no people, afternoon golden light -->
+            <img src="https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=1200&q=80&auto=format&fit=crop&crop=bottom" alt="Wide view — completed deck restoration, Waite Park" loading="lazy" decoding="async">
+          </div>
+          <span class="case-detail-caption">CONTEXT — DECK + RAIL SYSTEM · WAITE PARK 2024</span>
+          <dl class="case-meta">
+            <div class="case-meta-item"><strong>Location</strong> &nbsp;Waite Park, MN</div>
+            <div class="case-meta-item"><strong>Year</strong> &nbsp;2024</div>
+            <div class="case-meta-item"><strong>Scope</strong> &nbsp;Deck + rails + posts</div>
+            <div class="case-meta-item"><strong>Finish</strong> &nbsp;Penetrating oil stain</div>
+            <div class="case-meta-item"><strong>Days</strong> &nbsp;4</div>
+          </dl>
+        </div>
+      </article>
+
+    </div><!-- /work-grid -->
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PHOTO GALLERY — Recent Work
+     ═══════════════════════════════════════════ -->
+<section id="gallery" aria-labelledby="gallery-heading">
+  <div class="gallery-section">
+    <div class="gallery-inner">
+      <div class="gallery-header">
+        <h2 id="gallery-heading" class="gallery-title reveal">Recent Work</h2>
+        <span class="gallery-count reveal reveal-delay-1">8 plates · 2023–2025</span>
+      </div>
+
+      <div class="gallery-grid">
+
+        <!-- Gallery 01 — Riverbend Residence — hero span -->
+        <div class="gallery-item reveal">
+          <!-- REPLACE: nano-banana — wide interior of Minnesota residence, whole-home repaint, white kitchen with Hague Blue dining room visible through doorway, hardwood floors, summer afternoon light, no people, Sartell MN -->
+          <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=2000&q=80&auto=format&fit=crop" alt="Riverbend Residence — whole-home repaint, Sartell" loading="lazy" decoding="async">
+          <span class="gallery-caption">RIVERBEND RESIDENCE · SARTELL · INTERIOR · 2024</span>
+        </div>
+
+        <!-- Gallery 02 — Granite Ridge Kitchen -->
+        <div class="gallery-item reveal reveal-delay-1">
+          <!-- REPLACE: nano-banana — Minnesota kitchen with 42 freshly sprayed white cabinet doors, conversion varnish finish, BM Simply White OC-117, clean satin sheen, natural daylight, no people, St. Cloud -->
+          <img src="https://images.unsplash.com/photo-1574739782594-db4ead022697?w=1200&q=80&auto=format&fit=crop" alt="Granite Ridge Kitchen — 42 cabinet doors, St. Cloud" loading="lazy" decoding="async">
+          <span class="gallery-caption">GRANITE RIDGE KITCHEN · ST. CLOUD · CABINETRY · 2025</span>
+        </div>
+
+        <!-- Gallery 03 — Cold Spring Farmhouse -->
+        <div class="gallery-item reveal">
+          <!-- REPLACE: nano-banana — Minnesota farmhouse exterior in sage green Hardiplank siding with cream trim, freshly painted, summer afternoon, no people, Cold Spring MN -->
+          <img src="https://images.unsplash.com/photo-1592595896616-c37162298647?w=1200&q=80&auto=format&fit=crop" alt="Cold Spring Farmhouse — Hardiplank repaint, sage and cream" loading="lazy" decoding="async">
+          <span class="gallery-caption">COLD SPRING FARMHOUSE · COLD SPRING · EXTERIOR · 2024</span>
+        </div>
+
+        <!-- Gallery 04 — Northgate Dental -->
+        <div class="gallery-item reveal reveal-delay-1">
+          <!-- REPLACE: nano-banana — modern dental office patient room interior with crisp anti-microbial white walls, clean medical setting, fresh paint, no people, Waite Park MN commercial -->
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=80&auto=format&fit=crop" alt="Northgate Dental — two-day commercial turnaround, Waite Park" loading="lazy" decoding="async">
+          <span class="gallery-caption">NORTHGATE DENTAL · WAITE PARK · COMMERCIAL · 2025</span>
+        </div>
+
+        <!-- Gallery 05 — Heritage Avenue -->
+        <div class="gallery-item reveal reveal-delay-2">
+          <!-- REPLACE: nano-banana — 1908 Queen Anne Victorian Minnesota home, historic green paint, ornate trim, lead-safe restoration, sunny afternoon, no people, St. Cloud MN -->
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&q=80&auto=format&fit=crop" alt="Heritage Avenue — 1908 Queen Anne, lead-safe prep, St. Cloud" loading="lazy" decoding="async">
+          <span class="gallery-caption">HERITAGE AVENUE · ST. CLOUD · HERITAGE · 2023</span>
+        </div>
+
+        <!-- Gallery 06 — Pine Lake Deck -->
+        <div class="gallery-item reveal">
+          <!-- REPLACE: nano-banana — 800sqft cedar lake deck with semi-transparent stain, fresh honey tone, lakefront view, summer evening golden light, no people, Avon MN -->
+          <!-- TODO: ideal swap — a dedicated 800sqft cedar lakefront deck photo (Avon, MN); current placeholder shows a log home with prominent cedar deck and railing, acceptable proxy -->
+          <img src="https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=1200&q=80&auto=format&fit=crop&crop=top" alt="Pine Lake Deck — 800 sqft cedar, semi-transparent stain, Avon" loading="lazy" decoding="async">
+          <span class="gallery-caption">PINE LAKE DECK · AVON · DECKS · 2024</span>
+        </div>
+
+        <!-- Gallery 07 — Sauk Rapids Office -->
+        <div class="gallery-item reveal reveal-delay-1">
+          <!-- REPLACE: nano-banana — modern 4,200 sqft commercial office interior, fresh neutral paint, open workspace, evening shift completion, no people, Sauk Rapids MN -->
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80&auto=format&fit=crop" alt="Sauk Rapids Office — 4,200 sqft after-hours commercial repaint" loading="lazy" decoding="async">
+          <span class="gallery-caption">SAUK RAPIDS OFFICE · SAUK RAPIDS · COMMERCIAL · 2025</span>
+        </div>
+
+        <!-- Gallery 08 — The Annual House -->
+        <div class="gallery-item reveal reveal-delay-2">
+          <!-- REPLACE: nano-banana — Minnesota interior hallway after trim refresh and ceiling repair in BM Decorator's White, clean white trim, natural light from skylight, no people, Albany MN -->
+          <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=1200&q=80&auto=format&fit=crop&crop=bottom" alt="The Annual House — trim refresh + ceiling repair, Albany" loading="lazy" decoding="async">
+          <span class="gallery-caption">THE ANNUAL HOUSE · ALBANY · INTERIOR · 2024</span>
+        </div>
+
+      </div><!-- /gallery-grid -->
+
+      <!-- Before/After slider moment — Phase 1 deliverable -->
+      <div class="testimony-widget" style="margin-top:3rem">
+        [ BEFORE / AFTER SLIDER — interactive comparison loads here · Phase 1 deliverable ]
+      </div>
+    </div><!-- /gallery-inner -->
+  </div>
+</section>
+
+<div class="riso-rule" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════
+     SERVICES
+     ═══════════════════════════════════════════ -->
+<section id="services" aria-labelledby="services-heading">
+  <div class="services">
+    <div class="services-inner">
+      <div class="services-header">
+        <h2 id="services-heading" class="services-title reveal">What we<br>print on.</h2>
+        <p class="services-desc reveal reveal-delay-1">Six plates. Six surfaces. One crew that knows them all. Lukas's painters handle every item below in-house — no subcontracted prep, no inherited mistakes. Two coats over a properly primed surface, every time.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <p class="service-num">PLATE 01</p>
+          <h3 class="service-name">Interior Painting</h3>
+          <p class="service-desc">Walls, ceilings, trim, doors. Two-coat over a primed surface — eggshell on walls, semi-gloss on trim, flat on ceilings unless you'd rather not. Drop cloths and protected hardware are standard, not extra.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <p class="service-num">PLATE 02</p>
+          <h3 class="service-name">Exterior Painting</h3>
+          <p class="service-desc">Siding, soffits, fascia, trim, garages. Power-washed, scraped, primed and back-rolled. Alkyd-hybrid on woodwork; elastomeric where the surface needs to bridge a crack.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <p class="service-num">PLATE 03</p>
+          <h3 class="service-name">Cabinet Refinishing</h3>
+          <p class="service-desc">Kitchens, vanities, built-ins. Doors and drawer fronts come off and finish off-site for an even, dust-free coat. Conversion varnish or pigmented lacquer depending on the cabinetry.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-3">
+          <p class="service-num">PLATE 04</p>
+          <h3 class="service-name">Heritage / Historic Homes</h3>
+          <p class="service-desc">Older homes, lead-safe practice, color-matching to original paint, plaster repair. EPA RRP certified. Patient detail work on the houses that earned it.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-4">
+          <p class="service-num">PLATE 05</p>
+          <h3 class="service-name">Decks + Fences</h3>
+          <p class="service-desc">Stain, seal, refresh. Penetrating oils, semi-transparent stains, or solid-body coatings depending on the age of the wood and how much sun it sees.</p>
+        </div>
+
+        <div class="service-card reveal" style="transition-delay:0.4s">
+          <p class="service-num">PLATE 06</p>
+          <h3 class="service-name">Specialty Coatings</h3>
+          <p class="service-desc">Epoxy garage floors, commercial walls, fire-rated coatings, anti-graffiti finishes, kitchen-safe cabinet refresh. The jobs other painters route around.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     BIG PUNCHY QUOTE — manifesto 2
+     ═══════════════════════════════════════════ -->
+<section aria-label="Studio quote">
+  <div class="big-quote">
+
+    <div class="big-quote-inner reveal">
+      <span class="big-quote-mark" aria-hidden="true">"</span>
+      <blockquote class="big-quote-text">
+        We don't rush. <em data-text="Good paint">Good paint</em> is not a weekend job — it's a week of preparation and a coat of pride.
+      </blockquote>
+      <p class="big-quote-attr">— <strong>Lukas Spanier</strong>, founder &amp; lead painter</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONY — bordered review plates
+     ═══════════════════════════════════════════ -->
+<section id="reviews" aria-labelledby="testimony-heading">
+  <div class="testimony">
+    <div class="testimony-inner">
+      <div class="testimony-header">
+        <div>
+          <div class="plate-stamp blue" style="margin-bottom:1.5rem">TESTIMONY · PRINTED IN FULL</div>
+          <h2 id="testimony-heading" class="testimony-title reveal">
+            What clients<br><strong data-text="say.">say.</strong>
+          </h2>
+        </div>
+        <div class="testimony-google" aria-label="Google rating: 5.0 stars">
+          <!-- Google "G" logomark -->
+          <svg class="testimony-google-mark" viewBox="0 0 48 48" aria-hidden="true">
+            <path fill="#1E3F8A" d="M44.5 20H24v8.5h11.8C34.7 33 30 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 2.9l6.3-6.3C34.3 5 29.4 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-7.7 20-21 0-1.3-.2-2.7-.5-4z"/>
+          </svg>
+          <div>
+            <div class="testimony-google-rating">5.0 <span class="testimony-stars">★★★★★</span></div>
+            <div class="testimony-google-meta">Google Reviews · 42 reviews</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimony-grid">
+        <!-- TODO: replace with real Google Review when Lukas pulls them -->
+        <article class="testimony-plate reveal">
+          <div class="testimony-plate-stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimony-plate-quote">Lukas painted three rooms in our 1923 bungalow and you genuinely cannot see a brushstroke. He's the only painter we'll call now.</p>
+          <p class="testimony-plate-attr">Jen &amp; Marcus K. <span>·</span> Sartell <span>·</span> Interior</p>
+        </article>
+
+        <!-- TODO: replace with real Google Review when Lukas pulls them -->
+        <article class="testimony-plate reveal reveal-delay-1">
+          <div class="testimony-plate-stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimony-plate-quote">We had two-day downtime for our dental office. Spanier was in and out, off-hours, perfectly clean. The patients didn't notice a thing.</p>
+          <p class="testimony-plate-attr">Dr. Pavlov <span>·</span> Northgate Dental <span>·</span> Commercial</p>
+        </article>
+
+        <!-- TODO: replace with real Google Review when Lukas pulls them -->
+        <article class="testimony-plate reveal reveal-delay-2">
+          <div class="testimony-plate-stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimony-plate-quote">He talked me out of a color I would have hated. That's worth the whole project price.</p>
+          <p class="testimony-plate-attr">Heather B. <span>·</span> St. Cloud <span>·</span> Cabinetry</p>
+        </article>
+      </div>
+
+      <!-- TODO: Google Reviews widget — Phase 1 scope -->
+      <div class="testimony-widget" role="note">
+        [ GOOGLE REVIEWS WIDGET — live feed embeds here · Phase 1 deliverable ]
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     COMMON QUESTIONS — FAQ plate set
+     ═══════════════════════════════════════════ -->
+<section id="faq" aria-labelledby="faq-heading">
+  <div class="faq">
+    <div class="faq-inner">
+      <div class="faq-side">
+        <div class="plate-stamp">COMMON QUESTIONS · PRINT EDITION</div>
+        <h2 id="faq-heading" class="faq-title reveal">
+          Common<br><strong data-text="questions.">questions.</strong>
+        </h2>
+        <p class="faq-lede reveal reveal-delay-1">The eight things most folks ask before they hire a painter. If yours isn't here, call the studio at <a href="tel:+13202509100" style="color:var(--electric-blue);text-decoration:underline;text-underline-offset:3px">320·250·9100</a> — Lukas picks up.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <span class="faq-num">Q.01</span>
+          <div>
+            <h3 class="faq-q">What areas do you serve?</h3>
+            <p class="faq-a">Central Minnesota — St. Cloud, Sartell, Sauk Rapids, Waite Park, Cold Spring, Avon, Albany, Monticello, Foley, Rice, Becker, Big Lake. Roughly a 60-mile radius from St. Cloud.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <span class="faq-num">Q.02</span>
+          <div>
+            <h3 class="faq-q">How much does a typical project cost?</h3>
+            <p class="faq-a">Interior repaints start around $2.50–$4.50/sqft of wall area; full exteriors $4,000–$12,000 depending on size, prep, and condition. We give you a real number after a walkthrough — not a per-hour estimate.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <span class="faq-num">Q.03</span>
+          <div>
+            <h3 class="faq-q">Do you give free estimates?</h3>
+            <p class="faq-a">Yes. A walkthrough, photos, measurements, and a written quote — at no cost.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <span class="faq-num">Q.04</span>
+          <div>
+            <h3 class="faq-q">Are you licensed and insured?</h3>
+            <p class="faq-a">Yes — licensed and insured in Minnesota, plus EPA RRP certified for lead-safe work on pre-1978 homes.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <span class="faq-num">Q.05</span>
+          <div>
+            <h3 class="faq-q">What paint brands do you use?</h3>
+            <p class="faq-a">Sherwin-Williams and Benjamin Moore are the defaults. We'll work with whatever you specify.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <span class="faq-num">Q.06</span>
+          <div>
+            <h3 class="faq-q">How long does a typical interior repaint take?</h3>
+            <p class="faq-a">A 1,500 sqft repaint is usually 3–5 working days. Cabinetry runs 5–7 days. Exteriors run 1–2 weeks depending on weather and prep.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <span class="faq-num">Q.07</span>
+          <div>
+            <h3 class="faq-q">Do you do commercial work?</h3>
+            <p class="faq-a">Yes — offices, dental and medical, restaurants, retail. Most commercial work is scheduled after-hours or weekends so you don't lose business days.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <span class="faq-num">Q.08</span>
+          <div>
+            <h3 class="faq-q">Is there a warranty?</h3>
+            <p class="faq-a">Two-year workmanship warranty in writing. If a coat fails because of how we applied it, we come back and fix it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SERVICE AREA
+     ═══════════════════════════════════════════ -->
+<section id="area" aria-labelledby="area-heading">
+  <div class="service-area">
+    <div class="service-area-inner">
+      <div class="area-header">
+        <div>
+          <div class="plate-stamp" style="color:var(--fluoro-pink);border-color:var(--fluoro-pink);margin-bottom:1.5rem">SERVICE AREA</div>
+          <h2 id="area-heading" class="area-title">
+            We work<br>in<br>
+            <strong data-text="ST. CLOUD">ST. CLOUD</strong><br>
+            &amp; beyond.
+          </h2>
+        </div>
+        <p class="area-desc reveal reveal-delay-1">Central Minnesota is home. We're based in St. Cloud and serve a wide corridor of surrounding cities — from Monticello in the south to Foley in the north. Free estimates within our service zone.</p>
+      </div>
+
+      <div class="area-cities" role="list">
+        <span class="area-city primary" role="listitem">St. Cloud</span>
+        <span class="area-city" role="listitem">Sartell</span>
+        <span class="area-city" role="listitem">Sauk Rapids</span>
+        <span class="area-city" role="listitem">Waite Park</span>
+        <span class="area-city" role="listitem">Avon</span>
+        <span class="area-city" role="listitem">Foley</span>
+        <span class="area-city" role="listitem">Rice</span>
+        <span class="area-city" role="listitem">Cold Spring</span>
+        <span class="area-city" role="listitem">Albany</span>
+        <span class="area-city" role="listitem">Becker</span>
+        <span class="area-city" role="listitem">Big Lake</span>
+        <span class="area-city" role="listitem">Monticello</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     COLOPHON — final printed contact + Jobber form
+     ═══════════════════════════════════════════ -->
+<section id="quote" aria-labelledby="colophon-heading">
+  <div class="colophon">
+    <div class="colophon-inner">
+
+      <div>
+        <div class="colophon-head">
+          <div class="plate-stamp blue">COLOPHON · PRINTED IN ST. CLOUD</div>
+        </div>
+        <h2 id="colophon-heading" class="colophon-title reveal">
+          Start a<br><strong data-text="project.">project.</strong>
+        </h2>
+        <p class="colophon-lede reveal reveal-delay-1">Tell us about the room, the house, the building, the deck. We walk it within a week, measure with iPad LiDAR, and send a written quote with a real number — not a per-hour ballpark.</p>
+
+        <ul class="colophon-credentials" aria-label="Credentials">
+          <li>Licensed + insured · MN</li>
+          <li>EPA RRP certified</li>
+          <li>SW + BM trade partner</li>
+          <li>2-year warranty</li>
+          <li>Est. 2014 · 12+ years</li>
+        </ul>
+
+        <dl class="colophon-meta">
+          <div>
+            <dt>Phone (primary)</dt>
+            <dd><a href="tel:+13202509100">320·250·9100</a></dd>
+          </div>
+          <div>
+            <dt>Phone (alt)</dt>
+            <dd><a href="tel:+13202909516">320·290·9516</a></dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:lukas@spanierpainting.com">lukas@spanierpainting.com</a></dd>
+          </div>
+          <div>
+            <dt>Studio</dt>
+            <dd>St. Cloud, Minnesota</dd>
+          </div>
+          <div>
+            <dt>Hours</dt>
+            <dd>Mon–Fri 7am–6pm<br>Sat by appointment</dd>
+          </div>
+          <div>
+            <dt>Site</dt>
+            <dd>spanierpainting.com</dd>
+          </div>
+        </dl>
+      </div>
+
+      <aside class="colophon-form reveal reveal-delay-1" aria-label="Work request form">
+        <h3 class="colophon-form-title">Work Request Form</h3>
+        <p class="colophon-form-sub">Fill out the details below and we'll get back inside one business day. Photos welcome — they save us both a trip.</p>
+
+        <!-- TODO: Jobber Work Request Form embed (Phase 2) — script goes here -->
+        <div class="colophon-form-embed" role="note">
+          <strong>JOBBER WORK REQUEST FORM</strong>
+          [ embed renders here · Phase 2 ]<br>
+          name · address · scope · photos · timeline
+        </div>
+
+        <p class="colophon-form-foot">Prefer to talk? Call <a href="tel:+13202509100" style="color:var(--electric-blue);text-decoration:underline">320·250·9100</a></p>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CTA
+     ═══════════════════════════════════════════ -->
+<section id="contact" aria-labelledby="cta-heading">
+  <div class="cta-section">
+    <div class="cta-bg-text" aria-hidden="true">GO</div>
+
+    <div class="cta-inner">
+      <div class="cta-stamp">
+        <div class="plate-stamp">SPANIER PAINTING — START A PROJECT</div>
+      </div>
+      <h2 id="cta-heading" class="cta-headline reveal">
+        Ready?
+        <span data-text="BEGIN.">BEGIN.</span>
+      </h2>
+      <p class="cta-sub reveal reveal-delay-1">Tell us what you're working on. We'll get back within one business day with a straight answer and an honest number — not a per-hour ballpark.</p>
+      <div class="cta-buttons reveal reveal-delay-2">
+        <a href="#quote" class="btn-primary" aria-label="Get a quote from Spanier Painting">Get a quote ↗</a>
+      </div>
+      <a href="tel:+13202509100" class="cta-phone reveal reveal-delay-3" aria-label="Call Spanier Painting at 320-250-9100">320·250·9100</a>
+      <p class="cta-mono reveal" style="transition-delay:0.4s">MON–FRI 7AM–6PM &nbsp;·&nbsp; SAT BY APPT &nbsp;·&nbsp; LICENSED + INSURED · EPA RRP</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+
+      <!-- Brand col / NAP -->
+      <div>
+        <div class="footer-brand-name" data-text="SPANIER">SPANIER PAINTING</div>
+        <p class="footer-bio">St. Cloud, Minnesota. Residential and commercial painters since 2014. Interior, exterior, cabinets, heritage homes, decks, and specialty coatings. Licensed and insured. EPA RRP certified.</p>
+        <a href="tel:+13202509100" class="footer-contact-link" aria-label="Call 320-250-9100">320·250·9100</a>
+        <a href="tel:+13202909516" class="footer-contact-link" aria-label="Call 320-290-9516">320·290·9516</a>
+        <a href="mailto:lukas@spanierpainting.com" class="footer-contact-link" aria-label="Email lukas at spanierpainting.com">lukas@spanierpainting.com</a>
+      </div>
+
+      <!-- Services col -->
+      <nav aria-label="Services navigation">
+        <p class="footer-col-title">Services</p>
+        <ul class="footer-links">
+          <li><a href="#services">Interior Painting</a></li>
+          <li><a href="#services">Exterior Painting</a></li>
+          <li><a href="#services">Cabinet Refinishing</a></li>
+          <li><a href="#services">Heritage / Historic Homes</a></li>
+          <li><a href="#services">Decks + Fences</a></li>
+          <li><a href="#services">Specialty Coatings</a></li>
+        </ul>
+      </nav>
+
+      <!-- Pages col -->
+      <nav aria-label="Site navigation">
+        <p class="footer-col-title">Studio</p>
+        <ul class="footer-links">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#area">Service Area</a></li>
+          <li><a href="#quote">Get a quote</a></li>
+        </ul>
+      </nav>
+
+      <!-- Hours col -->
+      <div>
+        <p class="footer-col-title">Hours</p>
+        <p class="footer-hours-item"><strong>Mon–Fri</strong> 7:00 am – 6:00 pm</p>
+        <p class="footer-hours-item"><strong>Saturday</strong> By appointment</p>
+        <p class="footer-hours-item"><strong>Sunday</strong> Closed</p>
+        <p class="footer-hours-item" style="margin-top:1rem"><strong>Licensed + insured</strong> · MN</p>
+        <p class="footer-hours-item"><strong>EPA RRP certified</strong> · lead-safe</p>
+        <p class="footer-hours-item"><strong>Est. 2014</strong> · 12+ years</p>
+      </div>
+
+    </div><!-- /footer-top -->
+
+    <div class="footer-bottom">
+      <p class="footer-legal">Spanier Painting &nbsp;·&nbsp; St. Cloud, Minnesota &nbsp;·&nbsp; 320·250·9100 &nbsp;·&nbsp; lukas@spanierpainting.com &nbsp;·&nbsp; Mon–Fri 7–6 · Sat by appt &nbsp;·&nbsp; Licensed + insured · EPA RRP · Est. 2014</p>
+      <p class="footer-edition">PRINT RUN OF 50 &mdash; NO. 023/050 &nbsp;·&nbsp; SITE BY AIDAN</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── ZINE FLATPLAN (Hato Press / Drømt reference) ─── -->
+<section class="flatplan" aria-label="Zine flatplan">
+  <div class="flatplan__inner">
+    <div class="flatplan__head">
+      <h2 class="flatplan__title">CONTENTS <span>· 16 PAGES</span></h2>
+      <div class="flatplan__cite">
+        Vol. 01 / 2026 &nbsp;·&nbsp; Two-color cobalt &nbsp;·&nbsp; Uncoated stock<br>
+        No. 023 / 050 &nbsp;·&nbsp; Bound by hand &nbsp;·&nbsp; St. Cloud, MN
+      </div>
+    </div>
+    <div class="flatplan__grid">
+      <div class="flatplan__page flatplan__page--cover"><span class="flatplan__page-num">P. 01</span><span class="flatplan__page-name">COVER</span></div>
+      <div class="flatplan__page"><span class="flatplan__page-num">P. 02</span><span class="flatplan__page-name">FROM THE STUDIO</span></div>
+      <div class="flatplan__page flatplan__page--feature"><span class="flatplan__page-num">P. 03</span><span class="flatplan__page-name">THE PRINT EDITION</span></div>
+      <div class="flatplan__page"><span class="flatplan__page-num">P. 04</span><span class="flatplan__page-name">PROCESS · 4 PLATES</span></div>
+      <div class="flatplan__page"><span class="flatplan__page-num">P. 05</span><span class="flatplan__page-name">SELECTED WORK 01–04</span></div>
+      <div class="flatplan__page"><span class="flatplan__page-num">P. 06</span><span class="flatplan__page-name">SELECTED WORK 05–08</span></div>
+      <div class="flatplan__page"><span class="flatplan__page-num">P. 07</span><span class="flatplan__page-name">BEFORE / AFTER</span></div>
+      <div class="flatplan__page"><span class="flatplan__page-num">P. 08</span><span class="flatplan__page-name">WHAT WE PRINT ON</span></div>
+      <div class="flatplan__page flatplan__page--feature"><span class="flatplan__page-num">P. 09</span><span class="flatplan__page-name">PULL QUOTE</span></div>
+      <div class="flatplan__page"><span class="flatplan__page-num">P. 10</span><span class="flatplan__page-name">TESTIMONY · GOOGLE</span></div>
+      <div class="flatplan__page"><span class="flatplan__page-num">P. 11</span><span class="flatplan__page-name">COMMON QUESTIONS</span></div>
+      <div class="flatplan__page"><span class="flatplan__page-num">P. 12</span><span class="flatplan__page-name">SERVICE MAP</span></div>
+      <div class="flatplan__page flatplan__page--feature"><span class="flatplan__page-num">P. 13</span><span class="flatplan__page-name">COLOPHON · QUOTE</span></div>
+      <div class="flatplan__page flatplan__page--feature"><span class="flatplan__page-num">P. 14</span><span class="flatplan__page-name">CONTACT</span></div>
+      <div class="flatplan__page"><span class="flatplan__page-num">P. 15</span><span class="flatplan__page-name">COLOPHON</span></div>
+      <div class="flatplan__page flatplan__page--cover"><span class="flatplan__page-num">P. 16</span><span class="flatplan__page-name">BACK COVER</span></div>
+    </div>
+    <div class="flatplan__legend">
+      <span><i></i> Standard page</span>
+      <span><i class="pk"></i> Cover &amp; back</span>
+      <span><i class="bl"></i> Feature spread</span>
+    </div>
+  </div>
+</section>
+
+<!-- Visually hidden but accessible text -->
+<style>
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ─── SKIP LINK ─── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--gutter);
+  z-index: 9999;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  padding: 0.6rem 1.2rem;
+  border: 2px solid var(--fluoro-pink);
+  text-decoration: none;
+  transition: top 0.1s;
+}
+.skip-link:focus { top: 0.75rem; }
+
+/* ─── FOCUS-VISIBLE — keyboard nav rings ─── */
+:focus-visible {
+  outline: 2.5px solid var(--electric-blue);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+.manifesto :focus-visible,
+.services :focus-visible,
+.big-quote :focus-visible,
+.service-area :focus-visible,
+footer :focus-visible,
+.flatplan :focus-visible {
+  outline-color: var(--paper);
+}
+:focus:not(:focus-visible) { outline: none; }
+</style>
+
+<script>
+/* ─── REVEAL ON SCROLL ─── */
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+  els.forEach(el => io.observe(el));
+})();
+
+/* ─── NAV SCROLL CLASS ─── */
+(function() {
+  const hdr = document.querySelector('header');
+  if (!hdr) return;
+  function onScroll() {
+    hdr.classList.toggle('scrolled', window.scrollY > 20);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ─── NAV ACTIVE STATE ON SCROLL ─── */
+(function() {
+  const sections = document.querySelectorAll('section[id], section[aria-labelledby]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  if (!sections.length || !navLinks.length) return;
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.id;
+          navLinks.forEach(a => {
+            a.style.color = (a.getAttribute('href') === '#' + id)
+              ? 'var(--fluoro-pink)'
+              : '';
+          });
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+  sections.forEach(s => s.id && io.observe(s));
+})();
+
+/* ─── HERO wordmarks: ensure misreg effect text matches ─── */
+/* (CSS pseudo-elements use data-text attr — no JS needed) */
+
+/* ─── MOBILE HAMBURGER ─── */
+(function() {
+  const btn = document.querySelector('.nav-hamburger');
+  const drawer = document.getElementById('nav-drawer');
+  if (!btn || !drawer) return;
+
+  btn.addEventListener('click', function() {
+    const open = drawer.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+  });
+
+  // Close drawer when a link is clicked
+  drawer.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      drawer.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open navigation menu');
+    });
+  });
+})();
+
+</script>
+
+<!-- TODO: Tidio Free chatbot widget embed (Phase 2) -->
+<button class="chat-fab" aria-label="Open chat — Talk to Lukas" type="button">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 12a9 9 0 1 1-3.5-7.1L21 3v6h-6"/>
+  </svg>
+</button>
+
+</body>
+</html>

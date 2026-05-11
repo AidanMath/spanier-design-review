@@ -1,0 +1,20 @@
+<!-- O · Stacked broadsheet — "SPANIER" large above a hairline rule, "PAINTING"
+     smaller below, generous tracking. Editorial / masthead register. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 130" role="img" aria-label="Spanier Painting">
+  <text x="200" y="58"
+        font-family="'Fraunces', 'Playfair Display', 'DM Serif Display', Georgia, serif"
+        font-weight="400"
+        font-size="62"
+        letter-spacing="2"
+        text-anchor="middle"
+        fill="currentColor">SPANIER</text>
+  <!-- Hairline rule between the two words -->
+  <line x1="100" y1="76" x2="300" y2="76" stroke="currentColor" stroke-width="0.6" opacity="0.55"/>
+  <text x="200" y="106"
+        font-family="'Fraunces', 'Playfair Display', Georgia, serif"
+        font-weight="300"
+        font-size="22"
+        letter-spacing="14"
+        text-anchor="middle"
+        fill="currentColor">PAINTING</text>
+</svg>

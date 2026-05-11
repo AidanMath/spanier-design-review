@@ -1,0 +1,3479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Spanier Painting — St. Cloud, MN</title>
+<meta name="description" content="Spanier Painting — residential and commercial painters in St. Cloud, Minnesota. Interior, exterior, cabinets, heritage, decks, and commercial. Est. 2014. Licensed and insured.">
+<meta name="keywords" content="painter St. Cloud, interior painter Minnesota, cabinet refinishing St. Cloud, commercial painter Central MN">
+<link rel="canonical" href="https://spanierpainting.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1586105251261-72a756497a11?w=2400&q=85&auto=format&fit=crop" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Archivo+Black&family=IBM+Plex+Sans+Condensed:wght@700&family=JetBrains+Mono:wght@300;400;500;700&family=Allerta+Stencil&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Painter",
+  "name": "Spanier Painting",
+  "image": "https://spanierpainting.com/assets/logo.png",
+  "url": "https://spanierpainting.com",
+  "telephone": "+1-320-250-9100",
+  "email": "lukas@spanierpainting.com",
+  "founder": "Lukas Spanier",
+  "foundingDate": "2014",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "St. Cloud",
+    "addressRegion": "MN",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    "St. Cloud", "Sartell", "Sauk Rapids", "Waite Park",
+    "Cold Spring", "Avon", "Albany", "Monticello"
+  ],
+  "openingHours": "Mo-Fr 07:00-18:00",
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "42"
+  }
+}
+</script>
+
+<style>
+/* ================================================================
+   DESIGN TOKENS
+   ================================================================ */
+:root {
+  /* Round 7 softening: considered modernism — discipline kept, weight shed.
+     Near-white paper, off-black ink, subdued cobalt, hairline rules. */
+  --paper:       #FFFFFF;            /* pure white per brand spec — no cream/beige */
+  --ink:         #14140E;            /* slightly warm near-black, not pure #000 */
+  --signal:      #1E3F8A;            /* brand cobalt — only color accent beyond ink/white */
+  --rule:        #14140E;
+  --rule-w:      1px;                /* was 2px — meaningfully softer */
+
+  --font-display: "Archivo Black", "Archivo", sans-serif;
+  --font-body:    "Archivo", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", "Courier New", monospace;
+  --font-condensed: "IBM Plex Sans Condensed", "Archivo", sans-serif;
+
+  --max-w: 1440px;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --section-pad: clamp(5rem, 10vw, 11rem);
+  --border: var(--rule-w) solid var(--rule);
+}
+
+/* ================================================================
+   RESET
+   ================================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; font-size: 16px; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; padding: 0; }
+ul { list-style: none; }
+
+/* ================================================================
+   UTILITY
+   ================================================================ */
+.u-upper { text-transform: uppercase; letter-spacing: 0.06em; }
+.u-mono  { font-family: var(--font-mono); }
+.u-signal { color: var(--signal); }
+
+/* Section index numeral */
+.sec-num {
+  /* SOFTENED round 7: weight 300, opacity 0.13 — watermark, not anchor */
+  font-family: var(--font-condensed);
+  font-weight: 300;
+  font-size: clamp(4.5rem, 8vw, 7.5rem);
+  line-height: 0.9;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  display: block;
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+  opacity: 0.13;
+}
+
+/* ================================================================
+   GLOBAL NAV
+   ================================================================ */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: var(--border);
+  display: flex;
+  align-items: stretch;
+}
+
+.site-nav__mark {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--gutter);
+  border-right: var(--border);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink);
+  min-height: 52px;
+}
+
+.site-nav__mark span.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--signal);
+  margin-right: 0.6em;
+  flex-shrink: 0;
+}
+
+.site-nav__links {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  gap: 0;
+  overflow-x: auto;
+}
+
+.site-nav__links a {
+  display: flex;
+  align-items: center;
+  padding: 0 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-right: 1px solid rgba(0,0,0,0.15);
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s;
+}
+
+.site-nav__links a:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.site-nav__cta {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  border-left: var(--border);
+}
+
+.site-nav__cta a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 1.5rem;
+  background: var(--signal);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: background 0.12s;
+}
+
+.site-nav__cta a:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ================================================================
+   HERO
+   ================================================================ */
+.hero {
+  border-bottom: var(--border);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__wordmark-row {
+  border-bottom: var(--border);
+  padding: clamp(1.5rem, 3vw, 2.5rem) var(--gutter);
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.hero__wordmark {
+  /* SOFTENED: Archivo at 500 — assured but not loud */
+  font-family: "Archivo", sans-serif;
+  font-weight: 500;
+  font-size: clamp(2.6rem, 7vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  display: block;
+  flex: 1;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.hero__wordmark em {
+  font-style: normal;
+  color: var(--signal);
+}
+
+.hero__meta-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-bottom: 0.4rem;
+  flex-shrink: 0;
+  min-width: 140px;
+}
+
+.hero__meta-col span {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.45);
+  line-height: 1.6;
+  display: block;
+}
+
+.hero__meta-col span strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Hero grid lower block */
+.hero__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: clamp(300px, 42vw, 640px);
+}
+
+.hero__image-cell {
+  position: relative;
+  border-right: var(--border);
+  overflow: hidden;
+}
+
+.hero__image-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(12%);
+}
+
+.hero__image-cell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero__statement-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(2rem, 4vw, 4rem) var(--gutter);
+}
+
+.hero__statement-cell h2 {
+  font-family: var(--font-body);
+  font-weight: 100;
+  font-size: clamp(1.4rem, 2.8vw, 2.6rem);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  max-width: 520px;
+}
+
+.hero__statement-cell h2 strong {
+  font-weight: 600;
+}
+
+.hero__data-strip {
+  display: flex;
+  gap: 0;
+  border-top: var(--border);
+  margin-top: 3rem;
+}
+
+.hero__data-item {
+  flex: 1;
+  padding: 1.25rem 1.5rem;
+  border-right: var(--border);
+}
+
+.hero__data-item:last-child { border-right: none; }
+
+.hero__data-item dt {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+  margin-bottom: 0.25rem;
+}
+
+.hero__data-item dd {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(1.1rem, 2vw, 1.75rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* ================================================================
+   SECTION WRAPPER
+   ================================================================ */
+.section-block {
+  border-bottom: var(--border);
+  padding: var(--section-pad) var(--gutter);
+  position: relative;
+}
+
+.section-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1.25rem, 3vw, 3rem);
+  align-items: start;
+  margin-bottom: clamp(4rem, 7vw, 8rem);
+  border-bottom: var(--border);
+  padding-bottom: clamp(2rem, 3.5vw, 4rem);
+}
+
+.section-header__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.section-header__title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(1.4rem, 3vw, 2.6rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.section-header__sub {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+}
+
+/* ================================================================
+   02. MANIFESTO
+   ================================================================ */
+.manifesto {
+  background: var(--paper);
+  color: var(--ink);
+  border-bottom: var(--border);
+}
+
+.manifesto .section-header__title { color: var(--ink); }
+.manifesto .sec-num { color: var(--ink); opacity: 0.13; }
+
+.manifesto__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 8rem);
+  align-items: start;
+}
+
+.manifesto__statement {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(1.3rem, 2.6vw, 2.4rem);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.manifesto__statement strong {
+  font-weight: 600;
+  color: var(--signal);
+}
+
+.manifesto__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 1px solid rgba(0,0,0,0.12);
+  padding-left: 2rem;
+}
+
+.manifesto__detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding: 1rem 0;
+}
+
+.manifesto__detail:last-child { border-bottom: none; }
+
+.manifesto__detail dt {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.55);
+}
+
+.manifesto__detail dd {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-align: right;
+}
+
+/* ================================================================
+   04. SELECTED WORK
+   ================================================================ */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: var(--border);
+}
+
+.work-card {
+  border-right: var(--border);
+  border-bottom: var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s;
+}
+
+.work-card:hover {
+  box-shadow: inset 0 -3px 0 0 var(--signal);
+}
+
+.work-card:nth-child(2n) { border-right: none; }
+
+.work-card__image {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.work-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+}
+
+.work-card:hover .work-card__image img {
+  transform: scale(1.04);
+}
+
+.work-card__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.work-card:hover .work-card__image-overlay {
+  opacity: 0.06;
+}
+
+.work-card__body {
+  padding: 2.5rem 2.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-top: var(--border);
+}
+
+.work-card__index {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(30,63,138,0.7);
+  font-weight: 400;
+}
+
+.work-card__title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.work-card__caption {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(0,0,0,0.6);
+  flex: 1;
+}
+
+/* Project meta table */
+.work-card__meta {
+  border-collapse: collapse;
+  width: 100%;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  margin-top: auto;
+}
+
+.work-card__meta tr {
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.work-card__meta td {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 0.45rem 0;
+  vertical-align: top;
+}
+
+.work-card__meta td:first-child {
+  color: rgba(0,0,0,0.35);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  width: 40%;
+}
+
+.work-card__meta td:last-child {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ================================================================
+   05. SERVICES
+   ================================================================ */
+.services-block {
+  background: var(--paper);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: var(--border);
+}
+
+.service-item {
+  border-right: var(--border);
+  padding: 3.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: background 0.18s;
+  cursor: default;
+}
+
+.service-item:last-child { border-right: none; }
+
+.service-item:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.service-item:hover .service-item__num,
+.service-item:hover .service-item__desc { color: rgba(255,255,255,0.45); }
+
+.service-item:hover .service-item__title { color: var(--paper); }
+
+.service-item__num {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  font-weight: 400;
+  transition: color 0.18s;
+}
+
+.service-item__title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(1.05rem, 2vw, 1.6rem);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  transition: color 0.18s;
+}
+
+.service-item__desc {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgba(0,0,0,0.55);
+  transition: color 0.18s;
+  flex: 1;
+}
+
+.service-item__tag {
+  display: inline-block;
+  border: 1px solid currentColor;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25em 0.6em;
+  color: rgba(0,0,0,0.4);
+  margin-top: auto;
+  width: fit-content;
+  transition: color 0.18s, border-color 0.18s;
+}
+
+.service-item:hover .service-item__tag {
+  color: rgba(255,255,255,0.5);
+  border-color: rgba(255,255,255,0.3);
+}
+
+/* ================================================================
+   06. TESTIMONIAL
+   ================================================================ */
+.testimonial-section {
+  border-bottom: var(--border);
+  background: var(--signal);
+  color: var(--paper);
+  padding: var(--section-pad) var(--gutter);
+}
+
+.testimonial-inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(3rem, 6vw, 8rem);
+  align-items: center;
+}
+
+.testimonial-label .sec-num {
+  color: var(--paper);
+  opacity: 0.15;
+}
+
+.testimonial-label p {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-top: 1rem;
+}
+
+.testimonial-quote blockquote {
+  font-family: var(--font-body);
+  font-weight: 100;
+  font-size: clamp(1.5rem, 3vw, 2.8rem);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  border-left: 1px solid rgba(255,255,255,0.5);
+  padding-left: 2rem;
+}
+
+.testimonial-quote blockquote strong {
+  font-weight: 600;
+}
+
+.testimonial-quote cite {
+  display: block;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-top: 2rem;
+  padding-left: 2rem;
+}
+
+/* ================================================================
+   07. SERVICE AREA
+   ================================================================ */
+.area-section {
+  background: var(--paper);
+  border-bottom: var(--border);
+}
+
+.area-inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0;
+  border-top: var(--border);
+}
+
+.area-hub {
+  border-right: var(--border);
+  padding: 3rem 3rem 3rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 260px;
+}
+
+.area-hub__label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+}
+
+.area-hub__city {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.area-hub__state {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(30,63,138,0.65);
+  margin-top: 0.25rem;
+}
+
+.area-cities {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.area-cities__label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  margin-bottom: 1.5rem;
+}
+
+.area-cities__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.area-cities__list li {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  letter-spacing: 0.02em;
+  border: 0.5px solid rgba(0,0,0,0.12);
+  padding: 0.45em 1em;
+  margin: 0 -0.5px -0.5px 0;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  cursor: default;
+}
+
+.area-cities__list li:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  z-index: 1;
+  position: relative;
+}
+
+/* ================================================================
+   08. MANIFEST — legal-contract style
+   ================================================================ */
+.manifest-section {
+  background: var(--paper);
+  border-bottom: var(--border);
+}
+
+.manifest-inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0;
+  border-top: var(--border);
+}
+
+.manifest-sidebar {
+  border-right: var(--border);
+  padding: 3rem 3rem 3rem 0;
+}
+
+.manifest-sidebar .sec-num {
+  font-size: clamp(5rem, 10vw, 10rem);
+}
+
+.manifest-sidebar__ghost {
+  font-size: clamp(6rem, 12vw, 12rem) !important;
+  opacity: 0.06 !important; /* deeper ghost — decorative backdrop */
+  color: var(--ink) !important;
+}
+
+.manifest-sidebar__desc {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  margin-top: 1.5rem;
+  line-height: 1.8;
+}
+
+.manifest-doc {
+  padding: 3rem;
+  max-width: 720px;
+}
+
+.manifest-doc__heading {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.manifest-doc__heading span {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.manifest-clause {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.manifest-clause__num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: rgba(30,63,138,0.65);
+  letter-spacing: 0.06em;
+  padding-top: 0.15rem;
+}
+
+.manifest-clause__text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(0,0,0,0.7);
+}
+
+.manifest-clause__text strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.manifest-sig {
+  border-top: var(--border);
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.manifest-sig__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.manifest-sig__field dt {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+}
+
+.manifest-sig__field dd {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--ink);
+  border-bottom: 0.5px solid rgba(0,0,0,0.3);
+  padding-bottom: 0.25rem;
+}
+
+/* ================================================================
+   09. CTA
+   ================================================================ */
+.cta-section {
+  background: var(--paper);
+  border-bottom: var(--border);
+  padding: var(--section-pad) var(--gutter);
+}
+
+.cta-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+  border: var(--border);
+  padding: clamp(3rem, 5vw, 5rem);
+}
+
+.cta-text h2 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(2rem, 4.5vw, 4.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.cta-text h2 em {
+  font-style: normal;
+  display: block;
+  color: var(--signal);
+  font-size: 0.55em;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.15em;
+  font-family: var(--font-mono);
+  font-weight: 400;
+}
+
+.cta-text p {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(0,0,0,0.55);
+  margin-top: 1.5rem;
+  max-width: 480px;
+}
+
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1.1rem 2rem;
+  border: var(--border);
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s;
+}
+
+.cta-btn-primary:hover {
+  background: var(--paper);
+  color: var(--signal);
+  border-color: var(--signal);
+}
+
+.cta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1.1rem 2rem;
+  border: var(--border);
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s;
+}
+
+.cta-btn-secondary:hover {
+  background: rgba(30,63,138,0.72);
+  color: var(--paper);
+  border-color: rgba(30,63,138,0.72);
+}
+
+.cta-phone {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.cta-phone a {
+  color: rgba(30,63,138,0.75);
+  font-weight: 400;
+}
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+footer {
+  border-top: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-col {
+  padding: 3rem 2rem;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-col:last-child { border-right: none; }
+
+.footer-col:first-child { padding-left: var(--gutter); }
+.footer-col:last-child  { padding-right: var(--gutter); }
+
+.footer-col__label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.footer-brand p {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--paper);
+  margin-bottom: 1rem;
+}
+
+.footer-brand span.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--signal);
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+
+.footer-brand__bio {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.45);
+  max-width: 340px;
+  margin-bottom: 1.5rem;
+}
+
+.footer-brand__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.footer-brand__contact a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.12s;
+}
+
+.footer-brand__contact a:hover { color: var(--paper); }
+
+.footer-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-nav__list a {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  transition: color 0.12s;
+}
+
+.footer-nav__list a:hover { color: var(--paper); }
+
+.footer-hours__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.footer-hours__list li {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding-bottom: 0.35rem;
+}
+
+.footer-hours__list li span { color: rgba(255,255,255,0.65); }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem var(--gutter);
+}
+
+.footer-bottom__copy {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+}
+
+.footer-bottom__legal {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-bottom__legal a {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  transition: color 0.12s;
+}
+
+.footer-bottom__legal a:hover { color: rgba(255,255,255,0.55); }
+
+/* ================================================================
+   CHAPTER COUNTER (Carson/Crouwel reference — sticky tabular numeral)
+   ================================================================ */
+.chapter-counter {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 60;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 14px 18px 12px;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 156px;
+  font-feature-settings: "tnum" 1;
+}
+.chapter-counter__row {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  font-family: "IBM Plex Sans Condensed", "Archivo", sans-serif;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  font-size: 54px;
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  color: var(--paper);
+}
+.chapter-counter__row em {
+  color: var(--signal);
+  font-style: normal;
+  font-weight: 400;
+  margin: 0 4px;
+  opacity: 0.75;
+}
+.chapter-counter__total {
+  color: var(--paper);
+  opacity: 0.5;
+}
+.chapter-counter__label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.75;
+  margin-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.22);
+  padding-top: 8px;
+}
+.chapter-counter__bar-wrap {
+  height: 2px;
+  background: rgba(255,255,255,0.18);
+  margin-top: 10px;
+  width: 100%;
+  position: relative;
+}
+.chapter-counter__bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--signal);
+  width: 0;
+  transition: width 220ms cubic-bezier(.4,0,.2,1);
+}
+@media (max-width: 768px) {
+  .chapter-counter { display: none; }
+}
+
+/* Number transition on chapter change */
+@keyframes cc-flip {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: none; }
+}
+.chapter-counter__row { animation: cc-flip 0.2s ease both; }
+
+/* ================================================================
+   REVEAL ANIMATION
+   ================================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s cubic-bezier(.2,.7,.2,1), transform 0.55s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* ================================================================
+   FOCUS STYLES — accessibility
+   ================================================================ */
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+/* ================================================================
+   SKIP TO CONTENT
+   ================================================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--gutter);
+  background: var(--signal);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.6em 1.2em;
+  z-index: 999;
+  transition: top 0.12s;
+}
+.skip-link:focus { top: 0.5rem; }
+
+/* ================================================================
+   NAV LOGO — stencil SVG variant
+   ================================================================ */
+.site-nav__mark {
+  gap: 0.75rem;
+}
+.site-nav__logo {
+  display: block;
+  height: 26px;
+  width: auto;        /* aspect-ratio from viewBox: 400/130 ≈ 3.07 → ~80px wide */
+  flex-shrink: 0;
+  color: var(--ink);
+}
+
+/* ================================================================
+   03. BY THE NUMBERS — editorial data interstitial
+   ================================================================ */
+.numbers-section {
+  background: var(--paper);
+  border-bottom: var(--border);
+}
+
+.numbers-inner {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 0;
+  border-top: var(--border);
+}
+
+.numbers-label-col {
+  border-right: var(--border);
+  padding: 5rem var(--gutter) 5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.numbers-label-col__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  line-height: 1.8;
+}
+
+.numbers-label-col__head {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 3vw, 2.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+.numbers-label-col__note {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  color: rgba(0,0,0,0.3);
+  line-height: 1.7;
+  max-width: 220px;
+}
+
+.numbers-data-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+}
+
+.numbers-cell {
+  border-right: var(--border);
+  border-bottom: var(--border);
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  position: relative;
+  transition: background 0.18s;
+}
+
+.numbers-cell:nth-child(3n) { border-right: none; }
+.numbers-cell:nth-child(4),
+.numbers-cell:nth-child(5),
+.numbers-cell:nth-child(6) { border-bottom: none; }
+
+.numbers-cell:hover { background: rgba(0,0,0,0.025); }
+
+.numbers-cell__value {
+  font-family: var(--font-condensed);
+  font-weight: 400;
+  font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.18s;
+}
+
+.numbers-cell:hover .numbers-cell__value {
+  color: var(--signal);
+}
+
+.numbers-cell__unit {
+  font-family: var(--font-mono);
+  font-size: 0.5em;        /* superscript relative to the large numeral */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(30,63,138,0.65);
+  font-weight: 400;
+  display: inline-block;
+  margin-left: 0.15em;
+  vertical-align: super;
+}
+
+.numbers-cell__label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  line-height: 1.5;
+}
+
+.numbers-cell__sub {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: rgba(0,0,0,0.45);
+  margin-top: auto;
+}
+
+/* ================================================================
+   PROCESS — four legal clauses
+   ================================================================ */
+.process-section {
+  background: var(--paper);
+  border-bottom: var(--border);
+}
+
+.process-inner {
+  border-top: var(--border);
+}
+
+.process-step {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr 1.4fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding: clamp(2rem, 4vw, 3.5rem) 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  align-items: start;
+}
+
+.process-step:last-child { border-bottom: none; }
+
+.process-step__num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(30,63,138,0.7);
+  font-weight: 500;
+  padding-top: 0.5rem;
+}
+
+.process-step__title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(1.2rem, 2.2vw, 1.75rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.process-step__title small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+  margin-top: 0.5rem;
+}
+
+.process-step__body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(0,0,0,0.65);
+}
+
+.process-step__body strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* Phase 3 tease row */
+.process-tease {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: var(--border);
+  margin-top: 2rem;
+}
+
+.process-tease__card {
+  border-right: var(--border);
+  padding: clamp(2rem, 3vw, 3rem);
+  background: rgba(30,63,138,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.process-tease__card:last-child { border-right: none; }
+
+.process-tease__pill {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal);
+  font-weight: 500;
+  border: 1px solid var(--signal);
+  padding: 0.3em 0.7em;
+  width: fit-content;
+}
+
+.process-tease__title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.process-tease__desc {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: rgba(0,0,0,0.6);
+}
+
+.process-tease__date {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+  margin-top: auto;
+}
+
+/* ================================================================
+   REVIEWS — three-quote register
+   ================================================================ */
+.reviews-section {
+  background: var(--paper);
+  border-bottom: var(--border);
+}
+
+.reviews-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+
+.reviews-meta__cell {
+  padding: 2rem var(--gutter) 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.reviews-meta__cell:last-child {
+  border-left: var(--border);
+  padding: 2rem var(--gutter);
+  justify-content: flex-end;
+}
+
+.reviews-meta__google {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.reviews-meta__google svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.reviews-meta__rating {
+  font-family: var(--font-condensed);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.reviews-meta__rating em {
+  font-style: normal;
+  color: var(--signal);
+  margin-left: 0.15em;
+}
+
+.reviews-meta__label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.45);
+  line-height: 1.6;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.review-card {
+  border-right: var(--border);
+  padding: clamp(2rem, 3vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.review-card:last-child { border-right: none; }
+
+.review-card__num {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(30,63,138,0.7);
+}
+
+.review-card__quote {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  line-height: 1.55;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  flex: 1;
+  border-left: 1px solid rgba(0,0,0,0.15);
+  padding-left: 1.25rem;
+}
+
+.review-card__cite {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.5);
+  font-style: normal;
+  line-height: 1.6;
+  padding-left: 1.25rem;
+  border-left: 1px solid rgba(30,63,138,0.4);
+}
+
+/* ================================================================
+   BEFORE / AFTER SLIDER
+   ================================================================ */
+.beforeafter-section {
+  background: var(--paper);
+  border-bottom: var(--border);
+}
+
+.beforeafter-wrap {
+  border-top: var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 0;
+}
+
+.beforeafter-meta {
+  border-right: var(--border);
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(2rem, 4vw, 3.5rem) clamp(2rem, 4vw, 3.5rem) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.beforeafter-meta__label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+}
+
+.beforeafter-meta__title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.beforeafter-meta__desc {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(0,0,0,0.6);
+}
+
+.beforeafter-meta__table {
+  border-top: 1px solid rgba(0,0,0,0.1);
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  width: 100%;
+}
+
+.beforeafter-meta__table tr { border-bottom: 1px solid rgba(0,0,0,0.06); }
+.beforeafter-meta__table td { padding: 0.45rem 0; vertical-align: top; }
+.beforeafter-meta__table td:first-child {
+  color: rgba(0,0,0,0.4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  width: 40%;
+}
+.beforeafter-meta__table td:last-child { color: var(--ink); font-weight: 500; }
+
+.beforeafter-stage {
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.beforeafter-stage img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.beforeafter-stage__after {
+  clip-path: inset(0 0 0 50%);
+  transition: clip-path 0.05s linear;
+}
+
+.beforeafter-stage__handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--paper);
+  box-shadow: 0 0 0 1px var(--ink);
+  z-index: 4;
+  transform: translateX(-1px);
+  pointer-events: none;
+}
+
+.beforeafter-stage__handle::after {
+  content: "↔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--paper);
+}
+
+.beforeafter-stage__range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  appearance: none;
+  background: transparent;
+  cursor: ew-resize;
+  z-index: 5;
+  margin: 0;
+}
+
+.beforeafter-stage__range::-webkit-slider-thumb {
+  appearance: none;
+  width: 36px;
+  height: 100%;
+  background: transparent;
+  cursor: ew-resize;
+}
+
+.beforeafter-stage__range::-moz-range-thumb {
+  width: 36px;
+  height: 100%;
+  background: transparent;
+  border: 0;
+  cursor: ew-resize;
+}
+
+.beforeafter-stage__tag {
+  position: absolute;
+  top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.4em 0.7em;
+  z-index: 3;
+}
+
+.beforeafter-stage__tag--before { left: 1rem; }
+.beforeafter-stage__tag--after { right: 1rem; background: var(--signal); }
+
+/* ================================================================
+   FAQ — legal clauses
+   ================================================================ */
+.faq-section {
+  background: var(--paper);
+  border-bottom: var(--border);
+}
+
+.faq-doc {
+  border-top: var(--border);
+  padding: clamp(2rem, 4vw, 3rem) 0 0;
+  max-width: 880px;
+}
+
+.faq-doc__heading {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.faq-doc__heading span {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.faq-clause {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.faq-clause:last-child { border-bottom: none; }
+
+.faq-clause__num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: rgba(30,63,138,0.7);
+  letter-spacing: 0.06em;
+  padding-top: 0.15rem;
+}
+
+.faq-clause__q {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.faq-clause__a {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(0,0,0,0.65);
+}
+
+/* ================================================================
+   CONTACT — register entry
+   ================================================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 0;
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+
+.contact-register {
+  border-right: var(--border);
+  padding: clamp(2rem, 3.5vw, 3rem) clamp(2rem, 3.5vw, 3rem) clamp(2rem, 3.5vw, 3rem) 0;
+}
+
+.contact-register__heading {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-register__heading span { color: var(--ink); font-weight: 500; }
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.contact-row:last-child { border-bottom: none; }
+
+.contact-row dt {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+  padding-top: 0.2rem;
+}
+
+.contact-row dd {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.contact-row dd a {
+  color: var(--signal);
+  border-bottom: 1px solid rgba(30,63,138,0.3);
+  transition: border-color 0.12s;
+}
+.contact-row dd a:hover { border-color: var(--signal); }
+
+.contact-form-cell {
+  padding: clamp(2rem, 3.5vw, 3rem);
+}
+
+.contact-form-cell__label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-form-cell__label span { color: var(--ink); font-weight: 500; }
+
+.contact-form-placeholder {
+  border: 1px dashed rgba(30,63,138,0.4);
+  background: rgba(30,63,138,0.03);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.contact-form-placeholder__pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal);
+  border: 1px solid var(--signal);
+  padding: 0.3em 0.7em;
+  margin-bottom: 1rem;
+}
+
+.contact-form-placeholder__text {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(0,0,0,0.55);
+}
+
+.contact-form-placeholder__text strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ================================================================
+   TIDIO CHAT FAB
+   ================================================================ */
+.chat-fab {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 70;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--signal);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(30,63,138,0.32), 0 0 0 1px var(--ink);
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.chat-fab:hover { transform: translateY(-2px); background: var(--ink); }
+
+.chat-fab__tooltip {
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.4em 0.7em;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.chat-fab:hover .chat-fab__tooltip { opacity: 1; }
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 900px) {
+  .hero__body { grid-template-columns: 1fr; }
+  .hero__image-cell { min-height: 280px; border-right: none; border-bottom: var(--border); }
+  .hero__wordmark { font-size: clamp(2.5rem, 10vw, 5rem); white-space: normal; }
+  .manifesto__body { grid-template-columns: 1fr; }
+  .manifesto__aside { border-left: none; padding-left: 0; border-top: 1px solid rgba(0,0,0,0.12); padding-top: 2rem; }
+  .work-grid { grid-template-columns: 1fr; }
+  .work-card { border-right: none; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .service-item:nth-child(2) { border-right: none; }
+  .service-item:nth-child(4) { border-right: none; }
+  .service-item:nth-child(6) { border-right: none; }
+  .testimonial-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .area-inner { grid-template-columns: 1fr; }
+  .area-hub { border-right: none; border-bottom: var(--border); padding: 2rem 0; }
+  .area-cities { padding: 2rem 0; }
+  .manifest-inner { grid-template-columns: 1fr; }
+  .manifest-sidebar { border-right: none; border-bottom: var(--border); padding: 2rem 0; }
+  .manifest-doc { padding: 2rem 0; }
+  .cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .footer-col:nth-child(2) { border-right: none; }
+  /* numbers section */
+  .numbers-inner { grid-template-columns: 1fr; }
+  .numbers-label-col { border-right: none; border-bottom: var(--border); padding: 2.5rem 0; }
+  .numbers-data-col { grid-template-columns: 1fr 1fr; }
+  .numbers-cell:nth-child(3n) { border-right: var(--border); }
+  .numbers-cell:nth-child(2n) { border-right: none; }
+  .numbers-cell:nth-child(4),
+  .numbers-cell:nth-child(5),
+  .numbers-cell:nth-child(6) { border-bottom: var(--border); }
+  .numbers-cell:nth-child(5),
+  .numbers-cell:nth-child(6) { border-bottom: none; }
+  /* process / reviews / contact / before-after */
+  .process-step { grid-template-columns: 4rem 1fr; }
+  .process-step__body { grid-column: 1 / -1; }
+  .process-tease { grid-template-columns: 1fr; }
+  .process-tease__card { border-right: none; border-bottom: var(--border); }
+  .process-tease__card:last-child { border-bottom: none; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .review-card { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1); }
+  .review-card:last-child { border-bottom: none; }
+  .reviews-meta { grid-template-columns: 1fr; }
+  .reviews-meta__cell:last-child { border-left: none; border-top: 1px solid rgba(0,0,0,0.1); justify-content: flex-start; padding-left: 0; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-register { border-right: none; border-bottom: var(--border); padding: 2rem 0; }
+  .contact-form-cell { padding: 2rem 0; }
+  .beforeafter-wrap { grid-template-columns: 1fr; }
+  .beforeafter-meta { border-right: none; border-bottom: var(--border); padding: 2rem 0; }
+}
+
+@media (max-width: 768px) {
+  .site-nav__links { display: none; }
+  .hero__wordmark-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .hero__meta-col { flex-direction: row; flex-wrap: wrap; gap: 0.75rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-item { border-right: none; }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-col { border-right: none; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .manifest-sig { grid-template-columns: 1fr; }
+  .hero__data-strip { flex-direction: column; }
+  .hero__data-item { border-right: none; border-bottom: var(--border); }
+  /* numbers section mobile */
+  .numbers-data-col { grid-template-columns: 1fr; }
+  .numbers-cell { border-right: none !important; border-bottom: var(--border) !important; }
+  .numbers-cell:last-child { border-bottom: none !important; }
+  .numbers-cell__value { font-size: clamp(2.5rem, 12vw, 4rem); }
+  /* process tighter */
+  .process-step { grid-template-columns: 3rem 1fr; gap: 1rem; }
+  .faq-clause { grid-template-columns: 3rem 1fr; }
+  .contact-row { grid-template-columns: 1fr; gap: 0.25rem; }
+  .chat-fab { width: 46px; height: 46px; bottom: 18px; left: 18px; }
+}
+
+@media (max-width: 480px) {
+  .cta-inner { border: none; border-top: var(--border); padding: 0; padding-top: 2.5rem; }
+  .footer-bottom__legal { flex-direction: column; gap: 0.75rem; align-items: center; }
+  /* sec-num stays subdued at small scale — don't let it dominate small screens */
+  .sec-num { font-size: clamp(3.5rem, 14vw, 6rem); }
+  .section-header { grid-template-columns: 1fr; }
+  /* manifest reads cleanly at 375px */
+  .manifest-doc { padding: 1.5rem 0; }
+  .manifest-clause { grid-template-columns: 2.25rem 1fr; }
+  .testimonial-quote blockquote { font-size: clamp(1.25rem, 6.5vw, 1.75rem); padding-left: 1.25rem; }
+  .testimonial-quote cite { padding-left: 1.25rem; }
+}
+
+</style>
+</head>
+
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- ================================================================
+     CHAPTER COUNTER (sticky tabular indicator)
+     ================================================================ -->
+<aside class="chapter-counter" id="chapter-counter" aria-hidden="true">
+  <div class="chapter-counter__row">
+    <span id="cc-num">01</span><em>/</em><span class="chapter-counter__total">11</span>
+  </div>
+  <div class="chapter-counter__label" id="cc-label">Hero</div>
+  <div class="chapter-counter__bar-wrap"><div class="chapter-counter__bar" id="cc-bar"></div></div>
+</aside>
+
+<!-- ================================================================
+     NAVIGATION
+     ================================================================ -->
+<header>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="site-nav__mark" href="#" aria-label="Spanier Painting — Home">
+      <!-- Logo G: stencil-stack — two-line industrial stencil mark -->
+      <svg class="site-nav__logo" viewBox="0 0 400 130" aria-hidden="true" focusable="false">
+        <text x="200" y="66"
+              font-family="'Allerta Stencil', 'Bebas Neue', Impact, sans-serif"
+              font-weight="700"
+              font-size="76"
+              letter-spacing="2"
+              text-anchor="middle"
+              fill="currentColor">SPANIER</text>
+        <text x="200" y="106"
+              font-family="'Allerta Stencil', 'Bebas Neue', Impact, sans-serif"
+              font-weight="700"
+              font-size="40"
+              letter-spacing="6"
+              text-anchor="middle"
+              fill="currentColor">PAINTING</text>
+      </svg>
+    </a>
+    <div class="site-nav__links">
+      <a href="#manifesto">About</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#work">Work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#area">Area</a>
+      <a href="#faq">FAQ</a>
+      <a href="#manifest">Promises</a>
+    </div>
+    <div class="site-nav__cta">
+      <a href="#contact" aria-label="Get a quote">↗ Get a Quote</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+
+<!-- ================================================================
+     01. HERO
+     ================================================================ -->
+<section class="hero" id="hero" aria-label="Hero">
+
+  <div class="hero__wordmark-row">
+    <span class="hero__wordmark" aria-label="Spanier Painting">Spanier<em>&nbsp;Painting</em></span>
+    <div class="hero__meta-col">
+      <span>Est. <strong>2014</strong></span>
+      <span>St. Cloud, <strong>MN</strong></span>
+      <span>Lic. + Insured</span>
+      <span><strong>EPA RRP</strong> certified</span>
+    </div>
+  </div>
+
+  <div class="hero__body">
+    <div class="hero__image-cell">
+      <img
+        src="https://images.unsplash.com/photo-1586105251261-72a756497a11?w=2400&q=85&auto=format&fit=crop"
+        alt="Painter rolling fresh paint on a wall in a residential interior — Spanier Painting, St. Cloud MN"
+        loading="eager"
+        fetchpriority="high"
+        width="1200"
+        height="800"
+        decoding="async"
+      >
+      <!-- REPLACE: nano-banana — warm-toned MN living room mid-paint: roller on wall, drop cloths down, natural afternoon window light flooding in, lifestyle photography feel -->
+    </div>
+
+    <div class="hero__statement-cell">
+      <h2>
+        <strong>Painted by hand. Built to last.</strong><br>
+        Residential and commercial — interior, exterior, cabinets, heritage, decks. <strong>See your color before we touch a wall.</strong> Central Minnesota since 2014.
+      </h2>
+
+      <dl class="hero__data-strip">
+        <div class="hero__data-item">
+          <dt>Est.</dt>
+          <dd>2014</dd>
+        </div>
+        <div class="hero__data-item">
+          <dt>Projects</dt>
+          <dd>400+</dd>
+        </div>
+        <div class="hero__data-item">
+          <dt>Crew</dt>
+          <dd>4 painters</dd>
+        </div>
+        <div class="hero__data-item">
+          <dt>Area</dt>
+          <dd>~60 mi</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================================================================
+     02. MANIFESTO
+     ================================================================ -->
+<section class="manifesto section-block" id="manifesto" aria-label="About Spanier Painting">
+
+  <div class="section-header">
+    <div class="section-header__label">
+      <span class="sec-num" aria-hidden="true">§ 02.</span>
+    </div>
+    <div>
+      <p class="section-header__sub">About / Origin</p>
+      <h2 class="section-header__title">A four-painter studio out of St. Cloud.</h2>
+    </div>
+  </div>
+
+  <div class="manifesto__body">
+    <p class="manifesto__statement reveal">
+      Spanier Painting has been the painter Central Minnesota families recommend by name since 2014. <strong>Lukas Spanier started the company at 19</strong> — a one-man crew, one ladder, a willingness to do the prep no one else wanted to. Twelve years later, Spanier Painting is a four-painter studio working across the St. Cloud region on everything from heritage Queen Annes to two-day commercial turnarounds. <strong>Painted by hand. Built to last.</strong>
+    </p>
+
+    <div class="manifesto__aside reveal">
+      <dl>
+        <div class="manifesto__detail">
+          <dt>Founded</dt>
+          <dd>2014</dd>
+        </div>
+        <div class="manifesto__detail">
+          <dt>Owner</dt>
+          <dd>Lukas Spanier</dd>
+        </div>
+        <div class="manifesto__detail">
+          <dt>Crew</dt>
+          <dd>4-painter studio</dd>
+        </div>
+        <div class="manifesto__detail">
+          <dt>Hub</dt>
+          <dd>St. Cloud, MN</dd>
+        </div>
+        <div class="manifesto__detail">
+          <dt>Service</dt>
+          <dd>Residential + Commercial</dd>
+        </div>
+        <div class="manifesto__detail">
+          <dt>Licensing</dt>
+          <dd>Licensed + Insured, MN</dd>
+        </div>
+        <div class="manifesto__detail">
+          <dt>Certification</dt>
+          <dd>EPA RRP — lead-safe</dd>
+        </div>
+        <div class="manifesto__detail">
+          <dt>Trade partners</dt>
+          <dd>Sherwin-Williams · Benjamin Moore</dd>
+        </div>
+        <div class="manifesto__detail">
+          <dt>Warranty</dt>
+          <dd>2-year workmanship</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================================================================
+     03. BY THE NUMBERS — editorial data interstitial
+     ================================================================ -->
+<section class="numbers-section section-block" id="numbers" aria-label="By the numbers">
+
+  <div class="section-header">
+    <div class="section-header__label">
+      <span class="sec-num" aria-hidden="true">§ 03.</span>
+    </div>
+    <div>
+      <p class="section-header__sub">Studio / Data</p>
+      <h2 class="section-header__title">By the Numbers</h2>
+    </div>
+  </div>
+
+  <div class="numbers-inner">
+
+    <div class="numbers-label-col">
+      <span class="numbers-label-col__eyebrow">Spanier Painting<br>St. Cloud, MN<br>Est. 2014</span>
+      <p class="numbers-label-col__head">Twelve years.<br>Counted.</p>
+      <p class="numbers-label-col__note">
+        Owner-operated since 2014. Every number here is a real figure from the work — not a marketing target.
+      </p>
+    </div>
+
+    <div class="numbers-data-col">
+
+      <div class="numbers-cell reveal">
+        <div class="numbers-cell__value">12<span class="numbers-cell__unit">yr</span></div>
+        <div class="numbers-cell__label">Years in operation</div>
+        <div class="numbers-cell__sub">Founded 2014. Still owner-operated by Lukas Spanier.</div>
+      </div>
+
+      <div class="numbers-cell reveal">
+        <div class="numbers-cell__value">400<span class="numbers-cell__unit">+</span></div>
+        <div class="numbers-cell__label">Projects completed</div>
+        <div class="numbers-cell__sub">Interior, exterior, cabinetry, heritage, decks, commercial — across 20+ Central MN zip codes.</div>
+      </div>
+
+      <div class="numbers-cell reveal">
+        <div class="numbers-cell__value">5.0<span class="numbers-cell__unit">★</span></div>
+        <div class="numbers-cell__label">Google rating</div>
+        <div class="numbers-cell__sub">42 verified reviews · Google Business Profile.</div>
+      </div>
+
+      <div class="numbers-cell reveal">
+        <div class="numbers-cell__value">4</div>
+        <div class="numbers-cell__label">Painter studio</div>
+        <div class="numbers-cell__sub">Small crew, owner on every job. Large enough to execute on schedule.</div>
+      </div>
+
+      <div class="numbers-cell reveal">
+        <div class="numbers-cell__value">2<span class="numbers-cell__unit">yr</span></div>
+        <div class="numbers-cell__label">Workmanship warranty</div>
+        <div class="numbers-cell__sub">In writing. If a coat fails because of how we applied it, we come back and fix it.</div>
+      </div>
+
+      <div class="numbers-cell reveal">
+        <div class="numbers-cell__value">60<span class="numbers-cell__unit">mi</span></div>
+        <div class="numbers-cell__label">Service radius</div>
+        <div class="numbers-cell__sub">St. Cloud to Sartell, Sauk Rapids, Cold Spring, Avon, Albany, Monticello, Big Lake.</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================================================================
+     04. SERVICES — six numbered grid items
+     ================================================================ -->
+<section class="section-block services-block" id="services" aria-label="Services">
+
+  <div class="section-header">
+    <div class="section-header__label">
+      <span class="sec-num" aria-hidden="true">§ 04.</span>
+    </div>
+    <div>
+      <p class="section-header__sub">Capabilities / Scope of Work</p>
+      <h2 class="section-header__title">Services</h2>
+    </div>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-item reveal">
+      <span class="service-item__num">01 / 06</span>
+      <h3 class="service-item__title">Interior Painting</h3>
+      <p class="service-item__desc">
+        Walls, ceilings, trim, doors. Two-coat over a primed surface, eggshell on walls and semi-gloss on trim by default; flat ceilings unless specified. Drop cloths and protected hardware standard.
+      </p>
+      <span class="service-item__tag">Most Requested</span>
+    </div>
+
+    <div class="service-item reveal">
+      <span class="service-item__num">02 / 06</span>
+      <h3 class="service-item__title">Exterior Painting</h3>
+      <p class="service-item__desc">
+        Siding, soffits, fascia, trim, garages. Power-washed, scraped, primed and back-rolled; alkyd-hybrid on woodwork, elastomeric where bridging is required.
+      </p>
+      <span class="service-item__tag">Full-season</span>
+    </div>
+
+    <div class="service-item reveal">
+      <span class="service-item__num">03 / 06</span>
+      <h3 class="service-item__title">Cabinet Refinishing</h3>
+      <p class="service-item__desc">
+        Kitchens, vanities, built-ins. Doors and drawer fronts removed and finished off-site for an even, dust-free coat; conversion varnish or pigmented lacquer depending on the cabinetry.
+      </p>
+      <span class="service-item__tag">High-demand</span>
+    </div>
+
+    <div class="service-item reveal">
+      <span class="service-item__num">04 / 06</span>
+      <h3 class="service-item__title">Heritage / Historic Homes</h3>
+      <p class="service-item__desc">
+        Older homes, lead-safe practice, color-matching original paint, plaster repair. EPA RRP certified. Patient detail work on the houses that earned the detail.
+      </p>
+      <span class="service-item__tag">EPA RRP</span>
+    </div>
+
+    <div class="service-item reveal">
+      <span class="service-item__num">05 / 06</span>
+      <h3 class="service-item__title">Decks + Fences</h3>
+      <p class="service-item__desc">
+        Stain, seal, refresh. Penetrating oils, semi-transparent stains, or solid-body coatings depending on age and exposure. Built for Minnesota freeze-thaw.
+      </p>
+      <span class="service-item__tag">Seasonal</span>
+    </div>
+
+    <div class="service-item reveal">
+      <span class="service-item__num">06 / 06</span>
+      <h3 class="service-item__title">Specialty Coatings</h3>
+      <p class="service-item__desc">
+        Garage floors (epoxy), commercial walls, fire-rated coatings, anti-graffiti finishes, kitchen-safe cabinetry refresh. Commercial work scheduled off-hours when needed.
+      </p>
+      <span class="service-item__tag">Commercial</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================================================================
+     05. PROCESS — four clauses + Phase-3 tease
+     ================================================================ -->
+<section class="process-section section-block" id="process" aria-label="Process">
+
+  <div class="section-header">
+    <div class="section-header__label">
+      <span class="sec-num" aria-hidden="true">§ 05.</span>
+    </div>
+    <div>
+      <p class="section-header__sub">Method / Four Clauses</p>
+      <h2 class="section-header__title">How We Work</h2>
+    </div>
+  </div>
+
+  <div class="process-inner">
+
+    <div class="process-step reveal">
+      <span class="process-step__num">§ 05.01</span>
+      <div>
+        <h3 class="process-step__title">Walkthrough <small>Day 1 · on-site</small></h3>
+      </div>
+      <p class="process-step__body">
+        Lukas walks the property with you, takes photos, and <strong>measures with iPad LiDAR for accurate square-footage.</strong> No per-hour guessing — every quote is built off real measurements and real condition.
+      </p>
+    </div>
+
+    <div class="process-step reveal">
+      <span class="process-step__num">§ 05.02</span>
+      <div>
+        <h3 class="process-step__title">Color <small>Pre-start · AR-assisted</small></h3>
+      </div>
+      <p class="process-step__body">
+        <strong>Sherwin-Williams ColorSnap AR previews on your wall</strong>, or bring your own swatch. Sample patches optional. See your color before we touch a wall — we'll talk you out of one we know you'd regret.
+      </p>
+    </div>
+
+    <div class="process-step reveal">
+      <span class="process-step__num">§ 05.03</span>
+      <div>
+        <h3 class="process-step__title">Prep + paint <small>Job days · on-site</small></h3>
+      </div>
+      <p class="process-step__body">
+        Drop cloths down, hardware off, surfaces prepped, <strong>two coats unless spec'd otherwise.</strong> Daily clean-up. Furniture returned each night. No paint debris in carpet or on hardware.
+      </p>
+    </div>
+
+    <div class="process-step reveal">
+      <span class="process-step__num">§ 05.04</span>
+      <div>
+        <h3 class="process-step__title">Walk-through + warranty <small>Final day · together</small></h3>
+      </div>
+      <p class="process-step__body">
+        Final inspection together. Anything flagged at walk-through gets fixed before we mark complete. <strong>2-year workmanship warranty in writing</strong> — if a coat fails because of how we applied it, we come back.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- TODO: Phase 3 -->
+  <div class="process-tease reveal">
+    <div class="process-tease__card">
+      <span class="process-tease__pill">§ Phase 03 · Coming Soon</span>
+      <h3 class="process-tease__title">Instant ballpark estimate</h3>
+      <p class="process-tease__desc">
+        Upload a photo of your room, get a price range in 30 seconds. Powered by Claude.
+      </p>
+      <span class="process-tease__date">In development — Spring 2026</span>
+    </div>
+    <div class="process-tease__card">
+      <span class="process-tease__pill">§ Phase 03 · Coming Soon</span>
+      <h3 class="process-tease__title">AI room designer</h3>
+      <p class="process-tease__desc">
+        See your space in three color schemes before the first brushstroke. No commitment.
+      </p>
+      <span class="process-tease__date">In development — Spring 2026</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================================================================
+     06. SELECTED WORK
+     ================================================================ -->
+<section class="section-block" id="work" aria-label="Selected work">
+
+  <div class="section-header">
+    <div class="section-header__label">
+      <span class="sec-num" aria-hidden="true">§ 06.</span>
+    </div>
+    <div>
+      <p class="section-header__sub">Portfolio / Case Studies</p>
+      <h2 class="section-header__title">Selected Work</h2>
+    </div>
+  </div>
+
+  <div class="work-grid">
+
+    <!-- 01 — Riverbend Residence -->
+    <article class="work-card reveal" aria-label="Project: Riverbend Residence — Sartell">
+      <div class="work-card__image">
+        <img
+          src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1800&q=85&auto=format&fit=crop"
+          alt="Whole-home interior repaint — white kitchen with Hague Blue dining room — Sartell, MN"
+          loading="lazy"
+          decoding="async"
+          width="900"
+          height="675"
+        >
+        <!-- REPLACE: nano-banana — Sartell MN whole-home interior: white kitchen, Hague Blue dining accent, natural morning light -->
+        <div class="work-card__image-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="work-card__body">
+        <span class="work-card__index">SP — 001</span>
+        <h3 class="work-card__title">Riverbend Residence</h3>
+        <p class="work-card__caption">
+          Whole-home repaint — white kitchen common areas, Hague Blue accent in the dining room. Trim refreshed throughout, ceilings re-flatted.
+        </p>
+        <table class="work-card__meta">
+          <tbody>
+            <tr><td>Location</td><td>Sartell, MN</td></tr>
+            <tr><td>Category</td><td>Interior</td></tr>
+            <tr><td>Year</td><td>2024</td></tr>
+            <tr><td>Finish</td><td>Two-coat eggshell · F&amp;B Hague Blue</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 02 — Granite Ridge Kitchen -->
+    <article class="work-card reveal" aria-label="Project: Granite Ridge Kitchen — St. Cloud">
+      <div class="work-card__image">
+        <img
+          src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1800&q=85&auto=format&fit=crop"
+          alt="42 cabinet doors refinished in BM Simply White OC-117 — Granite Ridge Kitchen, St. Cloud, MN"
+          loading="lazy"
+          decoding="async"
+          width="900"
+          height="675"
+        >
+        <!-- REPLACE: nano-banana — St. Cloud MN kitchen with 42 cabinet doors refinished in BM Simply White OC-117, conversion varnish finish, clean lines -->
+        <div class="work-card__image-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="work-card__body">
+        <span class="work-card__index">SP — 002</span>
+        <h3 class="work-card__title">Granite Ridge Kitchen</h3>
+        <p class="work-card__caption">
+          42 cabinet doors removed and finished off-site in conversion varnish. Boxes painted in place. Hardware reinstalled level. Even, dust-free coat across every face.
+        </p>
+        <table class="work-card__meta">
+          <tbody>
+            <tr><td>Location</td><td>St. Cloud, MN</td></tr>
+            <tr><td>Category</td><td>Cabinetry</td></tr>
+            <tr><td>Year</td><td>2025</td></tr>
+            <tr><td>Finish</td><td>Conversion varnish · BM Simply White OC-117</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 03 — Cold Spring Farmhouse -->
+    <article class="work-card reveal" aria-label="Project: Cold Spring Farmhouse — Exterior">
+      <div class="work-card__image">
+        <img
+          src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=1800&q=85&auto=format&fit=crop"
+          alt="Hardiplank exterior repaint — sage with cream trim — Cold Spring, MN"
+          loading="lazy"
+          decoding="async"
+          width="900"
+          height="675"
+        >
+        <!-- TODO: replace stock photo — current image is a generic residential exterior; need actual sage Hardiplank repaint with cream trim from Cold Spring job (Lukas to supply) -->
+        <div class="work-card__image-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="work-card__body">
+        <span class="work-card__index">SP — 003</span>
+        <h3 class="work-card__title">Cold Spring Farmhouse</h3>
+        <p class="work-card__caption">
+          Hardiplank repaint with sage exterior and cream trim. Power-washed, scraped, spot-primed all bare fiber cement. Alkyd-hybrid on woodwork. One MN winter in and clean.
+        </p>
+        <table class="work-card__meta">
+          <tbody>
+            <tr><td>Location</td><td>Cold Spring, MN</td></tr>
+            <tr><td>Category</td><td>Exterior</td></tr>
+            <tr><td>Year</td><td>2024</td></tr>
+            <tr><td>Finish</td><td>Alkyd-hybrid · sage / cream</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 04 — Northgate Dental -->
+    <article class="work-card reveal" aria-label="Project: Northgate Dental — Waite Park">
+      <div class="work-card__image">
+        <img
+          src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1800&q=85&auto=format&fit=crop"
+          alt="Two-day commercial turnaround at dental office — Waite Park, MN"
+          loading="lazy"
+          decoding="async"
+          width="900"
+          height="675"
+        >
+        <!-- REPLACE: nano-banana — Waite Park MN dental office patient rooms, fresh anti-microbial latex, clean clinical light -->
+        <div class="work-card__image-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="work-card__body">
+        <span class="work-card__index">SP — 004</span>
+        <h3 class="work-card__title">Northgate Dental</h3>
+        <p class="work-card__caption">
+          Two-day turnaround. After-hours and weekend work — no business interruption. Anti-microbial latex on every patient room and corridor.
+        </p>
+        <table class="work-card__meta">
+          <tbody>
+            <tr><td>Location</td><td>Waite Park, MN</td></tr>
+            <tr><td>Category</td><td>Commercial</td></tr>
+            <tr><td>Year</td><td>2025</td></tr>
+            <tr><td>Finish</td><td>Anti-microbial latex · low-VOC</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 05 — Heritage Avenue -->
+    <article class="work-card reveal" aria-label="Project: Heritage Avenue — St. Cloud">
+      <div class="work-card__image">
+        <img
+          src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1800&q=85&auto=format&fit=crop"
+          alt="1908 Queen Anne exterior in historic green, lead-safe prep — Heritage Avenue, St. Cloud, MN"
+          loading="lazy"
+          decoding="async"
+          width="900"
+          height="675"
+        >
+        <!-- TODO: replace stock photo — current image is a generic historic residence; need a 1908 Queen Anne in historic green with gingerbread trim (Lukas to supply) -->
+        <div class="work-card__image-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="work-card__body">
+        <span class="work-card__index">SP — 005</span>
+        <h3 class="work-card__title">Heritage Avenue</h3>
+        <p class="work-card__caption">
+          1908 Queen Anne — full lead-safe prep under EPA RRP protocol. Historic green palette matched off original chips. Gingerbread trim hand-cut, sash by sash.
+        </p>
+        <table class="work-card__meta">
+          <tbody>
+            <tr><td>Location</td><td>St. Cloud, MN</td></tr>
+            <tr><td>Category</td><td>Heritage</td></tr>
+            <tr><td>Year</td><td>2023</td></tr>
+            <tr><td>Finish</td><td>Lead-safe · historic green</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 06 — Pine Lake Deck -->
+    <article class="work-card reveal" aria-label="Project: Pine Lake Deck — Avon">
+      <div class="work-card__image">
+        <img
+          src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1800&q=85&auto=format&fit=crop"
+          alt="800 sqft cedar deck refinished in semi-transparent stain — Pine Lake, Avon, MN"
+          loading="lazy"
+          decoding="async"
+          width="900"
+          height="675"
+        >
+        <!-- REPLACE: nano-banana — Avon MN lakefront cedar deck, 800sqft, semi-transparent stain, late summer afternoon -->
+        <div class="work-card__image-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="work-card__body">
+        <span class="work-card__index">SP — 006</span>
+        <h3 class="work-card__title">Pine Lake Deck</h3>
+        <p class="work-card__caption">
+          800 sqft of cedar, lakefront exposure. Stripped, sanded, refinished in semi-transparent stain. Boards rotated where weathered. UV-rated for the open-water site.
+        </p>
+        <table class="work-card__meta">
+          <tbody>
+            <tr><td>Location</td><td>Avon, MN</td></tr>
+            <tr><td>Category</td><td>Decks</td></tr>
+            <tr><td>Year</td><td>2024</td></tr>
+            <tr><td>Finish</td><td>Semi-transparent · cedar tone</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 07 — Sauk Rapids Office -->
+    <article class="work-card reveal" aria-label="Project: Sauk Rapids Office — Commercial">
+      <div class="work-card__image">
+        <img
+          src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=85&auto=format&fit=crop"
+          alt="4,200 sqft commercial office repaint, after-hours work — Sauk Rapids, MN"
+          loading="lazy"
+          decoding="async"
+          width="900"
+          height="675"
+        >
+        <!-- REPLACE: nano-banana — Sauk Rapids MN open-plan office, fresh paint, after-hours empty workstations -->
+        <div class="work-card__image-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="work-card__body">
+        <span class="work-card__index">SP — 007</span>
+        <h3 class="work-card__title">Sauk Rapids Office</h3>
+        <p class="work-card__caption">
+          4,200 sqft commercial repaint. Scheduled entirely after-hours so no business day was lost. Conference rooms, open-plan, breakroom — start to walk-through inside one week.
+        </p>
+        <table class="work-card__meta">
+          <tbody>
+            <tr><td>Location</td><td>Sauk Rapids, MN</td></tr>
+            <tr><td>Category</td><td>Commercial</td></tr>
+            <tr><td>Year</td><td>2025</td></tr>
+            <tr><td>Finish</td><td>Eggshell · low-VOC</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 08 — The Annual House -->
+    <article class="work-card reveal" aria-label="Project: The Annual House — Albany">
+      <div class="work-card__image">
+        <img
+          src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1800&q=85&auto=format&fit=crop"
+          alt="Trim refresh and ceiling repair in BM Decorator's White — Albany, MN"
+          loading="lazy"
+          decoding="async"
+          width="900"
+          height="675"
+        >
+        <!-- REPLACE: nano-banana — Albany MN interior, trim refresh and ceiling repair, BM Decorator's White, classic Midwest interior -->
+        <div class="work-card__image-overlay" aria-hidden="true"></div>
+      </div>
+      <div class="work-card__body">
+        <span class="work-card__index">SP — 008</span>
+        <h3 class="work-card__title">The Annual House</h3>
+        <p class="work-card__caption">
+          Trim refresh and ceiling repair throughout the main floor. Plaster patched, hairline cracks bridged, two coats in Decorator's White. Repeat client — fifth project together.
+        </p>
+        <table class="work-card__meta">
+          <tbody>
+            <tr><td>Location</td><td>Albany, MN</td></tr>
+            <tr><td>Category</td><td>Interior</td></tr>
+            <tr><td>Year</td><td>2024</td></tr>
+            <tr><td>Finish</td><td>Semi-gloss · BM Decorator's White</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+  </div>
+
+</section>
+
+<!-- ================================================================
+     06b. BEFORE / AFTER — Phase 1 deliverable
+     ================================================================ -->
+<section class="beforeafter-section section-block" id="beforeafter" aria-label="Before and after">
+
+  <div class="section-header">
+    <div class="section-header__label">
+      <span class="sec-num" aria-hidden="true">§ 06b.</span>
+    </div>
+    <div>
+      <p class="section-header__sub">Portfolio / Side-by-Side</p>
+      <h2 class="section-header__title">Before / After</h2>
+    </div>
+  </div>
+
+  <div class="beforeafter-wrap">
+    <div class="beforeafter-meta reveal">
+      <span class="beforeafter-meta__label">§ Case Study · 002</span>
+      <h3 class="beforeafter-meta__title">Granite Ridge Kitchen — St. Cloud</h3>
+      <p class="beforeafter-meta__desc">
+        Drag the handle. Original oak cabinetry on the left; the finished cabinetry on the right — 42 doors, conversion varnish, BM Simply White OC-117. Same boxes, same hardware footprint, completely different room.
+      </p>
+      <table class="beforeafter-meta__table">
+        <tbody>
+          <tr><td>Doors</td><td>42</td></tr>
+          <tr><td>Finish</td><td>Conversion varnish</td></tr>
+          <tr><td>Color</td><td>BM Simply White OC-117</td></tr>
+          <tr><td>Days on site</td><td>6</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="beforeafter-stage" id="beforeafter-stage">
+      <img class="beforeafter-stage__before"
+           src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=1800&q=85&auto=format&fit=crop"
+           alt="Before: original oak kitchen cabinetry">
+      <!-- TODO: replace with real pre-refinish photo of Granite Ridge Kitchen (same boxes as 'after') — current placeholder is a dated/oak kitchen stock shot -->
+      <img class="beforeafter-stage__after"
+           id="beforeafter-after"
+           src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1800&q=85&auto=format&fit=crop"
+           alt="After: cabinets refinished in BM Simply White OC-117">
+      <!-- REPLACE: nano-banana — same kitchen post-refinish: white shaker, conversion varnish, morning light -->
+      <span class="beforeafter-stage__tag beforeafter-stage__tag--before">Before</span>
+      <span class="beforeafter-stage__tag beforeafter-stage__tag--after">After</span>
+      <div class="beforeafter-stage__handle" id="beforeafter-handle"></div>
+      <input class="beforeafter-stage__range"
+             id="beforeafter-range"
+             type="range"
+             min="0"
+             max="100"
+             value="50"
+             aria-label="Drag to compare before and after">
+    </div>
+  </div>
+
+</section>
+
+<!-- ================================================================
+     07. REVIEWS — Google rating + three quotes
+     ================================================================ -->
+<section class="reviews-section section-block" id="reviews" aria-label="Reviews and testimonials">
+
+  <div class="section-header">
+    <div class="section-header__label">
+      <span class="sec-num" aria-hidden="true">§ 07.</span>
+    </div>
+    <div>
+      <p class="section-header__sub">Reviews / On the Record</p>
+      <h2 class="section-header__title">What clients say.</h2>
+    </div>
+  </div>
+
+  <!-- TODO: Google Reviews widget — Phase 1 scope -->
+  <dl class="reviews-meta">
+    <div class="reviews-meta__cell">
+      <span class="reviews-meta__rating">5.0<em>★</em></span>
+      <div>
+        <p class="reviews-meta__google">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21.35 11.1H12v2.97h5.34c-.23 1.49-1.65 4.36-5.34 4.36-3.21 0-5.83-2.66-5.83-5.93s2.62-5.93 5.83-5.93c1.83 0 3.05.78 3.75 1.45l2.56-2.46C16.7 3.93 14.6 3 12 3 6.99 3 3 6.99 3 12s3.99 9 9 9c5.2 0 8.65-3.65 8.65-8.79 0-.59-.06-1.04-.13-1.51z" fill="#4285F4"/>
+            <path d="M21.35 11.1H12v2.97h5.34c-.23 1.49-1.65 4.36-5.34 4.36v3.57c5.2 0 8.65-3.65 8.65-8.79 0-.59-.06-1.04-.13-1.51z" fill="#34A853"/>
+          </svg>
+          Google Reviews
+        </p>
+        <span class="reviews-meta__label">42 verified reviews · Central MN</span>
+      </div>
+    </div>
+    <div class="reviews-meta__cell">
+      <span class="reviews-meta__label">
+        <!-- TODO: Google Reviews widget — Phase 1 scope --><br>
+        Widget embed lands here · live feed pulled from Google Business Profile
+      </span>
+    </div>
+  </dl>
+
+  <div class="reviews-grid">
+
+    <!-- TODO: replace with real Google Review when Lukas pulls them -->
+    <div class="review-card reveal">
+      <span class="review-card__num">§ 07.01 — Interior</span>
+      <p class="review-card__quote">
+        "Lukas painted three rooms in our 1923 bungalow and you genuinely cannot see a brushstroke. He's the only painter we'll call now."
+      </p>
+      <cite class="review-card__cite">Jen &amp; Marcus K. · Sartell · Interior</cite>
+    </div>
+
+    <!-- TODO: replace with real Google Review when Lukas pulls them -->
+    <div class="review-card reveal">
+      <span class="review-card__num">§ 07.02 — Commercial</span>
+      <p class="review-card__quote">
+        "We had two-day downtime for our dental office. Spanier was in and out, off-hours, perfectly clean. The patients didn't notice a thing."
+      </p>
+      <cite class="review-card__cite">Dr. Pavlov · Northgate Dental · Commercial</cite>
+    </div>
+
+    <!-- TODO: replace with real Google Review when Lukas pulls them -->
+    <div class="review-card reveal">
+      <span class="review-card__num">§ 07.03 — Cabinetry</span>
+      <p class="review-card__quote">
+        "He talked me out of a color I would have hated. That's worth the whole project price."
+      </p>
+      <cite class="review-card__cite">Heather B. · St. Cloud · Cabinetry</cite>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================================================================
+     08. SERVICE AREA
+     ================================================================ -->
+<section class="area-section section-block" id="area" aria-label="Service area">
+
+  <div class="section-header">
+    <div class="section-header__label">
+      <span class="sec-num" aria-hidden="true">§ 08.</span>
+    </div>
+    <div>
+      <p class="section-header__sub">Geographic / Coverage · ~60 mi radius</p>
+      <h2 class="section-header__title">Where We Work</h2>
+    </div>
+  </div>
+
+  <div class="area-inner">
+    <div class="area-hub reveal">
+      <span class="area-hub__label">Primary Hub</span>
+      <h3 class="area-hub__city">St.<br>Cloud</h3>
+      <span class="area-hub__state">Central Minnesota</span>
+    </div>
+    <div class="area-cities">
+      <p class="area-cities__label">Also serving — Central MN</p>
+      <ul class="area-cities__list reveal">
+        <li>Sartell</li>
+        <li>Sauk Rapids</li>
+        <li>Waite Park</li>
+        <li>Avon</li>
+        <li>Foley</li>
+        <li>Rice</li>
+        <li>Cold Spring</li>
+        <li>Albany</li>
+        <li>Becker</li>
+        <li>Big Lake</li>
+        <li>Monticello</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================================================================
+     09. FAQ — legal-clause format
+     ================================================================ -->
+<section class="faq-section section-block" id="faq" aria-label="Frequently asked questions">
+
+  <div class="section-header">
+    <div class="section-header__label">
+      <span class="sec-num" aria-hidden="true">§ 09.</span>
+    </div>
+    <div>
+      <p class="section-header__sub">Reference / Questions On File</p>
+      <h2 class="section-header__title">Frequently Asked.</h2>
+    </div>
+  </div>
+
+  <div class="faq-doc reveal">
+    <p class="faq-doc__heading">
+      <span>SPANIER PAINTING</span> — REFERENCE QUESTIONS — REV. 2026.01 — ST. CLOUD, MN
+    </p>
+
+    <div class="faq-clause">
+      <span class="faq-clause__num">§ 09.01</span>
+      <div>
+        <p class="faq-clause__q">What areas do you serve?</p>
+        <p class="faq-clause__a">
+          Central Minnesota — St. Cloud, Sartell, Sauk Rapids, Waite Park, Cold Spring, Avon, Albany, Monticello, Foley, Rice, Becker, Big Lake. Roughly a 60-mile radius from St. Cloud.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-clause">
+      <span class="faq-clause__num">§ 09.02</span>
+      <div>
+        <p class="faq-clause__q">How much does a typical project cost?</p>
+        <p class="faq-clause__a">
+          Interior repaints start around $2.50–$4.50/sqft of wall area; full exteriors $4,000–$12,000 depending on size, prep, and condition. We give you a real number after a walkthrough — not a per-hour estimate.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-clause">
+      <span class="faq-clause__num">§ 09.03</span>
+      <div>
+        <p class="faq-clause__q">Do you give free estimates?</p>
+        <p class="faq-clause__a">
+          Yes. A walkthrough, photos, measurements, and a written quote — at no cost.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-clause">
+      <span class="faq-clause__num">§ 09.04</span>
+      <div>
+        <p class="faq-clause__q">Are you licensed and insured?</p>
+        <p class="faq-clause__a">
+          Yes — licensed and insured in Minnesota, plus EPA RRP certified for lead-safe work on pre-1978 homes.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-clause">
+      <span class="faq-clause__num">§ 09.05</span>
+      <div>
+        <p class="faq-clause__q">What paint brands do you use?</p>
+        <p class="faq-clause__a">
+          Sherwin-Williams and Benjamin Moore are the defaults. We'll work with whatever you specify.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-clause">
+      <span class="faq-clause__num">§ 09.06</span>
+      <div>
+        <p class="faq-clause__q">How long does a typical interior repaint take?</p>
+        <p class="faq-clause__a">
+          A 1,500 sqft repaint is usually 3–5 working days. Cabinetry runs 5–7 days. Exteriors run 1–2 weeks depending on weather and prep.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-clause">
+      <span class="faq-clause__num">§ 09.07</span>
+      <div>
+        <p class="faq-clause__q">Do you do commercial work?</p>
+        <p class="faq-clause__a">
+          Yes — offices, dental and medical, restaurants, retail. Most commercial work is scheduled after-hours or weekends so you don't lose business days.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-clause">
+      <span class="faq-clause__num">§ 09.08</span>
+      <div>
+        <p class="faq-clause__q">Is there a warranty?</p>
+        <p class="faq-clause__a">
+          Two-year workmanship warranty in writing. If a coat fails because of how we applied it, we come back and fix it.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================================================================
+     10. WRITTEN PROMISES — signature legal-contract block
+     ================================================================ -->
+<section class="manifest-section section-block" id="manifest" aria-label="Written promises">
+
+  <div class="section-header">
+    <div class="section-header__label">
+      <span class="sec-num" aria-hidden="true">§ 10.</span>
+    </div>
+    <div>
+      <p class="section-header__sub">Standards / Commitments · in writing</p>
+      <h2 class="section-header__title">Written Promises</h2>
+    </div>
+  </div>
+
+  <div class="manifest-inner">
+
+    <div class="manifest-sidebar">
+      <span class="sec-num manifest-sidebar__ghost" aria-hidden="true">§ 10.</span>
+      <p class="manifest-sidebar__desc">
+        A printed record<br>of what we commit to<br>on every project.<br><br>
+        Licensed + Insured · MN<br>
+        EPA RRP Certified<br>
+        2-yr workmanship warranty<br>
+        Sherwin-Williams · Benjamin Moore trade partners
+      </p>
+    </div>
+
+    <div class="manifest-doc reveal">
+      <p class="manifest-doc__heading">
+        <span>SPANIER PAINTING</span> — WRITTEN PROMISES — REV. 2026.01 — ST. CLOUD, MN 56301
+      </p>
+
+      <div class="manifest-clause">
+        <span class="manifest-clause__num">§ 01</span>
+        <p class="manifest-clause__text">
+          We will <strong>show up on time</strong> and communicate before, during, and after the project. If a day is delayed due to weather or material delivery, you will know before 7 AM.
+        </p>
+      </div>
+
+      <div class="manifest-clause">
+        <span class="manifest-clause__num">§ 02</span>
+        <p class="manifest-clause__text">
+          We will <strong>prepare every surface</strong> to the standard required by the product manufacturer and the end-use environment — not to the minimum that looks passable at quote time.
+        </p>
+      </div>
+
+      <div class="manifest-clause">
+        <span class="manifest-clause__num">§ 03</span>
+        <p class="manifest-clause__text">
+          We will use <strong>only the products specified in the quote</strong> — no substitutions without your written approval. Sherwin-Williams and Benjamin Moore are the defaults.
+        </p>
+      </div>
+
+      <div class="manifest-clause">
+        <span class="manifest-clause__num">§ 04</span>
+        <p class="manifest-clause__text">
+          We will <strong>leave the site clean</strong> — drop cloths removed, floors swept, fixtures rehung, and furniture returned each day. No paint debris in carpet or on hardware.
+        </p>
+      </div>
+
+      <div class="manifest-clause">
+        <span class="manifest-clause__num">§ 05</span>
+        <p class="manifest-clause__text">
+          We will <strong>walk the finished work with you</strong> before marking the project complete and address any items identified at walk-through at no additional charge.
+        </p>
+      </div>
+
+      <div class="manifest-clause">
+        <span class="manifest-clause__num">§ 06</span>
+        <p class="manifest-clause__text">
+          We will stand behind the work with a <strong>two-year workmanship warranty in writing.</strong> If a coat fails because of how we applied it, we come back and fix it — no charge, no debate. Spanier Painting is <strong>licensed and insured in the state of Minnesota and EPA RRP certified</strong> for lead-safe practice on pre-1978 homes.
+        </p>
+      </div>
+
+      <dl class="manifest-sig">
+        <div class="manifest-sig__field">
+          <dt>Authorized</dt>
+          <dd>Lukas Spanier</dd>
+        </div>
+        <div class="manifest-sig__field">
+          <dt>Studio</dt>
+          <dd>Spanier Painting</dd>
+        </div>
+        <div class="manifest-sig__field">
+          <dt>Location</dt>
+          <dd>St. Cloud, MN 56301</dd>
+        </div>
+        <div class="manifest-sig__field">
+          <dt>Document</dt>
+          <dd>PROMISES / 2026.01</dd>
+        </div>
+      </dl>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================================================================
+     11. CONTACT + QUOTE — register entry
+     ================================================================ -->
+<section class="cta-section" id="contact" aria-label="Get a quote">
+
+  <div class="section-header">
+    <div class="section-header__label">
+      <span class="sec-num" aria-hidden="true">§ 11.</span>
+    </div>
+    <div>
+      <p class="section-header__sub">Contact / Quote · Phase 2 Jobber form</p>
+      <h2 class="section-header__title">Start a project.</h2>
+    </div>
+  </div>
+
+  <dl class="contact-grid reveal">
+    <div class="contact-register">
+      <p class="contact-register__heading">
+        <span>SPANIER PAINTING</span> — REGISTER ENTRY — ST. CLOUD, MN 56301
+      </p>
+
+      <div class="contact-row">
+        <dt>Phone</dt>
+        <dd><a href="tel:+13202509100">320·250·9100</a> · <a href="tel:+13202909516">320·290·9516</a></dd>
+      </div>
+
+      <div class="contact-row">
+        <dt>Email</dt>
+        <dd><a href="mailto:lukas@spanierpainting.com">lukas@spanierpainting.com</a></dd>
+      </div>
+
+      <div class="contact-row">
+        <dt>Hours</dt>
+        <dd>Mon–Fri 7am–6pm · Sat by appointment</dd>
+      </div>
+
+      <div class="contact-row">
+        <dt>Service Area</dt>
+        <dd>St. Cloud, Sartell, Sauk Rapids, Waite Park, Cold Spring, Avon, Albany, Monticello, Foley, Rice, Becker, Big Lake — ~60 mi radius.</dd>
+      </div>
+
+      <div class="contact-row">
+        <dt>Owner</dt>
+        <dd>Lukas Spanier · on-site every project</dd>
+      </div>
+
+      <div class="contact-row">
+        <dt>Credentials</dt>
+        <dd>Licensed + insured (MN) · EPA RRP certified · Est. 2014</dd>
+      </div>
+    </div>
+
+    <div class="contact-form-cell">
+      <p class="contact-form-cell__label">
+        <span>WORK REQUEST FORM</span> — JOBBER · PHASE 2
+      </p>
+      <!-- TODO: Jobber Work Request Form embed (Phase 2) — script goes here -->
+      <div class="contact-form-placeholder">
+        <span class="contact-form-placeholder__pill">§ Phase 02 · Embed Slot</span>
+        <p class="contact-form-placeholder__text">
+          The <strong>Jobber Work Request Form</strong> renders here in Phase 2. Name, address, scope, photos, preferred dates — direct into Lukas's work pipeline. Written quote within 48 hours.
+        </p>
+      </div>
+
+      <div class="cta-actions" style="margin-top:1.5rem;flex-direction:row;flex-wrap:wrap;gap:0.75rem;">
+        <a href="tel:+13202509100" class="cta-btn-primary">↗ Call 320·250·9100</a>
+        <a href="mailto:lukas@spanierpainting.com" class="cta-btn-secondary">Email Lukas</a>
+      </div>
+    </div>
+  </dl>
+
+</section>
+
+</main>
+
+<!-- ================================================================
+     TIDIO CHAT WIDGET — Phase 2 placeholder
+     ================================================================ -->
+<!-- TODO: Tidio Free chatbot widget embed (Phase 2) -->
+<button class="chat-fab" aria-label="Open chat" type="button">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 12a9 9 0 1 1-3.5-7.1L21 3v6h-6"/>
+  </svg>
+  <span class="chat-fab__tooltip">Talk to Lukas</span>
+</button>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer id="footer">
+  <div class="footer-top">
+
+    <div class="footer-col footer-brand">
+      <span class="footer-col__label">Spanier Painting · NAP</span>
+      <p><span class="dot" aria-hidden="true"></span>Spanier<br>Painting</p>
+      <p class="footer-brand__bio">
+        St. Cloud, Minnesota · 320-250-9100 · lukas@spanierpainting.com<br>
+        Mon–Fri 7–6 · Sat by appointment<br>
+        Licensed + insured · EPA RRP certified · Est. 2014
+      </p>
+      <div class="footer-brand__contact">
+        <a href="tel:+13202509100">320·250·9100</a>
+        <a href="tel:+13202909516">320·290·9516</a>
+        <a href="mailto:lukas@spanierpainting.com">lukas@spanierpainting.com</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <span class="footer-col__label">Navigation</span>
+      <ul class="footer-nav__list">
+        <li><a href="#manifesto">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#work">Selected Work</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#area">Service Area</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#manifest">Written Promises</a></li>
+        <li><a href="#contact">Get a Quote</a></li>
+        <li><a href="#" aria-label="Instagram — placeholder">↗ Instagram</a></li>
+        <li><a href="#" aria-label="Facebook — placeholder">↗ Facebook</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <span class="footer-col__label">Hours</span>
+      <ul class="footer-hours__list">
+        <li>Mon–Fri <span>7 AM – 6 PM</span></li>
+        <li>Saturday <span>By appointment</span></li>
+        <li>Sunday <span>Closed</span></li>
+        <li>Licensed + Insured <span>MN</span></li>
+        <li>EPA RRP <span>Lead-safe</span></li>
+        <li>Est. <span>2014</span></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <span class="footer-col__label">Service Area</span>
+      <ul class="footer-nav__list" style="font-size:0.78rem;">
+        <li><a href="#area">St. Cloud</a></li>
+        <li><a href="#area">Sartell</a></li>
+        <li><a href="#area">Sauk Rapids</a></li>
+        <li><a href="#area">Waite Park</a></li>
+        <li><a href="#area">Avon · Foley · Rice</a></li>
+        <li><a href="#area">Cold Spring · Albany</a></li>
+        <li><a href="#area">Becker · Big Lake · Monticello</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span class="footer-bottom__copy">© 2026 Spanier Painting — St. Cloud, MN — Licensed + Insured</span>
+    <nav class="footer-bottom__legal" aria-label="Legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Sitemap</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ================================================================
+     JAVASCRIPT
+     ================================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* --------------------------------------------------
+     INTERSECTION OBSERVER — REVEAL
+     -------------------------------------------------- */
+  if ('IntersectionObserver' in window) {
+    var els = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    els.forEach(function (el) { observer.observe(el); });
+  } else {
+    /* fallback: show all */
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      el.classList.add('in-view');
+    });
+  }
+
+  /* --------------------------------------------------
+     CHAPTER COUNTER (Carson/Crouwel reference)
+     -------------------------------------------------- */
+  var chapters = [
+    { id: 'hero',         n: '01', label: 'Hero' },
+    { id: 'manifesto',    n: '02', label: 'About' },
+    { id: 'numbers',      n: '03', label: 'By the Numbers' },
+    { id: 'services',     n: '04', label: 'Services' },
+    { id: 'process',      n: '05', label: 'Process' },
+    { id: 'work',         n: '06', label: 'Selected Work' },
+    { id: 'beforeafter',  n: '06', label: 'Before / After' },
+    { id: 'reviews',      n: '07', label: 'Reviews' },
+    { id: 'area',         n: '08', label: 'Service Area' },
+    { id: 'faq',          n: '09', label: 'FAQ' },
+    { id: 'manifest',     n: '10', label: 'Written Promises' },
+    { id: 'contact',      n: '11', label: 'Get a Quote' }
+  ];
+  var ccNum = document.getElementById('cc-num');
+  var ccLbl = document.getElementById('cc-label');
+  var ccBar = document.getElementById('cc-bar');
+  if (ccNum && ccLbl && ccBar) {
+    var ccTick = false;
+    var lastN  = '';
+    function updateCC () {
+      var sy = window.scrollY + window.innerHeight * 0.42;
+      var active = chapters[0];
+      for (var i = 0; i < chapters.length; i++) {
+        var el = document.getElementById(chapters[i].id);
+        if (el && el.offsetTop <= sy) active = chapters[i];
+      }
+      var docH = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      var pct = Math.min(1, Math.max(0, window.scrollY / docH));
+      ccBar.style.width = (pct * 100).toFixed(2) + '%';
+      if (active.n !== lastN) {
+        /* Re-trigger flip animation on chapter change */
+        var row = ccNum.parentElement;
+        row.style.animation = 'none';
+        void row.offsetHeight; /* reflow to reset animation */
+        row.style.animation = '';
+        ccNum.textContent = active.n;
+        ccLbl.textContent = active.label;
+        lastN = active.n;
+      }
+      ccTick = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ccTick) { window.requestAnimationFrame(updateCC); ccTick = true; }
+    }, { passive: true });
+    window.addEventListener('resize', updateCC);
+    updateCC();
+  }
+
+  /* --------------------------------------------------
+     BEFORE / AFTER SLIDER
+     -------------------------------------------------- */
+  var baStage = document.getElementById('beforeafter-stage');
+  var baRange = document.getElementById('beforeafter-range');
+  var baAfter = document.getElementById('beforeafter-after');
+  var baHandle = document.getElementById('beforeafter-handle');
+  if (baStage && baRange && baAfter && baHandle) {
+    function applyBA (val) {
+      var v = Math.max(0, Math.min(100, Number(val)));
+      baAfter.style.clipPath = 'inset(0 0 0 ' + v + '%)';
+      baHandle.style.left = v + '%';
+    }
+    baRange.addEventListener('input', function (e) { applyBA(e.target.value); });
+    applyBA(baRange.value);
+  }
+
+}());
+
+</script>
+
+</body>
+</html>

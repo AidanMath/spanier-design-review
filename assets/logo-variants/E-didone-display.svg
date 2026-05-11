@@ -1,0 +1,11 @@
+<!-- E · Didone display SPANIER — high-contrast Didone caps, condensed feel,
+     single dark cobalt color. Matches ref #1. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" role="img" aria-label="Spanier">
+  <text x="200" y="78"
+        font-family="'Playfair Display', 'DM Serif Display', 'Bodoni Moda', Georgia, serif"
+        font-weight="900"
+        font-size="86"
+        letter-spacing="-1"
+        text-anchor="middle"
+        fill="currentColor">SPANIER</text>
+</svg>

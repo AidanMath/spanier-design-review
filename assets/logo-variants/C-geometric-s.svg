@@ -1,0 +1,17 @@
+<!-- Variant C: Pure geometric S — Bauhaus / modernist. Drops painting metaphor
+     entirely; relies on disciplined construction. Clean, confident, no era. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Spanier mark">
+  <!-- Geometric S built from two semicircles + connecting bar -->
+  <!-- Outer ring -->
+  <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <!-- S construction: top half-circle (right-facing) + bottom half-circle (left-facing) -->
+  <!-- Top arc: from upper-right to middle-left -->
+  <path d="M76 41
+           A18 18 0 1 0 50 53
+           L70 65
+           A18 18 0 1 1 44 79"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="8"
+        stroke-linecap="butt"/>
+</svg>
