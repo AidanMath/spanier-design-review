@@ -1,54 +1,48 @@
 # Spanier Painting — Design Review
 
-Static review microsite hosting 7 finalist mockups for Lukas Spanier's website redesign. Hosted on GitHub Pages.
+A custom-built decision tool for Lukas Spanier to walk through seven website mockups and tell Aidan what works.
 
-## Structure
+**Live:** [aidanmath.github.io/spanier-design-review](https://aidanmath.github.io/spanier-design-review/)
 
-- `index.html` — landing, gallery of all 7 designs as live previews
-- `reviews/<slug>.html` — per-mockup review page: full live design + 4-question feedback form
-- `ranking.html` — final 1–7 ranking + free-form note
-- `thanks.html` — Formspree redirect target after submission
-- `mockups/<slug>/index.html` — the 7 finalist mockups (self-contained single-file HTML)
-- `styles.css` — shared chrome styles
-- `.build_reviews.py` — regenerates `reviews/*.html` from the template
+## What's here
 
-## Mockups included
+This repo holds the production build (`dist/`) of a React SPA whose source lives in a sibling repo at `~/Desktop/Projects/spanier-review-react/`. The mockups themselves are self-contained HTML files served at `/mockups/<slug>/index.html` and embedded via iframe.
 
-1. atelier-journal — workshop journal
-2. open-house — real-estate listing register
-3. the-painted-room — editorial magazine
-4. delft-porcelain — heritage blue + tile explorer
-5. brutalist-grid — structured grid + written promises
-6. risograph-print — bold print poster
-7. plain-studio — radical minimalism
+## Architecture
 
-## Form backend
+- **Stack:** React 18 + Vite + TypeScript + Tailwind + Framer Motion + React Router
+- **Style direction:** "Curator's evaluation tool" — Fraunces 144 (display) + IBM Plex Sans (body) + JetBrains Mono (labels)
+- **Persistence:** localStorage (themes, viewport choice, form drafts, annotation pins, progress)
+- **Forms:** Inline submit via fetch to Formspree (placeholder ID — replace before showing Lukas)
 
-All forms POST to **Formspree**. Before deploying, replace the placeholder endpoint in **two locations**:
+## Features
 
-- `.build_reviews.py` — `FORMSPREE_ENDPOINT` constant (then re-run the script)
-- `ranking.html` — `<form action="...">`
+- Theme picker reframed as "Gallery lighting" — Studio / Ivory / Linen / Dusk
+- Viewport toggle on every review page (Desktop / Tablet / Mobile)
+- Annotation pins — click anywhere on the live design to drop a numbered pin + leave a note
+- Progress strip (n/7) updates across pages on every submit
+- Auto-save form drafts; resume banner on landing
+- Animated success state per review; ranking page for final 1–7
 
-Replace `https://formspree.io/f/YOUR_ID_HERE` with the form ID you get after creating the form at [formspree.io](https://formspree.io). The free tier allows 50 submissions/month — plenty for one client review pass.
-
-Set the form's redirect-after-submit to `https://<your-pages-url>/thanks.html` in the Formspree dashboard.
-
-## Deploying to GitHub Pages
+## Updating the deployed build
 
 ```bash
-git init
-git add .
-git commit -m "Initial design review site"
-gh repo create spanier-design-review --public --source=. --push
-# Then in repo settings → Pages: deploy from main branch / root
+# In the source repo:
+cd ~/Desktop/Projects/spanier-review-react
+npm run build
+
+# Copy the build over this repo:
+rsync -av --delete --exclude='.git' --exclude='README.md' dist/ ~/Desktop/Projects/spanier-design-review/
+cp -R public/mockups ~/Desktop/Projects/spanier-design-review/
+
+cd ~/Desktop/Projects/spanier-design-review
+git add . && git commit -m "Rebuild" && git push
 ```
 
-Site will be live at `https://<username>.github.io/spanier-design-review/` within a couple minutes.
+GitHub Pages will redeploy automatically within ~60 seconds.
 
-## Regenerating review pages
+## Before sending to Lukas
 
-Edit copy or reorder mockups in `.build_reviews.py`, then:
-
-```bash
-python3 .build_reviews.py
-```
+1. Create a Formspree form at [formspree.io](https://formspree.io) (free 50/mo)
+2. Replace `https://formspree.io/f/YOUR_ID_HERE` in `src/pages/Review.tsx` AND `src/pages/Ranking.tsx`
+3. Rebuild + push (above)
