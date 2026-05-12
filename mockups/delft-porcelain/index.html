@@ -94,8 +94,8 @@
    ============================================================ */
 :root {
   --porcelain:    #FFFFFF;           /* pure white — brand-rule compliant */
-  --cobalt:       #1E3F8A;           /* primary accent — unified to brand cobalt so every blue matches */
-  --brand-cobalt: #1E3F8A;           /* official Spanier brand cobalt — same as --cobalt */
+  --cobalt:       #1A3470;           /* primary accent — unified to brand cobalt so every blue matches */
+  --brand-cobalt: #1A3470;           /* official Spanier brand cobalt — same as --cobalt */
   --soft-blue:    color-mix(in srgb, var(--cobalt) 45%, white);   /* derived; re-paints w/ cobalt */
   --ink:          #0F1730;
   --rule:         var(--cobalt);     /* hairlines pick up the chosen accent */
@@ -342,8 +342,12 @@ a:focus-visible,
   content: "";
   position: absolute;
   inset: 0;
+  /* Heavy cobalt wash so the hero blue reads as the SAME blue as the
+     tile-explorer section below it (no image-tinted mismatch). */
   background:
-    linear-gradient(to bottom, color-mix(in srgb, var(--cobalt) 35%, transparent) 0%, color-mix(in srgb, var(--cobalt) 55%, transparent) 100%);
+    linear-gradient(to bottom,
+      color-mix(in srgb, var(--cobalt) 78%, transparent) 0%,
+      color-mix(in srgb, var(--cobalt) 92%, transparent) 100%);
 }
 .hero-content {
   position: relative;
@@ -2211,7 +2215,7 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
 <header class="hero" id="home">
   <div class="hero-bg" aria-hidden="true">
     <img
-      src="https://images.pexels.com/photos/3616764/pexels-photo-3616764.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      src="https://images.pexels.com/photos/7005297/pexels-photo-7005297.jpeg?auto=compress&cs=tinysrgb&w=1600"
       alt=""
       loading="eager"
       fetchpriority="high"
@@ -2424,7 +2428,7 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
         <span class="case-number">No. 01 · Interior</span>
         <div class="case-image-wrap">
           <div class="case-image-frame">
-            <img src="https://images.pexels.com/photos/1843717/pexels-photo-1843717.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            <img src="https://images.pexels.com/photos/1040893/pexels-photo-1040893.jpeg?auto=compress&cs=tinysrgb&w=1600"
                  alt="Riverbend Residence — whole-home repaint in Sartell" loading="lazy">
             <!-- REPLACE: nano-banana — [Riverbend Residence, Sartell MN — whole-home repaint, white kitchen + Hague Blue dining room, 2024] -->
             <!-- TODO: real Spanier portfolio photo for Riverbend Residence (currently Kaboompics placeholder — pale grey plaster, atmospheric) -->
@@ -2980,44 +2984,44 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
       <svg class="service-area-map-svg" viewBox="0 0 720 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
         <defs>
           <pattern id="delftMap" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E3F8A" stroke-width="0.4" opacity="0.18"/>
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A3470" stroke-width="0.4" opacity="0.18"/>
           </pattern>
         </defs>
         <rect width="720" height="280" fill="#FFFFFF"/>
         <rect width="720" height="280" fill="url(#delftMap)"/>
         <!-- Decorative delft scrollwork corners -->
-        <path d="M 6 6 Q 30 6 30 30 M 6 6 Q 6 30 30 30" stroke="#1E3F8A" stroke-width="0.8" fill="none" opacity="0.55"/>
-        <path d="M 714 6 Q 690 6 690 30 M 714 6 Q 714 30 690 30" stroke="#1E3F8A" stroke-width="0.8" fill="none" opacity="0.55"/>
-        <path d="M 6 274 Q 30 274 30 250 M 6 274 Q 6 250 30 250" stroke="#1E3F8A" stroke-width="0.8" fill="none" opacity="0.55"/>
-        <path d="M 714 274 Q 690 274 690 250 M 714 274 Q 714 250 690 250" stroke="#1E3F8A" stroke-width="0.8" fill="none" opacity="0.55"/>
+        <path d="M 6 6 Q 30 6 30 30 M 6 6 Q 6 30 30 30" stroke="#1A3470" stroke-width="0.8" fill="none" opacity="0.55"/>
+        <path d="M 714 6 Q 690 6 690 30 M 714 6 Q 714 30 690 30" stroke="#1A3470" stroke-width="0.8" fill="none" opacity="0.55"/>
+        <path d="M 6 274 Q 30 274 30 250 M 6 274 Q 6 250 30 250" stroke="#1A3470" stroke-width="0.8" fill="none" opacity="0.55"/>
+        <path d="M 714 274 Q 690 274 690 250 M 714 274 Q 714 250 690 250" stroke="#1A3470" stroke-width="0.8" fill="none" opacity="0.55"/>
         <!-- Rivers in delft blue -->
-        <path d="M 0 90 C 180 70, 360 130, 540 110 S 720 100, 720 100" fill="none" stroke="#1E3F8A" stroke-width="2.4" opacity="0.5"/>
-        <path d="M 60 0 L 200 180 L 280 280" fill="none" stroke="#1E3F8A" stroke-width="1.4" opacity="0.35"/>
-        <path d="M 720 60 L 520 140 L 480 280" fill="none" stroke="#1E3F8A" stroke-width="1.4" opacity="0.35"/>
+        <path d="M 0 90 C 180 70, 360 130, 540 110 S 720 100, 720 100" fill="none" stroke="#1A3470" stroke-width="2.4" opacity="0.5"/>
+        <path d="M 60 0 L 200 180 L 280 280" fill="none" stroke="#1A3470" stroke-width="1.4" opacity="0.35"/>
+        <path d="M 720 60 L 520 140 L 480 280" fill="none" stroke="#1A3470" stroke-width="1.4" opacity="0.35"/>
         <!-- Service radius -->
-        <circle cx="360" cy="140" r="120" fill="#1E3F8A" opacity="0.07"/>
-        <circle cx="360" cy="140" r="120" fill="none" stroke="#1E3F8A" stroke-width="1" stroke-dasharray="3 4" opacity="0.6"/>
+        <circle cx="360" cy="140" r="120" fill="#1A3470" opacity="0.07"/>
+        <circle cx="360" cy="140" r="120" fill="none" stroke="#1A3470" stroke-width="1" stroke-dasharray="3 4" opacity="0.6"/>
         <!-- Cities -->
         <g fill="#0F1730" font-family="Inter, system-ui, sans-serif" font-size="9" letter-spacing="0.06em">
-          <circle cx="360" cy="140" r="6" fill="#1E3F8A"/>
+          <circle cx="360" cy="140" r="6" fill="#1A3470"/>
           <text x="372" y="144" font-weight="600">ST. CLOUD</text>
-          <circle cx="330" cy="100" r="3" fill="#1E3F8A"/>
+          <circle cx="330" cy="100" r="3" fill="#1A3470"/>
           <text x="338" y="103">Sartell</text>
-          <circle cx="395" cy="115" r="3" fill="#1E3F8A"/>
+          <circle cx="395" cy="115" r="3" fill="#1A3470"/>
           <text x="402" y="118">Sauk Rapids</text>
-          <circle cx="320" cy="160" r="3" fill="#1E3F8A"/>
+          <circle cx="320" cy="160" r="3" fill="#1A3470"/>
           <text x="252" y="163">Waite Park</text>
-          <circle cx="270" cy="190" r="3" fill="#1E3F8A"/>
+          <circle cx="270" cy="190" r="3" fill="#1A3470"/>
           <text x="200" y="193">Cold Spring</text>
-          <circle cx="240" cy="120" r="3" fill="#1E3F8A"/>
+          <circle cx="240" cy="120" r="3" fill="#1A3470"/>
           <text x="208" y="123">Avon</text>
-          <circle cx="200" cy="100" r="3" fill="#1E3F8A"/>
+          <circle cx="200" cy="100" r="3" fill="#1A3470"/>
           <text x="158" y="103">Albany</text>
-          <circle cx="475" cy="195" r="3" fill="#1E3F8A"/>
+          <circle cx="475" cy="195" r="3" fill="#1A3470"/>
           <text x="482" y="198">Monticello</text>
-          <circle cx="450" cy="80" r="3" fill="#1E3F8A"/>
+          <circle cx="450" cy="80" r="3" fill="#1A3470"/>
           <text x="458" y="83">Foley</text>
-          <circle cx="430" cy="225" r="3" fill="#1E3F8A"/>
+          <circle cx="430" cy="225" r="3" fill="#1A3470"/>
           <text x="438" y="228">Big Lake</text>
         </g>
       </svg>
@@ -3218,13 +3222,13 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
     'Interior Walls': [
       /* REPLACE: nano-banana — [Interior living room, eggshell walls, natural light, Sauk Rapids MN home, freshly painted 2023] */
       /* TODO: real Spanier portfolio photo for Riverbend Residence (currently Kaboompics placeholder — smooth grey-tan plaster) */
-      { src: 'https://images.pexels.com/photos/3616764/pexels-photo-3616764.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Living room — BM Pale Oak, eggshell · Sauk Rapids · 2023' },
+      { src: 'https://images.pexels.com/photos/7005297/pexels-photo-7005297.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Living room — BM Pale Oak, eggshell · Sauk Rapids · 2023' },
       /* REPLACE: nano-banana — [Bedroom interior, flat white ceiling, satin walls, warm afternoon light, St. Cloud MN 2024] */
       /* TODO: real Spanier portfolio photo for Riverbend Residence (currently Kaboompics placeholder — pale plaster with lined relief) */
-      { src: 'https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Primary bedroom — BM Revere Pewter, satin · St. Cloud · 2024' },
+      { src: 'https://images.pexels.com/photos/28991200/pexels-photo-28991200.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Primary bedroom — BM Revere Pewter, satin · St. Cloud · 2024' },
       /* REPLACE: nano-banana — [Home library or study, deep navy walls two coats, built-in shelves, Avon MN 2025] */
       /* TODO: real Spanier portfolio photo for Riverbend Residence (currently Kaboompics placeholder — sunlit plaster wall, minimal architectural) */
-      { src: 'https://images.pexels.com/photos/1775114/pexels-photo-1775114.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Study — F&B Hague Blue, flat · Avon · 2025' }
+      { src: 'https://images.pexels.com/photos/19836798/pexels-photo-19836798.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Study — F&B Hague Blue, flat · Avon · 2025' }
     ],
     'Exterior Siding': [
       /* REPLACE: nano-banana — [Residential home exterior, freshly painted clapboard siding, classic white, Cold Spring MN, summer 2023] */
@@ -3235,7 +3239,7 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
       { src: 'https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Full exterior repaint — BM Kendall Charcoal trim · Sartell · 2024' },
       /* REPLACE: nano-banana — [Ranch-style home exterior, white siding, blue trim, lake lot, Big Lake MN 2024] */
       /* TODO: real Spanier portfolio photo for Cold Spring Farmhouse (currently Pexels placeholder — lone white house, vast green field) */
-      { src: 'https://images.pexels.com/photos/5667602/pexels-photo-5667602.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Ranch exterior — two-coat acrylic satin · Big Lake · 2024' }
+      { src: 'https://images.pexels.com/photos/6301168/pexels-photo-6301168.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Ranch exterior — two-coat acrylic satin · Big Lake · 2024' }
     ],
     'Cabinet Finishing': [
       /* REPLACE: nano-banana — [Kitchen shaker cabinets, spray-finished white, conversion varnish, Sartell MN home 2024] */
@@ -3243,18 +3247,18 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
       { src: 'https://images.pexels.com/photos/6636303/pexels-photo-6636303.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: '42 cabinet faces — conversion varnish, BM White Dove · Sartell · 2024' },
       /* REPLACE: nano-banana — [Kitchen cabinet doors sprayed white, factory-smooth finish, no brush marks, St. Cloud MN 2025] */
       /* TODO: real Spanier portfolio photo for Granite Ridge Kitchen (currently Pexels placeholder — white wooden kitchen cabinets) */
-      { src: 'https://images.pexels.com/photos/10827401/pexels-photo-10827401.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Full kitchen — catalyzed lacquer, satin sheen · St. Cloud · 2025' },
+      { src: 'https://images.pexels.com/photos/7545855/pexels-photo-7545855.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Full kitchen — catalyzed lacquer, satin sheen · St. Cloud · 2025' },
       /* REPLACE: nano-banana — [Bathroom vanity cabinet painted matte blue, new hardware, Avon MN 2024] */
       /* TODO: real Spanier portfolio photo for Granite Ridge Kitchen (currently Pexels placeholder — modern kitchen with white cabinets) */
-      { src: 'https://images.pexels.com/photos/4933259/pexels-photo-4933259.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Vanity refinish — BM Hale Navy, semi-gloss · Avon · 2024' }
+      { src: 'https://images.pexels.com/photos/10099335/pexels-photo-10099335.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Vanity refinish — BM Hale Navy, semi-gloss · Avon · 2024' }
     ],
     'Heritage Trim': [
       /* REPLACE: nano-banana — [1908 four-square foyer, original millwork, painted white alkyd finish, St. Cloud Pantown neighborhood 2025] */
       /* TODO: real Spanier portfolio photo for Heritage Avenue (currently Kaboompics placeholder — carved panel wall + crown moulding) */
-      { src: 'https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: '1908 four-square foyer — alkyd semi-gloss · Pantown, St. Cloud · 2025' },
+      { src: 'https://images.pexels.com/photos/11299549/pexels-photo-11299549.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: '1908 four-square foyer — alkyd semi-gloss · Pantown, St. Cloud · 2025' },
       /* REPLACE: nano-banana — [Heritage wainscoting and door surround, period millwork, repainted white, Sartell MN 2024] */
       /* TODO: real Spanier portfolio photo for The Annual House (currently Kaboompics placeholder — white wainscoting on stone-tiled floor) */
-      { src: 'https://images.pexels.com/photos/7599590/pexels-photo-7599590.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Wainscoting + door surround — oil-based enamel · Sartell · 2024' },
+      { src: 'https://images.pexels.com/photos/3965520/pexels-photo-3965520.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Wainscoting + door surround — oil-based enamel · Sartell · 2024' },
       /* REPLACE: nano-banana — [Crown moulding close-up, freshly painted white, clean lines, Minnesota craftsman home 2023] */
       /* TODO: real Spanier portfolio photo for Heritage Avenue (currently Kaboompics placeholder — crown moulding with chipped damage detail) */
       { src: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Crown moulding restoration — stripped, re-primed · Foley · 2023' }
@@ -3273,10 +3277,10 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
     'Color Consultation': [
       /* REPLACE: nano-banana — [Lukas Spanier on-site consultation, holding paint fan deck, natural light, Minnesota home 2025] */
       /* TODO: real Spanier portfolio photo (currently Kaboompics placeholder — brushes on paint palette / impasto canvas) */
-      { src: 'https://images.pexels.com/photos/2585552/pexels-photo-2585552.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'On-site walk-through — paint fan in hand · St. Cloud · 2025' },
+      { src: 'https://images.pexels.com/photos/33123409/pexels-photo-33123409.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'On-site walk-through — paint fan in hand · St. Cloud · 2025' },
       /* REPLACE: nano-banana — [Kitchen and dining room after palette consultation, warm cohesive colours, MN home 2024] */
       /* TODO: real Spanier portfolio photo (currently Kaboompics placeholder — acrylic paint tubes + brushes flat-lay) */
-      { src: 'https://images.pexels.com/photos/8101107/pexels-photo-8101107.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Kitchen–dining palette — BM White Dove + Hague Blue · 2024' },
+      { src: 'https://images.pexels.com/photos/6492397/pexels-photo-6492397.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Kitchen–dining palette — BM White Dove + Hague Blue · 2024' },
       /* REPLACE: nano-banana — [Open-plan interior, whole-home cohesive palette result, Sauk Rapids MN 2024] */
       /* TODO: real Spanier portfolio photo (currently Kaboompics placeholder — brush mid-stroke on canvas) */
       { src: 'https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Whole-home colour plan · Sauk Rapids · 2024' }
