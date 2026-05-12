@@ -94,7 +94,7 @@
    ============================================================ */
 :root {
   --porcelain:    #FFFFFF;           /* pure white — brand-rule compliant */
-  --cobalt:       #4A6FA5;           /* primary accent — Delft china-blue (signature) */
+  --cobalt:       #2F4F88;           /* primary accent — Delft china-blue, deepened to read calmer */
   --brand-cobalt: #1E3F8A;           /* official Spanier brand cobalt — deeper accent */
   --soft-blue:    color-mix(in srgb, var(--cobalt) 45%, white);   /* derived; re-paints w/ cobalt */
   --ink:          #0F1730;
@@ -316,13 +316,13 @@ a:focus-visible,
    HERO
    ============================================================ */
 .hero {
-  min-height: 82svh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 6.5rem var(--gutter) 4rem;
+  padding: 8rem var(--gutter) 5rem;
   position: relative;
   overflow: hidden;
 }
@@ -362,6 +362,20 @@ a:focus-visible,
   height: 56px;
   color: var(--soft-blue);
   opacity: 0.85;
+}
+.hero-nameplate {
+  width: clamp(260px, 36vw, 400px);
+  height: auto;
+  color: var(--porcelain);
+  opacity: 0.94;
+}
+.hero-tagline {
+  margin-top: 0.65rem;
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--porcelain) 75%, transparent);
 }
 .hero-title {
   font-family: var(--font-display);
@@ -693,18 +707,8 @@ a:focus-visible,
   height: 36px;
   color: var(--soft-blue);
   opacity: 0.6;
-  transition: opacity 0.25s, color 0.25s, transform 0.25s cubic-bezier(.2,.7,.2,1), box-shadow 0.25s ease;
+  transition: opacity 0.25s, color 0.25s, transform 0.25s cubic-bezier(.2,.7,.2,1);
   flex-shrink: 0;
-  /* Delft tile plate backdrop — a porcelain hairline frame floating behind the icon */
-  box-shadow:
-    0 0 0 12px color-mix(in srgb, var(--porcelain) 5%, transparent),
-    0 0 0 13px color-mix(in srgb, var(--porcelain) 14%, transparent);
-}
-.tile-cell:hover .tile-cell-icon,
-.tile-cell.active .tile-cell-icon {
-  box-shadow:
-    0 0 0 12px color-mix(in srgb, var(--porcelain) 10%, transparent),
-    0 0 0 13px color-mix(in srgb, var(--porcelain) 32%, transparent);
 }
 .tile-cell:hover .tile-cell-icon {
   opacity: 0.9;
@@ -904,39 +908,36 @@ a:focus-visible,
 }
 .case-image-wrap {
   position: relative;
-  overflow: visible;
 }
 .case-image-frame {
   position: relative;
+  overflow: hidden;
+  background: var(--porcelain);
+  box-shadow:
+    0 1px 2px rgba(15,23,48,0.06),
+    0 8px 20px -10px rgba(15,23,48,0.18);
+  transition: box-shadow 0.45s cubic-bezier(.2,.7,.2,1), transform 0.45s cubic-bezier(.2,.7,.2,1);
 }
 .case-image-frame img {
   width: 100%;
   aspect-ratio: 4/3;
   object-fit: cover;
   display: block;
-  filter: sepia(0.08) saturate(0.92);
-  transition: filter 0.4s ease;
+  transition: transform 0.7s cubic-bezier(.2,.7,.2,1);
+}
+.case-article:hover .case-image-frame {
+  box-shadow:
+    0 2px 4px rgba(15,23,48,0.08),
+    0 22px 42px -16px rgba(15,23,48,0.32);
+  transform: translateY(-4px);
 }
 .case-article:hover .case-image-frame img {
-  filter: sepia(0) saturate(1);
+  transform: scale(1.045);
 }
-/* Delft scalloped border — clean CSS inset frame */
-.case-image-frame::before {
-  content: "";
-  position: absolute;
-  inset: -6px;
-  border: 1px solid color-mix(in srgb, var(--cobalt) 22%, transparent);
-  pointer-events: none;
-  z-index: 1;
-}
-/* Removed redundant outer border and scallop — corners alone carry the heritage signature */
-.case-image-scallop {
-  display: none; /* stripped — was redundant third border */
-}
-/* Corner flourishes removed in refinement — they read as generated decoration. */
-.case-corner {
-  display: none;
-}
+/* Frame chrome stripped in refinement — image stands on its own with shadow + lift. */
+.case-image-frame::before { display: none; }
+.case-image-scallop { display: none; }
+.case-corner { display: none; }
 .case-meta-row {
   display: flex;
   flex-wrap: wrap;
@@ -2165,24 +2166,16 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
      ============================================================ -->
 <nav class="site-nav" id="site-nav" role="navigation" aria-label="Primary">
   <a href="#" class="nav-wordmark" aria-label="Spanier Painting home">
-    <!-- Logo: Circular badge "S" + wordmark — matches existing brand mark -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-label="Spanier Painting">
-      <circle cx="34" cy="40" r="22" fill="currentColor"/>
-      <text x="34" y="50"
-            text-anchor="middle"
-            font-family="'Cormorant Garamond', 'Crimson Pro', Georgia, serif"
-            font-style="italic"
-            font-weight="500"
-            font-size="28"
-            fill="#FFFFFF">S</text>
-      <text x="72" y="46"
+    <!-- Wordmark only — kept lean -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 80" role="img" aria-label="Spanier Painting">
+      <text x="0" y="46"
             font-family="'Cormorant Garamond', 'Crimson Pro', Georgia, serif"
             font-style="italic"
             font-weight="500"
             font-size="34"
             letter-spacing="-0.4"
             fill="currentColor">Spanier Painting</text>
-      <text x="72" y="62"
+      <text x="0" y="62"
             font-family="'JetBrains Mono', 'IBM Plex Mono', monospace"
             font-size="8"
             letter-spacing="2.6"
@@ -2218,41 +2211,45 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
 <header class="hero" id="home">
   <div class="hero-bg" aria-hidden="true">
     <img
-      src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=2400&q=85&auto=format&fit=crop"
+      src="https://kaboompics.com/download/80ec3579b63e96e1739fe2332412996e615a2d1c/medium"
       alt=""
       loading="eager"
       fetchpriority="high"
     >
     <!-- REPLACE: nano-banana — [Quiet Central Minnesota living room in late afternoon north-light, walls finished in a deep Delft cobalt with soft cream trim; oak floors, no people, no equipment] -->
+    <!-- TODO: real Spanier portfolio hero photo (currently Kaboompics placeholder — smooth grey-tan plaster, clean field) -->
   </div>
 
   <div class="hero-content">
-    <!-- Hero badge — filled cobalt circle with italic "S", matches existing brand mark -->
+    <!-- Hero masthead — SPANIER in italic Cormorant between two thin porcelain rules -->
     <div class="hero-cartouche reveal">
-      <svg class="hero-emblem" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="32" cy="32" r="29" fill="currentColor"/>
-        <text x="32" y="44"
+      <svg class="hero-nameplate" viewBox="0 0 380 88" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="60"  y1="22" x2="320" y2="22" stroke="currentColor" stroke-width="0.8" opacity="0.55"/>
+        <text x="190" y="56"
               text-anchor="middle"
               font-family="'Cormorant Garamond', 'Crimson Pro', Georgia, serif"
               font-style="italic"
-              font-weight="500"
-              font-size="38"
-              fill="#0F1730">S</text>
+              font-weight="400"
+              font-size="34"
+              letter-spacing="14"
+              fill="currentColor">SPANIER</text>
+        <line x1="60"  y1="72" x2="320" y2="72" stroke="currentColor" stroke-width="0.8" opacity="0.55"/>
       </svg>
+      <p class="hero-tagline">Painting · Residential &amp; Commercial · St. Cloud MN</p>
     </div>
 
     <h1 class="hero-title reveal reveal-delay-1">
-      Spanier<br><em>Painting</em>
+      Painted by hand.<br><em>Built to last.</em>
     </h1>
-    <p class="hero-sub reveal reveal-delay-2">Deliberate craft. Careful preparation. Paint that earns its place on the wall.</p>
+    <p class="hero-sub reveal reveal-delay-2">Residential and commercial painters, working across St. Cloud and Central Minnesota since 2014.</p>
 
     <div class="hero-rule reveal reveal-delay-3"></div>
 
     <div class="hero-meta reveal reveal-delay-3">
       <span class="hero-meta-item">Est. 2014</span>
       <span class="hero-meta-item">St. Cloud, MN</span>
-      <span class="hero-meta-item">Interior · Exterior · Cabinetry</span>
-      <span class="hero-meta-item">Heritage Trim · Color Consultation</span>
+      <span class="hero-meta-item">Residential + Commercial</span>
+      <span class="hero-meta-item">Licensed + Insured</span>
     </div>
   </div>
 
@@ -2270,25 +2267,25 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
 <!-- ============================================================
      MANIFESTO
      ============================================================ -->
-<section class="manifesto section-pad" id="about" aria-label="Studio manifesto">
+<section class="manifesto section-pad" id="about" aria-label="About Spanier Painting">
   <div class="manifesto-inner">
     <div class="manifesto-eyebrow reveal">
-      <span class="t-label">The Studio</span>
+      <span class="t-label">About Us</span>
     </div>
     <p class="manifesto-body reveal reveal-delay-1">
-      Spanier Painting has been the painter Central Minnesota families recommend by name since 2014.
-      I started this company at 19 — a one-man crew, one ladder, a willingness to do the prep no one
-      else wanted to. Twelve years later, we are a four-painter studio working across the St. Cloud
-      region on everything from heritage Queen Annes to two-day commercial turnarounds. Licensed
-      and insured. EPA RRP certified.
+      Spanier Painting has been the painter Central Minnesota families and businesses recommend by name
+      since 2014. Lukas started the company at 19 — a one-man crew, one ladder, a willingness to do the
+      prep no one else wanted to. Twelve years later, Spanier Painting is a four-painter crew working
+      across the St. Cloud region on everything from whole-home repaints and heritage Queen Annes to
+      two-day commercial turnarounds. Licensed and insured. EPA RRP certified.
     </p>
-    <p class="manifesto-sig reveal reveal-delay-2">— Lukas Spanier, founded 2014</p>
+    <p class="manifesto-sig reveal reveal-delay-2">— Lukas Spanier, founder · est. 2014</p>
     <div class="reveal reveal-delay-2" style="margin-top: 1.8rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 1.4rem;">
       <span class="t-label" style="opacity:0.75;">Licensed + Insured · MN</span>
       <span class="t-label" style="opacity:0.75;">EPA RRP Certified</span>
       <span class="t-label" style="opacity:0.75;">Sherwin-Williams + Benjamin Moore</span>
       <span class="t-label" style="opacity:0.75;">2-Year Workmanship Warranty</span>
-      <span class="t-label" style="opacity:0.75;">4-Painter Studio · Est. 2014</span>
+      <span class="t-label" style="opacity:0.75;">Four-Painter Crew · Est. 2014</span>
     </div>
   </div>
 </section>
@@ -2310,9 +2307,9 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
 <section class="tile-explorer" id="explore" aria-label="Service tile explorer">
   <div class="tile-explorer-inner">
     <div class="tile-explorer-header reveal">
-      <span class="t-label">The Craft</span>
-      <h2 class="tile-explorer-title">The Studio's Practice</h2>
-      <p class="tile-explorer-desc">Select a category to see finished project photographs and learn how we approach each scope of work.</p>
+      <span class="t-label">What We Paint</span>
+      <h2 class="tile-explorer-title">Six trades, one crew.</h2>
+      <p class="tile-explorer-desc">Select a category to see finished projects and how we approach each scope of work. Residential and commercial.</p>
     </div>
 
     <div class="tile-grid reveal reveal-delay-1" id="tile-grid" role="group" aria-label="Select a service category">
@@ -2395,7 +2392,16 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
   </div>
 </section>
 
-<!-- Section transition: cobalt → porcelain via background colour block alone — no divider needed -->
+<!-- III — Selected Work -->
+<div class="section-marker" aria-hidden="true">
+  <span class="section-marker__rule"></span>
+  <span class="section-marker__inner">
+    <span class="section-marker__no">III</span>
+    <span class="section-marker__dot"></span>
+    <span class="section-marker__name">Selected Work</span>
+  </span>
+  <span class="section-marker__rule"></span>
+</div>
 
 <!-- ============================================================
      SELECTED WORK
@@ -2418,9 +2424,10 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
         <span class="case-number">No. 01 · Interior</span>
         <div class="case-image-wrap">
           <div class="case-image-frame">
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800&q=85&auto=format&fit=crop"
+            <img src="https://kaboompics.com/download/9b223e8f556f1b8ded56a46a9966fbc8f4b4055c/medium"
                  alt="Riverbend Residence — whole-home repaint in Sartell" loading="lazy">
             <!-- REPLACE: nano-banana — [Riverbend Residence, Sartell MN — whole-home repaint, white kitchen + Hague Blue dining room, 2024] -->
+            <!-- TODO: real Spanier portfolio photo for Riverbend Residence (currently Kaboompics placeholder — pale grey plaster, atmospheric) -->
             <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
             <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
             <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
@@ -2441,9 +2448,10 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
         <span class="case-number">No. 02 · Cabinetry</span>
         <div class="case-image-wrap">
           <div class="case-image-frame">
-            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1800&q=85&auto=format&fit=crop"
+            <img src="https://images.pexels.com/photos/6636303/pexels-photo-6636303.jpeg?auto=compress&cs=tinysrgb&w=1600"
                  alt="Granite Ridge Kitchen — 42 cabinet doors in St. Cloud" loading="lazy">
             <!-- REPLACE: nano-banana — [Granite Ridge Kitchen, St. Cloud MN — 42 cabinet doors, conversion varnish, BM Simply White OC-117, 2025] -->
+            <!-- TODO: real Spanier portfolio photo for Granite Ridge Kitchen (currently Pexels placeholder — white modern cabinets) -->
             <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
             <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
             <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
@@ -2464,9 +2472,9 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
         <span class="case-number">No. 03 · Exterior</span>
         <div class="case-image-wrap">
           <div class="case-image-frame">
-            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1800&q=85&auto=format&fit=crop"
+            <img src="https://kaboompics.com/download/2c91fbed1f4fce5e4a09f3a8f5f6a733b3bca408/medium"
                  alt="Cold Spring Farmhouse — sage exterior with cream trim" loading="lazy">
-            <!-- TODO: mismatch — needs real Spanier photo of Hardiplank exterior in sage with cream trim -->
+            <!-- TODO: real Spanier portfolio photo for Cold Spring Farmhouse (currently Kaboompics placeholder — brick tenement w/ wood windows) -->
             <!-- REPLACE: nano-banana — [Cold Spring Farmhouse, Cold Spring MN — Hardiplank repaint, sage exterior with cream trim, 2024] -->
             <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
             <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
@@ -2488,9 +2496,10 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
         <span class="case-number">No. 04 · Commercial</span>
         <div class="case-image-wrap">
           <div class="case-image-frame">
-            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1800&q=85&auto=format&fit=crop"
+            <img src="https://images.pexels.com/photos/263201/pexels-photo-263201.jpeg?auto=compress&cs=tinysrgb&w=1600"
                  alt="Northgate Dental — anti-microbial latex repaint, Waite Park" loading="lazy">
             <!-- REPLACE: nano-banana — [Northgate Dental, Waite Park MN — two-day turnaround, anti-microbial latex on patient rooms, 2025] -->
+            <!-- TODO: real Spanier portfolio photo for Northgate Dental (currently Pexels placeholder — minimalist white clinic room) -->
             <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
             <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
             <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
@@ -2511,9 +2520,9 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
         <span class="case-number">No. 05 · Heritage</span>
         <div class="case-image-wrap">
           <div class="case-image-frame">
-            <img src="https://images.unsplash.com/photo-1571939228382-b2f2b585ce15?w=1800&q=85&auto=format&fit=crop"
+            <img src="https://kaboompics.com/download/9c8099a2b922e1e35caf1313af3e7a1d85018358/medium"
                  alt="Heritage Avenue — 1908 Queen Anne lead-safe repaint" loading="lazy">
-            <!-- TODO: mismatch — needs real Spanier photo of 1908 Queen Anne with historic green -->
+            <!-- TODO: real Spanier portfolio photo for Heritage Avenue (currently Kaboompics placeholder — green arched panel door in brick facade) -->
             <!-- REPLACE: nano-banana — [Heritage Avenue, St. Cloud MN — 1908 Queen Anne, lead-safe prep, historic green, 2023] -->
             <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
             <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
@@ -2535,9 +2544,10 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
         <span class="case-number">No. 06 · Decks</span>
         <div class="case-image-wrap">
           <div class="case-image-frame">
-            <img src="https://images.unsplash.com/photo-1598300188904-6287d52746ad?w=1800&q=85&auto=format&fit=crop"
+            <img src="https://images.pexels.com/photos/5302581/pexels-photo-5302581.jpeg?auto=compress&cs=tinysrgb&w=1600"
                  alt="Pine Lake Deck — cedar deck refinish in Avon" loading="lazy">
             <!-- REPLACE: nano-banana — [Pine Lake Deck, Avon MN — 800 sqft cedar, semi-transparent stain, lakefront, 2024] -->
+            <!-- TODO: real Spanier portfolio photo for Pine Lake Deck (currently Pexels placeholder — rustic wooden planks, natural texture) -->
             <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
             <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
             <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
@@ -2557,7 +2567,16 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
   </div>
 </section>
 
-<!-- Section transition: porcelain → ink via background colour block alone — no divider needed -->
+<!-- IV — Services -->
+<div class="section-marker" aria-hidden="true">
+  <span class="section-marker__rule"></span>
+  <span class="section-marker__inner">
+    <span class="section-marker__no">IV</span>
+    <span class="section-marker__dot"></span>
+    <span class="section-marker__name">Services</span>
+  </span>
+  <span class="section-marker__rule"></span>
+</div>
 
 <!-- ============================================================
      SERVICES
@@ -2565,8 +2584,8 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
 <section class="services section-pad" id="services" aria-label="Services">
   <div class="container services-inner">
     <header class="services-header reveal">
-      <span class="t-label">What We Do</span>
-      <h2 class="section-title">The Studio's Practice</h2>
+      <span class="t-label">Services</span>
+      <h2 class="section-title">What we do.</h2>
     </header>
 
     <div class="services-grid">
@@ -2646,9 +2665,15 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
   </div>
 </section>
 
-<!-- Section transition: services → process via thin hairline only. -->
-<div aria-hidden="true" style="background: var(--porcelain); padding-block: 0.75rem;">
-  <hr style="border: 0; border-top: 1px solid color-mix(in srgb, var(--cobalt) 18%, transparent); max-width: 320px; margin: 0 auto;">
+<!-- V — Process -->
+<div class="section-marker" aria-hidden="true">
+  <span class="section-marker__rule"></span>
+  <span class="section-marker__inner">
+    <span class="section-marker__no">V</span>
+    <span class="section-marker__dot"></span>
+    <span class="section-marker__name">Process</span>
+  </span>
+  <span class="section-marker__rule"></span>
 </div>
 
 <!-- ============================================================
@@ -2877,7 +2902,7 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
             <li>Phone · <a href="tel:3202509100">320-250-9100</a></li>
             <li>Alt · <a href="tel:3202909516">320-290-9516</a></li>
             <li>Email · <a href="mailto:lukas@spanierpainting.com">lukas@spanierpainting.com</a></li>
-            <li>Studio · St. Cloud, Minnesota</li>
+            <li>Office · St. Cloud, Minnesota</li>
           </ul>
           <p class="quote-contact-hours">
             Mon–Fri · 7am–6pm<br>
@@ -2905,11 +2930,15 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
   </div>
 </section>
 
-<!-- ============================================================
-     SECTION BREAK — earned typographic rule between testimonial + service area
-     ============================================================ -->
-<div class="section-rule" aria-hidden="true">
-  <span class="section-rule__text">Est. MMXIV</span>
+<!-- VI — Where We Work -->
+<div class="section-marker" aria-hidden="true">
+  <span class="section-marker__rule"></span>
+  <span class="section-marker__inner">
+    <span class="section-marker__no">VI</span>
+    <span class="section-marker__dot"></span>
+    <span class="section-marker__name">Where We Work</span>
+  </span>
+  <span class="section-marker__rule"></span>
 </div>
 
 <!-- ============================================================
@@ -2921,8 +2950,8 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
       <span class="t-label">Where We Work</span>
       <h2 class="section-title">Central<br><em>Minnesota</em></h2>
       <p class="service-area-body">
-        The studio serves St. Cloud and the surrounding communities of Central Minnesota — roughly
-        a 60-mile radius. Walkthroughs and written quotes at no cost within the service area.
+        Spanier Painting serves St. Cloud and the surrounding communities of Central Minnesota —
+        roughly a 60-mile radius. Walkthroughs and written quotes at no cost within the service area.
         Travel available by arrangement for larger projects.
       </p>
     </div>
@@ -2994,17 +3023,17 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
       </svg>
       <span class="service-area-map-stamp">Google Maps · embed pending</span>
     </div>
-    <figcaption class="service-area-map-caption">Where we work — sixty-mile radius from the St. Cloud studio.</figcaption>
+    <figcaption class="service-area-map-caption">Where we work — sixty-mile radius from our St. Cloud office.</figcaption>
   </figure>
 </section>
 
 <!-- ============================================================
-     JOURNAL TEASER — From the studio archive (Phase 1)
+     JOURNAL TEASER — Field notes from the crew (Phase 1)
      ============================================================ -->
-<section class="journal-teaser" id="journal" aria-label="From the studio archive">
+<section class="journal-teaser" id="journal" aria-label="Field notes from the crew">
   <div class="journal-teaser-inner">
     <div class="journal-teaser-left reveal">
-      <span class="t-label">From the Studio Archive</span>
+      <span class="t-label">Field Notes</span>
       <h2 class="section-title">Recent<br><em>writing</em></h2>
     </div>
     <article class="journal-teaser-post reveal reveal-delay-1">
@@ -3054,24 +3083,16 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
   <div class="footer-upper">
     <div class="footer-brand">
       <div class="nav-wordmark" style="margin-bottom: 1rem;">
-        <!-- Logo: Circular badge "S" + wordmark — matches existing brand mark -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" style="height:40px;width:auto;" role="img" aria-label="Spanier Painting">
-          <circle cx="34" cy="40" r="22" fill="currentColor"/>
-          <text x="34" y="50"
-                text-anchor="middle"
-                font-family="'Cormorant Garamond', 'Crimson Pro', Georgia, serif"
-                font-style="italic"
-                font-weight="500"
-                font-size="28"
-                fill="#FFFFFF">S</text>
-          <text x="72" y="46"
+        <!-- Wordmark only — kept lean -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 80" style="height:40px;width:auto;" role="img" aria-label="Spanier Painting">
+          <text x="0" y="46"
                 font-family="'Cormorant Garamond', 'Crimson Pro', Georgia, serif"
                 font-style="italic"
                 font-weight="500"
                 font-size="34"
                 letter-spacing="-0.4"
                 fill="currentColor">Spanier Painting</text>
-          <text x="72" y="62"
+          <text x="0" y="62"
                 font-family="'JetBrains Mono', 'IBM Plex Mono', monospace"
                 font-size="8"
                 letter-spacing="2.6"
@@ -3196,52 +3217,69 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
   const tileCategoryPhotos = {
     'Interior Walls': [
       /* REPLACE: nano-banana — [Interior living room, eggshell walls, natural light, Sauk Rapids MN home, freshly painted 2023] */
-      { src: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=900&q=85&auto=format&fit=crop', cap: 'Living room — BM Pale Oak, eggshell · Sauk Rapids · 2023' },
+      /* TODO: real Spanier portfolio photo for Riverbend Residence (currently Kaboompics placeholder — smooth grey-tan plaster) */
+      { src: 'https://kaboompics.com/download/80ec3579b63e96e1739fe2332412996e615a2d1c/medium', cap: 'Living room — BM Pale Oak, eggshell · Sauk Rapids · 2023' },
       /* REPLACE: nano-banana — [Bedroom interior, flat white ceiling, satin walls, warm afternoon light, St. Cloud MN 2024] */
-      { src: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=85&auto=format&fit=crop', cap: 'Primary bedroom — BM Revere Pewter, satin · St. Cloud · 2024' },
+      /* TODO: real Spanier portfolio photo for Riverbend Residence (currently Kaboompics placeholder — pale plaster with lined relief) */
+      { src: 'https://kaboompics.com/download/ba4a58c2691fa304f901963a0623ab5e322833fc/medium', cap: 'Primary bedroom — BM Revere Pewter, satin · St. Cloud · 2024' },
       /* REPLACE: nano-banana — [Home library or study, deep navy walls two coats, built-in shelves, Avon MN 2025] */
-      { src: 'https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=900&q=85&auto=format&fit=crop', cap: 'Study — F&B Hague Blue, flat · Avon · 2025' }
+      /* TODO: real Spanier portfolio photo for Riverbend Residence (currently Kaboompics placeholder — sunlit plaster wall, minimal architectural) */
+      { src: 'https://kaboompics.com/download/aaa4097f42785bf05498cbd69dbb465e83b2f77a/medium', cap: 'Study — F&B Hague Blue, flat · Avon · 2025' }
     ],
     'Exterior Siding': [
       /* REPLACE: nano-banana — [Residential home exterior, freshly painted clapboard siding, classic white, Cold Spring MN, summer 2023] */
-      { src: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=900&q=85&auto=format&fit=crop', cap: 'Clapboard siding — SW Alabaster, satin · Cold Spring · 2023' },
+      /* TODO: real Spanier portfolio photo for Cold Spring Farmhouse (currently Pexels placeholder — minimalist white farmhouse with chimney) */
+      { src: 'https://images.pexels.com/photos/5864650/pexels-photo-5864650.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Clapboard siding — SW Alabaster, satin · Cold Spring · 2023' },
       /* REPLACE: nano-banana — [Craftsman exterior, dark trim, painted siding, Sartell MN suburban home, 2024] */
-      { src: 'https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?w=900&q=85&auto=format&fit=crop', cap: 'Full exterior repaint — BM Kendall Charcoal trim · Sartell · 2024' },
+      /* TODO: real Spanier portfolio photo for Cold Spring Farmhouse (currently Kaboompics placeholder — brick tenement long facade) */
+      { src: 'https://kaboompics.com/download/385af903f848c1dfb100dd58aa8cbb5eabf555c1/medium', cap: 'Full exterior repaint — BM Kendall Charcoal trim · Sartell · 2024' },
       /* REPLACE: nano-banana — [Ranch-style home exterior, white siding, blue trim, lake lot, Big Lake MN 2024] */
-      { src: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=85&auto=format&fit=crop', cap: 'Ranch exterior — two-coat acrylic satin · Big Lake · 2024' }
+      /* TODO: real Spanier portfolio photo for Cold Spring Farmhouse (currently Pexels placeholder — lone white house, vast green field) */
+      { src: 'https://images.pexels.com/photos/5667602/pexels-photo-5667602.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Ranch exterior — two-coat acrylic satin · Big Lake · 2024' }
     ],
     'Cabinet Finishing': [
       /* REPLACE: nano-banana — [Kitchen shaker cabinets, spray-finished white, conversion varnish, Sartell MN home 2024] */
-      { src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=85&auto=format&fit=crop', cap: '42 cabinet faces — conversion varnish, BM White Dove · Sartell · 2024' },
+      /* TODO: real Spanier portfolio photo for Granite Ridge Kitchen (currently Pexels placeholder — white modern cabinets) */
+      { src: 'https://images.pexels.com/photos/6636303/pexels-photo-6636303.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: '42 cabinet faces — conversion varnish, BM White Dove · Sartell · 2024' },
       /* REPLACE: nano-banana — [Kitchen cabinet doors sprayed white, factory-smooth finish, no brush marks, St. Cloud MN 2025] */
-      { src: 'https://images.unsplash.com/photo-1556909011-7309f48f79b6?w=900&q=85&auto=format&fit=crop', cap: 'Full kitchen — catalyzed lacquer, satin sheen · St. Cloud · 2025' },
+      /* TODO: real Spanier portfolio photo for Granite Ridge Kitchen (currently Pexels placeholder — white wooden kitchen cabinets) */
+      { src: 'https://images.pexels.com/photos/10827401/pexels-photo-10827401.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Full kitchen — catalyzed lacquer, satin sheen · St. Cloud · 2025' },
       /* REPLACE: nano-banana — [Bathroom vanity cabinet painted matte blue, new hardware, Avon MN 2024] */
-      { src: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=900&q=85&auto=format&fit=crop', cap: 'Vanity refinish — BM Hale Navy, semi-gloss · Avon · 2024' }
+      /* TODO: real Spanier portfolio photo for Granite Ridge Kitchen (currently Pexels placeholder — modern kitchen with white cabinets) */
+      { src: 'https://images.pexels.com/photos/4933259/pexels-photo-4933259.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Vanity refinish — BM Hale Navy, semi-gloss · Avon · 2024' }
     ],
     'Heritage Trim': [
       /* REPLACE: nano-banana — [1908 four-square foyer, original millwork, painted white alkyd finish, St. Cloud Pantown neighborhood 2025] */
-      { src: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=900&q=85&auto=format&fit=crop', cap: '1908 four-square foyer — alkyd semi-gloss · Pantown, St. Cloud · 2025' },
+      /* TODO: real Spanier portfolio photo for Heritage Avenue (currently Kaboompics placeholder — carved panel wall + crown moulding) */
+      { src: 'https://kaboompics.com/download/c2a94839ef6eb68bbc3c887fea131f4c6bedf6d7/medium', cap: '1908 four-square foyer — alkyd semi-gloss · Pantown, St. Cloud · 2025' },
       /* REPLACE: nano-banana — [Heritage wainscoting and door surround, period millwork, repainted white, Sartell MN 2024] */
-      /* TODO: mismatch — needs real Spanier photo of wainscoting + door surround in oil-based enamel */
-      { src: 'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=900&q=85&auto=format&fit=crop', cap: 'Wainscoting + door surround — oil-based enamel · Sartell · 2024' },
+      /* TODO: real Spanier portfolio photo for The Annual House (currently Kaboompics placeholder — white wainscoting on stone-tiled floor) */
+      { src: 'https://kaboompics.com/download/f1abe75e3953a60d39b1711ec94966af25c9f292/medium', cap: 'Wainscoting + door surround — oil-based enamel · Sartell · 2024' },
       /* REPLACE: nano-banana — [Crown moulding close-up, freshly painted white, clean lines, Minnesota craftsman home 2023] */
-      { src: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=85&auto=format&fit=crop', cap: 'Crown moulding restoration — stripped, re-primed · Foley · 2023' }
+      /* TODO: real Spanier portfolio photo for Heritage Avenue (currently Kaboompics placeholder — crown moulding with chipped damage detail) */
+      { src: 'https://kaboompics.com/download/d806d3ea921a0fe99fd73226c971c53a357fdfc4/medium', cap: 'Crown moulding restoration — stripped, re-primed · Foley · 2023' }
     ],
     'Deck Restoration': [
       /* REPLACE: nano-banana — [Cedar deck boards after staining, warm brown solid stain, Becker MN backyard 2024] */
-      { src: 'https://images.unsplash.com/photo-1598300188904-6287d52746ad?w=900&q=85&auto=format&fit=crop', cap: 'Cedar deck — solid-color stain, UV barrier · Becker · 2024' },
+      /* TODO: real Spanier portfolio photo for Pine Lake Deck (currently Pexels placeholder — rustic wooden planks, natural texture) */
+      { src: 'https://images.pexels.com/photos/5302581/pexels-photo-5302581.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Cedar deck — solid-color stain, UV barrier · Becker · 2024' },
       /* REPLACE: nano-banana — [Front porch floor, painted grey, solid-stain finish, railing repainted white, Albany MN 2023] */
-      { src: 'https://images.unsplash.com/photo-1605276373954-0c4a0dac5b12?w=900&q=85&auto=format&fit=crop', cap: 'Front porch + railings — solid stain · Albany · 2023' },
+      /* TODO: real Spanier portfolio photo for Pine Lake Deck (currently Pexels placeholder — weathered wooden planks with visible grain) */
+      { src: 'https://images.pexels.com/photos/954655/pexels-photo-954655.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Front porch + railings — solid stain · Albany · 2023' },
       /* REPLACE: nano-banana — [Lake dock boards and dock railings, stained, Big Lake MN summer 2024] */
-      { src: 'https://images.unsplash.com/photo-1518883041-2cb88f1ddc60?w=900&q=85&auto=format&fit=crop', cap: 'Dock + railings — semi-transparent stain · Big Lake · 2024' }
+      /* TODO: real Spanier portfolio photo for Pine Lake Deck (currently Pexels placeholder — detailed view of weathered wooden planks) */
+      { src: 'https://images.pexels.com/photos/3964824/pexels-photo-3964824.jpeg?auto=compress&cs=tinysrgb&w=1600', cap: 'Dock + railings — semi-transparent stain · Big Lake · 2024' }
     ],
     'Color Consultation': [
       /* REPLACE: nano-banana — [Lukas Spanier on-site consultation, holding paint fan deck, natural light, Minnesota home 2025] */
-      { src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=85&auto=format&fit=crop', cap: 'On-site walk-through — paint fan in hand · St. Cloud · 2025' },
+      /* TODO: real Spanier portfolio photo (currently Kaboompics placeholder — brushes on paint palette / impasto canvas) */
+      { src: 'https://kaboompics.com/download/d45d1639efe3bf52dd267df58a9d465fadffe60d/medium', cap: 'On-site walk-through — paint fan in hand · St. Cloud · 2025' },
       /* REPLACE: nano-banana — [Kitchen and dining room after palette consultation, warm cohesive colours, MN home 2024] */
-      { src: 'https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=900&q=85&auto=format&fit=crop', cap: 'Kitchen–dining palette — BM White Dove + Hague Blue · 2024' },
+      /* TODO: real Spanier portfolio photo (currently Kaboompics placeholder — acrylic paint tubes + brushes flat-lay) */
+      { src: 'https://kaboompics.com/download/8ece11078a60bd27071bce97e7975717cfd9b571/medium', cap: 'Kitchen–dining palette — BM White Dove + Hague Blue · 2024' },
       /* REPLACE: nano-banana — [Open-plan interior, whole-home cohesive palette result, Sauk Rapids MN 2024] */
-      { src: 'https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?w=900&q=85&auto=format&fit=crop', cap: 'Whole-home colour plan · Sauk Rapids · 2024' }
+      /* TODO: real Spanier portfolio photo (currently Kaboompics placeholder — brush mid-stroke on canvas) */
+      { src: 'https://kaboompics.com/download/298c6a5b98506fd80c0f9897d05baf01dcfaf1df/medium', cap: 'Whole-home colour plan · Sauk Rapids · 2024' }
     ]
   };
 
