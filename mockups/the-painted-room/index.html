@@ -780,6 +780,213 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 }
 
 /* ============================================================
+   PROJECT PALETTE STRIP — paint chips below each case title
+   ============================================================ */
+.palette-strip {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule-light);
+}
+.palette-strip-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+  margin-bottom: 0.55rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.palette-strip-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule-light);
+}
+.palette-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+  gap: 0.5rem;
+  max-width: 560px;
+}
+.palette-chip {
+  display: block;
+}
+.palette-chip-swatch {
+  display: block;
+  height: 28px;
+  width: 100%;
+  border-radius: 1px;
+  border: 1px solid rgba(26,24,20,0.10);
+}
+.palette-chip-name {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  line-height: 1.3;
+}
+.palette-chip-code {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.4625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+  margin-top: 0.15rem;
+}
+
+/* ============================================================
+   COBALT INTERLUDE — full-bleed editorial break
+   ============================================================ */
+.cobalt-interlude {
+  background: var(--cobalt);
+  color: var(--paper);
+  padding: clamp(4rem, 8vw, 6.5rem) clamp(1.5rem, 5vw, 4rem);
+  text-align: center;
+  position: relative;
+}
+.cobalt-interlude::before,
+.cobalt-interlude::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(40px, 6vw, 72px);
+  height: 1px;
+  background: rgba(251,248,242,0.45);
+}
+.cobalt-interlude::before { top: clamp(2rem, 4vw, 3rem); }
+.cobalt-interlude::after  { bottom: clamp(2rem, 4vw, 3rem); }
+.cobalt-eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(251,248,242,0.7);
+  margin-bottom: 1.5rem;
+}
+.cobalt-statement {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.75rem, 4.2vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: var(--paper);
+  max-width: 22ch;
+  margin: 0 auto;
+}
+.cobalt-statement em {
+  font-style: normal;
+  color: rgba(251,248,242,0.78);
+}
+.cobalt-byline {
+  margin-top: 1.5rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(251,248,242,0.62);
+}
+
+/* ============================================================
+   COLOR LIBRARY — studio archive grid
+   ============================================================ */
+.color-library {
+  padding: clamp(4.5rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+  background: var(--paper);
+  border-top: 1px solid var(--rule-light);
+  border-bottom: 1px solid var(--rule-light);
+}
+.color-library-inner { max-width: 1380px; margin: 0 auto; }
+.color-library-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.color-library-eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  margin-bottom: 1rem;
+}
+.color-library-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+}
+.color-library-title em {
+  font-style: italic;
+  color: var(--cobalt);
+}
+.color-library-byline {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+  text-align: right;
+  line-height: 1.7;
+}
+.color-library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--rule-light);
+  border-left: 1px solid var(--rule-light);
+}
+.lib-swatch {
+  padding: 1rem 1rem 0.95rem;
+  border-right: 1px solid var(--rule-light);
+  border-bottom: 1px solid var(--rule-light);
+  background: var(--paper);
+}
+.lib-swatch-color {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid rgba(26,24,20,0.08);
+  border-radius: 1px;
+  margin-bottom: 0.7rem;
+}
+.lib-swatch-name {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 0.8125rem;
+  letter-spacing: 0.005em;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+.lib-swatch-brand {
+  font-family: "DM Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-light);
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .color-library-head { grid-template-columns: 1fr; }
+  .color-library-byline { text-align: left; }
+}
+
+/* ============================================================
    SERVICES SECTION
    ============================================================ */
 .services {
@@ -2272,15 +2479,15 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
     <!-- Color Chips -->
     <!-- Cabinet Color -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#F4F0E6; left:28%; top:45%;"
-         data-color="#F4F0E6"
+         style="background:#EFEAD8; left:28%; top:45%;"
+         data-color="#EFEAD8"
          data-name="White Dove"
          data-brand="Benjamin Moore"
          data-sheen="Semi-Gloss"
          data-application="Cabinet faces, doors &amp; drawer fronts"
          aria-label="Color chip: Benjamin Moore White Dove — cabinet color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#F4F0E6; border: 1px solid rgba(26,24,20,0.1);"></span>
+        <span class="popover-swatch" style="background:#EFEAD8; border: 1px solid rgba(26,24,20,0.1);"></span>
         <p class="popover-name">White Dove · OC-17</p>
         <p class="popover-meta">Benjamin Moore · Semi-Gloss</p>
         <p class="popover-application">Cabinet faces, doors &amp; drawer fronts — 2 coats topcoat, hand-brushed</p>
@@ -2289,15 +2496,15 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Wall Color -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#E8DFD0; left:62%; top:32%;"
-         data-color="#E8DFD0"
+         style="background:#E9DDC7; left:62%; top:32%;"
+         data-color="#E9DDC7"
          data-name="Linen White"
          data-brand="Benjamin Moore"
          data-sheen="Eggshell"
          data-application="Kitchen walls &amp; open plan ceiling"
          aria-label="Color chip: Benjamin Moore Linen White — wall color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#E8DFD0;"></span>
+        <span class="popover-swatch" style="background:#E9DDC7;"></span>
         <p class="popover-name">Linen White · OC-146</p>
         <p class="popover-meta">Benjamin Moore · Eggshell</p>
         <p class="popover-application">Kitchen walls &amp; open plan ceiling</p>
@@ -2306,15 +2513,15 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Ceiling Color -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#F9F7F2; left:50%; top:14%;"
-         data-color="#F9F7F2"
+         style="background:#F1F0E8; left:50%; top:14%;"
+         data-color="#F1F0E8"
          data-name="Chantilly Lace"
          data-brand="Benjamin Moore"
          data-sheen="Flat"
          data-application="Ceiling — full kitchen span"
          aria-label="Color chip: Benjamin Moore Chantilly Lace — ceiling">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#F9F7F2; border: 1px solid rgba(26,24,20,0.08);"></span>
+        <span class="popover-swatch" style="background:#F1F0E8; border: 1px solid rgba(26,24,20,0.08);"></span>
         <p class="popover-name">Chantilly Lace · OC-65</p>
         <p class="popover-meta">Benjamin Moore · Flat</p>
         <p class="popover-application">Ceiling — full kitchen span</p>
@@ -2323,15 +2530,15 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Trim Color -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#ECE6D8; left:14%; top:68%;"
-         data-color="#ECE6D8"
+         style="background:#EEEAE2; left:14%; top:68%;"
+         data-color="#EEEAE2"
          data-name="Simply White"
          data-brand="Benjamin Moore"
          data-sheen="Semi-Gloss"
          data-application="Window trim, baseboards &amp; island base"
          aria-label="Color chip: Benjamin Moore Simply White — trim">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#ECE6D8;"></span>
+        <span class="popover-swatch" style="background:#EEEAE2;"></span>
         <p class="popover-name">Simply White · OC-117</p>
         <p class="popover-meta">Benjamin Moore · Semi-Gloss</p>
         <p class="popover-application">Window trim, baseboards &amp; island base — applied as topcoat over BM primer</p>
@@ -2345,6 +2552,32 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
         Hand-brushed shaker cabinetry<span class="project-type-badge badge-residential">Residential</span>
       </h3>
       <p class="case-caption">The builder left the cabinets unfinished — raw maple interiors, no primer, no prep. Lukas spent three days sealing and building before a brush touched the face. Final enamel hand-applied in two coats; no lap marks, no rollered orange-peel. White Dove reads faintly warm at 7am, near-white by noon. The client said it was exactly the kitchen they had been describing for two years and couldn't find at a showroom.</p>
+
+      <div class="palette-strip" aria-label="Paint colors specified for this project">
+        <p class="palette-strip-label">Project palette</p>
+        <div class="palette-row">
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#EFEAD8;"></span>
+            <span class="palette-chip-name">White Dove</span>
+            <span class="palette-chip-code">BM · OC-17</span>
+          </span>
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#E9DDC7;"></span>
+            <span class="palette-chip-name">Linen White</span>
+            <span class="palette-chip-code">BM · OC-146</span>
+          </span>
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#F1F0E8;"></span>
+            <span class="palette-chip-name">Chantilly Lace</span>
+            <span class="palette-chip-code">BM · OC-65</span>
+          </span>
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#EEEAE2;"></span>
+            <span class="palette-chip-name">Simply White</span>
+            <span class="palette-chip-code">BM · OC-117</span>
+          </span>
+        </div>
+      </div>
     </div>
     <div class="case-details">
       <div class="case-detail-item">
@@ -2397,10 +2630,10 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Trim Color -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#F5F2EB; left:18%; top:72%;"
+         style="background:#E9E5D5; left:18%; top:72%;"
          aria-label="Color chip: trim color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#F5F2EB; border: 1px solid rgba(26,24,20,0.08);"></span>
+        <span class="popover-swatch" style="background:#E9E5D5; border: 1px solid rgba(26,24,20,0.08);"></span>
         <p class="popover-name">Cloud White · OC-130</p>
         <p class="popover-meta">Benjamin Moore · Semi-Gloss</p>
         <p class="popover-application">All trim, doors, casings &amp; baseboards</p>
@@ -2409,10 +2642,10 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Wall Color 1 — Living -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#C2B49A; left:38%; top:40%;"
+         style="background:#DDD5C6; left:38%; top:40%;"
          aria-label="Color chip: living room wall color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#C2B49A;"></span>
+        <span class="popover-swatch" style="background:#DDD5C6;"></span>
         <p class="popover-name">Pale Oak · OC-20</p>
         <p class="popover-meta">Benjamin Moore · Eggshell</p>
         <p class="popover-application">Living room &amp; entry walls</p>
@@ -2421,11 +2654,11 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Wall Color 2 — Dining -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#A89880; left:66%; top:38%;"
+         style="background:#D2C2A4; left:66%; top:38%;"
          data-flip="down"
          aria-label="Color chip: dining room wall color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#A89880;"></span>
+        <span class="popover-swatch" style="background:#D2C2A4;"></span>
         <p class="popover-name">Carrington Beige · HC-93</p>
         <p class="popover-meta">Benjamin Moore · Eggshell</p>
         <p class="popover-application">Dining room &amp; hallway</p>
@@ -2434,10 +2667,10 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Ceiling -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#F8F6F1; left:82%; top:15%;"
+         style="background:#EBE9DD; left:82%; top:15%;"
          aria-label="Color chip: ceiling color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#F8F6F1; border: 1px solid rgba(26,24,20,0.06);"></span>
+        <span class="popover-swatch" style="background:#EBE9DD; border: 1px solid rgba(26,24,20,0.06);"></span>
         <p class="popover-name">Decorators White · OC-149</p>
         <p class="popover-meta">Benjamin Moore · Flat</p>
         <p class="popover-application">Ceiling — full main floor</p>
@@ -2451,6 +2684,32 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
         Painted-trim interior, 1960s ranch<span class="project-type-badge badge-residential">Residential</span>
       </h3>
       <p class="case-caption">Original 1962 wood casings — never touched. The previous owners had rolled flat latex straight over bare wood and called it done. We stripped back, sanded to grain, primed, and finished in Cloud White semi-gloss: the period proportions came back immediately. Two wall colors divide the open floor plan without a partition. The worn oak floors stayed as they were — they didn't need us, they needed the trim to stop competing with them.</p>
+
+      <div class="palette-strip" aria-label="Paint colors specified for this project">
+        <p class="palette-strip-label">Project palette</p>
+        <div class="palette-row">
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#E9E5D5;"></span>
+            <span class="palette-chip-name">Cloud White</span>
+            <span class="palette-chip-code">BM · OC-130</span>
+          </span>
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#DDD5C6;"></span>
+            <span class="palette-chip-name">Pale Oak</span>
+            <span class="palette-chip-code">BM · OC-20</span>
+          </span>
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#D2C2A4;"></span>
+            <span class="palette-chip-name">Carrington Beige</span>
+            <span class="palette-chip-code">BM · HC-93</span>
+          </span>
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#EBE9DD;"></span>
+            <span class="palette-chip-name">Decorators White</span>
+            <span class="palette-chip-code">BM · OC-149</span>
+          </span>
+        </div>
+      </div>
     </div>
     <div class="case-details">
       <div class="case-detail-item">
@@ -2478,6 +2737,16 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 </article>
 
 
+<!-- ── COBALT INTERLUDE — full-bleed editorial break ─────────── -->
+<aside class="cobalt-interlude reveal" aria-label="Studio statement">
+  <p class="cobalt-eyebrow">A Note from the Studio</p>
+  <p class="cobalt-statement">
+    Painted by hand. <em>Built to last.</em>
+  </p>
+  <p class="cobalt-byline">Lukas Spanier &middot; St. Cloud, MN &middot; Est. 2014</p>
+</aside>
+
+
 <!-- ── CASE 03 ──────────────────────────────────────────────── -->
 <div class="case-label-bar reveal">
   <div class="case-label-bar-left">
@@ -2503,10 +2772,10 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Reception wall -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#E9E2D4; left:22%; top:35%;"
+         style="background:#E5DDC7; left:22%; top:35%;"
          aria-label="Color chip: reception wall color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#E9E2D4;"></span>
+        <span class="popover-swatch" style="background:#E5DDC7;"></span>
         <p class="popover-name">White Sand · OC-10</p>
         <p class="popover-meta">Benjamin Moore · Eggshell</p>
         <p class="popover-application">Reception &amp; waiting room walls</p>
@@ -2515,10 +2784,10 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Accent wall -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#4A5E6A; left:58%; top:42%;"
+         style="background:#324B5C; left:58%; top:42%;"
          aria-label="Color chip: accent wall color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#4A5E6A;"></span>
+        <span class="popover-swatch" style="background:#324B5C;"></span>
         <p class="popover-name">Newburyport Blue · HC-155</p>
         <p class="popover-meta">Benjamin Moore · Eggshell</p>
         <p class="popover-application">Feature wall behind reception desk — tested at 9am, noon &amp; 4pm before committing</p>
@@ -2527,11 +2796,11 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Trim -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#F2EDE2; left:36%; top:72%;"
+         style="background:#EFEAD8; left:36%; top:72%;"
          data-flip="down"
          aria-label="Color chip: trim color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#F2EDE2; border: 1px solid rgba(26,24,20,0.08);"></span>
+        <span class="popover-swatch" style="background:#EFEAD8; border: 1px solid rgba(26,24,20,0.08);"></span>
         <p class="popover-name">White Dove · OC-17</p>
         <p class="popover-meta">Benjamin Moore · Semi-Gloss</p>
         <p class="popover-application">Trim, casings &amp; millwork</p>
@@ -2540,10 +2809,10 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Ceiling -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#F6F4EF; left:72%; top:12%;"
+         style="background:#F1F0E8; left:72%; top:12%;"
          aria-label="Color chip: ceiling">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#F6F4EF; border: 1px solid rgba(26,24,20,0.07);"></span>
+        <span class="popover-swatch" style="background:#F1F0E8; border: 1px solid rgba(26,24,20,0.07);"></span>
         <p class="popover-name">Chantilly Lace · OC-65</p>
         <p class="popover-meta">Benjamin Moore · Flat</p>
         <p class="popover-application">Ceiling — full suite</p>
@@ -2552,11 +2821,11 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Base -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#D4CCB8; left:82%; top:76%;"
+         style="background:#E5D8BD; left:82%; top:76%;"
          data-flip="down"
          aria-label="Color chip: base color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#D4CCB8;"></span>
+        <span class="popover-swatch" style="background:#E5D8BD;"></span>
         <p class="popover-name">Antique White · OC-75</p>
         <p class="popover-meta">Benjamin Moore · Semi-Gloss</p>
         <p class="popover-application">Base molding — full perimeter</p>
@@ -2570,6 +2839,37 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
         Avon Family Dental — reception buildout<span class="project-type-badge badge-commercial">Commercial</span>
       </h3>
       <p class="case-caption">The client's brief was "calm — not clinical." Dental offices default to bright white because no one wants to be responsible for getting it wrong. We tested Newburyport Blue on the feature wall behind the desk at 9am, noon, and 4pm over two days. In flat afternoon light through north-facing glass it stays composed; it doesn't go cool. White Sand holds the perimeter and keeps the millwork readable. The practice manager said patients comment on the room before they sit down.</p>
+
+      <div class="palette-strip" aria-label="Paint colors specified for this project">
+        <p class="palette-strip-label">Project palette</p>
+        <div class="palette-row">
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#E5DDC7;"></span>
+            <span class="palette-chip-name">White Sand</span>
+            <span class="palette-chip-code">BM · OC-10</span>
+          </span>
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#324B5C;"></span>
+            <span class="palette-chip-name">Newburyport Blue</span>
+            <span class="palette-chip-code">BM · HC-155</span>
+          </span>
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#EFEAD8;"></span>
+            <span class="palette-chip-name">White Dove</span>
+            <span class="palette-chip-code">BM · OC-17</span>
+          </span>
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#F1F0E8;"></span>
+            <span class="palette-chip-name">Chantilly Lace</span>
+            <span class="palette-chip-code">BM · OC-65</span>
+          </span>
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#E5D8BD;"></span>
+            <span class="palette-chip-name">Antique White</span>
+            <span class="palette-chip-code">BM · OC-75</span>
+          </span>
+        </div>
+      </div>
     </div>
     <div class="case-details">
       <div class="case-detail-item">
@@ -2622,10 +2922,10 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Body color -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#9BA88A; left:30%; top:52%;"
+         style="background:#7C8970; left:30%; top:52%;"
          aria-label="Color chip: body color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#9BA88A;"></span>
+        <span class="popover-swatch" style="background:#7C8970;"></span>
         <p class="popover-name">Sage Mountain · 461</p>
         <p class="popover-meta">SW Exterior · Satin</p>
         <p class="popover-application">Main body — all exterior siding</p>
@@ -2634,10 +2934,10 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Trim -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#F0EBE0; left:60%; top:44%;"
+         style="background:#D8C9B0; left:60%; top:44%;"
          aria-label="Color chip: trim color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#F0EBE0; border: 1px solid rgba(26,24,20,0.08);"></span>
+        <span class="popover-swatch" style="background:#D8C9B0; border: 1px solid rgba(26,24,20,0.08);"></span>
         <p class="popover-name">Antler Velvet · SW 7567</p>
         <p class="popover-meta">Sherwin-Williams · Satin</p>
         <p class="popover-application">Trim, fascia, soffits &amp; rake boards</p>
@@ -2646,11 +2946,11 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Sash -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#6E7D6A; left:44%; top:28%;"
+         style="background:#5C6B57; left:44%; top:28%;"
          data-flip="down"
          aria-label="Color chip: sash color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#6E7D6A;"></span>
+        <span class="popover-swatch" style="background:#5C6B57;"></span>
         <p class="popover-name">Rosemary · SW 6187</p>
         <p class="popover-meta">Sherwin-Williams · Semi-Gloss</p>
         <p class="popover-application">Window sash — all openings</p>
@@ -2659,11 +2959,11 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
     <!-- Door -->
     <div class="chip" tabindex="0" role="button"
-         style="background:#3B2E2A; left:18%; top:65%;"
+         style="background:#6B2C2C; left:18%; top:65%;"
          data-flip="down"
          aria-label="Color chip: door color">
       <div class="chip-popover" role="tooltip">
-        <span class="popover-swatch" style="background:#3B2E2A;"></span>
+        <span class="popover-swatch" style="background:#6B2C2C;"></span>
         <p class="popover-name">Rookwood Deep Red · SW 2802</p>
         <p class="popover-meta">Sherwin-Williams · High-Gloss</p>
         <p class="popover-application">Front door &amp; screen door frame — 3 coats high-gloss, sanded between coats</p>
@@ -2677,6 +2977,32 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
         Heritage exterior, Cold Spring cottage<span class="project-type-badge badge-residential">Residential</span>
       </h3>
       <p class="case-caption">Four decades of wrong choices: a blue-grey body and flat white trim that had turned the cottage into a blur. The homeowner brought 1940s photographs — the original color scheme was sage and cream. We matched the spirit rather than the formula, landing on Sage Mountain for the body and Antler Velvet trim. The sash drops a shade deeper to pull the windows forward; the door (Rookwood Deep Red, high-gloss) is the first thing you see from the street. Three coats throughout; back-rolled against the grain on the north face where freeze-thaw splits film coatings after one winter.</p>
+
+      <div class="palette-strip" aria-label="Paint colors specified for this project">
+        <p class="palette-strip-label">Project palette</p>
+        <div class="palette-row">
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#7C8970;"></span>
+            <span class="palette-chip-name">Sage Mountain</span>
+            <span class="palette-chip-code">SW · 461</span>
+          </span>
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#D8C9B0;"></span>
+            <span class="palette-chip-name">Antler Velvet</span>
+            <span class="palette-chip-code">SW · 7567</span>
+          </span>
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#5C6B57;"></span>
+            <span class="palette-chip-name">Rosemary</span>
+            <span class="palette-chip-code">SW · 6187</span>
+          </span>
+          <span class="palette-chip">
+            <span class="palette-chip-swatch" style="background:#6B2C2C;"></span>
+            <span class="palette-chip-name">Rookwood Red</span>
+            <span class="palette-chip-code">SW · 2802</span>
+          </span>
+        </div>
+      </div>
     </div>
     <div class="case-details">
       <div class="case-detail-item">
@@ -2704,6 +3030,90 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 </article>
 
 <hr class="section-rule" aria-hidden="true">
+
+
+<!-- ============================================================
+     COLOR LIBRARY — from the studio archive
+     ============================================================ -->
+<section class="color-library reveal" id="color-library" aria-label="Color library — recent paint picks from the studio archive">
+  <div class="color-library-inner">
+    <div class="color-library-head">
+      <div>
+        <p class="color-library-eyebrow">No. 05 · From the Studio Archive</p>
+        <h2 class="color-library-title f-display">
+          Recent <em>color picks</em>
+        </h2>
+      </div>
+      <p class="color-library-byline">
+        Twelve colors pulled<br>
+        from this season's work
+      </p>
+    </div>
+
+    <div class="color-library-grid">
+      <div class="lib-swatch">
+        <span class="lib-swatch-color" style="background:#2E3942;"></span>
+        <p class="lib-swatch-name">Hague Blue</p>
+        <p class="lib-swatch-brand">Farrow &amp; Ball · No. 30</p>
+      </div>
+      <div class="lib-swatch">
+        <span class="lib-swatch-color" style="background:#3D4654;"></span>
+        <p class="lib-swatch-name">Hale Navy</p>
+        <p class="lib-swatch-brand">Benjamin Moore · HC-154</p>
+      </div>
+      <div class="lib-swatch">
+        <span class="lib-swatch-color" style="background:#324B5C;"></span>
+        <p class="lib-swatch-name">Newburyport Blue</p>
+        <p class="lib-swatch-brand">Benjamin Moore · HC-155</p>
+      </div>
+      <div class="lib-swatch">
+        <span class="lib-swatch-color" style="background:#999990;"></span>
+        <p class="lib-swatch-name">Pigeon</p>
+        <p class="lib-swatch-brand">Farrow &amp; Ball · No. 25</p>
+      </div>
+      <div class="lib-swatch">
+        <span class="lib-swatch-color" style="background:#797971;"></span>
+        <p class="lib-swatch-name">Kendall Charcoal</p>
+        <p class="lib-swatch-brand">Benjamin Moore · HC-166</p>
+      </div>
+      <div class="lib-swatch">
+        <span class="lib-swatch-color" style="background:#A29F95;"></span>
+        <p class="lib-swatch-name">Hardware Stone</p>
+        <p class="lib-swatch-brand">Benjamin Moore · CSP-115</p>
+      </div>
+      <div class="lib-swatch">
+        <span class="lib-swatch-color" style="background:#7C8970;"></span>
+        <p class="lib-swatch-name">Sage Mountain</p>
+        <p class="lib-swatch-brand">Sherwin-Williams · 461</p>
+      </div>
+      <div class="lib-swatch">
+        <span class="lib-swatch-color" style="background:#6B2C2C;"></span>
+        <p class="lib-swatch-name">Rookwood Red</p>
+        <p class="lib-swatch-brand">Sherwin-Williams · 2802</p>
+      </div>
+      <div class="lib-swatch">
+        <span class="lib-swatch-color" style="background:#D2C2A4;"></span>
+        <p class="lib-swatch-name">Carrington Beige</p>
+        <p class="lib-swatch-brand">Benjamin Moore · HC-93</p>
+      </div>
+      <div class="lib-swatch">
+        <span class="lib-swatch-color" style="background:#EFEAD8;"></span>
+        <p class="lib-swatch-name">White Dove</p>
+        <p class="lib-swatch-brand">Benjamin Moore · OC-17</p>
+      </div>
+      <div class="lib-swatch">
+        <span class="lib-swatch-color" style="background:#EEEAE2;"></span>
+        <p class="lib-swatch-name">Simply White</p>
+        <p class="lib-swatch-brand">Benjamin Moore · OC-117</p>
+      </div>
+      <div class="lib-swatch">
+        <span class="lib-swatch-color" style="background:#EBE9DD;"></span>
+        <p class="lib-swatch-name">Decorators White</p>
+        <p class="lib-swatch-brand">Benjamin Moore · OC-149</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- ============================================================
@@ -3179,8 +3589,8 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
       </ul>
     </div>
 
+    <!-- TODO: Jobber Work Request Form embed (Phase 2) — replace with the actual snippet from Jobber's dashboard -->
     <div class="jobber-placeholder reveal reveal-delay-1" role="form" aria-label="Quote request form">
-      <!-- TODO: Jobber Work Request Form embed (Phase 2) — script goes here -->
       <span class="jobber-stamp">Work request · Phase 2 embed</span>
       <p class="jobber-title f-display">Request a quote</p>
       <p class="jobber-deck">Submit the details below. Lukas reviews requests daily and replies within one business day.</p>
@@ -3200,11 +3610,21 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
         </label>
       </div>
       <label class="jobber-field">
+        <span class="jobber-field-label">Property type</span>
+        <select class="jobber-field-input" name="property-type">
+          <option value="">Select one…</option>
+          <option value="interior">Interior</option>
+          <option value="exterior">Exterior</option>
+          <option value="cabinet">Cabinet finishing</option>
+          <option value="commercial">Commercial</option>
+        </select>
+      </label>
+      <label class="jobber-field">
         <span class="jobber-field-label">City</span>
         <input class="jobber-field-input" type="text" name="city" placeholder="St. Cloud, Sartell, etc." autocomplete="address-level2">
       </label>
       <label class="jobber-field">
-        <span class="jobber-field-label">Tell us about the project</span>
+        <span class="jobber-field-label">Project description</span>
         <textarea class="jobber-field-input" rows="4" name="message" placeholder="Rooms, surfaces, timing, what isn't working — anything that helps Lukas plan the walkthrough."></textarea>
       </label>
       <button type="submit" class="jobber-submit">Send request</button>
@@ -3248,7 +3668,7 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
     <div class="footer-masthead" aria-hidden="true">
       <p class="footer-masthead-title">The Painted Room</p>
       <p class="footer-masthead-meta">
-        Issue №47 · Studio Archive · May 2026 · St. Cloud, MN<br>
+        Issue <em style="font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-size:0.875rem;letter-spacing:0.02em;text-transform:none;color:#7FA0E0;vertical-align:-0.05em;">No.</em> 47 · Studio Archive · May 2026 · St. Cloud, MN<br>
         Staff · Lukas Spanier &amp; Crew · Distribution · By Appointment
       </p>
       <hr class="footer-masthead-rule">
