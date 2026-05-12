@@ -40,6 +40,53 @@
   }
   </script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Painting",
+    "provider": { "@type": "Painter", "name": "Spanier Painting" },
+    "areaServed": "St. Cloud, MN",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Painting Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Painting" }},
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Exterior Painting" }},
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cabinet Refinishing" }},
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Heritage / Historic Homes" }},
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Decks + Fences" }},
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Specialty Coatings" }}
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": { "@type": "Painter", "name": "Spanier Painting" },
+    "author": { "@type": "Person", "name": "Jen & Marcus K." },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "reviewBody": "Lukas painted three rooms in our 1923 bungalow and you genuinely cannot see a brushstroke. He's the only painter we'll call now."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What areas do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "Central Minnesota — St. Cloud, Sartell, Sauk Rapids, Waite Park, Cold Spring, Avon, Albany, Monticello, Foley, Rice, Becker, Big Lake. Roughly a 60-mile radius from St. Cloud." }},
+      { "@type": "Question", "name": "Do you give free estimates?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A walkthrough, photos, measurements, and a written quote — at no cost." }},
+      { "@type": "Question", "name": "Are you licensed and insured?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — licensed and insured in Minnesota, plus EPA RRP certified for lead-safe work on pre-1978 homes." }},
+      { "@type": "Question", "name": "What paint brands do you use?", "acceptedAnswer": { "@type": "Answer", "text": "Sherwin-Williams and Benjamin Moore are the defaults. We'll work with whatever you specify." }},
+      { "@type": "Question", "name": "Is there a warranty?", "acceptedAnswer": { "@type": "Answer", "text": "Two-year workmanship warranty in writing." }}
+    ]
+  }
+  </script>
+
   <!-- Inter Tight + JetBrains Mono for data labels -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -511,6 +558,89 @@
       color: var(--muted);
       letter-spacing: 0.06em;
     }
+
+    /* Area map */
+    .area__map {
+      margin-top: 2.5rem;
+    }
+    .area__map-frame {
+      position: relative;
+      border: 1px solid var(--rule);
+      background: #FFFFFF;
+      height: 280px;
+      overflow: hidden;
+    }
+    .area__map-svg { width: 100%; height: 100%; display: block; }
+    .area__map-stamp {
+      position: absolute;
+      bottom: 0.6rem;
+      right: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      background: rgba(255,255,255,0.92);
+      padding: 0.25rem 0.5rem;
+      border: 1px solid var(--rule);
+    }
+
+    /* Journal teaser */
+    .journal {
+      max-width: 56ch;
+    }
+    .journal__eyebrow {
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cobalt);
+      margin-bottom: 0.9rem;
+    }
+    .journal__title {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: var(--size-lg);
+      line-height: 1.25;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.85rem;
+    }
+    .journal__excerpt {
+      font-size: var(--size-md);
+      font-weight: 300;
+      line-height: 1.55;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+    .journal__more {
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cobalt);
+      text-decoration: none;
+      border-bottom: 1px solid var(--cobalt);
+      padding-bottom: 2px;
+    }
+    .journal__more:hover { color: var(--ink); border-color: var(--ink); }
+
+    /* Footer social */
+    .footer__social {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.6rem;
+    }
+    .footer__social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px; height: 30px;
+      border: 1px solid var(--rule);
+      color: var(--ink);
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .footer__social a:hover { background: var(--cobalt); border-color: var(--cobalt); color: #FFFFFF; }
+    .footer__social svg { width: 14px; height: 14px; }
 
     /* ══════════════════════════════════════════════════════════
        8. CTA
@@ -1026,7 +1156,7 @@
        TESTIMONIAL
   ══════════════════════════════════════════════════════════ -->
   <!-- TODO: Google Reviews widget — Phase 1 scope -->
-  <section class="testimonial" aria-label="Client testimonial">
+  <section class="testimonial" id="reviews" aria-label="Client testimonial">
     <div class="wrap">
       <div class="testimonial__inner reveal">
         <blockquote>
@@ -1093,6 +1223,69 @@
           <p class="area__note">Central Minnesota — residential &amp; commercial</p>
         </div>
 
+      </div>
+
+      <!-- TODO: Google Maps embed — replace with <iframe> from Spanier's Google Business Profile.
+           Centered on St. Cloud, MN with ~60mi radius. -->
+      <figure class="area__map reveal" aria-label="Service area map">
+        <div class="area__map-frame" role="img" aria-label="Map of Central Minnesota centered on St. Cloud">
+          <svg class="area__map-svg" viewBox="0 0 720 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+            <defs>
+              <pattern id="plainGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0A0A0A" stroke-width="0.4" opacity="0.1"/>
+              </pattern>
+            </defs>
+            <rect width="720" height="280" fill="#FFFFFF"/>
+            <rect width="720" height="280" fill="url(#plainGrid)"/>
+            <path d="M 0 90 L 720 100" fill="none" stroke="#0A0A0A" stroke-width="0.8" opacity="0.4"/>
+            <path d="M 60 0 L 200 180 L 280 280" fill="none" stroke="#0A0A0A" stroke-width="0.8" opacity="0.3"/>
+            <path d="M 720 60 L 520 140 L 480 280" fill="none" stroke="#0A0A0A" stroke-width="0.8" opacity="0.3"/>
+            <circle cx="360" cy="140" r="120" fill="#1E3F8A" opacity="0.06"/>
+            <circle cx="360" cy="140" r="120" fill="none" stroke="#1E3F8A" stroke-width="0.8" stroke-dasharray="3 4" opacity="0.55"/>
+            <g fill="#0A0A0A" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="0.06em">
+              <circle cx="360" cy="140" r="5" fill="#1E3F8A"/>
+              <text x="370" y="144" font-weight="600">ST. CLOUD</text>
+              <circle cx="330" cy="100" r="2.5" fill="#1E3F8A"/>
+              <text x="338" y="103">Sartell</text>
+              <circle cx="395" cy="115" r="2.5" fill="#1E3F8A"/>
+              <text x="402" y="118">Sauk Rapids</text>
+              <circle cx="320" cy="160" r="2.5" fill="#1E3F8A"/>
+              <text x="252" y="163">Waite Park</text>
+              <circle cx="270" cy="190" r="2.5" fill="#1E3F8A"/>
+              <text x="200" y="193">Cold Spring</text>
+              <circle cx="240" cy="120" r="2.5" fill="#1E3F8A"/>
+              <text x="208" y="123">Avon</text>
+              <circle cx="200" cy="100" r="2.5" fill="#1E3F8A"/>
+              <text x="158" y="103">Albany</text>
+              <circle cx="475" cy="195" r="2.5" fill="#1E3F8A"/>
+              <text x="482" y="198">Monticello</text>
+              <circle cx="450" cy="80" r="2.5" fill="#1E3F8A"/>
+              <text x="458" y="83">Foley</text>
+              <circle cx="430" cy="225" r="2.5" fill="#1E3F8A"/>
+              <text x="438" y="228">Big Lake</text>
+            </g>
+          </svg>
+          <span class="area__map-stamp">Google Maps · embed pending</span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       JOURNAL TEASER — Latest from the studio (Phase 1)
+  ══════════════════════════════════════════════════════════ -->
+  <section class="block" id="journal" aria-labelledby="journal-heading">
+    <div class="wrap">
+      <div class="block__layout">
+        <div>
+          <h2 id="journal-heading" class="block__heading reveal">Latest writing</h2>
+        </div>
+        <article class="journal reveal">
+          <p class="journal__eyebrow">Posted May 2026 · Lukas Spanier</p>
+          <h3 class="journal__title">Choosing white paint: it's never just white.</h3>
+          <p class="journal__excerpt">There are at least forty whites worth specifying — and the room, the trim, and the light at four in the afternoon all decide which one belongs.</p>
+          <a class="journal__more" href="#journal">Read more →</a>
+        </article>
       </div>
     </div>
   </section>
@@ -1189,6 +1382,22 @@
         <a href="tel:3202509100">320·250·9100</a> · <a href="mailto:lukas@spanierpainting.com">lukas@spanierpainting.com</a><br>
         Mon–Fri 7–6 · Sat by appointment<br>
         Licensed + insured · EPA RRP certified · Est. 2014
+      </div>
+      <div class="footer__social" aria-label="Social links">
+        <!-- TODO: replace # with real Spanier Instagram/Facebook URL -->
+        <a href="#" aria-label="Instagram (placeholder)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="4"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+        </a>
+        <!-- TODO: replace # with real Spanier Instagram/Facebook URL -->
+        <a href="#" aria-label="Facebook (placeholder)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
       </div>
     </div>
   </footer>

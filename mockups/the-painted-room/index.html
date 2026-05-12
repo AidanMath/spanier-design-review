@@ -43,6 +43,53 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Painting",
+  "provider": { "@type": "Painter", "name": "Spanier Painting" },
+  "areaServed": "St. Cloud, MN",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Painting Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Painting" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Exterior Painting" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cabinet Refinishing" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Heritage / Historic Homes" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Decks + Fences" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Specialty Coatings" }}
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": { "@type": "Painter", "name": "Spanier Painting" },
+  "author": { "@type": "Person", "name": "Jen & Marcus K." },
+  "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+  "reviewBody": "Lukas painted three rooms in our 1923 bungalow and you genuinely cannot see a brushstroke. He's the only painter we'll call now."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What areas do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "Central Minnesota — St. Cloud, Sartell, Sauk Rapids, Waite Park, Cold Spring, Avon, Albany, Monticello, Foley, Rice, Becker, Big Lake. Roughly a 60-mile radius from St. Cloud." }},
+    { "@type": "Question", "name": "Do you give free estimates?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A walkthrough, photos, measurements, and a written quote — at no cost." }},
+    { "@type": "Question", "name": "Are you licensed and insured?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — licensed and insured in Minnesota, plus EPA RRP certified for lead-safe work on pre-1978 homes." }},
+    { "@type": "Question", "name": "What paint brands do you use?", "acceptedAnswer": { "@type": "Answer", "text": "Sherwin-Williams and Benjamin Moore are the defaults. We'll work with whatever you specify." }},
+    { "@type": "Question", "name": "Is there a warranty?", "acceptedAnswer": { "@type": "Answer", "text": "Two-year workmanship warranty in writing." }}
+  ]
+}
+</script>
+
 <style>
 /* ============================================================
    TOKENS
@@ -1285,6 +1332,118 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 .area-city:hover {
   background: var(--paper-deep);
   color: var(--ink);
+}
+
+/* Area map — broadsheet plate */
+.area-map {
+  max-width: 1200px;
+  margin: clamp(2rem, 4vw, 3.5rem) auto 0;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+}
+.area-map-frame {
+  position: relative;
+  border: 1px solid var(--rule);
+  background: #F6F4EE;
+  height: 280px;
+  overflow: hidden;
+}
+.area-map-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.area-map-stamp {
+  position: absolute;
+  bottom: 0.65rem;
+  right: 0.85rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-light, #6B6F78);
+  background: rgba(255,255,255,0.9);
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--rule-light);
+}
+.area-map-caption {
+  margin-top: 0.85rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-light);
+  text-align: center;
+}
+
+/* Journal teaser — magazine plate */
+.journal {
+  padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--rule-light);
+  background: var(--paper);
+}
+.journal-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+.journal-masthead .about-section-tag {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.journal-headline {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-top: 1rem;
+}
+.journal-headline em { color: var(--cobalt); font-style: italic; }
+.journal-post {
+  border-left: 1px solid var(--rule);
+  padding: 0 0 0 clamp(1.5rem, 3vw, 2.5rem);
+}
+.journal-eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  margin-bottom: 0.85rem;
+}
+.journal-post-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  line-height: 1.18;
+  color: var(--ink);
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.01em;
+}
+.journal-post-excerpt {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-light);
+  margin-bottom: 1.25rem;
+}
+.journal-read-more {
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cobalt);
+  padding-bottom: 2px;
+}
+.journal-read-more:hover { color: var(--cobalt-dark); border-color: var(--cobalt-dark); }
+@media (max-width: 768px) {
+  .journal-inner { grid-template-columns: 1fr; }
+  .journal-post { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 1.5rem; }
 }
 
 /* ============================================================
@@ -3400,6 +3559,61 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
       </ul>
     </div>
   </div>
+
+  <!-- TODO: Google Maps embed — replace with <iframe> from Spanier's Google Business Profile.
+       Centered on St. Cloud, MN with ~60mi radius. -->
+  <figure class="area-map reveal" aria-label="Service area map">
+    <div class="area-map-frame" role="img" aria-label="Map of Central Minnesota centered on St. Cloud">
+      <svg class="area-map-svg" viewBox="0 0 720 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <defs>
+          <pattern id="paperGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E5E2DA" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="720" height="280" fill="#F6F4EE"/>
+        <rect width="720" height="280" fill="url(#paperGrid)"/>
+        <!-- Mock road / river lines -->
+        <path d="M 0 90 C 180 70, 360 130, 540 110 S 720 100, 720 100" fill="none" stroke="#B9C8E0" stroke-width="3" opacity="0.7"/>
+        <path d="M 60 0 L 200 180 L 280 280" fill="none" stroke="#D7CFBE" stroke-width="6" opacity="0.7"/>
+        <path d="M 720 60 L 520 140 L 480 280" fill="none" stroke="#D7CFBE" stroke-width="6" opacity="0.7"/>
+        <path d="M 0 220 L 720 200" fill="none" stroke="#D7CFBE" stroke-width="4" opacity="0.6"/>
+        <!-- Service radius -->
+        <circle cx="360" cy="140" r="120" fill="#1E3F8A" opacity="0.08"/>
+        <circle cx="360" cy="140" r="120" fill="none" stroke="#1E3F8A" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.55"/>
+        <!-- City dots -->
+        <g fill="#14161B" font-family="'DM Mono', monospace" font-size="9" letter-spacing="0.08em">
+          <circle cx="360" cy="140" r="6" fill="#1E3F8A"/>
+          <text x="372" y="144" fill="#14161B" font-weight="600">ST. CLOUD</text>
+          <circle cx="330" cy="100" r="3"/>
+          <text x="338" y="103">SARTELL</text>
+          <circle cx="395" cy="115" r="3"/>
+          <text x="402" y="118">SAUK RAPIDS</text>
+          <circle cx="320" cy="160" r="3"/>
+          <text x="244" y="163">WAITE PARK</text>
+          <circle cx="270" cy="190" r="3"/>
+          <text x="200" y="193">COLD SPRING</text>
+          <circle cx="240" cy="120" r="3"/>
+          <text x="178" y="123">AVON</text>
+          <circle cx="200" cy="100" r="3"/>
+          <text x="142" y="103">ALBANY</text>
+          <circle cx="475" cy="195" r="3"/>
+          <text x="482" y="198">MONTICELLO</text>
+          <circle cx="450" cy="80" r="3"/>
+          <text x="458" y="83">FOLEY</text>
+          <circle cx="430" cy="225" r="3"/>
+          <text x="438" y="228">BIG LAKE</text>
+        </g>
+        <!-- Compass -->
+        <g transform="translate(660,40)" fill="#14161B" font-family="'DM Mono', monospace" font-size="9">
+          <circle r="14" fill="#FFFFFF" stroke="#14161B" stroke-width="0.6"/>
+          <path d="M 0 -10 L 3 0 L 0 10 L -3 0 Z" fill="#1E3F8A"/>
+          <text x="-3" y="-18">N</text>
+        </g>
+      </svg>
+      <span class="area-map-stamp">Google Maps · Studio embed pending</span>
+    </div>
+    <figcaption class="area-map-caption">Where we work — sixty-mile radius from the St. Cloud studio.</figcaption>
+  </figure>
 </section>
 
 
@@ -3452,6 +3666,25 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
         <p class="review-attr">Heather B. · St. Cloud, MN</p>
       </article>
     </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     JOURNAL TEASER — From the studio archive (Phase 1)
+     ============================================================ -->
+<section class="journal" id="journal" aria-label="From the studio archive">
+  <div class="journal-inner">
+    <div class="journal-masthead reveal">
+      <span class="about-section-tag">No. 08 · From the Studio Archive</span>
+      <h2 class="journal-headline f-display">Recent <em>writing</em></h2>
+    </div>
+    <article class="journal-post reveal reveal-delay-1">
+      <p class="journal-eyebrow">Posted May 2026 · Lukas Spanier</p>
+      <h3 class="journal-post-title">Choosing white paint: it's never just white.</h3>
+      <p class="journal-post-excerpt">There are at least forty whites worth specifying — and the room, the trim, and the light hitting the wall at 4 p.m. all decide which one belongs.</p>
+      <a class="journal-read-more" href="#journal" aria-label="Read the full post">Read more →</a>
+    </article>
   </div>
 </section>
 

@@ -41,6 +41,53 @@
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Painting",
+  "provider": { "@type": "Painter", "name": "Spanier Painting" },
+  "areaServed": "St. Cloud, MN",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Painting Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Painting" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Exterior Painting" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cabinet Refinishing" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Heritage / Historic Homes" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Decks + Fences" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Specialty Coatings" }}
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": { "@type": "Painter", "name": "Spanier Painting" },
+  "author": { "@type": "Person", "name": "Jen & Marcus K." },
+  "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+  "reviewBody": "Lukas painted three rooms in our 1923 bungalow and you genuinely cannot see a brushstroke. He's the only painter we'll call now."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What areas do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "Central Minnesota — St. Cloud, Sartell, Sauk Rapids, Waite Park, Cold Spring, Avon, Albany, Monticello, Foley, Rice, Becker, Big Lake. Roughly a 60-mile radius from St. Cloud." }},
+    { "@type": "Question", "name": "Do you give free estimates?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A walkthrough, photos, measurements, and a written quote — at no cost." }},
+    { "@type": "Question", "name": "Are you licensed and insured?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — licensed and insured in Minnesota, plus EPA RRP certified for lead-safe work on pre-1978 homes." }},
+    { "@type": "Question", "name": "What paint brands do you use?", "acceptedAnswer": { "@type": "Answer", "text": "Sherwin-Williams and Benjamin Moore are the defaults. We'll work with whatever you specify." }},
+    { "@type": "Question", "name": "Is there a warranty?", "acceptedAnswer": { "@type": "Answer", "text": "Two-year workmanship warranty in writing." }}
+  ]
+}
+</script>
 <noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
 
 <style>
@@ -1213,6 +1260,103 @@ ul, ol { list-style: none; }
 @media (max-width: 820px) { .area { grid-template-columns: 1fr; } .area__cities { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 500px) { .area__cities { grid-template-columns: 1fr; } }
 
+/* Service area map */
+.area-map { margin-top: clamp(2rem, 4vw, 3rem); }
+.area-map__frame {
+  position: relative;
+  border: 1px solid var(--rule-strong, rgba(0,0,0,0.12));
+  background: #F8F6F1;
+  height: 280px;
+  overflow: hidden;
+}
+.area-map__svg { width: 100%; height: 100%; display: block; }
+.area-map__stamp {
+  position: absolute;
+  bottom: 0.65rem;
+  right: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted, #6B6F78);
+  background: rgba(255,255,255,0.92);
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--rule-strong, rgba(0,0,0,0.12));
+}
+.area-map__caption {
+  margin-top: 0.85rem;
+  font-family: 'Spectral', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--muted, #6B6F78);
+  text-align: center;
+}
+
+/* Journal teaser */
+.journal {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--rule-strong, rgba(0,0,0,0.12));
+}
+.journal__title {
+  font-family: 'Spectral', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--ink, #14140E);
+  margin-top: 0.6rem;
+}
+.journal__title em { font-style: italic; color: var(--cobalt, #1E3F8A); }
+.journal__post {
+  border-left: 1px solid var(--rule-strong, rgba(0,0,0,0.12));
+  padding-left: clamp(1.5rem, 3vw, 2.5rem);
+}
+.journal__eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cobalt, #1E3F8A);
+  margin-bottom: 0.85rem;
+}
+.journal__post-title {
+  font-family: 'Spectral', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  line-height: 1.2;
+  color: var(--ink, #14140E);
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.01em;
+}
+.journal__post-title em { font-style: italic; color: var(--cobalt, #1E3F8A); }
+.journal__excerpt {
+  font-family: 'Spectral', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--ink, #14140E);
+  opacity: 0.75;
+  margin-bottom: 1.25rem;
+}
+.journal__more {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cobalt, #1E3F8A);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cobalt, #1E3F8A);
+  padding-bottom: 2px;
+}
+.journal__more:hover { color: var(--ink, #14140E); border-color: var(--ink, #14140E); }
+@media (max-width: 820px) {
+  .journal { grid-template-columns: 1fr; }
+  .journal__post { border-left: 0; border-top: 1px solid var(--rule-strong, rgba(0,0,0,0.12)); padding-left: 0; padding-top: 1.5rem; }
+}
+
 /* ════════════════════════════════════════════════════════════════
    FAQ
    ════════════════════════════════════════════════════════════════ */
@@ -2101,7 +2245,7 @@ ul, ol { list-style: none; }
   <!-- ════════════════════════════════════════════════════════════════
        TESTIMONIALS
        ════════════════════════════════════════════════════════════════ -->
-  <section class="section testi" id="testi">
+  <section class="section testi" id="reviews">
     <div class="container container--wide">
       <header class="testi__head reveal">
         <h2 class="testi__title">From the <em>people</em> in the rooms.</h2>
@@ -2168,7 +2312,7 @@ ul, ol { list-style: none; }
   <!-- ════════════════════════════════════════════════════════════════
        SERVICE AREA
        ════════════════════════════════════════════════════════════════ -->
-  <section class="section">
+  <section class="section" id="area">
     <div class="container container--wide">
       <div class="area reveal">
         <div>
@@ -2192,6 +2336,71 @@ ul, ol { list-style: none; }
           <li>Becker <small>20 mi</small></li>
           <li>Big Lake <small>26 mi</small></li>
         </ul>
+      </div>
+
+      <!-- TODO: Google Maps embed — replace with <iframe> from Spanier's Google Business Profile.
+           Centered on St. Cloud, MN with ~60mi radius. -->
+      <figure class="area-map reveal" aria-label="Service area map">
+        <div class="area-map__frame" role="img" aria-label="Map of Central Minnesota centered on St. Cloud">
+          <svg class="area-map__svg" viewBox="0 0 720 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+            <defs>
+              <pattern id="fieldGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#14140E" stroke-width="0.4" opacity="0.1"/>
+              </pattern>
+            </defs>
+            <rect width="720" height="280" fill="#F8F6F1"/>
+            <rect width="720" height="280" fill="url(#fieldGrid)"/>
+            <path d="M 0 90 C 180 70, 360 130, 540 110 S 720 100, 720 100" fill="none" stroke="#9BB0CC" stroke-width="2.4" opacity="0.6"/>
+            <path d="M 60 0 L 200 180 L 280 280" fill="none" stroke="#C9C0AC" stroke-width="3" opacity="0.6"/>
+            <path d="M 720 60 L 520 140 L 480 280" fill="none" stroke="#C9C0AC" stroke-width="3" opacity="0.6"/>
+            <circle cx="360" cy="140" r="120" fill="#1E3F8A" opacity="0.07"/>
+            <circle cx="360" cy="140" r="120" fill="none" stroke="#1E3F8A" stroke-width="1" stroke-dasharray="3 4" opacity="0.6"/>
+            <g fill="#14140E" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="0.06em">
+              <circle cx="360" cy="140" r="6" fill="#1E3F8A"/>
+              <text x="372" y="144" font-weight="600">ST. CLOUD</text>
+              <circle cx="330" cy="100" r="3" fill="#1E3F8A"/>
+              <text x="338" y="103">Sartell</text>
+              <circle cx="395" cy="115" r="3" fill="#1E3F8A"/>
+              <text x="402" y="118">Sauk Rapids</text>
+              <circle cx="320" cy="160" r="3" fill="#1E3F8A"/>
+              <text x="252" y="163">Waite Park</text>
+              <circle cx="270" cy="190" r="3" fill="#1E3F8A"/>
+              <text x="200" y="193">Cold Spring</text>
+              <circle cx="240" cy="120" r="3" fill="#1E3F8A"/>
+              <text x="208" y="123">Avon</text>
+              <circle cx="200" cy="100" r="3" fill="#1E3F8A"/>
+              <text x="158" y="103">Albany</text>
+              <circle cx="475" cy="195" r="3" fill="#1E3F8A"/>
+              <text x="482" y="198">Monticello</text>
+              <circle cx="450" cy="80" r="3" fill="#1E3F8A"/>
+              <text x="458" y="83">Foley</text>
+              <circle cx="430" cy="225" r="3" fill="#1E3F8A"/>
+              <text x="438" y="228">Big Lake</text>
+            </g>
+          </svg>
+          <span class="area-map__stamp">Google Maps · embed pending</span>
+        </div>
+        <figcaption class="area-map__caption">Where we work — sixty-mile radius from the St. Cloud studio.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       JOURNAL TEASER — Field notes from the studio (Phase 1)
+       ════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="journal">
+    <div class="container container--wide">
+      <div class="journal reveal">
+        <div>
+          <span class="t-label">Field Notes · From the studio archive</span>
+          <h2 class="journal__title">Recent <em>writing</em>.</h2>
+        </div>
+        <article class="journal__post">
+          <p class="journal__eyebrow">Posted May 2026 · Lukas Spanier</p>
+          <h3 class="journal__post-title">Choosing white paint: <em>it's never just white.</em></h3>
+          <p class="journal__excerpt">There are at least forty whites worth specifying — and the room, the trim, and the light at four in the afternoon all decide which one belongs.</p>
+          <a class="journal__more" href="#journal">Read more →</a>
+        </article>
       </div>
     </div>
   </section>

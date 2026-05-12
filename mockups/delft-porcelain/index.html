@@ -41,6 +41,53 @@
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Painting",
+  "provider": { "@type": "Painter", "name": "Spanier Painting" },
+  "areaServed": "St. Cloud, MN",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Painting Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Painting" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Exterior Painting" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cabinet Refinishing" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Heritage / Historic Homes" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Decks + Fences" }},
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Specialty Coatings" }}
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": { "@type": "Painter", "name": "Spanier Painting" },
+  "author": { "@type": "Person", "name": "Jen & Marcus K." },
+  "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+  "reviewBody": "Lukas painted three rooms in our 1923 bungalow and you genuinely cannot see a brushstroke. He's the only painter we'll call now."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What areas do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "Central Minnesota — St. Cloud, Sartell, Sauk Rapids, Waite Park, Cold Spring, Avon, Albany, Monticello, Foley, Rice, Becker, Big Lake. Roughly a 60-mile radius from St. Cloud." }},
+    { "@type": "Question", "name": "Do you give free estimates?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A walkthrough, photos, measurements, and a written quote — at no cost." }},
+    { "@type": "Question", "name": "Are you licensed and insured?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — licensed and insured in Minnesota, plus EPA RRP certified for lead-safe work on pre-1978 homes." }},
+    { "@type": "Question", "name": "What paint brands do you use?", "acceptedAnswer": { "@type": "Answer", "text": "Sherwin-Williams and Benjamin Moore are the defaults. We'll work with whatever you specify." }},
+    { "@type": "Question", "name": "Is there a warranty?", "acceptedAnswer": { "@type": "Answer", "text": "Two-year workmanship warranty in writing." }}
+  ]
+}
+</script>
 <style>
 /* ============================================================
    TOKENS
@@ -139,7 +186,7 @@ body::before {
   padding-inline: var(--gutter);
 }
 .section-pad {
-  padding-block: clamp(5rem, 10vw, 9rem);
+  padding-block: clamp(3.5rem, 7vw, 6.5rem);
 }
 
 /* ============================================================
@@ -269,13 +316,13 @@ a:focus-visible,
    HERO
    ============================================================ */
 .hero {
-  min-height: 100svh;
+  min-height: 82svh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 8rem var(--gutter) 5rem;
+  padding: 6.5rem var(--gutter) 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -289,15 +336,14 @@ a:focus-visible,
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.22) saturate(0.5) sepia(0.3);
+  filter: brightness(0.55) saturate(0.85) contrast(1.02);
 }
 .hero-bg::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(15,23,48,0.55), transparent 80%),
-    linear-gradient(to bottom, rgba(15,23,48,0.4), color-mix(in srgb, var(--cobalt) 25%, transparent) 50%, rgba(15,23,48,0.6));
+    linear-gradient(to bottom, color-mix(in srgb, var(--cobalt) 35%, transparent) 0%, color-mix(in srgb, var(--cobalt) 55%, transparent) 100%);
 }
 .hero-content {
   position: relative;
@@ -409,32 +455,93 @@ a:focus-visible,
 }
 
 /* ============================================================
-   SECTION RULE — typographic earned separator
+   SECTION MARKER — editorial chapter-mark between sections.
+   Italic roman numeral + uppercase mono name, flanked by hairlines.
+   Reads as part-break, not generated chrome.
    ============================================================ */
+.section-marker {
+  background: var(--porcelain);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vw, 1.8rem);
+  padding-block: clamp(2.2rem, 4.5vw, 3.4rem);
+  padding-inline: var(--gutter);
+}
+.section-marker__rule {
+  flex: 1;
+  max-width: 220px;
+  height: 1px;
+  background: color-mix(in srgb, var(--cobalt) 24%, transparent);
+}
+.section-marker__inner {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  white-space: nowrap;
+}
+.section-marker__no {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  line-height: 1;
+  color: var(--cobalt);
+  letter-spacing: 0.005em;
+}
+.section-marker__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--cobalt) 55%, transparent);
+  display: inline-block;
+  transform: translateY(-3px);
+}
+.section-marker__name {
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  opacity: 0.82;
+}
+.section-marker--dark { background: var(--cobalt); }
+.section-marker--dark .section-marker__rule {
+  background: color-mix(in srgb, var(--soft-blue) 32%, transparent);
+}
+.section-marker--dark .section-marker__no,
+.section-marker--dark .section-marker__name {
+  color: var(--porcelain);
+}
+.section-marker--dark .section-marker__dot {
+  background: color-mix(in srgb, var(--porcelain) 55%, transparent);
+}
+
+/* Legacy section-rule kept (used elsewhere); restyled to match marker. */
 .section-rule {
   background: var(--porcelain);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-block: 1.5rem;
+  padding-block: clamp(2.2rem, 4.5vw, 3.4rem);
   position: relative;
 }
 .section-rule::before,
 .section-rule::after {
   content: "";
   flex: 1;
-  max-width: 280px;
+  max-width: 220px;
   height: 1px;
-  background: color-mix(in srgb, var(--cobalt) 18%, transparent);
+  background: color-mix(in srgb, var(--cobalt) 24%, transparent);
   margin-inline: 1.5rem;
 }
 .section-rule__text {
   font-family: var(--font-label);
-  font-size: 0.58rem;
-  letter-spacing: 0.22em;
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cobalt);
-  opacity: 0.45;
+  opacity: 0.82;
   white-space: nowrap;
 }
 
@@ -451,7 +558,7 @@ a:focus-visible,
   max-width: 680px;
   margin-inline: auto;
   text-align: center;
-  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-block: clamp(3rem, 6vw, 5rem);
   padding-inline: var(--gutter);
 }
 .manifesto-eyebrow {
@@ -586,8 +693,18 @@ a:focus-visible,
   height: 36px;
   color: var(--soft-blue);
   opacity: 0.6;
-  transition: opacity 0.25s, color 0.25s, transform 0.25s cubic-bezier(.2,.7,.2,1);
+  transition: opacity 0.25s, color 0.25s, transform 0.25s cubic-bezier(.2,.7,.2,1), box-shadow 0.25s ease;
   flex-shrink: 0;
+  /* Delft tile plate backdrop — a porcelain hairline frame floating behind the icon */
+  box-shadow:
+    0 0 0 12px color-mix(in srgb, var(--porcelain) 5%, transparent),
+    0 0 0 13px color-mix(in srgb, var(--porcelain) 14%, transparent);
+}
+.tile-cell:hover .tile-cell-icon,
+.tile-cell.active .tile-cell-icon {
+  box-shadow:
+    0 0 0 12px color-mix(in srgb, var(--porcelain) 10%, transparent),
+    0 0 0 13px color-mix(in srgb, var(--porcelain) 32%, transparent);
 }
 .tile-cell:hover .tile-cell-icon {
   opacity: 0.9;
@@ -677,10 +794,11 @@ a:focus-visible,
   margin-top: 3rem;
   display: grid;
   grid-template-columns: 5fr 4fr 4fr;
-  gap: 3px;
+  gap: 18px;
   max-width: 880px;
   margin-left: auto;
   margin-right: auto;
+  padding: 8px;
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 0.5s cubic-bezier(.2,.7,.2,1), transform 0.5s cubic-bezier(.2,.7,.2,1);
@@ -695,6 +813,10 @@ a:focus-visible,
   position: relative;
   overflow: hidden;
   background: rgba(252,250,250,0.04);
+  /* Porcelain plate frame — gives each photo a backdrop on the dark cobalt section. */
+  outline: 1px solid color-mix(in srgb, var(--porcelain) 22%, transparent);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--porcelain) 6%, transparent);
 }
 /* First photo is taller — featured */
 .tile-photo:first-child {
@@ -811,19 +933,10 @@ a:focus-visible,
 .case-image-scallop {
   display: none; /* stripped — was redundant third border */
 }
-/* Corner flourishes on case image */
+/* Corner flourishes removed in refinement — they read as generated decoration. */
 .case-corner {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  z-index: 2;
-  color: var(--cobalt);
-  opacity: 0.45;
+  display: none;
 }
-.case-corner--tl { top: -10px; left: -10px; }
-.case-corner--tr { top: -10px; right: -10px; transform: scaleX(-1); }
-.case-corner--bl { bottom: -10px; left: -10px; transform: scaleY(-1); }
-.case-corner--br { bottom: -10px; right: -10px; transform: scale(-1); }
 .case-meta-row {
   display: flex;
   flex-wrap: wrap;
@@ -1073,6 +1186,111 @@ a:focus-visible,
   background: var(--cobalt);
   width: 6px;
   height: 6px;
+}
+
+/* Service area map — porcelain plate */
+.service-area-map {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter) clamp(3rem, 6vw, 4.5rem);
+}
+.service-area-map-frame {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid var(--cobalt);
+  height: 280px;
+  overflow: hidden;
+  box-shadow: 0 0 0 4px var(--porcelain), 0 0 0 5px var(--cobalt-mid);
+}
+.service-area-map-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.service-area-map-stamp {
+  position: absolute;
+  bottom: 0.65rem;
+  right: 0.85rem;
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  background: rgba(255,255,255,0.92);
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--cobalt-mid);
+}
+.service-area-map-caption {
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: rgba(15,23,48,0.65);
+  text-align: center;
+}
+
+/* Journal teaser — porcelain plate */
+.journal-teaser {
+  border-top: 1px solid var(--cobalt-mid);
+  background: var(--porcelain);
+  padding-block: clamp(4rem, 8vw, 6rem);
+  padding-inline: var(--gutter);
+}
+.journal-teaser-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: start;
+}
+.journal-teaser-left .section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  margin-top: 0.6rem;
+}
+.journal-teaser-post {
+  border-left: 1px solid var(--cobalt-mid);
+  padding-left: clamp(1.5rem, 3vw, 2.5rem);
+}
+.journal-eyebrow {
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  margin-bottom: 0.85rem;
+}
+.journal-post-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  line-height: 1.18;
+  color: var(--ink);
+  margin-bottom: 0.85rem;
+}
+.journal-post-title em { color: var(--cobalt); font-style: italic; }
+.journal-post-excerpt {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: rgba(15,23,48,0.7);
+  margin-bottom: 1.25rem;
+}
+.journal-read-more {
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cobalt);
+  padding-bottom: 2px;
+}
+.journal-read-more:hover { color: var(--brand-cobalt); border-color: var(--brand-cobalt); }
+@media (max-width: 768px) {
+  .journal-teaser-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .journal-teaser-post { border-left: 0; padding-left: 0; border-top: 1px solid var(--cobalt-mid); padding-top: 1.5rem; }
 }
 
 /* ============================================================
@@ -1947,24 +2165,24 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
      ============================================================ -->
 <nav class="site-nav" id="site-nav" role="navigation" aria-label="Primary">
   <a href="#" class="nav-wordmark" aria-label="Spanier Painting home">
-    <!-- Logo D: Wordmark + brushstroke mark -->
+    <!-- Logo: Circular badge "S" + wordmark — matches existing brand mark -->
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-label="Spanier Painting">
-      <path d="M10 32
-               C18 28  34 28  46 33
-               C40 38  26 39  16 36
-               C32 36  46 37  56 41"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="6"
-            stroke-linecap="round"/>
-      <text x="76" y="46"
+      <circle cx="34" cy="40" r="22" fill="currentColor"/>
+      <text x="34" y="50"
+            text-anchor="middle"
             font-family="'Cormorant Garamond', 'Crimson Pro', Georgia, serif"
             font-style="italic"
             font-weight="500"
-            font-size="38"
-            letter-spacing="-0.5"
+            font-size="28"
+            fill="#FFFFFF">S</text>
+      <text x="72" y="46"
+            font-family="'Cormorant Garamond', 'Crimson Pro', Georgia, serif"
+            font-style="italic"
+            font-weight="500"
+            font-size="34"
+            letter-spacing="-0.4"
             fill="currentColor">Spanier Painting</text>
-      <text x="76" y="62"
+      <text x="72" y="62"
             font-family="'JetBrains Mono', 'IBM Plex Mono', monospace"
             font-size="8"
             letter-spacing="2.6"
@@ -2000,31 +2218,26 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
 <header class="hero" id="home">
   <div class="hero-bg" aria-hidden="true">
     <img
-      src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=2400&q=85&auto=format&fit=crop"
+      src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=2400&q=85&auto=format&fit=crop"
       alt=""
       loading="eager"
       fetchpriority="high"
     >
-    <!-- REPLACE: nano-banana — [Craftsman interior room freshly painted in deep blue, natural afternoon light, Central Minnesota home, wide angle] -->
+    <!-- REPLACE: nano-banana — [Quiet Central Minnesota living room in late afternoon north-light, walls finished in a deep Delft cobalt with soft cream trim; oak floors, no people, no equipment] -->
   </div>
 
   <div class="hero-content">
-    <!-- Refined badge emblem (Logo A variant — single ring, brushstroke S) -->
+    <!-- Hero badge — filled cobalt circle with italic "S", matches existing brand mark -->
     <div class="hero-cartouche reveal">
       <svg class="hero-emblem" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="1" opacity="0.7"/>
-        <!-- Brushstroke S — flat, single weight, slight taper -->
-        <path d="M22.5 22
-                 C22.5 17.5  29 15  33.5 16.5
-                 C38.5 18  40.5 21.5  39 24
-                 C37.5 26.5  33 27.5  30 29
-                 C26 31  22.5 33.5  22.5 37.5
-                 C22.5 42.5  27.5 45.5  32.5 45.75
-                 C37 46  41 43.5  41.5 40"
-              stroke="currentColor"
-              stroke-width="4"
-              stroke-linecap="round"
-              fill="none"/>
+        <circle cx="32" cy="32" r="29" fill="currentColor"/>
+        <text x="32" y="44"
+              text-anchor="middle"
+              font-family="'Cormorant Garamond', 'Crimson Pro', Georgia, serif"
+              font-style="italic"
+              font-weight="500"
+              font-size="38"
+              fill="#0F1730">S</text>
       </svg>
     </div>
 
@@ -2080,39 +2293,15 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
   </div>
 </section>
 
-<!-- ============================================================
-     ORNAMENT DIVIDER 2 — Refined Dutch tile cartouche
-     Earns its space: bridges white manifesto → cobalt explorer
-     ============================================================ -->
-<div class="divider delft-cartouche-divider" aria-hidden="true">
-  <svg viewBox="0 0 900 72" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-    <!-- Outer rule lines -->
-    <line x1="0" y1="36" x2="310" y2="36" style="stroke:var(--cobalt);" stroke-width="0.6" opacity="0.25"/>
-    <line x1="590" y1="36" x2="900" y2="36" style="stroke:var(--cobalt);" stroke-width="0.6" opacity="0.25"/>
-    <!-- Tile pairs flanking the central cartouche -->
-    <rect x="48" y="24" width="22" height="22" rx="0" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.28"/>
-    <path d="M48 24 Q59 35 70 24 M48 46 Q59 35 70 46" style="stroke:var(--cobalt);" stroke-width="0.6" fill="none" opacity="0.22"/>
-    <rect x="78" y="24" width="22" height="22" rx="0" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.28"/>
-    <path d="M78 24 Q89 35 100 24 M78 46 Q89 35 100 46" style="stroke:var(--cobalt);" stroke-width="0.6" fill="none" opacity="0.22"/>
-    <!-- Mirror right -->
-    <rect x="808" y="24" width="22" height="22" rx="0" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.28"/>
-    <path d="M808 24 Q819 35 830 24 M808 46 Q819 35 830 46" style="stroke:var(--cobalt);" stroke-width="0.6" fill="none" opacity="0.22"/>
-    <rect x="838" y="24" width="22" height="22" rx="0" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.28"/>
-    <path d="M838 24 Q849 35 860 24 M838 46 Q849 35 860 46" style="stroke:var(--cobalt);" stroke-width="0.6" fill="none" opacity="0.22"/>
-    <!-- Central oval cartouche — clean, single ring -->
-    <ellipse cx="450" cy="36" rx="108" ry="28" style="stroke:var(--cobalt);" stroke-width="1" fill="var(--porcelain)" opacity="1"/>
-    <!-- Flanking dots at oval ends -->
-    <circle cx="343" cy="36" r="2.5" style="fill:var(--cobalt);" opacity="0.4"/>
-    <circle cx="557" cy="36" r="2.5" style="fill:var(--cobalt);" opacity="0.4"/>
-    <!-- Side swells into oval -->
-    <path d="M343 36 C365 24 395 32 405 36" style="stroke:var(--cobalt);" stroke-width="0.7" fill="none" opacity="0.25"/>
-    <path d="M343 36 C365 48 395 40 405 36" style="stroke:var(--cobalt);" stroke-width="0.7" fill="none" opacity="0.25"/>
-    <path d="M557 36 C535 24 505 32 495 36" style="stroke:var(--cobalt);" stroke-width="0.7" fill="none" opacity="0.25"/>
-    <path d="M557 36 C535 48 505 40 495 36" style="stroke:var(--cobalt);" stroke-width="0.7" fill="none" opacity="0.25"/>
-    <!-- Sprigs top/bottom of oval -->
-    <path d="M422 14 Q436 6 450 10 Q464 6 478 14" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.38"/>
-    <path d="M422 58 Q436 66 450 62 Q464 66 478 58" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.38"/>
-  </svg>
+<!-- II — Practice -->
+<div class="section-marker" aria-hidden="true">
+  <span class="section-marker__rule"></span>
+  <span class="section-marker__inner">
+    <span class="section-marker__no">II</span>
+    <span class="section-marker__dot"></span>
+    <span class="section-marker__name">Practice</span>
+  </span>
+  <span class="section-marker__rule"></span>
 </div>
 
 <!-- ============================================================
@@ -2217,7 +2406,7 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
       <span class="t-label">Selected Work</span>
       <h2 class="section-title">A Record of the Work</h2>
       <p style="margin-top: 1rem; font-family: var(--font-body); font-style: italic; color: rgba(15,23,48,0.6); font-size: 1rem;">
-        Eight representative projects from across Central Minnesota. <a href="#quote" style="color: var(--cobalt); border-bottom: 1px solid currentColor;">Before-and-after photo slider</a> coming soon on the work page.
+        Six representative projects from across Central Minnesota. <a href="#quote" style="color: var(--cobalt); border-bottom: 1px solid currentColor;">Before-and-after photo slider</a> coming soon on the work page.
         <!-- TODO: Before/after photo slider — Phase 1 scope deliverable -->
       </p>
     </header>
@@ -2364,53 +2553,6 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
         <p class="case-caption">800 sqft of cedar on a lakefront property. Penetrating oil base, then semi-transparent stain — built for the freeze-thaw cycles.</p>
       </article>
 
-      <!-- 07 — Sauk Rapids Office -->
-      <article class="case-article reveal">
-        <span class="case-number">No. 07 · Commercial</span>
-        <div class="case-image-wrap">
-          <div class="case-image-frame">
-            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1800&q=85&auto=format&fit=crop"
-                 alt="Sauk Rapids Office — 4,200 sqft after-hours commercial repaint" loading="lazy">
-            <!-- TODO: mismatch — needs real Spanier photo of freshly painted office walls + trim -->
-            <!-- REPLACE: nano-banana — [Sauk Rapids Office, Sauk Rapids MN — 4,200 sqft, after-hours work, no business interruption, 2025] -->
-            <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
-            <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
-            <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
-            <svg class="case-corner case-corner--br" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
-          </div>
-        </div>
-        <div class="case-meta-row">
-          <span class="case-meta-item">Sauk Rapids</span>
-          <span class="case-meta-item">Commercial</span>
-          <span class="case-meta-item">2025</span>
-        </div>
-        <h3 class="case-title">Sauk Rapids Office</h3>
-        <p class="case-caption">4,200 sqft of office walls and trim — scheduled after-hours and weekends so the company never lost a working day.</p>
-      </article>
-
-      <!-- 08 — The Annual House -->
-      <article class="case-article reveal reveal-delay-1">
-        <span class="case-number">No. 08 · Interior</span>
-        <div class="case-image-wrap">
-          <div class="case-image-frame">
-            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1800&q=85&auto=format&fit=crop"
-                 alt="The Annual House — trim refresh and ceiling repair, Albany" loading="lazy">
-            <!-- REPLACE: nano-banana — [The Annual House, Albany MN — trim refresh + ceiling repair, BM Decorator's White, 2024] -->
-            <svg class="case-corner case-corner--tl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
-            <svg class="case-corner case-corner--tr" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
-            <svg class="case-corner case-corner--bl" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
-            <svg class="case-corner case-corner--br" viewBox="0 0 20 20" fill="none"><path d="M2 18 L2 2 L18 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="2" cy="2" r="2" fill="currentColor" opacity="0.6"/></svg>
-          </div>
-        </div>
-        <div class="case-meta-row">
-          <span class="case-meta-item">Albany</span>
-          <span class="case-meta-item">Interior</span>
-          <span class="case-meta-item">2024</span>
-        </div>
-        <h3 class="case-title">The Annual House</h3>
-        <p class="case-caption">Trim refresh plus ceiling plaster repair in a 1920s home. Walls in BM Decorator's White, trim restored to a clean semi-gloss line.</p>
-      </article>
-
     </div><!-- /.case-grid -->
   </div>
 </section>
@@ -2504,23 +2646,9 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
   </div>
 </section>
 
-<!-- ============================================================
-     ORNAMENT DIVIDER 5 — Fleur rule: ink services → porcelain process
-     ============================================================ -->
-<div class="divider" aria-hidden="true" style="background: var(--porcelain); padding-block: 1.25rem;">
-  <svg viewBox="0 0 900 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-    <line x1="0" y1="24" x2="390" y2="24" style="stroke:var(--cobalt);" stroke-width="0.6" opacity="0.18"/>
-    <line x1="510" y1="24" x2="900" y2="24" style="stroke:var(--cobalt);" stroke-width="0.6" opacity="0.18"/>
-    <!-- Fleur de lis — slightly more defined -->
-    <path d="M450 10 L450 24" style="stroke:var(--cobalt);" stroke-width="0.8" opacity="0.45"/>
-    <path d="M441 16 Q450 8 459 16" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.42"/>
-    <path d="M437 24 Q441 15 450 13 Q459 15 463 24" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.38"/>
-    <path d="M435 24 Q436 30 441 32 Q450 36 459 32 Q464 30 465 24" style="stroke:var(--cobalt);" stroke-width="0.8" fill="none" opacity="0.32"/>
-    <line x1="435" y1="24" x2="465" y2="24" style="stroke:var(--cobalt);" stroke-width="0.7" opacity="0.32"/>
-    <!-- Side diamonds — slightly more visible -->
-    <path d="M404 24 L414 17 L424 24 L414 31 Z" style="stroke:var(--cobalt);" stroke-width="0.7" fill="none" opacity="0.25"/>
-    <path d="M476 24 L486 17 L496 24 L486 31 Z" style="stroke:var(--cobalt);" stroke-width="0.7" fill="none" opacity="0.25"/>
-  </svg>
+<!-- Section transition: services → process via thin hairline only. -->
+<div aria-hidden="true" style="background: var(--porcelain); padding-block: 0.75rem;">
+  <hr style="border: 0; border-top: 1px solid color-mix(in srgb, var(--cobalt) 18%, transparent); max-width: 320px; margin: 0 auto;">
 </div>
 
 <!-- ============================================================
@@ -2815,6 +2943,77 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
       </div>
     </div>
   </div>
+
+  <!-- TODO: Google Maps embed — replace with <iframe> from Spanier's Google Business Profile.
+       Centered on St. Cloud, MN with ~60mi radius. -->
+  <figure class="service-area-map reveal" aria-label="Service area map">
+    <div class="service-area-map-frame" role="img" aria-label="Map of Central Minnesota centered on St. Cloud">
+      <svg class="service-area-map-svg" viewBox="0 0 720 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <defs>
+          <pattern id="delftMap" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#4A6FA5" stroke-width="0.4" opacity="0.18"/>
+          </pattern>
+        </defs>
+        <rect width="720" height="280" fill="#FFFFFF"/>
+        <rect width="720" height="280" fill="url(#delftMap)"/>
+        <!-- Decorative delft scrollwork corners -->
+        <path d="M 6 6 Q 30 6 30 30 M 6 6 Q 6 30 30 30" stroke="#4A6FA5" stroke-width="0.8" fill="none" opacity="0.55"/>
+        <path d="M 714 6 Q 690 6 690 30 M 714 6 Q 714 30 690 30" stroke="#4A6FA5" stroke-width="0.8" fill="none" opacity="0.55"/>
+        <path d="M 6 274 Q 30 274 30 250 M 6 274 Q 6 250 30 250" stroke="#4A6FA5" stroke-width="0.8" fill="none" opacity="0.55"/>
+        <path d="M 714 274 Q 690 274 690 250 M 714 274 Q 714 250 690 250" stroke="#4A6FA5" stroke-width="0.8" fill="none" opacity="0.55"/>
+        <!-- Rivers in delft blue -->
+        <path d="M 0 90 C 180 70, 360 130, 540 110 S 720 100, 720 100" fill="none" stroke="#4A6FA5" stroke-width="2.4" opacity="0.5"/>
+        <path d="M 60 0 L 200 180 L 280 280" fill="none" stroke="#4A6FA5" stroke-width="1.4" opacity="0.35"/>
+        <path d="M 720 60 L 520 140 L 480 280" fill="none" stroke="#4A6FA5" stroke-width="1.4" opacity="0.35"/>
+        <!-- Service radius -->
+        <circle cx="360" cy="140" r="120" fill="#4A6FA5" opacity="0.07"/>
+        <circle cx="360" cy="140" r="120" fill="none" stroke="#1E3F8A" stroke-width="1" stroke-dasharray="3 4" opacity="0.6"/>
+        <!-- Cities -->
+        <g fill="#0F1730" font-family="Inter, system-ui, sans-serif" font-size="9" letter-spacing="0.06em">
+          <circle cx="360" cy="140" r="6" fill="#1E3F8A"/>
+          <text x="372" y="144" font-weight="600">ST. CLOUD</text>
+          <circle cx="330" cy="100" r="3" fill="#1E3F8A"/>
+          <text x="338" y="103">Sartell</text>
+          <circle cx="395" cy="115" r="3" fill="#1E3F8A"/>
+          <text x="402" y="118">Sauk Rapids</text>
+          <circle cx="320" cy="160" r="3" fill="#1E3F8A"/>
+          <text x="252" y="163">Waite Park</text>
+          <circle cx="270" cy="190" r="3" fill="#1E3F8A"/>
+          <text x="200" y="193">Cold Spring</text>
+          <circle cx="240" cy="120" r="3" fill="#1E3F8A"/>
+          <text x="208" y="123">Avon</text>
+          <circle cx="200" cy="100" r="3" fill="#1E3F8A"/>
+          <text x="158" y="103">Albany</text>
+          <circle cx="475" cy="195" r="3" fill="#1E3F8A"/>
+          <text x="482" y="198">Monticello</text>
+          <circle cx="450" cy="80" r="3" fill="#1E3F8A"/>
+          <text x="458" y="83">Foley</text>
+          <circle cx="430" cy="225" r="3" fill="#1E3F8A"/>
+          <text x="438" y="228">Big Lake</text>
+        </g>
+      </svg>
+      <span class="service-area-map-stamp">Google Maps · embed pending</span>
+    </div>
+    <figcaption class="service-area-map-caption">Where we work — sixty-mile radius from the St. Cloud studio.</figcaption>
+  </figure>
+</section>
+
+<!-- ============================================================
+     JOURNAL TEASER — From the studio archive (Phase 1)
+     ============================================================ -->
+<section class="journal-teaser" id="journal" aria-label="From the studio archive">
+  <div class="journal-teaser-inner">
+    <div class="journal-teaser-left reveal">
+      <span class="t-label">From the Studio Archive</span>
+      <h2 class="section-title">Recent<br><em>writing</em></h2>
+    </div>
+    <article class="journal-teaser-post reveal reveal-delay-1">
+      <p class="journal-eyebrow">Posted May 2026 · Lukas Spanier</p>
+      <h3 class="journal-post-title">Choosing white paint: <em>it's never just white.</em></h3>
+      <p class="journal-post-excerpt">There are at least forty whites worth specifying — and the room, the trim, and the light at four in the afternoon all decide which one belongs.</p>
+      <a class="journal-read-more" href="#journal">Read more →</a>
+    </article>
+  </div>
 </section>
 
 <!-- ============================================================
@@ -2855,24 +3054,24 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
   <div class="footer-upper">
     <div class="footer-brand">
       <div class="nav-wordmark" style="margin-bottom: 1rem;">
-        <!-- Logo D: Wordmark + brushstroke mark -->
+        <!-- Logo: Circular badge "S" + wordmark — matches existing brand mark -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" style="height:40px;width:auto;" role="img" aria-label="Spanier Painting">
-          <path d="M10 32
-                   C18 28  34 28  46 33
-                   C40 38  26 39  16 36
-                   C32 36  46 37  56 41"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="6"
-                stroke-linecap="round"/>
-          <text x="76" y="46"
+          <circle cx="34" cy="40" r="22" fill="currentColor"/>
+          <text x="34" y="50"
+                text-anchor="middle"
                 font-family="'Cormorant Garamond', 'Crimson Pro', Georgia, serif"
                 font-style="italic"
                 font-weight="500"
-                font-size="38"
-                letter-spacing="-0.5"
+                font-size="28"
+                fill="#FFFFFF">S</text>
+          <text x="72" y="46"
+                font-family="'Cormorant Garamond', 'Crimson Pro', Georgia, serif"
+                font-style="italic"
+                font-weight="500"
+                font-size="34"
+                letter-spacing="-0.4"
                 fill="currentColor">Spanier Painting</text>
-          <text x="76" y="62"
+          <text x="72" y="62"
                 font-family="'JetBrains Mono', 'IBM Plex Mono', monospace"
                 font-size="8"
                 letter-spacing="2.6"
