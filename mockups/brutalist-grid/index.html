@@ -142,19 +142,7 @@ ul { list-style: none; }
 .u-signal { color: var(--signal); }
 
 /* Section index numeral */
-.sec-num {
-  /* Section numerals removed — typography hierarchy carries the break.
-     A thin cobalt hairline sits where the numeral used to anchor the row. */
-  display: block;
-  width: 32px;
-  height: 1px;
-  background: var(--signal);
-  margin-top: 1.25rem;
-  text-indent: -9999px;
-  overflow: hidden;
-  user-select: none;
-  opacity: 0.6;
-}
+.sec-num { display: none !important; }
 
 /* ================================================================
    GLOBAL NAV
@@ -439,9 +427,19 @@ ul { list-style: none; }
    SECTION WRAPPER
    ================================================================ */
 .section-block {
+  border-top: 3px solid var(--ink);
   border-bottom: var(--border);
   padding: var(--section-pad) var(--gutter);
   position: relative;
+}
+.section-block::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 96px;
+  height: 6px;
+  background: var(--signal);
 }
 
 .section-header {
@@ -470,11 +468,21 @@ ul { list-style: none; }
 
 .section-header__sub {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(0,0,0,0.4);
+  color: var(--signal);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.section-header__sub::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: var(--signal);
 }
 
 /* ================================================================
