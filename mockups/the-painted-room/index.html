@@ -896,94 +896,149 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 }
 
 /* ============================================================
-   COLOR LIBRARY — studio archive grid
+   FORTHCOMING — what's next / roadmap features
    ============================================================ */
-.color-library {
-  padding: clamp(4.5rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+.forthcoming {
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.5rem, 5vw, 4rem);
   background: var(--paper);
   border-top: 1px solid var(--rule-light);
-  border-bottom: 1px solid var(--rule-light);
 }
-.color-library-inner { max-width: 1380px; margin: 0 auto; }
-.color-library-head {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: end;
-  gap: 2rem;
+.forthcoming-inner { max-width: 1380px; margin: 0 auto; }
+.forthcoming-masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.9rem;
   margin-bottom: 2.5rem;
 }
-.color-library-eyebrow {
+.forthcoming-eyebrow {
   font-family: "DM Mono", monospace;
   font-size: 0.6875rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cobalt);
-  margin-bottom: 1rem;
+  color: var(--muted);
 }
-.color-library-title {
+.forthcoming-folio {
+  font-family: "DM Mono", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  color: var(--cobalt);
+}
+.forthcoming-head {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+.forthcoming-headline {
   font-family: "Fraunces", Georgia, serif;
   font-optical-sizing: auto;
   font-weight: 300;
-  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
-  line-height: 1.15;
-  letter-spacing: -0.012em;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
-.color-library-title em {
+.forthcoming-headline em {
   font-style: italic;
   color: var(--cobalt);
 }
-.color-library-byline {
+.forthcoming-deck {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 42ch;
+}
+.forthcoming-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule-light);
+}
+.forthcoming-feature {
+  position: relative;
+  padding: clamp(1.75rem, 3vw, 2.25rem) clamp(1.75rem, 3vw, 2.5rem) clamp(1.85rem, 3vw, 2.35rem);
+  border-right: 1px solid var(--rule-light);
+  border-bottom: 1px solid var(--rule-light);
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.forthcoming-feature::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 2.5px;
+  height: 56px;
+  background: var(--cobalt);
+}
+.ff-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.ff-num {
+  font-family: "DM Mono", monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+}
+.ff-status {
   font-family: "DM Mono", monospace;
   font-size: 0.5625rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted-light);
-  text-align: right;
-  line-height: 1.7;
 }
-.color-library-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0;
-  border-top: 1px solid var(--rule-light);
-  border-left: 1px solid var(--rule-light);
+.ff-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--cobalt);
+  margin-bottom: 0.1rem;
 }
-.lib-swatch {
-  padding: 1rem 1rem 0.95rem;
-  border-right: 1px solid var(--rule-light);
-  border-bottom: 1px solid var(--rule-light);
-  background: var(--paper);
-}
-.lib-swatch-color {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border: 1px solid rgba(26,24,20,0.08);
-  border-radius: 1px;
-  margin-bottom: 0.7rem;
-}
-.lib-swatch-name {
+.ff-title {
   font-family: "Fraunces", Georgia, serif;
   font-optical-sizing: auto;
-  font-weight: 400;
-  font-size: 0.8125rem;
-  letter-spacing: 0.005em;
-  line-height: 1.25;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.5rem, 2.4vw, 1.875rem);
+  line-height: 1.15;
+  letter-spacing: -0.012em;
   color: var(--ink);
-  margin-bottom: 0.35rem;
 }
-.lib-swatch-brand {
+.ff-title em {
+  font-style: italic;
+  color: var(--cobalt);
+}
+.ff-body {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.ff-stack {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--rule-light);
   font-family: "DM Mono", monospace;
-  font-size: 0.5rem;
+  font-size: 0.5625rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted-light);
-  line-height: 1.6;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
 }
-@media (max-width: 768px) {
-  .color-library-head { grid-template-columns: 1fr; }
-  .color-library-byline { text-align: left; }
+.ff-stack-key { color: var(--cobalt); }
+@media (max-width: 880px) {
+  .forthcoming-head { grid-template-columns: 1fr; align-items: start; }
+  .forthcoming-grid { grid-template-columns: 1fr; }
 }
 
 /* ============================================================
@@ -1643,49 +1698,6 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
   line-height: 1.7;
   color: var(--muted);
 }
-.process-tease {
-  margin-top: clamp(2.5rem, 5vw, 4rem);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-}
-.tease-card {
-  border: 1px solid var(--rule-light);
-  border-left: 2.5px solid var(--cobalt);
-  padding: 1.5rem 1.75rem 1.6rem;
-  background: var(--paper-soft);
-  border-radius: 2px;
-}
-.tease-label {
-  font-family: "DM Mono", monospace;
-  font-size: 0.5625rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--cobalt);
-  margin-bottom: 0.75rem;
-}
-.tease-title {
-  font-family: "Fraunces", Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 1.125rem;
-  color: var(--ink);
-  margin-bottom: 0.45rem;
-}
-.tease-body {
-  font-size: 0.8125rem;
-  line-height: 1.65;
-  color: var(--muted);
-  margin-bottom: 0.65rem;
-}
-.tease-meta {
-  font-family: "DM Mono", monospace;
-  font-size: 0.5625rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted-light);
-}
-
 /* ============================================================
    ABOUT — ORIGIN PAGE
    ============================================================ */
@@ -2269,7 +2281,6 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
   .process-grid { grid-template-columns: 1fr 1fr; }
   .process-step { border-right: 0; border-bottom: 1px solid var(--rule-light); }
   .process-step:nth-child(odd) { border-right: 1px solid var(--rule-light); }
-  .process-tease { grid-template-columns: 1fr; }
   .about-body-grid { grid-template-columns: 1fr; }
   .about-credentials { grid-template-columns: 1fr 1fr; }
   .about-cred { border-right: 0; border-bottom: 1px solid var(--rule-light); padding: 1rem 1.25rem; }
@@ -3033,90 +3044,6 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
 
 <!-- ============================================================
-     COLOR LIBRARY — from the studio archive
-     ============================================================ -->
-<section class="color-library reveal" id="color-library" aria-label="Color library — recent paint picks from the studio archive">
-  <div class="color-library-inner">
-    <div class="color-library-head">
-      <div>
-        <p class="color-library-eyebrow">No. 05 · From the Studio Archive</p>
-        <h2 class="color-library-title f-display">
-          Recent <em>color picks</em>
-        </h2>
-      </div>
-      <p class="color-library-byline">
-        Twelve colors pulled<br>
-        from this season's work
-      </p>
-    </div>
-
-    <div class="color-library-grid">
-      <div class="lib-swatch">
-        <span class="lib-swatch-color" style="background:#2E3942;"></span>
-        <p class="lib-swatch-name">Hague Blue</p>
-        <p class="lib-swatch-brand">Farrow &amp; Ball · No. 30</p>
-      </div>
-      <div class="lib-swatch">
-        <span class="lib-swatch-color" style="background:#3D4654;"></span>
-        <p class="lib-swatch-name">Hale Navy</p>
-        <p class="lib-swatch-brand">Benjamin Moore · HC-154</p>
-      </div>
-      <div class="lib-swatch">
-        <span class="lib-swatch-color" style="background:#324B5C;"></span>
-        <p class="lib-swatch-name">Newburyport Blue</p>
-        <p class="lib-swatch-brand">Benjamin Moore · HC-155</p>
-      </div>
-      <div class="lib-swatch">
-        <span class="lib-swatch-color" style="background:#999990;"></span>
-        <p class="lib-swatch-name">Pigeon</p>
-        <p class="lib-swatch-brand">Farrow &amp; Ball · No. 25</p>
-      </div>
-      <div class="lib-swatch">
-        <span class="lib-swatch-color" style="background:#797971;"></span>
-        <p class="lib-swatch-name">Kendall Charcoal</p>
-        <p class="lib-swatch-brand">Benjamin Moore · HC-166</p>
-      </div>
-      <div class="lib-swatch">
-        <span class="lib-swatch-color" style="background:#A29F95;"></span>
-        <p class="lib-swatch-name">Hardware Stone</p>
-        <p class="lib-swatch-brand">Benjamin Moore · CSP-115</p>
-      </div>
-      <div class="lib-swatch">
-        <span class="lib-swatch-color" style="background:#7C8970;"></span>
-        <p class="lib-swatch-name">Sage Mountain</p>
-        <p class="lib-swatch-brand">Sherwin-Williams · 461</p>
-      </div>
-      <div class="lib-swatch">
-        <span class="lib-swatch-color" style="background:#6B2C2C;"></span>
-        <p class="lib-swatch-name">Rookwood Red</p>
-        <p class="lib-swatch-brand">Sherwin-Williams · 2802</p>
-      </div>
-      <div class="lib-swatch">
-        <span class="lib-swatch-color" style="background:#D2C2A4;"></span>
-        <p class="lib-swatch-name">Carrington Beige</p>
-        <p class="lib-swatch-brand">Benjamin Moore · HC-93</p>
-      </div>
-      <div class="lib-swatch">
-        <span class="lib-swatch-color" style="background:#EFEAD8;"></span>
-        <p class="lib-swatch-name">White Dove</p>
-        <p class="lib-swatch-brand">Benjamin Moore · OC-17</p>
-      </div>
-      <div class="lib-swatch">
-        <span class="lib-swatch-color" style="background:#EEEAE2;"></span>
-        <p class="lib-swatch-name">Simply White</p>
-        <p class="lib-swatch-brand">Benjamin Moore · OC-117</p>
-      </div>
-      <div class="lib-swatch">
-        <span class="lib-swatch-color" style="background:#EBE9DD;"></span>
-        <p class="lib-swatch-name">Decorators White</p>
-        <p class="lib-swatch-brand">Benjamin Moore · OC-149</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
      SERVICES
      ============================================================ -->
 <section class="services" id="services" aria-label="Services">
@@ -3231,23 +3158,6 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
         <p class="process-step-body">Final inspection together — anything that needs another pass gets one. Then it's signed off, in writing, with a two-year workmanship warranty.</p>
       </li>
     </ol>
-
-    <div class="process-tease">
-      <!-- TODO: Phase 3 -->
-      <div class="tease-card reveal">
-        <p class="tease-label">In development — Spring 2026</p>
-        <p class="tease-title f-display">Instant ballpark estimate</p>
-        <p class="tease-body">Upload a photo of your room. Get a price range in 30 seconds. Powered by Claude.</p>
-        <p class="tease-meta">Coming soon · Phase 3</p>
-      </div>
-      <!-- TODO: Phase 3 -->
-      <div class="tease-card reveal reveal-delay-1">
-        <p class="tease-label">In development — Spring 2026</p>
-        <p class="tease-title f-display">AI room designer</p>
-        <p class="tease-body">See your space rendered in three color schemes before the first brushstroke.</p>
-        <p class="tease-meta">Coming soon · Phase 3</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -3301,13 +3211,13 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
 
 
 <!-- ============================================================
-     MORE WORK — INDEX OF PROJECTS (Spec §6 names)
+     MORE WORK — TRIMMED ARCHIVE INDEX (4 entries)
      ============================================================ -->
 <section class="more-work" aria-label="More projects from the studio archive">
   <div class="more-work-inner">
     <div class="more-work-head reveal">
       <span class="more-work-eyebrow">No. 05 · From the studio archive</span>
-      <span class="more-work-folio">Eight more projects, 2023 – 2025</span>
+      <span class="more-work-folio">Four more, 2023 – 2025</span>
     </div>
     <div class="more-work-grid">
       <article class="more-work-item reveal">
@@ -3316,40 +3226,123 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
         <p class="mwi-desc">Whole-home repaint — white kitchen, Hague Blue dining room, two-coat eggshell throughout.</p>
       </article>
       <article class="more-work-item reveal">
-        <p class="mwi-name f-display"><em>Granite Ridge Kitchen</em></p>
-        <p class="mwi-meta">St. Cloud · Cabinetry · 2025</p>
-        <p class="mwi-desc">42 doors removed and refinished off-site, conversion varnish, BM Simply White OC-117.</p>
-      </article>
-      <article class="more-work-item reveal">
-        <p class="mwi-name f-display"><em>Cold Spring Farmhouse</em></p>
-        <p class="mwi-meta">Cold Spring · Exterior · 2024</p>
-        <p class="mwi-desc">Hardiplank repaint, sage exterior with cream trim, back-rolled on the north face.</p>
-      </article>
-      <article class="more-work-item reveal">
-        <p class="mwi-name f-display"><em>Northgate Dental</em></p>
-        <p class="mwi-meta">Waite Park · Commercial · 2025</p>
-        <p class="mwi-desc">Two-day turnaround, anti-microbial latex on patient rooms, after-hours scheduling.</p>
-      </article>
-      <article class="more-work-item reveal">
         <p class="mwi-name f-display"><em>Heritage Avenue</em></p>
         <p class="mwi-meta">St. Cloud · Heritage · 2023</p>
         <p class="mwi-desc">1908 Queen Anne — lead-safe prep, historic green body, period-correct trim.</p>
       </article>
       <article class="more-work-item reveal">
-        <p class="mwi-name f-display"><em>Pine Lake Deck</em></p>
-        <p class="mwi-meta">Avon · Decks · 2024</p>
-        <p class="mwi-desc">800 sqft cedar deck, semi-transparent stain, lakefront UV exposure.</p>
+        <p class="mwi-name f-display"><em>Granite Ridge Kitchen</em></p>
+        <p class="mwi-meta">St. Cloud · Cabinetry · 2025</p>
+        <p class="mwi-desc">42 doors removed and refinished off-site, conversion varnish, BM Simply White OC-117.</p>
       </article>
       <article class="more-work-item reveal">
         <p class="mwi-name f-display"><em>Sauk Rapids Office</em></p>
         <p class="mwi-meta">Sauk Rapids · Commercial · 2025</p>
         <p class="mwi-desc">4,200 sqft, after-hours work, no business interruption — open Monday morning.</p>
       </article>
-      <article class="more-work-item reveal">
-        <p class="mwi-name f-display"><em>The Annual House</em></p>
-        <p class="mwi-meta">Albany · Interior · 2024</p>
-        <p class="mwi-desc">Trim refresh + ceiling repair, BM Decorator's White semi-gloss on all millwork.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FORTHCOMING — what's next on the roadmap
+     ============================================================ -->
+<section class="forthcoming reveal" id="forthcoming" aria-label="What's next — features in development">
+  <div class="forthcoming-inner">
+
+    <div class="forthcoming-masthead reveal">
+      <span class="forthcoming-eyebrow">No. 06 · From the lab</span>
+      <span class="forthcoming-folio">Roadmap · 2026 — Phase 2</span>
+    </div>
+
+    <div class="forthcoming-head">
+      <h2 class="forthcoming-headline f-display reveal">
+        What's <em>next</em>,<br>
+        in plain language.
+      </h2>
+      <p class="forthcoming-deck reveal reveal-delay-1">This site is built to grow. Below are the upgrades Lukas has scoped for the months ahead — a few are mid-build, a few launch with Phase 2. Each one is here to take a small annoyance off your plate.</p>
+    </div>
+
+    <div class="forthcoming-grid">
+
+      <article class="forthcoming-feature reveal">
+        <div class="ff-head">
+          <span class="ff-num">Feature 01</span>
+          <span class="ff-status">In development · 2026</span>
+        </div>
+        <svg class="ff-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="4.5" y="6.5" width="23" height="17" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M4.5 19l6-6 5 5 4-4 8 8" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <circle cx="11" cy="12" r="1.5" fill="currentColor"/>
+          <path d="M21 27l2-2 2 2 2-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <h3 class="ff-title f-display">Instant <em>ballpark</em> estimate</h3>
+        <p class="ff-body">Upload a few photos of your space, answer two questions, get a price range in thirty seconds. Account-gated. A starting point — not a binding quote — to help you decide whether to book a walkthrough.</p>
+        <div class="ff-stack">
+          <span class="ff-stack-key">Powered by Claude</span>
+          <span>Anthropic API</span>
+        </div>
       </article>
+
+      <article class="forthcoming-feature reveal reveal-delay-1">
+        <div class="ff-head">
+          <span class="ff-num">Feature 02</span>
+          <span class="ff-status">In development · 2026</span>
+        </div>
+        <svg class="ff-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="4.5" y="6.5" width="23" height="17" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M11 14h10M11 17h10M11 20h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="23" cy="20" r="3" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M25 22l2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <h3 class="ff-title f-display">AI <em>room designer</em></h3>
+        <p class="ff-body">See your living room rendered in three color schemes before the first brushstroke. Send a single photo, get back AI previews — Hague Blue, warm white, sage. Pick one, or rule them all out.</p>
+        <div class="ff-stack">
+          <span class="ff-stack-key">Powered by Claude</span>
+          <span>Image rendering</span>
+        </div>
+      </article>
+
+      <article class="forthcoming-feature reveal reveal-delay-1">
+        <div class="ff-head">
+          <span class="ff-num">Feature 03</span>
+          <span class="ff-status">Launching with Phase 2</span>
+        </div>
+        <svg class="ff-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M5 9.5a3 3 0 0 1 3-3h16a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9l-5 4v-4H8a3 3 0 0 1-3-3v-9z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <circle cx="12" cy="14" r="1" fill="currentColor"/>
+          <circle cx="16" cy="14" r="1" fill="currentColor"/>
+          <circle cx="20" cy="14" r="1" fill="currentColor"/>
+        </svg>
+        <h3 class="ff-title f-display">Live <em>chat</em> with Lukas</h3>
+        <p class="ff-body">That chat icon in the lower-right corner becomes a real two-way thread — message Lukas with a question and get an answer, not an auto-reply. Faster than the phone for the small stuff. Replaces no-call-back voicemail.</p>
+        <div class="ff-stack">
+          <span class="ff-stack-key">Powered by Crisp</span>
+          <span>Two-way messaging</span>
+        </div>
+      </article>
+
+      <article class="forthcoming-feature reveal reveal-delay-2">
+        <div class="ff-head">
+          <span class="ff-num">Feature 04</span>
+          <span class="ff-status">Launching with Phase 2</span>
+        </div>
+        <svg class="ff-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="4.5" y="7.5" width="23" height="17" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M4.5 12.5h23" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M9 18h6M9 21h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="22" cy="19.5" r="3.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M20.5 19.5l1.2 1.2 2.3-2.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3 class="ff-title f-display">Customer <em>portal</em></h3>
+        <p class="ff-body">Pay your invoice online, see project status, approve color choices, and schedule walk-throughs from one signed-in page. No more lost email threads, no chasing down which version of the quote was final.</p>
+        <div class="ff-stack">
+          <span class="ff-stack-key">Powered by Jobber</span>
+          <span>Client hub</span>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
