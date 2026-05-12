@@ -427,17 +427,9 @@ ul { list-style: none; }
    SECTION WRAPPER
    ================================================================ */
 .section-block {
-  padding: var(--section-pad) var(--gutter);
+  padding: clamp(7rem, 12vw, 11rem) var(--gutter) clamp(5rem, 9vw, 8rem);
   position: relative;
   background: var(--paper);
-  border-top: 14px solid #C9C2B6; /* warm bone — softer than ink, clear divider band */
-}
-/* First content section (right after hero) doesn't need the bone band */
-.hero + .section-block { border-top: 14px solid #C9C2B6; }
-/* Heavier divider every other section to add rhythm without harshness */
-.section-block:nth-of-type(2n) {
-  border-top-color: #1E3F8A;
-  border-top-width: 8px;
 }
 
 .section-header {
@@ -447,7 +439,7 @@ ul { list-style: none; }
   align-items: start;
   margin-bottom: clamp(3rem, 5vw, 5rem);
   padding-bottom: clamp(1.5rem, 3vw, 3rem);
-  border-bottom: var(--border);
+  border-bottom: 1px solid rgba(20,20,14,0.10);
 }
 
 .section-header__label {
@@ -459,9 +451,9 @@ ul { list-style: none; }
 .section-header__title {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: clamp(1.5rem, 3.2vw, 2.8rem);
-  letter-spacing: -0.02em;
-  line-height: 1.05;
+  font-size: clamp(2.25rem, 5vw, 4.25rem);
+  letter-spacing: -0.025em;
+  line-height: 0.98;
   color: var(--ink);
   max-width: 22ch;
 }
