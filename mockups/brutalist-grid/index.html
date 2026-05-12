@@ -434,12 +434,53 @@ ul { list-style: none; }
 
 .section-header {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: clamp(1.25rem, 3vw, 3rem);
-  align-items: start;
+  grid-template-columns: 1fr auto;
+  gap: clamp(1.5rem, 4vw, 5rem);
+  align-items: end;
   margin-bottom: clamp(3rem, 5vw, 5rem);
   padding-bottom: clamp(1.5rem, 3vw, 3rem);
   border-bottom: 1px solid rgba(20,20,14,0.10);
+}
+.section-header__label { order: -1; }
+
+/* Meta block — right column, real data, no filler */
+.section-header__meta {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  text-align: right;
+  align-self: end;
+}
+.section-header__meta-row {
+  display: grid;
+  gap: 0.15rem;
+}
+.section-header__meta-row dt {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(20,20,14,0.45);
+  font-weight: 400;
+}
+.section-header__meta-row dd {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.92rem;
+  letter-spacing: -0.005em;
+  font-family: var(--font-body);
+}
+@media (max-width: 800px) {
+  .section-header { grid-template-columns: 1fr; }
+  .section-header__meta {
+    text-align: left;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
 }
 
 .section-header__label {
@@ -2489,6 +2530,11 @@ footer {
       <p class="section-header__sub">About / Origin</p>
       <h2 class="section-header__title">A four-painter studio out of St. Cloud.</h2>
     </div>
+    <dl class="section-header__meta">
+      <div class="section-header__meta-row"><dt>Founded</dt><dd>2014</dd></div>
+      <div class="section-header__meta-row"><dt>Owner</dt><dd>Lukas Spanier</dd></div>
+      <div class="section-header__meta-row"><dt>Crew</dt><dd>4 painters</dd></div>
+    </dl>
   </div>
 
   <div class="manifesto__body">
@@ -2552,6 +2598,9 @@ footer {
       <p class="section-header__sub">Studio / Data</p>
       <h2 class="section-header__title">By the Numbers</h2>
     </div>
+    <dl class="section-header__meta">
+      <div class="section-header__meta-row"><dt>Source</dt><dd>Verified Google</dd></div>
+    </dl>
   </div>
 
   <div class="numbers-inner">
@@ -2620,6 +2669,10 @@ footer {
       <p class="section-header__sub">Capabilities / Scope of Work</p>
       <h2 class="section-header__title">Services</h2>
     </div>
+    <dl class="section-header__meta">
+      <div class="section-header__meta-row"><dt>Offerings</dt><dd>06</dd></div>
+      <div class="section-header__meta-row"><dt>In-house</dt><dd>All of them</dd></div>
+    </dl>
   </div>
 
   <div class="services-grid">
@@ -2694,6 +2747,10 @@ footer {
       <p class="section-header__sub">Method / Four Clauses</p>
       <h2 class="section-header__title">How We Work</h2>
     </div>
+    <dl class="section-header__meta">
+      <div class="section-header__meta-row"><dt>Phases</dt><dd>04</dd></div>
+      <div class="section-header__meta-row"><dt>Timeline</dt><dd>3–7 days typical</dd></div>
+    </dl>
   </div>
 
   <div class="process-inner">
@@ -2774,6 +2831,10 @@ footer {
       <p class="section-header__sub">Portfolio / Case Studies</p>
       <h2 class="section-header__title">Selected Work</h2>
     </div>
+    <dl class="section-header__meta">
+      <div class="section-header__meta-row"><dt>Projects</dt><dd>03</dd></div>
+      <div class="section-header__meta-row"><dt>Shown</dt><dd>2023–2025</dd></div>
+    </dl>
   </div>
 
   <div class="work-grid">
@@ -2894,6 +2955,10 @@ footer {
       <p class="section-header__sub">Portfolio / Side-by-Side</p>
       <h2 class="section-header__title">Before / After</h2>
     </div>
+    <dl class="section-header__meta">
+      <div class="section-header__meta-row"><dt>Case</dt><dd>Granite Ridge</dd></div>
+      <div class="section-header__meta-row"><dt>Frame</dt><dd>Completed 2025</dd></div>
+    </dl>
   </div>
 
   <div class="beforeafter-wrap">
@@ -2950,6 +3015,10 @@ footer {
       <p class="section-header__sub">Reviews / On the Record</p>
       <h2 class="section-header__title">What clients say.</h2>
     </div>
+    <dl class="section-header__meta">
+      <div class="section-header__meta-row"><dt>Rating</dt><dd>5.0 ★</dd></div>
+      <div class="section-header__meta-row"><dt>Source</dt><dd>Google Reviews</dd></div>
+    </dl>
   </div>
 
   <!-- TODO: Google Reviews widget — Phase 1 scope -->
@@ -3023,6 +3092,9 @@ footer {
       <p class="section-header__sub">Studio archive · Phase 1 blog</p>
       <h2 class="section-header__title">From the archive.</h2>
     </div>
+    <dl class="section-header__meta">
+      <div class="section-header__meta-row"><dt>Latest</dt><dd>Spring 2026</dd></div>
+    </dl>
   </div>
 
   <div class="journal-inner">
@@ -3049,6 +3121,10 @@ footer {
       <p class="section-header__sub">Geographic / Coverage · ~60 mi radius</p>
       <h2 class="section-header__title">Where We Work</h2>
     </div>
+    <dl class="section-header__meta">
+      <div class="section-header__meta-row"><dt>Radius</dt><dd>~60 mi</dd></div>
+      <div class="section-header__meta-row"><dt>Cities</dt><dd>12</dd></div>
+    </dl>
   </div>
 
   <div class="area-inner">
@@ -3139,6 +3215,10 @@ footer {
       <p class="section-header__sub">Reference / Questions On File</p>
       <h2 class="section-header__title">Frequently Asked.</h2>
     </div>
+    <dl class="section-header__meta">
+      <div class="section-header__meta-row"><dt>Questions</dt><dd>08</dd></div>
+      <div class="section-header__meta-row"><dt>Owner picks up</dt><dd>Always</dd></div>
+    </dl>
   </div>
 
   <div class="faq-doc reveal">
@@ -3242,6 +3322,10 @@ footer {
       <p class="section-header__sub">Standards / Commitments · in writing</p>
       <h2 class="section-header__title">Written Promises</h2>
     </div>
+    <dl class="section-header__meta">
+      <div class="section-header__meta-row"><dt>Clauses</dt><dd>06</dd></div>
+      <div class="section-header__meta-row"><dt>Warranty</dt><dd>2 years</dd></div>
+    </dl>
   </div>
 
   <div class="manifest-inner">
@@ -3339,6 +3423,10 @@ footer {
       <p class="section-header__sub">Contact / Quote · Phase 2 Jobber form</p>
       <h2 class="section-header__title">Start a project.</h2>
     </div>
+    <dl class="section-header__meta">
+      <div class="section-header__meta-row"><dt>Open</dt><dd>Mon–Fri · 7–6</dd></div>
+      <div class="section-header__meta-row"><dt>Phone</dt><dd>320·250·9100</dd></div>
+    </dl>
   </div>
 
   <dl class="contact-grid reveal">
