@@ -431,15 +431,37 @@ ul { list-style: none; }
   border-bottom: var(--border);
   padding: var(--section-pad) var(--gutter);
   position: relative;
+  background: var(--paper);
 }
+/* Alternating tone — every 2nd / 4th content section gets a soft cobalt tint;
+   every 3rd gets a warm bone tint. Breaks the repetitive lines-only feel. */
+.section-block:nth-of-type(2n) {
+  background: rgba(30, 63, 138, 0.04);
+}
+.section-block:nth-of-type(3n) {
+  background: rgba(20, 20, 14, 0.025);
+}
+/* Cobalt corner tab — bigger, sits above the section content */
 .section-block::before {
   content: "";
   position: absolute;
-  top: 3px;
+  top: -3px;
   left: 0;
-  width: 96px;
+  width: clamp(120px, 18vw, 220px);
+  height: 18px;
+  background: var(--signal);
+  z-index: 1;
+}
+/* Bottom-right cobalt mark — diagonal counterpart, lighter weight */
+.section-block::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: clamp(60px, 10vw, 120px);
   height: 6px;
   background: var(--signal);
+  opacity: 0.55;
 }
 
 .section-header {
@@ -450,6 +472,7 @@ ul { list-style: none; }
   margin-bottom: clamp(4rem, 7vw, 8rem);
   border-bottom: var(--border);
   padding-bottom: clamp(2rem, 3.5vw, 4rem);
+  padding-top: clamp(1rem, 2vw, 1.5rem);
 }
 
 .section-header__label {
