@@ -519,30 +519,56 @@ header.scrolled {
 }
 
 /* Hero bottom strip */
+/* Marquee ticker — riso letterpress register */
 .hero-strip {
-  background: var(--ink);
-  padding: 0.85rem var(--gutter);
+  background: var(--paper);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.95rem 0;
   display: flex;
   align-items: center;
-  gap: 2rem;
   overflow: hidden;
   position: relative;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, var(--ink) 5%, var(--ink) 95%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, var(--ink) 5%, var(--ink) 95%, transparent 100%);
+}
+.hero-strip-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 3rem;
+  white-space: nowrap;
+  animation: heroStripScroll 38s linear infinite;
+  flex-shrink: 0;
+  padding-right: 3rem;
+}
+.hero-strip:hover .hero-strip-track { animation-play-state: paused; }
+@keyframes heroStripScroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
 }
 .hero-strip-text {
-  font-family: var(--mono);
-  font-size: 1rem;
-  color: var(--paper);
-  white-space: nowrap;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink);
   letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 .hero-strip-text em {
-  color: var(--fluoro-pink);
-  font-style: normal;
+  color: var(--electric-blue);
+  font-style: italic;
+  font-weight: 700;
 }
 .hero-strip-sep {
-  color: var(--electric-blue);
-  font-size: 1.2rem;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--electric-blue);
+  transform: rotate(45deg);
   flex-shrink: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-strip-track { animation: none; transform: none; }
 }
 
 /* ═══════════════════════════════════════════
@@ -3062,17 +3088,31 @@ footer::before {
       <span class="hero-image-caption" aria-hidden="true">ST. CLOUD AREA · EST. 2014</span>
     </div>
 
-    <!-- Bottom info strip -->
+    <!-- Bottom info strip — marquee ticker -->
     <div class="hero-strip" aria-label="Quick contact">
-      <span class="hero-strip-text">
-        <em>320·250·9100</em>
-      </span>
-      <span class="hero-strip-sep" aria-hidden="true">✶</span>
-      <span class="hero-strip-text">lukas@spanierpainting.com</span>
-      <span class="hero-strip-sep" aria-hidden="true">✶</span>
-      <span class="hero-strip-text">St. Cloud + <em>surrounding cities</em></span>
-      <span class="hero-strip-sep" aria-hidden="true">✶</span>
-      <span class="hero-strip-text">Mon–Fri 7am–6pm &middot; Sat by appointment</span>
+      <div class="hero-strip-track">
+        <span class="hero-strip-text"><em>320·250·9100</em></span>
+        <span class="hero-strip-sep" aria-hidden="true"></span>
+        <span class="hero-strip-text">lukas@spanierpainting.com</span>
+        <span class="hero-strip-sep" aria-hidden="true"></span>
+        <span class="hero-strip-text">St. Cloud <em>&amp; surrounding</em></span>
+        <span class="hero-strip-sep" aria-hidden="true"></span>
+        <span class="hero-strip-text">Mon–Fri 7–6 &middot; Sat by appointment</span>
+        <span class="hero-strip-sep" aria-hidden="true"></span>
+        <span class="hero-strip-text"><em>Painted by hand</em> &middot; built to last</span>
+        <span class="hero-strip-sep" aria-hidden="true"></span>
+        <!-- duplicate set for seamless marquee loop -->
+        <span class="hero-strip-text" aria-hidden="true"><em>320·250·9100</em></span>
+        <span class="hero-strip-sep" aria-hidden="true"></span>
+        <span class="hero-strip-text" aria-hidden="true">lukas@spanierpainting.com</span>
+        <span class="hero-strip-sep" aria-hidden="true"></span>
+        <span class="hero-strip-text" aria-hidden="true">St. Cloud <em>&amp; surrounding</em></span>
+        <span class="hero-strip-sep" aria-hidden="true"></span>
+        <span class="hero-strip-text" aria-hidden="true">Mon–Fri 7–6 &middot; Sat by appointment</span>
+        <span class="hero-strip-sep" aria-hidden="true"></span>
+        <span class="hero-strip-text" aria-hidden="true"><em>Painted by hand</em> &middot; built to last</span>
+        <span class="hero-strip-sep" aria-hidden="true"></span>
+      </div>
     </div>
   </div>
 </section>
@@ -3105,78 +3145,6 @@ footer::before {
       </div>
     </div>
 
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════
-     PRINTED MATTER — editorial / riso origin story
-     ═══════════════════════════════════════════ -->
-<section aria-labelledby="printed-matter-heading">
-  <div class="printed-matter">
-    <div class="printed-matter-inner">
-
-      <!-- LEFT: sticky label + riso layer diagram -->
-      <div class="pm-left reveal">
-        <div class="pm-label">
-          <div class="plate-stamp blue">THE PRINT EDITION</div>
-        </div>
-        <h2 id="printed-matter-heading" class="pm-headline">THE PRINT<br>EDITION.</h2>
-        <p class="pm-sub">This edition is printed in two-color risograph — deep cobalt and brand cobalt — on 70lb uncoated stock. Edition of 50, hand-numbered and bound at the studio.</p>
-
-        <!-- Riso ink layer diagram -->
-        <div class="pm-diagram" aria-label="Risograph ink layers">
-          <div class="pm-layer">
-            <div class="pm-layer-swatch deep" aria-hidden="true"></div>
-            <span class="pm-layer-label">LAYER 01 — SKY COBALT</span>
-            <span class="pm-layer-desc">#3E6FE0</span>
-          </div>
-          <div class="pm-layer">
-            <div class="pm-layer-swatch cobalt" aria-hidden="true"></div>
-            <span class="pm-layer-label">LAYER 02 — BRAND COBALT</span>
-            <span class="pm-layer-desc">#1E3F8A</span>
-          </div>
-          <div class="pm-layer">
-            <div class="pm-layer-swatch over" aria-hidden="true"></div>
-            <span class="pm-layer-label">OVERPRINT — REGISTRATION</span>
-            <span class="pm-layer-desc">±3px</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: pull-quote + trivia cards -->
-      <div class="pm-right">
-
-        <!-- Pull-quote with misreg -->
-        <blockquote class="pm-pullquote reveal">
-          <p class="pm-pullquote-kicker">FROM THE STUDIO &nbsp;·&nbsp; VOL. 01 / 2026</p>
-          <p class="pm-pullquote-text">
-            A riso press doesn't fake <em data-text="texture">texture</em>. Neither does a good paint crew. Both leave evidence of the hand — and that's the point.
-          </p>
-          <footer class="pm-pullquote-source">— Lukas Spanier · Spanier Painting Studio · Est. 2014</footer>
-        </blockquote>
-
-        <!-- Three zine-note trivia cards -->
-        <div class="pm-notes">
-          <div class="pm-note reveal">
-            <span class="pm-note-num">NOTE 01</span>
-            <h3 class="pm-note-title">The Riso Press</h3>
-            <p class="pm-note-body">Risograph prints one ink at a time, drum by drum. Each pass is slightly off — the "misregistration" is a feature, not a flaw. That small slip is what makes riso feel alive.</p>
-          </div>
-          <div class="pm-note reveal reveal-delay-1">
-            <span class="pm-note-num">NOTE 02</span>
-            <h3 class="pm-note-title">Two-Color Blue</h3>
-            <p class="pm-note-body">This edition uses only blue — deep cobalt on brand cobalt. Overlapping layers create a third tone. The grain is inherent to the ink; we amplified it, not manufactured it.</p>
-          </div>
-          <div class="pm-note reveal reveal-delay-2">
-            <span class="pm-note-num">NOTE 03</span>
-            <h3 class="pm-note-title">Zine Influence</h3>
-            <p class="pm-note-body">Independent publishers like Hato Press and Nieves prove that the most considered design still fits in a hand. This site takes that energy — print logic, web medium.</p>
-          </div>
-        </div>
-
-      </div><!-- /pm-right -->
-    </div><!-- /printed-matter-inner -->
   </div>
 </section>
 
