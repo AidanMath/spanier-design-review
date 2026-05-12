@@ -1766,25 +1766,25 @@ footer::before {
 }
 /* Big pull-quote with full misreg treatment */
 .pm-pullquote {
-  border: 1px solid var(--ink);
+  border: 3px solid var(--ink);
   padding: 2.5rem 2.5rem 2rem;
   position: relative;
-  background: var(--paper);
+  background: var(--electric-blue);
 }
 .pm-pullquote::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='0.18'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='0.35'/%3E%3C/svg%3E");
   background-size: 200px;
   mix-blend-mode: multiply;
-  opacity: 0.3;
+  opacity: 0.5;
   pointer-events: none;
 }
 .pm-pullquote-kicker {
   font-family: var(--mono);
   font-size: 0.8rem;
-  color: var(--electric-blue);
+  color: var(--fluoro-pink);
   letter-spacing: 0.1em;
   margin-bottom: 1.25rem;
   position: relative;
@@ -1796,13 +1796,13 @@ footer::before {
   font-size: clamp(1.4rem, 2.8vw, 2.4rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
-  color: var(--ink);
+  color: var(--paper);
   position: relative;
   z-index: 1;
 }
 .pm-pullquote-text em {
-  font-style: italic;
-  color: var(--electric-blue);
+  font-style: normal;
+  color: var(--fluoro-pink);
   position: relative;
 }
 /* misreg on the em word */
@@ -1811,14 +1811,14 @@ footer::before {
   position: absolute;
   top: var(--reg-offset);
   left: calc(-1 * var(--reg-offset));
-  color: var(--electric-blue);
+  color: var(--paper);
   opacity: 0.22;
   z-index: -1;
 }
 .pm-pullquote-source {
   font-family: var(--mono);
   font-size: 0.78rem;
-  color: rgba(20,20,14,0.55);
+  color: rgba(250,250,250,0.45);
   letter-spacing: 0.06em;
   margin-top: 1.75rem;
   position: relative;
