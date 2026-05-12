@@ -143,17 +143,17 @@ ul { list-style: none; }
 
 /* Section index numeral */
 .sec-num {
-  /* SOFTENED round 7: weight 300, opacity 0.13 — watermark, not anchor */
-  font-family: var(--font-condensed);
-  font-weight: 300;
-  font-size: clamp(4.5rem, 8vw, 7.5rem);
-  line-height: 0.9;
-  color: var(--ink);
-  letter-spacing: -0.02em;
+  /* Section numerals removed — typography hierarchy carries the break.
+     A thin cobalt hairline sits where the numeral used to anchor the row. */
   display: block;
-  font-variant-numeric: tabular-nums;
+  width: 32px;
+  height: 1px;
+  background: var(--signal);
+  margin-top: 1.25rem;
+  text-indent: -9999px;
+  overflow: hidden;
   user-select: none;
-  opacity: 0.13;
+  opacity: 0.6;
 }
 
 /* ================================================================
@@ -2876,159 +2876,14 @@ footer {
     </article>
 
     <!-- 04 — Northgate Dental -->
-    <article class="work-card reveal" aria-label="Project: Northgate Dental — Waite Park">
-      <div class="work-card__image">
-        <img
-          src="https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt="Two-day commercial turnaround at dental office — Waite Park, MN"
-          loading="lazy"
-          decoding="async"
-          width="900"
-          height="675"
-        >
-        <!-- TODO: real Spanier portfolio photo for Northgate Dental (currently Kaboompics/Pexels placeholder) -->
-        <div class="work-card__image-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="work-card__body">
-        <span class="work-card__index">SP — 004</span>
-        <h3 class="work-card__title">Northgate Dental</h3>
-        <p class="work-card__caption">
-          Two-day turnaround. After-hours and weekend work — no business interruption. Anti-microbial latex on every patient room and corridor.
-        </p>
-        <table class="work-card__meta">
-          <tbody>
-            <tr><td>Location</td><td>Waite Park, MN</td></tr>
-            <tr><td>Category</td><td>Commercial</td></tr>
-            <tr><td>Year</td><td>2025</td></tr>
-            <tr><td>Finish</td><td>Anti-microbial latex · low-VOC</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </article>
 
     <!-- 05 — Heritage Avenue -->
-    <article class="work-card reveal" aria-label="Project: Heritage Avenue — St. Cloud">
-      <div class="work-card__image">
-        <img
-          src="https://images.pexels.com/photos/4469137/pexels-photo-4469137.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt="1908 Queen Anne exterior in historic green, lead-safe prep — Heritage Avenue, St. Cloud, MN"
-          loading="lazy"
-          decoding="async"
-          width="900"
-          height="675"
-        >
-        <!-- TODO: real Spanier portfolio photo for Heritage Avenue (currently Kaboompics/Pexels placeholder) -->
-        <div class="work-card__image-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="work-card__body">
-        <span class="work-card__index">SP — 005</span>
-        <h3 class="work-card__title">Heritage Avenue</h3>
-        <p class="work-card__caption">
-          1908 Queen Anne — full lead-safe prep under EPA RRP protocol. Historic green palette matched off original chips. Gingerbread trim hand-cut, sash by sash.
-        </p>
-        <table class="work-card__meta">
-          <tbody>
-            <tr><td>Location</td><td>St. Cloud, MN</td></tr>
-            <tr><td>Category</td><td>Heritage</td></tr>
-            <tr><td>Year</td><td>2023</td></tr>
-            <tr><td>Finish</td><td>Lead-safe · historic green</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </article>
 
     <!-- 06 — Pine Lake Deck -->
-    <article class="work-card reveal" aria-label="Project: Pine Lake Deck — Avon">
-      <div class="work-card__image">
-        <img
-          src="https://images.pexels.com/photos/5302581/pexels-photo-5302581.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt="800 sqft cedar deck refinished in semi-transparent stain — Pine Lake, Avon, MN"
-          loading="lazy"
-          decoding="async"
-          width="900"
-          height="675"
-        >
-        <!-- TODO: real Spanier portfolio photo for Pine Lake Deck (currently Kaboompics/Pexels placeholder) -->
-        <div class="work-card__image-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="work-card__body">
-        <span class="work-card__index">SP — 006</span>
-        <h3 class="work-card__title">Pine Lake Deck</h3>
-        <p class="work-card__caption">
-          800 sqft of cedar, lakefront exposure. Stripped, sanded, refinished in semi-transparent stain. Boards rotated where weathered. UV-rated for the open-water site.
-        </p>
-        <table class="work-card__meta">
-          <tbody>
-            <tr><td>Location</td><td>Avon, MN</td></tr>
-            <tr><td>Category</td><td>Decks</td></tr>
-            <tr><td>Year</td><td>2024</td></tr>
-            <tr><td>Finish</td><td>Semi-transparent · cedar tone</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </article>
 
     <!-- 07 — Sauk Rapids Office -->
-    <article class="work-card reveal" aria-label="Project: Sauk Rapids Office — Commercial">
-      <div class="work-card__image">
-        <img
-          src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt="4,200 sqft commercial office repaint, after-hours work — Sauk Rapids, MN"
-          loading="lazy"
-          decoding="async"
-          width="900"
-          height="675"
-        >
-        <!-- TODO: real Spanier portfolio photo for Sauk Rapids Office (currently Kaboompics/Pexels placeholder) -->
-        <div class="work-card__image-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="work-card__body">
-        <span class="work-card__index">SP — 007</span>
-        <h3 class="work-card__title">Sauk Rapids Office</h3>
-        <p class="work-card__caption">
-          4,200 sqft commercial repaint. Scheduled entirely after-hours so no business day was lost. Conference rooms, open-plan, breakroom — start to walk-through inside one week.
-        </p>
-        <table class="work-card__meta">
-          <tbody>
-            <tr><td>Location</td><td>Sauk Rapids, MN</td></tr>
-            <tr><td>Category</td><td>Commercial</td></tr>
-            <tr><td>Year</td><td>2025</td></tr>
-            <tr><td>Finish</td><td>Eggshell · low-VOC</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </article>
 
     <!-- 08 — The Annual House -->
-    <article class="work-card reveal" aria-label="Project: The Annual House — Albany">
-      <div class="work-card__image">
-        <img
-          src="https://images.pexels.com/photos/11299549/pexels-photo-11299549.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt="Trim refresh and ceiling repair in BM Decorator's White — Albany, MN"
-          loading="lazy"
-          decoding="async"
-          width="900"
-          height="675"
-        >
-        <!-- TODO: real Spanier portfolio photo for The Annual House (currently Kaboompics/Pexels placeholder) -->
-        <div class="work-card__image-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="work-card__body">
-        <span class="work-card__index">SP — 008</span>
-        <h3 class="work-card__title">The Annual House</h3>
-        <p class="work-card__caption">
-          Trim refresh and ceiling repair throughout the main floor. Plaster patched, hairline cracks bridged, two coats in Decorator's White. Repeat client — fifth project together.
-        </p>
-        <table class="work-card__meta">
-          <tbody>
-            <tr><td>Location</td><td>Albany, MN</td></tr>
-            <tr><td>Category</td><td>Interior</td></tr>
-            <tr><td>Year</td><td>2024</td></tr>
-            <tr><td>Finish</td><td>Semi-gloss · BM Decorator's White</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </article>
 
   </div>
 
