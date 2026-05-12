@@ -430,6 +430,7 @@ ul { list-style: none; }
   padding: var(--section-pad) var(--gutter);
   position: relative;
   background: var(--paper);
+  border-top: 3px solid var(--ink);
 }
 
 .section-header {
@@ -441,30 +442,6 @@ ul { list-style: none; }
   padding-bottom: clamp(1.5rem, 3vw, 3rem);
   border-bottom: var(--border);
 }
-
-/* ── Heavy-section variants — color punctuates content sections ───
-   #numbers and #faq go full-INK; #reviews goes full-COBALT.
-   Sections themselves are the dividers, no decorative marks needed. */
-#numbers.section-block,
-#faq.section-block {
-  background: var(--ink);
-  color: var(--paper);
-  border-bottom: 1px solid var(--paper);
-}
-#numbers .section-header__title,
-#faq .section-header__title { color: var(--paper); }
-#numbers .section-header__sub,
-#faq .section-header__sub { color: var(--signal); }
-#numbers .section-header__sub::before,
-#faq .section-header__sub::before { background: var(--signal); }
-
-#reviews.section-block {
-  background: var(--signal);
-  color: var(--paper);
-}
-#reviews .section-header__title { color: var(--paper); }
-#reviews .section-header__sub { color: var(--paper); opacity: 0.75; }
-#reviews .section-header__sub::before { background: var(--paper); opacity: 0.75; }
 
 .section-header__label {
   display: flex;
