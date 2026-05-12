@@ -271,15 +271,14 @@ ul { list-style: none; }
   font-family: "Archivo", sans-serif;
   font-weight: 500;
   font-size: clamp(2.6rem, 7vw, 7.5rem);
-  line-height: 0.95;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   color: var(--ink);
   display: block;
   flex: 1;
   word-break: keep-all;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: clip;
+  padding-bottom: 0.08em;
 }
 
 .hero__wordmark em {
@@ -360,6 +359,47 @@ ul { list-style: none; }
 
 .hero__statement-cell h2 strong {
   font-weight: 600;
+  color: var(--signal);
+}
+
+/* Hero CTAs — primary cobalt, secondary outline */
+.hero__cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.75rem;
+}
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.4rem;
+  font-family: "IBM Plex Mono", "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.hero__cta--primary {
+  background: var(--signal);
+  color: var(--paper);
+  border-color: var(--signal);
+}
+.hero__cta--primary:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.hero__cta--secondary {
+  background: var(--paper);
+  color: var(--ink);
+}
+.hero__cta--secondary:hover {
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .hero__data-strip {
@@ -1362,19 +1402,7 @@ footer {
    CHAPTER COUNTER (Carson/Crouwel reference — sticky tabular numeral)
    ================================================================ */
 .chapter-counter {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 60;
-  background: var(--ink);
-  border: 1px solid var(--ink);
-  padding: 14px 18px 12px;
-  pointer-events: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  min-width: 156px;
-  font-feature-settings: "tnum" 1;
+  display: none !important; /* removed per user request */
 }
 .chapter-counter__row {
   display: flex;
@@ -2437,6 +2465,11 @@ footer {
           <dd>~60 mi</dd>
         </div>
       </dl>
+
+      <div class="hero__cta-row">
+        <a class="hero__cta hero__cta--primary" href="#quote">Start a quote <span aria-hidden="true">↗</span></a>
+        <a class="hero__cta hero__cta--secondary" href="#work">See the work</a>
+      </div>
     </div>
   </div>
 
