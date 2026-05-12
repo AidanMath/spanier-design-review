@@ -519,27 +519,27 @@ header.scrolled {
 }
 
 /* Hero bottom strip */
-/* Marquee ticker — riso letterpress register */
+/* Marquee ticker — quiet, slow, register-card register */
 .hero-strip {
   background: var(--paper);
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
-  padding: 0.95rem 0;
+  border-top: 1px solid rgba(20,20,14,0.10);
+  border-bottom: 1px solid rgba(20,20,14,0.10);
+  padding: 0.45rem 0;
   display: flex;
   align-items: center;
   overflow: hidden;
   position: relative;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, var(--ink) 5%, var(--ink) 95%, transparent 100%);
-          mask-image: linear-gradient(90deg, transparent 0, var(--ink) 5%, var(--ink) 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, var(--ink) 8%, var(--ink) 92%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, var(--ink) 8%, var(--ink) 92%, transparent 100%);
 }
 .hero-strip-track {
   display: inline-flex;
   align-items: center;
-  gap: 3rem;
+  gap: 2.5rem;
   white-space: nowrap;
-  animation: heroStripScroll 38s linear infinite;
+  animation: heroStripScroll 110s linear infinite;
   flex-shrink: 0;
-  padding-right: 3rem;
+  padding-right: 2.5rem;
 }
 .hero-strip:hover .hero-strip-track { animation-play-state: paused; }
 @keyframes heroStripScroll {
@@ -547,24 +547,24 @@ header.scrolled {
   to   { transform: translate3d(-50%, 0, 0); }
 }
 .hero-strip-text {
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--ink);
-  letter-spacing: 0.04em;
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: rgba(20,20,14,0.65);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 .hero-strip-text em {
   color: var(--electric-blue);
-  font-style: italic;
-  font-weight: 700;
+  font-style: normal;
+  font-weight: 500;
 }
 .hero-strip-sep {
   display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: var(--electric-blue);
-  transform: rotate(45deg);
+  width: 3px;
+  height: 3px;
+  background: rgba(20,20,14,0.30);
+  border-radius: 50%;
   flex-shrink: 0;
 }
 @media (prefers-reduced-motion: reduce) {
