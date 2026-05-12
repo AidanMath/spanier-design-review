@@ -340,6 +340,25 @@
       color: var(--muted);
     }
 
+    /* Hero quote link — single understated cobalt punctuation with arrow */
+    .hero__cta {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.55rem;
+      margin-top: 2.25rem;
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cobalt);
+      text-decoration: none;
+      border-bottom: 1px solid var(--cobalt);
+      padding-bottom: 3px;
+      transition: gap 0.2s ease, opacity 0.2s ease;
+    }
+    .hero__cta:hover { gap: 0.85rem; opacity: 0.75; }
+    .hero__cta:focus-visible { outline: 1px solid var(--cobalt); outline-offset: 4px; }
+
     .hero__image {
       width: 100%;
       max-width: var(--max);
@@ -939,6 +958,7 @@
       </h1>
       <p class="hero__sub">Residential &amp; Commercial · Est. 2014</p>
       <a href="tel:3202509100" class="hero__phone">320·250·9100</a>
+      <div><a href="#quote" class="hero__cta">Start a quote <span aria-hidden="true">→</span></a></div>
     </div>
 
     <div class="hero__image">

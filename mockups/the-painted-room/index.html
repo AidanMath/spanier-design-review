@@ -365,6 +365,58 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
   letter-spacing: 0.01em;
 }
 
+/* Hero CTA row — primary cobalt button + secondary editorial link */
+.hero-cta-row {
+  margin-top: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.hero-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--cobalt);
+  padding: 0.85rem 1.4rem;
+  border-radius: 2px;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.hero-cta-primary:hover {
+  background: var(--cobalt-dark);
+  transform: translateY(-1px);
+}
+.hero-cta-primary:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 3px;
+}
+.hero-cta-primary::after {
+  content: "→";
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.hero-cta-secondary {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(251,248,242,0.78);
+  border-bottom: 1px solid rgba(251,248,242,0.35);
+  padding-bottom: 2px;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.hero-cta-secondary:hover {
+  color: var(--paper);
+  border-bottom-color: var(--paper);
+}
+
 .hero-right {
   display: flex;
   flex-direction: column;
@@ -2568,6 +2620,10 @@ button { font: inherit; cursor: pointer; background: transparent; border: 0; pad
         <em>Painting</em>
       </h1>
       <p class="hero-sub">Spanier Painting has operated out of St. Cloud since 2014 — a small, skilled crew that treats color as a considered decision, not a commodity. Every room is finished to a standard the work can stand behind.</p>
+      <div class="hero-cta-row">
+        <a href="#quote" class="hero-cta-primary">Start a quote</a>
+        <a href="#work" class="hero-cta-secondary">See the work</a>
+      </div>
     </div>
 
     <div class="hero-right">
