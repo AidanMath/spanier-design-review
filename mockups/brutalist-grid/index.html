@@ -427,30 +427,44 @@ ul { list-style: none; }
    SECTION WRAPPER
    ================================================================ */
 .section-block {
-  padding: 0 0 var(--section-pad);
+  padding: var(--section-pad) var(--gutter);
   position: relative;
   background: var(--paper);
 }
 
 .section-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1.25rem, 3vw, 3rem);
+  align-items: start;
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+  padding-bottom: clamp(1.5rem, 3vw, 3rem);
+  border-bottom: var(--border);
+}
+
+/* ── Heavy-section variants — color punctuates content sections ───
+   #numbers and #faq go full-INK; #reviews goes full-COBALT.
+   Sections themselves are the dividers, no decorative marks needed. */
+#numbers.section-block,
+#faq.section-block {
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 1px solid var(--paper);
+}
+#numbers .section-header__title,
+#faq .section-header__title { color: var(--paper); }
+#numbers .section-header__sub,
+#faq .section-header__sub { color: var(--signal); }
+#numbers .section-header__sub::before,
+#faq .section-header__sub::before { background: var(--signal); }
+
+#reviews.section-block {
   background: var(--signal);
   color: var(--paper);
-  padding: clamp(1.4rem, 2.5vw, 2.25rem) var(--gutter) clamp(1.5rem, 3vw, 2.5rem);
-  margin-bottom: clamp(3rem, 6vw, 6rem);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: clamp(1.5rem, 4vw, 4rem);
-  align-items: end;
-  border: 0;
 }
-.section-header > *:last-child {
-  text-align: right;
-}
-/* Apply gutter to internal content below the band */
-.section-block > *:not(.section-header) {
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
-}
+#reviews .section-header__title { color: var(--paper); }
+#reviews .section-header__sub { color: var(--paper); opacity: 0.75; }
+#reviews .section-header__sub::before { background: var(--paper); opacity: 0.75; }
 
 .section-header__label {
   display: flex;
@@ -464,7 +478,7 @@ ul { list-style: none; }
   font-size: clamp(1.5rem, 3.2vw, 2.8rem);
   letter-spacing: -0.02em;
   line-height: 1.05;
-  color: var(--paper);
+  color: var(--ink);
   max-width: 22ch;
 }
 
@@ -474,8 +488,7 @@ ul { list-style: none; }
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--paper);
-  opacity: 0.7;
+  color: var(--signal);
   margin-bottom: 0.75rem;
   display: inline-flex;
   align-items: center;
@@ -486,8 +499,7 @@ ul { list-style: none; }
   display: inline-block;
   width: 24px;
   height: 1px;
-  background: var(--paper);
-  opacity: 0.7;
+  background: var(--signal);
 }
 
 /* ================================================================
@@ -499,7 +511,7 @@ ul { list-style: none; }
   border-bottom: var(--border);
 }
 
-.manifesto .section-header__title { color: var(--paper); }
+.manifesto .section-header__title { color: var(--ink); }
 .manifesto .sec-num { display: none !important; }
 
 .manifesto__body {
