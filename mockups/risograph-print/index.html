@@ -10,7 +10,7 @@
 <link rel="canonical" href="https://spanierpainting.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -110,7 +110,7 @@
 
   --display: "Bricolage Grotesque", "Space Grotesk", system-ui, sans-serif;
   --body: "DM Sans", system-ui, sans-serif;
-  --mono: "VT323", monospace;
+  --mono: "JetBrains Mono", monospace;
 
   --container: 1340px;
   --gutter: clamp(1.25rem, 5vw, 4rem);
@@ -1740,25 +1740,25 @@ footer::before {
 }
 /* Big pull-quote with full misreg treatment */
 .pm-pullquote {
-  border: 3px solid var(--ink);
+  border: 1px solid var(--ink);
   padding: 2.5rem 2.5rem 2rem;
   position: relative;
-  background: var(--electric-blue);
+  background: var(--paper);
 }
 .pm-pullquote::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='0.35'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='0.18'/%3E%3C/svg%3E");
   background-size: 200px;
   mix-blend-mode: multiply;
-  opacity: 0.5;
+  opacity: 0.3;
   pointer-events: none;
 }
 .pm-pullquote-kicker {
   font-family: var(--mono);
   font-size: 0.8rem;
-  color: var(--fluoro-pink);
+  color: var(--electric-blue);
   letter-spacing: 0.1em;
   margin-bottom: 1.25rem;
   position: relative;
@@ -1770,13 +1770,13 @@ footer::before {
   font-size: clamp(1.4rem, 2.8vw, 2.4rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
-  color: var(--paper);
+  color: var(--ink);
   position: relative;
   z-index: 1;
 }
 .pm-pullquote-text em {
-  font-style: normal;
-  color: var(--fluoro-pink);
+  font-style: italic;
+  color: var(--electric-blue);
   position: relative;
 }
 /* misreg on the em word */
@@ -1785,14 +1785,14 @@ footer::before {
   position: absolute;
   top: var(--reg-offset);
   left: calc(-1 * var(--reg-offset));
-  color: var(--paper);
+  color: var(--electric-blue);
   opacity: 0.22;
   z-index: -1;
 }
 .pm-pullquote-source {
   font-family: var(--mono);
   font-size: 0.78rem;
-  color: rgba(250,250,250,0.45);
+  color: rgba(20,20,14,0.55);
   letter-spacing: 0.06em;
   margin-top: 1.75rem;
   position: relative;
@@ -2205,7 +2205,7 @@ footer::before {
   color: var(--fluoro-pink);
 }
 .flatplan__cite {
-  font-family: "VT323", "Departure Mono", monospace;
+  font-family: "JetBrains Mono", "Departure Mono", monospace;
   font-size: 11px;
   letter-spacing: 0.1em;
   color: var(--electric-blue);
@@ -2227,7 +2227,7 @@ footer::before {
   justify-content: space-between;
   padding: 8px 6px;
   position: relative;
-  font-family: "VT323", "Departure Mono", monospace;
+  font-family: "JetBrains Mono", "Departure Mono", monospace;
   font-size: 9px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -2261,7 +2261,7 @@ footer::before {
   margin-top: 1.6rem;
   display: flex;
   gap: 1.4rem;
-  font-family: "VT323", "Departure Mono", monospace;
+  font-family: "JetBrains Mono", "Departure Mono", monospace;
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2916,7 +2916,7 @@ footer::before {
   box-shadow: 2px 2px 0 var(--fluoro-pink);
 }
 .chat-fab::after {
-  content: "Talk to Lukas";
+  content: "Get in contact";
   position: absolute;
   right: calc(100% + 0.6rem);
   top: 50%;
@@ -2959,20 +2959,20 @@ footer::before {
       <!-- G · Stencil-stack logo — riso edition -->
       <svg width="120" height="40" viewBox="0 0 400 130" aria-hidden="true" focusable="false" style="display:block;color:var(--ink)">
         <text x="200" y="66"
-              font-family="'Stardos Stencil','Allerta Stencil','Big Shoulders Stencil Display','Bebas Neue',Impact,sans-serif"
+              font-family="'Bebas Neue','Oswald','Anton','Impact',sans-serif"
               font-weight="700" font-size="76" letter-spacing="2" text-anchor="middle" fill="currentColor">SPANIER</text>
         <text x="200" y="106"
-              font-family="'Stardos Stencil','Allerta Stencil','Big Shoulders Stencil Display','Bebas Neue',Impact,sans-serif"
+              font-family="'Bebas Neue','Oswald','Anton','Impact',sans-serif"
               font-weight="700" font-size="40" letter-spacing="6" text-anchor="middle" fill="currentColor">PAINTING</text>
       </svg>
       <!-- misreg ghost layer -->
       <svg width="120" height="40" viewBox="0 0 400 130" aria-hidden="true" focusable="false"
            style="display:block;position:absolute;top:3px;left:-3px;color:var(--fluoro-pink);opacity:0.55;pointer-events:none">
         <text x="200" y="66"
-              font-family="'Stardos Stencil','Allerta Stencil','Big Shoulders Stencil Display','Bebas Neue',Impact,sans-serif"
+              font-family="'Bebas Neue','Oswald','Anton','Impact',sans-serif"
               font-weight="700" font-size="76" letter-spacing="2" text-anchor="middle" fill="currentColor">SPANIER</text>
         <text x="200" y="106"
-              font-family="'Stardos Stencil','Allerta Stencil','Big Shoulders Stencil Display','Bebas Neue',Impact,sans-serif"
+              font-family="'Bebas Neue','Oswald','Anton','Impact',sans-serif"
               font-weight="700" font-size="40" letter-spacing="6" text-anchor="middle" fill="currentColor">PAINTING</text>
       </svg>
       <span class="nav-wordmark-riso" aria-hidden="true">VOL. 01 / 2026</span>
@@ -3247,125 +3247,6 @@ footer::before {
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     SELECTED WORK
-     ═══════════════════════════════════════════ -->
-<section id="work" aria-labelledby="work-heading">
-  <div class="selected-work">
-    <div class="work-header">
-      <h2 id="work-heading" class="work-title reveal" data-text="SELECTED WORK">Selected Work</h2>
-      <span class="work-count reveal reveal-delay-1">4 projects</span>
-    </div>
-
-    <div class="work-grid">
-
-      <!-- Case 01 -->
-      <article class="case-study reveal">
-        <div class="case-img-wrap">
-          <span class="case-plate-stamp">PROJECT 01 — VOL. 01 / 2026</span>
-          <img src="https://images.pexels.com/photos/7005297/pexels-photo-7005297.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Full interior repaint — Craftsman home in Sartell" loading="lazy" decoding="async">
-          <!-- REPLACE: nano-banana — Minnesota Craftsman-style home interior, warm painted walls, white crown molding, hardwood floors, natural light, residential, high quality finish -->
-        </div>
-        <div class="case-body">
-          <h3 class="case-title">Craftsman Full Repaint, Sartell</h3>
-          <p class="case-caption">The owners had lived with builder-grade white for twelve years. We pulled every room in one direction — a warm greige on the main floor that shifted to a cooler slate upstairs. Trim in high-gloss white. Six days, two coats everywhere.</p>
-          <!-- Secondary detail image -->
-          <div class="case-detail-img">
-            <!-- REPLACE: nano-banana — close detail of freshly painted white crown molding meeting a warm greige wall, Minnesota Craftsman interior, clean brush line, natural window light, high-gloss trim finish, no people -->
-            <img src="https://images.pexels.com/photos/3965520/pexels-photo-3965520.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Detail — crown molding and trim finish, Sartell Craftsman" loading="lazy" decoding="async">
-          </div>
-          <span class="case-detail-caption">DETAIL — CROWN MOLDING · SARTELL 2024</span>
-          <dl class="case-meta">
-            <div class="case-meta-item"><strong>Location</strong> &nbsp;Sartell, MN</div>
-            <div class="case-meta-item"><strong>Year</strong> &nbsp;2024</div>
-            <div class="case-meta-item"><strong>Scope</strong> &nbsp;Interior full home</div>
-            <div class="case-meta-item"><strong>Finish</strong> &nbsp;Eggshell + gloss trim</div>
-            <div class="case-meta-item"><strong>Days</strong> &nbsp;6</div>
-          </dl>
-        </div>
-      </article>
-
-      <!-- Case 02 -->
-      <article class="case-study reveal reveal-delay-1">
-        <div class="case-img-wrap">
-          <span class="case-plate-stamp">PROJECT 02 — VOL. 01 / 2026</span>
-          <img src="https://images.pexels.com/photos/6636303/pexels-photo-6636303.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Cabinet restoration — St. Cloud kitchen" loading="lazy" decoding="async">
-          <!-- REPLACE: nano-banana — Minnesota kitchen cabinet repainting, white painted cabinets, clean finish, residential kitchen, before/after style, high quality spray finish -->
-        </div>
-        <div class="case-body">
-          <h3 class="case-title">Kitchen Cabinet Restoration, St. Cloud</h3>
-          <p class="case-caption">Solid-wood cabinets, dated oak stain, client budget-conscious about a full remodel. We stripped, sanded, primed, and sprayed a furniture-grade white with soft-close hardware paint. The kitchen looks new. Cost: one tenth of a replacement.</p>
-          <!-- Secondary detail image -->
-          <div class="case-detail-img">
-            <!-- REPLACE: nano-banana — wide kitchen view after cabinet repaint, freshly sprayed bright white cabinet doors closed, clean satin finish, Minnesota residential kitchen, no tools or people, natural daylight from window -->
-            <img src="https://images.pexels.com/photos/6636303/pexels-photo-6636303.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Wide view — completed kitchen cabinet repaint, St. Cloud" loading="lazy" decoding="async">
-          </div>
-          <span class="case-detail-caption">CONTEXT — KITCHEN FULL VIEW · ST. CLOUD 2024</span>
-          <dl class="case-meta">
-            <div class="case-meta-item"><strong>Location</strong> &nbsp;St. Cloud, MN</div>
-            <div class="case-meta-item"><strong>Year</strong> &nbsp;2024</div>
-            <div class="case-meta-item"><strong>Scope</strong> &nbsp;Cabinetry</div>
-            <div class="case-meta-item"><strong>Finish</strong> &nbsp;Sprayed satin</div>
-            <div class="case-meta-item"><strong>Days</strong> &nbsp;3</div>
-          </dl>
-        </div>
-      </article>
-
-      <!-- Case 03 -->
-      <article class="case-study reveal reveal-delay-2">
-        <div class="case-img-wrap">
-          <span class="case-plate-stamp">PROJECT 03 — VOL. 01 / 2026</span>
-          <img src="https://images.pexels.com/photos/4469137/pexels-photo-4469137.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Victorian exterior, Avon" loading="lazy" decoding="async">
-          <!-- REPLACE: nano-banana — Victorian-era Minnesota home exterior repainting, detailed trim work, two-tone color scheme, freshly painted siding, summer Minnesota residential street -->
-        </div>
-        <div class="case-body">
-          <h3 class="case-title">Victorian Exterior, Heritage Trim — Avon</h3>
-          <p class="case-caption">Built in 1904, this house had seventeen distinct trim profiles. We matched period-appropriate colors from the Benjamin Moore Historic collection and used a flexible oil-based formula on the sills. The fishscale shingles got a contrasting accent — done by hand.</p>
-          <!-- Secondary detail image -->
-          <div class="case-detail-img">
-            <!-- REPLACE: nano-banana — close detail of Victorian-era gingerbread trim and fishscale shingles freshly painted in contrasting accent color, Central Minnesota home exterior, summer, crisp paint line, no people -->
-            <img src="https://images.pexels.com/photos/4469137/pexels-photo-4469137.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Detail — fishscale shingles and heritage trim, Avon Victorian" loading="lazy" decoding="async">
-          </div>
-          <span class="case-detail-caption">DETAIL — HERITAGE TRIM · AVON 2023</span>
-          <dl class="case-meta">
-            <div class="case-meta-item"><strong>Location</strong> &nbsp;Avon, MN</div>
-            <div class="case-meta-item"><strong>Year</strong> &nbsp;2023</div>
-            <div class="case-meta-item"><strong>Scope</strong> &nbsp;Exterior + heritage trim</div>
-            <div class="case-meta-item"><strong>Finish</strong> &nbsp;Satin + oil sills</div>
-            <div class="case-meta-item"><strong>Days</strong> &nbsp;10</div>
-          </dl>
-        </div>
-      </article>
-
-      <!-- Case 04 — wide -->
-      <article class="case-study reveal reveal-delay-3">
-        <div class="case-img-wrap">
-          <span class="case-plate-stamp">PROJECT 04 — VOL. 01 / 2026</span>
-          <img src="https://images.pexels.com/photos/5302581/pexels-photo-5302581.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Deck restoration — Waite Park" loading="lazy" decoding="async">
-          <!-- REPLACE: nano-banana — Minnesota residential deck restoration, freshly stained cedar deck, clean railing work, backyard summer, St. Cloud area home, professional finish -->
-        </div>
-        <div class="case-body">
-          <h3 class="case-title">Cedar Deck Restoration — Waite Park</h3>
-          <p class="case-caption">Five-year-old cedar that hadn't been sealed. Cracking boards, grey patina, failing rail posts. We power-washed, brightened, sanded, and applied a premium penetrating oil stain — two coats on every face. The grain came back. The owners cried (good tears).</p>
-          <!-- Secondary detail image -->
-          <div class="case-detail-img">
-            <!-- REPLACE: nano-banana — wide view of finished cedar deck after restoration, rich warm stain on deck boards, white painted railing, Minnesota summer backyard, green lawn beyond, no people, afternoon golden light -->
-            <img src="https://images.pexels.com/photos/5302581/pexels-photo-5302581.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Wide view — completed deck restoration, Waite Park" loading="lazy" decoding="async">
-          </div>
-          <span class="case-detail-caption">CONTEXT — DECK + RAIL SYSTEM · WAITE PARK 2024</span>
-          <dl class="case-meta">
-            <div class="case-meta-item"><strong>Location</strong> &nbsp;Waite Park, MN</div>
-            <div class="case-meta-item"><strong>Year</strong> &nbsp;2024</div>
-            <div class="case-meta-item"><strong>Scope</strong> &nbsp;Deck + rails + posts</div>
-            <div class="case-meta-item"><strong>Finish</strong> &nbsp;Penetrating oil stain</div>
-            <div class="case-meta-item"><strong>Days</strong> &nbsp;4</div>
-          </dl>
-        </div>
-      </article>
-
-    </div><!-- /work-grid -->
-  </div>
-</section>
 
 
 <!-- ═══════════════════════════════════════════
@@ -3712,7 +3593,7 @@ footer::before {
             <path d="M 60 0 L 200 180 L 280 280" fill="none" stroke="#1E3F8A" stroke-width="1.2" opacity="0.4"/>
             <path d="M 720 60 L 520 140 L 480 280" fill="none" stroke="#1E3F8A" stroke-width="1.2" opacity="0.4"/>
             <!-- Cities -->
-            <g font-family="VT323, monospace" font-size="13" letter-spacing="0.05em" fill="#14140E">
+            <g font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="0.05em" fill="#14140E">
               <circle cx="363" cy="143" r="8" fill="#3E6FE0" opacity="0.6"/>
               <circle cx="360" cy="140" r="6" fill="#1E3F8A"/>
               <text x="372" y="144" font-weight="700">ST. CLOUD</text>
@@ -3951,42 +3832,6 @@ footer::before {
   </div>
 </footer>
 
-<!-- ─── ZINE FLATPLAN (Hato Press / Drømt reference) ─── -->
-<section class="flatplan" aria-label="Zine flatplan">
-  <div class="flatplan__inner">
-    <div class="flatplan__head">
-      <h2 class="flatplan__title">CONTENTS <span>· 16 PAGES</span></h2>
-      <div class="flatplan__cite">
-        Vol. 01 / 2026 &nbsp;·&nbsp; Two-color cobalt &nbsp;·&nbsp; Uncoated stock<br>
-        No. 023 / 050 &nbsp;·&nbsp; Bound by hand &nbsp;·&nbsp; St. Cloud, MN
-      </div>
-    </div>
-    <div class="flatplan__grid">
-      <div class="flatplan__page flatplan__page--cover"><span class="flatplan__page-num">P. 01</span><span class="flatplan__page-name">COVER</span></div>
-      <div class="flatplan__page"><span class="flatplan__page-num">P. 02</span><span class="flatplan__page-name">FROM THE STUDIO</span></div>
-      <div class="flatplan__page flatplan__page--feature"><span class="flatplan__page-num">P. 03</span><span class="flatplan__page-name">THE PRINT EDITION</span></div>
-      <div class="flatplan__page"><span class="flatplan__page-num">P. 04</span><span class="flatplan__page-name">PROCESS · 4 PLATES</span></div>
-      <div class="flatplan__page"><span class="flatplan__page-num">P. 05</span><span class="flatplan__page-name">SELECTED WORK 01–04</span></div>
-      <div class="flatplan__page"><span class="flatplan__page-num">P. 06</span><span class="flatplan__page-name">SELECTED WORK 05–08</span></div>
-      <div class="flatplan__page"><span class="flatplan__page-num">P. 07</span><span class="flatplan__page-name">BEFORE / AFTER</span></div>
-      <div class="flatplan__page"><span class="flatplan__page-num">P. 08</span><span class="flatplan__page-name">WHAT WE PRINT ON</span></div>
-      <div class="flatplan__page flatplan__page--feature"><span class="flatplan__page-num">P. 09</span><span class="flatplan__page-name">PULL QUOTE</span></div>
-      <div class="flatplan__page"><span class="flatplan__page-num">P. 10</span><span class="flatplan__page-name">TESTIMONY · GOOGLE</span></div>
-      <div class="flatplan__page"><span class="flatplan__page-num">P. 11</span><span class="flatplan__page-name">COMMON QUESTIONS</span></div>
-      <div class="flatplan__page"><span class="flatplan__page-num">P. 12</span><span class="flatplan__page-name">SERVICE MAP</span></div>
-      <div class="flatplan__page flatplan__page--feature"><span class="flatplan__page-num">P. 13</span><span class="flatplan__page-name">COLOPHON · QUOTE</span></div>
-      <div class="flatplan__page flatplan__page--feature"><span class="flatplan__page-num">P. 14</span><span class="flatplan__page-name">CONTACT</span></div>
-      <div class="flatplan__page"><span class="flatplan__page-num">P. 15</span><span class="flatplan__page-name">COLOPHON</span></div>
-      <div class="flatplan__page flatplan__page--cover"><span class="flatplan__page-num">P. 16</span><span class="flatplan__page-name">BACK COVER</span></div>
-    </div>
-    <div class="flatplan__legend">
-      <span><i></i> Standard page</span>
-      <span><i class="pk"></i> Cover &amp; back</span>
-      <span><i class="bl"></i> Feature spread</span>
-    </div>
-  </div>
-</section>
-
 <!-- Visually hidden but accessible text -->
 <style>
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -4111,7 +3956,7 @@ footer :focus-visible,
 </script>
 
 <!-- TODO: Tidio Free chatbot widget embed (Phase 2) -->
-<button class="chat-fab" aria-label="Open chat — Talk to Lukas" type="button">
+<button class="chat-fab" aria-label="Open chat — Get in contact" type="button">
   <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
     <path d="M21 12a9 9 0 1 1-3.5-7.1L21 3v6h-6"/>
   </svg>
