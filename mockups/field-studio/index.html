@@ -121,8 +121,8 @@
   --column-wide:   min(1180px, 100%);
   --column-text:   min(640px, 100%);
 
-  --pad-section:   clamp(5rem, 10vw, 9rem);
-  --pad-tight:     clamp(3rem, 6vw, 5rem);
+  --pad-section:   clamp(3rem, 6.5vw, 5.5rem);
+  --pad-tight:     clamp(2rem, 4.5vw, 3.5rem);
 }
 
 /* ────────────────────────────────────────────────────────────────
@@ -478,6 +478,139 @@ ul, ol { list-style: none; }
 
 @media (max-width: 760px) {
   .hero__lede { grid-template-columns: 1fr; gap: 1.25rem; }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   HERO ACTION ROW — CTA + geometric mark
+   Sits between the lede and the plate so the conversion path is
+   visible above the fold without competing with the photograph.
+   ────────────────────────────────────────────────────────────────*/
+.hero__action {
+  margin-top: clamp(2.4rem, 5vw, 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--rule);
+  flex-wrap: wrap;
+}
+.hero__action-left {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.hero__mark {
+  width: 56px;
+  height: 56px;
+  color: var(--cobalt);
+  opacity: 0.78;
+}
+.hero__mark svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+.hero__mark-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  line-height: 1.4;
+}
+.hero__mark-label strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 0.15rem;
+}
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.1rem 2.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--cobalt);
+  color: var(--paper);
+  border: 1px solid var(--cobalt);
+  white-space: nowrap;
+  transition: background 0.25s ease, transform 0.2s ease, gap 0.2s ease;
+}
+.hero__cta:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  gap: 1.15rem;
+  transform: translateY(-1px);
+}
+.hero__cta:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 4px;
+}
+.hero__cta-arrow {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  transition: transform 0.2s ease;
+}
+.hero__cta:hover .hero__cta-arrow { transform: translateX(3px); }
+@media (max-width: 560px) {
+  .hero__action { flex-direction: column; align-items: flex-start; gap: 1.4rem; }
+  .hero__cta { width: 100%; justify-content: space-between; }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   FIELD ORNAMENT — geometric corner mark used to fill empty
+   white space in section headers without adding text or images.
+   ────────────────────────────────────────────────────────────────*/
+.field-ornament {
+  width: 44px;
+  height: 44px;
+  color: var(--cobalt);
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+.field-ornament svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1;
+}
+
+/* Centered geometric ornament for section transitions. Replaces a
+   bare hairline with a small registration mark flanked by two thin
+   rules. Purely geometric — no text or photograph. */
+.section-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  padding-block: clamp(2rem, 4vw, 3rem);
+  color: var(--cobalt);
+}
+.section-ornament__rule {
+  flex: 1;
+  max-width: 240px;
+  height: 1px;
+  background: color-mix(in srgb, var(--cobalt) 22%, transparent);
+}
+.section-ornament__mark {
+  width: 32px;
+  height: 32px;
+  color: var(--cobalt);
+  opacity: 0.72;
+  display: inline-block;
+}
+.section-ornament__mark svg {
+  width: 100%;
+  height: 100%;
 }
 
 /* ════════════════════════════════════════════════════════════════
@@ -1763,12 +1896,39 @@ ul, ol { list-style: none; }
       <div class="hero__lede reveal reveal--d2">
         <span class="hero__lede-label">Field Note &mdash; Spring 2026</span>
         <p class="hero__lede-text">
-          Spanier Painting is a four-painter studio in St.&nbsp;Cloud, working across the
+          Spanier Painting is a four-painter crew in St.&nbsp;Cloud, working across the
           residential and commercial buildings of <em>Central Minnesota</em> since 2014.
           Painted by hand. Built to last. Photographed at the hour when paint becomes a
           room.
         </p>
       </div>
+
+      <!-- Hero action row: registration mark (geometric, fills space) + CTA button -->
+      <div class="hero__action reveal reveal--d3">
+        <div class="hero__action-left">
+          <span class="hero__mark" aria-hidden="true">
+            <svg viewBox="0 0 56 56">
+              <!-- Printer's registration mark: concentric circles + crosshair -->
+              <circle cx="28" cy="28" r="22"/>
+              <circle cx="28" cy="28" r="14"/>
+              <circle cx="28" cy="28" r="2.4" fill="currentColor" stroke="none"/>
+              <line x1="28" y1="0"  x2="28" y2="10"/>
+              <line x1="28" y1="46" x2="28" y2="56"/>
+              <line x1="0"  y1="28" x2="10" y2="28"/>
+              <line x1="46" y1="28" x2="56" y2="28"/>
+            </svg>
+          </span>
+          <span class="hero__mark-label">
+            <strong>Vol. XII / 2026</strong>
+            A Spanier Painting monograph
+          </span>
+        </div>
+        <a class="hero__cta" href="#quote">
+          Get a Quote
+          <span class="hero__cta-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
       <figure class="hero__plate reveal reveal--d3">
         <div class="hero__plate-image">
           <!-- REPLACE: nano-banana — A wide editorial photograph of a sunlit Sartell dining room, walls painted in deep Hague Blue, a long oak table, north-facing windows, late-afternoon light skimming the wainscot. Shot like an architectural digest spread. -->
@@ -1789,7 +1949,19 @@ ul, ol { list-style: none; }
     </div>
   </section>
 
-  <hr class="hairline">
+  <!-- Section transition: centered geometric ornament (no text/image) -->
+  <div class="section-ornament" aria-hidden="true">
+    <span class="section-ornament__rule"></span>
+    <span class="section-ornament__mark">
+      <svg viewBox="0 0 40 40" stroke="currentColor" stroke-width="1" fill="none">
+        <line x1="20" y1="0"  x2="20" y2="40"/>
+        <line x1="0"  y1="20" x2="40" y2="20"/>
+        <circle cx="20" cy="20" r="6"/>
+        <circle cx="20" cy="20" r="1.6" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <span class="section-ornament__rule"></span>
+  </div>
 
   <!-- ════════════════════════════════════════════════════════════════
        FIELD NOTE / MANIFESTO
@@ -1813,7 +1985,7 @@ ul, ol { list-style: none; }
             rest is preparation.
           </p>
           <p class="field-note__sig">
-            Lukas Spanier &mdash; Founder, painter, son of St. Cloud
+            Lukas Spanier &mdash; Founder &amp; painter · St. Cloud, MN
           </p>
         </div>
       </div>
