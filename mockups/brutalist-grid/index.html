@@ -427,108 +427,29 @@ ul { list-style: none; }
    SECTION WRAPPER
    ================================================================ */
 .section-block {
-  border-top: 3px solid var(--ink);
-  padding: var(--section-pad) var(--gutter);
+  padding: 0 0 var(--section-pad);
   position: relative;
   background: var(--paper);
 }
 
-/* ─── Five rotating section-division patterns ─────────────────
-   Each pattern feels distinct so adjacent sections never repeat.
-   Cycle of 5 means a 10-section page rotates twice with offset. */
-
-/* Pattern A · Top-left cobalt tab + bottom-right cobalt mark */
-.section-block:nth-of-type(5n+1) {
-  background: var(--paper);
-}
-.section-block:nth-of-type(5n+1)::before {
-  content: "";
-  position: absolute;
-  top: -3px; left: 0;
-  width: clamp(120px, 18vw, 220px); height: 18px;
-  background: var(--signal);
-}
-.section-block:nth-of-type(5n+1)::after {
-  content: "";
-  position: absolute;
-  bottom: 0; right: 0;
-  width: clamp(60px, 10vw, 120px); height: 6px;
-  background: var(--signal); opacity: 0.55;
-}
-
-/* Pattern B · Cobalt-tinted background + full-width cobalt band under top rule */
-.section-block:nth-of-type(5n+2) {
-  background: rgba(30, 63, 138, 0.045);
-}
-.section-block:nth-of-type(5n+2)::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 8px;
-  background: var(--signal);
-}
-
-/* Pattern C · Left vertical cobalt ribbon, full-height */
-.section-block:nth-of-type(5n+3) {
-  background: var(--paper);
-  border-left: 8px solid var(--signal);
-}
-.section-block:nth-of-type(5n+3)::before {
-  content: "";
-  position: absolute;
-  top: -3px; right: clamp(2vw, 4vw, 4rem);
-  width: 56px; height: 18px;
-  background: var(--ink);
-}
-
-/* Pattern D · Bone-tinted ground + ink corner notch + offset cobalt block */
-.section-block:nth-of-type(5n+4) {
-  background: rgba(20, 20, 14, 0.04);
-}
-.section-block:nth-of-type(5n+4)::before {
-  content: "";
-  position: absolute;
-  top: -3px; left: clamp(8vw, 14vw, 220px);
-  width: clamp(80px, 12vw, 140px); height: 14px;
-  background: var(--signal);
-}
-.section-block:nth-of-type(5n+4)::after {
-  content: "";
-  position: absolute;
-  top: -3px; left: 0;
-  width: 14px; height: 14px;
-  background: var(--ink);
-}
-
-/* Pattern E · Inverted dark band — full-width ink under the rule, cobalt notch */
-.section-block:nth-of-type(5n+5) {
-  background: var(--paper);
-  padding-top: calc(var(--section-pad) + 1.2rem);
-}
-.section-block:nth-of-type(5n+5)::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 28px;
-  background: var(--ink);
-}
-.section-block:nth-of-type(5n+5)::after {
-  content: "";
-  position: absolute;
-  top: 0; right: clamp(2vw, 6vw, 6rem);
-  width: clamp(80px, 12vw, 160px); height: 28px;
-  background: var(--signal);
-}
-
 .section-header {
+  background: var(--signal);
+  color: var(--paper);
+  padding: clamp(1.4rem, 2.5vw, 2.25rem) var(--gutter) clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: clamp(3rem, 6vw, 6rem);
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: clamp(1.25rem, 3vw, 3rem);
-  align-items: start;
-  margin-bottom: clamp(4rem, 7vw, 8rem);
-  border-bottom: var(--border);
-  padding-bottom: clamp(2rem, 3.5vw, 4rem);
-  padding-top: clamp(1rem, 2vw, 1.5rem);
+  grid-template-columns: 1fr auto;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
+  border: 0;
+}
+.section-header > *:last-child {
+  text-align: right;
+}
+/* Apply gutter to internal content below the band */
+.section-block > *:not(.section-header) {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 }
 
 .section-header__label {
@@ -540,18 +461,22 @@ ul { list-style: none; }
 .section-header__title {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: clamp(1.4rem, 3vw, 2.6rem);
+  font-size: clamp(1.5rem, 3.2vw, 2.8rem);
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.05;
+  color: var(--paper);
+  max-width: 22ch;
 }
 
 .section-header__sub {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--signal);
+  color: var(--paper);
+  opacity: 0.7;
+  margin-bottom: 0.75rem;
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -559,9 +484,10 @@ ul { list-style: none; }
 .section-header__sub::before {
   content: "";
   display: inline-block;
-  width: 18px;
+  width: 24px;
   height: 1px;
-  background: var(--signal);
+  background: var(--paper);
+  opacity: 0.7;
 }
 
 /* ================================================================
@@ -573,8 +499,8 @@ ul { list-style: none; }
   border-bottom: var(--border);
 }
 
-.manifesto .section-header__title { color: var(--ink); }
-.manifesto .sec-num { color: var(--ink); opacity: 0.13; }
+.manifesto .section-header__title { color: var(--paper); }
+.manifesto .sec-num { display: none !important; }
 
 .manifesto__body {
   display: grid;
