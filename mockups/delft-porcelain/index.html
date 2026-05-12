@@ -94,8 +94,8 @@
    ============================================================ */
 :root {
   --porcelain:    #FFFFFF;           /* pure white — brand-rule compliant */
-  --cobalt:       #1A3470;           /* primary accent — unified to brand cobalt so every blue matches */
-  --brand-cobalt: #1A3470;           /* official Spanier brand cobalt — same as --cobalt */
+  --cobalt:       #3D4A56;           /* primary accent — BM Hague Blue HC-282, a slate-navy chosen for less saturated, more grounded feel */
+  --brand-cobalt: #3D4A56;           /* same — every blue on the page resolves to this single value */
   --soft-blue:    color-mix(in srgb, var(--cobalt) 45%, white);   /* derived; re-paints w/ cobalt */
   --ink:          #0F1730;
   --rule:         var(--cobalt);     /* hairlines pick up the chosen accent */
@@ -2428,7 +2428,7 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
         <span class="case-number">No. 01 · Interior</span>
         <div class="case-image-wrap">
           <div class="case-image-frame">
-            <img src="https://images.pexels.com/photos/1040893/pexels-photo-1040893.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            <img src="https://images.pexels.com/photos/5825380/pexels-photo-5825380.jpeg?auto=compress&cs=tinysrgb&w=1600"
                  alt="Riverbend Residence — whole-home repaint in Sartell" loading="lazy">
             <!-- REPLACE: nano-banana — [Riverbend Residence, Sartell MN — whole-home repaint, white kitchen + Hague Blue dining room, 2024] -->
             <!-- TODO: real Spanier portfolio photo for Riverbend Residence (currently Kaboompics placeholder — pale grey plaster, atmospheric) -->
@@ -2984,44 +2984,44 @@ details[open] .faq-q-mark { transform: rotate(45deg); }
       <svg class="service-area-map-svg" viewBox="0 0 720 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
         <defs>
           <pattern id="delftMap" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A3470" stroke-width="0.4" opacity="0.18"/>
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3D4A56" stroke-width="0.4" opacity="0.18"/>
           </pattern>
         </defs>
         <rect width="720" height="280" fill="#FFFFFF"/>
         <rect width="720" height="280" fill="url(#delftMap)"/>
         <!-- Decorative delft scrollwork corners -->
-        <path d="M 6 6 Q 30 6 30 30 M 6 6 Q 6 30 30 30" stroke="#1A3470" stroke-width="0.8" fill="none" opacity="0.55"/>
-        <path d="M 714 6 Q 690 6 690 30 M 714 6 Q 714 30 690 30" stroke="#1A3470" stroke-width="0.8" fill="none" opacity="0.55"/>
-        <path d="M 6 274 Q 30 274 30 250 M 6 274 Q 6 250 30 250" stroke="#1A3470" stroke-width="0.8" fill="none" opacity="0.55"/>
-        <path d="M 714 274 Q 690 274 690 250 M 714 274 Q 714 250 690 250" stroke="#1A3470" stroke-width="0.8" fill="none" opacity="0.55"/>
+        <path d="M 6 6 Q 30 6 30 30 M 6 6 Q 6 30 30 30" stroke="#3D4A56" stroke-width="0.8" fill="none" opacity="0.55"/>
+        <path d="M 714 6 Q 690 6 690 30 M 714 6 Q 714 30 690 30" stroke="#3D4A56" stroke-width="0.8" fill="none" opacity="0.55"/>
+        <path d="M 6 274 Q 30 274 30 250 M 6 274 Q 6 250 30 250" stroke="#3D4A56" stroke-width="0.8" fill="none" opacity="0.55"/>
+        <path d="M 714 274 Q 690 274 690 250 M 714 274 Q 714 250 690 250" stroke="#3D4A56" stroke-width="0.8" fill="none" opacity="0.55"/>
         <!-- Rivers in delft blue -->
-        <path d="M 0 90 C 180 70, 360 130, 540 110 S 720 100, 720 100" fill="none" stroke="#1A3470" stroke-width="2.4" opacity="0.5"/>
-        <path d="M 60 0 L 200 180 L 280 280" fill="none" stroke="#1A3470" stroke-width="1.4" opacity="0.35"/>
-        <path d="M 720 60 L 520 140 L 480 280" fill="none" stroke="#1A3470" stroke-width="1.4" opacity="0.35"/>
+        <path d="M 0 90 C 180 70, 360 130, 540 110 S 720 100, 720 100" fill="none" stroke="#3D4A56" stroke-width="2.4" opacity="0.5"/>
+        <path d="M 60 0 L 200 180 L 280 280" fill="none" stroke="#3D4A56" stroke-width="1.4" opacity="0.35"/>
+        <path d="M 720 60 L 520 140 L 480 280" fill="none" stroke="#3D4A56" stroke-width="1.4" opacity="0.35"/>
         <!-- Service radius -->
-        <circle cx="360" cy="140" r="120" fill="#1A3470" opacity="0.07"/>
-        <circle cx="360" cy="140" r="120" fill="none" stroke="#1A3470" stroke-width="1" stroke-dasharray="3 4" opacity="0.6"/>
+        <circle cx="360" cy="140" r="120" fill="#3D4A56" opacity="0.07"/>
+        <circle cx="360" cy="140" r="120" fill="none" stroke="#3D4A56" stroke-width="1" stroke-dasharray="3 4" opacity="0.6"/>
         <!-- Cities -->
         <g fill="#0F1730" font-family="Inter, system-ui, sans-serif" font-size="9" letter-spacing="0.06em">
-          <circle cx="360" cy="140" r="6" fill="#1A3470"/>
+          <circle cx="360" cy="140" r="6" fill="#3D4A56"/>
           <text x="372" y="144" font-weight="600">ST. CLOUD</text>
-          <circle cx="330" cy="100" r="3" fill="#1A3470"/>
+          <circle cx="330" cy="100" r="3" fill="#3D4A56"/>
           <text x="338" y="103">Sartell</text>
-          <circle cx="395" cy="115" r="3" fill="#1A3470"/>
+          <circle cx="395" cy="115" r="3" fill="#3D4A56"/>
           <text x="402" y="118">Sauk Rapids</text>
-          <circle cx="320" cy="160" r="3" fill="#1A3470"/>
+          <circle cx="320" cy="160" r="3" fill="#3D4A56"/>
           <text x="252" y="163">Waite Park</text>
-          <circle cx="270" cy="190" r="3" fill="#1A3470"/>
+          <circle cx="270" cy="190" r="3" fill="#3D4A56"/>
           <text x="200" y="193">Cold Spring</text>
-          <circle cx="240" cy="120" r="3" fill="#1A3470"/>
+          <circle cx="240" cy="120" r="3" fill="#3D4A56"/>
           <text x="208" y="123">Avon</text>
-          <circle cx="200" cy="100" r="3" fill="#1A3470"/>
+          <circle cx="200" cy="100" r="3" fill="#3D4A56"/>
           <text x="158" y="103">Albany</text>
-          <circle cx="475" cy="195" r="3" fill="#1A3470"/>
+          <circle cx="475" cy="195" r="3" fill="#3D4A56"/>
           <text x="482" y="198">Monticello</text>
-          <circle cx="450" cy="80" r="3" fill="#1A3470"/>
+          <circle cx="450" cy="80" r="3" fill="#3D4A56"/>
           <text x="458" y="83">Foley</text>
-          <circle cx="430" cy="225" r="3" fill="#1A3470"/>
+          <circle cx="430" cy="225" r="3" fill="#3D4A56"/>
           <text x="438" y="228">Big Lake</text>
         </g>
       </svg>
