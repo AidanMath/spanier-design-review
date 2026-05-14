@@ -255,16 +255,6 @@ header.scrolled {
   align-items: center;
   gap: 0.75rem;
 }
-.nav-wordmark-riso {
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  color: var(--fluoro-pink);
-  opacity: 0.7;
-  margin-left: 0.75rem;
-  vertical-align: middle;
-  text-transform: uppercase;
-}
 .nav-links {
   display: flex;
   align-items: center;
@@ -2913,58 +2903,6 @@ footer::before {
   .colophon-meta { grid-template-columns: 1fr; }
 }
 
-/* ═══════════════════════════════════════════
-   TIDIO CHAT FAB
-   ═══════════════════════════════════════════ */
-.chat-fab {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 950;
-  width: 56px;
-  height: 56px;
-  background: var(--electric-blue);
-  border: 2.5px solid var(--ink);
-  color: var(--paper);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 4px 4px 0 var(--fluoro-pink);
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.chat-fab:hover {
-  transform: translate(-1px,-1px);
-  box-shadow: 5px 5px 0 var(--fluoro-pink);
-}
-.chat-fab:active {
-  transform: translate(2px,2px);
-  box-shadow: 2px 2px 0 var(--fluoro-pink);
-}
-.chat-fab::after {
-  content: "Get in contact";
-  position: absolute;
-  right: calc(100% + 0.6rem);
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  color: var(--ink);
-  background: var(--paper);
-  border: 2px solid var(--ink);
-  padding: 0.3rem 0.7rem;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s;
-}
-.chat-fab:hover::after { opacity: 1; }
-@media (max-width: 500px) {
-  .chat-fab { width: 50px; height: 50px; bottom: 1rem; right: 1rem; }
-  .chat-fab::after { display: none; }
-}
-
 </style>
 </head>
 
@@ -2991,17 +2929,6 @@ footer::before {
               font-family="'Bebas Neue','Oswald','Anton','Impact',sans-serif"
               font-weight="700" font-size="40" letter-spacing="6" text-anchor="middle" fill="currentColor">PAINTING</text>
       </svg>
-      <!-- misreg ghost layer -->
-      <svg width="120" height="40" viewBox="0 0 400 130" aria-hidden="true" focusable="false"
-           style="display:block;position:absolute;top:3px;left:-3px;color:var(--fluoro-pink);opacity:0.55;pointer-events:none">
-        <text x="200" y="66"
-              font-family="'Bebas Neue','Oswald','Anton','Impact',sans-serif"
-              font-weight="700" font-size="76" letter-spacing="2" text-anchor="middle" fill="currentColor">SPANIER</text>
-        <text x="200" y="106"
-              font-family="'Bebas Neue','Oswald','Anton','Impact',sans-serif"
-              font-weight="700" font-size="40" letter-spacing="6" text-anchor="middle" fill="currentColor">PAINTING</text>
-      </svg>
-      <span class="nav-wordmark-riso" aria-hidden="true">VOL. 01 / 2026</span>
     </a>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
@@ -3795,7 +3722,7 @@ footer::before {
 
     <div class="footer-bottom">
       <p class="footer-legal">Spanier Painting &nbsp;·&nbsp; St. Cloud, Minnesota &nbsp;·&nbsp; 320·250·9100 &nbsp;·&nbsp; lukas@spanierpainting.com &nbsp;·&nbsp; Mon–Fri 7–6 · Sat by appt &nbsp;·&nbsp; Licensed + insured · EPA RRP · Est. 2014</p>
-      <p class="footer-edition">PRINT RUN OF 50 &mdash; NO. 023/050 &nbsp;·&nbsp; SITE BY AIDAN</p>
+      <p class="footer-edition">PRINT RUN OF 50 &mdash; NO. 023/050</p>
     </div>
   </div>
 </footer>
@@ -3923,12 +3850,7 @@ footer :focus-visible,
 
 </script>
 
-<!-- TODO: Tidio Free chatbot widget embed (Phase 2) -->
-<button class="chat-fab" aria-label="Open chat — Get in contact" type="button">
-  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M21 12a9 9 0 1 1-3.5-7.1L21 3v6h-6"/>
-  </svg>
-</button>
+<!-- Phase 2: Tidio Free chatbot widget will mount here. Placeholder FAB removed for riso clarity. -->
 
 </body>
 </html>
