@@ -1,48 +1,46 @@
 # Spanier Painting — Design Review
 
-A custom-built decision tool for Lukas Spanier to walk through seven website mockups and tell Aidan what works.
+A custom-built decision tool for Lukas Spanier to walk through six website mockups and tell Aidan what works.
 
 **Live:** [aidanmath.github.io/spanier-design-review](https://aidanmath.github.io/spanier-design-review/)
 
 ## What's here
 
-This repo holds the production build (`dist/`) of a React SPA whose source lives in a sibling repo at `~/Desktop/Projects/spanier-review-react/`. The mockups themselves are self-contained HTML files served at `/mockups/<slug>/index.html` and embedded via iframe.
+This repo is the GitHub Pages deploy target — it holds the production build (`dist/`) of a React SPA whose source lives in a sibling repo at `~/Desktop/Projects/spanier-review-react/`. The mockups themselves are self-contained HTML files served at `/mockups/<slug>/index.html` and embedded via iframe.
 
 ## Architecture
 
 - **Stack:** React 18 + Vite + TypeScript + Tailwind + Framer Motion + React Router
 - **Style direction:** "Curator's evaluation tool" — Fraunces 144 (display) + IBM Plex Sans (body) + JetBrains Mono (labels)
-- **Persistence:** localStorage (themes, viewport choice, form drafts, annotation pins, progress)
-- **Forms:** Inline submit via fetch to Formspree (placeholder ID — replace before showing Lukas)
+- **Persistence:** localStorage (themes, viewport choice, form drafts, progress)
+- **Forms:** Inline submit via fetch to Formspree (`xqennrnk`)
+
+## Deployed mockups (display order)
+
+1. The Painted Room — editorial magazine
+2. Field Studio — monograph
+3. Risograph Print — print edition
+4. Plain Studio — quiet confidence
+5. Brutalist Grid — structured grid
+6. Delft Porcelain — heritage blue
 
 ## Features
 
-- Theme picker reframed as "Gallery lighting" — Studio / Ivory / Linen / Dusk
+- Per-mockup live preview in iframe; click-through to full-page review
+- Theme repaint per design — preset palettes + custom hex inputs, save a favorite (★)
 - Viewport toggle on every review page (Desktop / Tablet / Mobile)
-- Annotation pins — click anywhere on the live design to drop a numbered pin + leave a note
-- Progress strip (n/7) updates across pages on every submit
 - Auto-save form drafts; resume banner on landing
-- Animated success state per review; ranking page for final 1–7
+- Animated success state per review; final 1–6 ranking page
 
 ## Updating the deployed build
 
+One command, from the source repo:
+
 ```bash
-# In the source repo:
 cd ~/Desktop/Projects/spanier-review-react
-npm run build
-
-# Copy the build over this repo:
-rsync -av --delete --exclude='.git' --exclude='README.md' dist/ ~/Desktop/Projects/spanier-design-review/
-cp -R public/mockups ~/Desktop/Projects/spanier-design-review/
-
-cd ~/Desktop/Projects/spanier-design-review
-git add . && git commit -m "Rebuild" && git push
+npm run deploy
 ```
 
-GitHub Pages will redeploy automatically within ~60 seconds.
+That runs `npm run build`, syncs `dist/` + `public/mockups/` into this repo, commits with a timestamp, and pushes to `master`. GitHub Pages redeploys in ~60s.
 
-## Before sending to Lukas
-
-1. Create a Formspree form at [formspree.io](https://formspree.io) (free 50/mo)
-2. Replace `https://formspree.io/f/YOUR_ID_HERE` in `src/pages/Review.tsx` AND `src/pages/Ranking.tsx`
-3. Rebuild + push (above)
+The script lives at `scripts/deploy.sh` in the source repo. Override the target via `SPANIER_DEPLOY_REPO=/path/to/repo npm run deploy`.
