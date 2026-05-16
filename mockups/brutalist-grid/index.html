@@ -487,6 +487,58 @@ ul { list-style: none; }
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+/* Packed variant — bigfact + title block sit shoulder-to-shoulder on the left */
+.section-header--packed {
+  grid-template-columns: auto 1fr;
+  align-items: end;
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+.section-header--packed .section-header__lead {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+.section-header--packed .section-header__titleblock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.section-header--packed .section-header__meta {
+  justify-self: end;
+}
+
+/* When a section is packed, dial the section vertical padding down */
+.section-block:has(.section-header--packed) {
+  padding-top: clamp(4rem, 6vw, 6.5rem);
+  padding-bottom: clamp(3.5rem, 5vw, 5rem);
+}
+
+.section-header__bigfact {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(4rem, 11vw, 10rem);
+  line-height: 0.85;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.section-header__bigfact-unit {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.18em;
+  letter-spacing: 0.12em;
+  color: var(--signal);
+  margin-top: 0.6em;
+  text-transform: uppercase;
+}
+@media (max-width: 800px) {
+  .section-header__bigfact { font-size: clamp(3rem, 14vw, 6rem); }
 }
 
 .section-header__title {
@@ -1356,21 +1408,15 @@ footer {
   margin-bottom: 1.5rem;
 }
 
-.footer-brand__contact {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+.footer-brand__bio a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.25);
+  text-underline-offset: 3px;
+  transition: color 0.12s, text-decoration-color 0.12s;
 }
 
-.footer-brand__contact a {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.05em;
-  color: rgba(255,255,255,0.6);
-  transition: color 0.12s;
-}
-
-.footer-brand__contact a:hover { color: var(--paper); }
+.footer-brand__bio a:hover { color: var(--paper); text-decoration-color: var(--paper); }
 
 .footer-nav__list {
   display: flex;
@@ -2261,49 +2307,6 @@ footer {
 }
 
 /* ================================================================
-   TIDIO CHAT FAB
-   ================================================================ */
-.chat-fab {
-  position: fixed;
-  bottom: 28px;
-  left: 28px;
-  z-index: 70;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--signal);
-  color: var(--paper);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 14px rgba(30,63,138,0.32), 0 0 0 1px var(--ink);
-  cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease;
-}
-
-.chat-fab:hover { transform: translateY(-2px); background: var(--ink); }
-
-.chat-fab__tooltip {
-  position: absolute;
-  left: 60px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--ink);
-  color: var(--paper);
-  padding: 0.4em 0.7em;
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease;
-}
-
-.chat-fab:hover .chat-fab__tooltip { opacity: 1; }
-
-/* ================================================================
    RESPONSIVE
    ================================================================ */
 @media (max-width: 900px) {
@@ -2378,7 +2381,6 @@ footer {
   .process-step { grid-template-columns: 3rem 1fr; gap: 1rem; }
   .faq-clause { grid-template-columns: 3rem 1fr; }
   .contact-row { grid-template-columns: 1fr; gap: 0.25rem; }
-  .chat-fab { width: 46px; height: 46px; bottom: 18px; left: 18px; }
 }
 
 @media (max-width: 480px) {
@@ -2523,12 +2525,13 @@ footer {
 <div id="about" style="scroll-margin-top: 64px;"></div>
 <section class="manifesto section-block" id="manifesto" aria-label="About Spanier Painting">
 
-  <div class="section-header">
-    <div class="section-header__label">
-    </div>
-    <div>
-      <p class="section-header__sub">About / Origin</p>
-      <h2 class="section-header__title">A four-painter studio out of St. Cloud.</h2>
+  <div class="section-header section-header--packed">
+    <div class="section-header__lead">
+      <span class="section-header__bigfact" aria-hidden="true">·02<span class="section-header__bigfact-unit">CH</span></span>
+      <div class="section-header__titleblock">
+        <p class="section-header__sub">About / Origin</p>
+        <h2 class="section-header__title">A four-painter studio out of St. Cloud.</h2>
+      </div>
     </div>
     <dl class="section-header__meta">
       <div class="section-header__meta-row"><dt>Founded</dt><dd>2014</dd></div>
@@ -2591,12 +2594,13 @@ footer {
      ================================================================ -->
 <section class="numbers-section section-block" id="numbers" aria-label="By the numbers">
 
-  <div class="section-header">
-    <div class="section-header__label">
-    </div>
-    <div>
-      <p class="section-header__sub">Studio / Data</p>
-      <h2 class="section-header__title">By the Numbers</h2>
+  <div class="section-header section-header--packed">
+    <div class="section-header__lead">
+      <span class="section-header__bigfact" aria-hidden="true">12<span class="section-header__bigfact-unit">YR</span></span>
+      <div class="section-header__titleblock">
+        <p class="section-header__sub">Studio / Data</p>
+        <h2 class="section-header__title">By the Numbers</h2>
+      </div>
     </div>
     <dl class="section-header__meta">
       <div class="section-header__meta-row"><dt>Source</dt><dd>Verified Google</dd></div>
@@ -2662,12 +2666,13 @@ footer {
      ================================================================ -->
 <section class="section-block services-block" id="services" aria-label="Services">
 
-  <div class="section-header">
-    <div class="section-header__label">
-    </div>
-    <div>
-      <p class="section-header__sub">Capabilities / Scope of Work</p>
-      <h2 class="section-header__title">Services</h2>
+  <div class="section-header section-header--packed">
+    <div class="section-header__lead">
+      <span class="section-header__bigfact" aria-hidden="true">6<span class="section-header__bigfact-unit">SVC</span></span>
+      <div class="section-header__titleblock">
+        <p class="section-header__sub">Capabilities / Scope of Work</p>
+        <h2 class="section-header__title">Services</h2>
+      </div>
     </div>
     <dl class="section-header__meta">
       <div class="section-header__meta-row"><dt>Offerings</dt><dd>06</dd></div>
@@ -2740,12 +2745,13 @@ footer {
      ================================================================ -->
 <section class="process-section section-block" id="process" aria-label="Process">
 
-  <div class="section-header">
-    <div class="section-header__label">
-    </div>
-    <div>
-      <p class="section-header__sub">Method / Four Clauses</p>
-      <h2 class="section-header__title">How We Work</h2>
+  <div class="section-header section-header--packed">
+    <div class="section-header__lead">
+      <span class="section-header__bigfact" aria-hidden="true">4<span class="section-header__bigfact-unit">STEP</span></span>
+      <div class="section-header__titleblock">
+        <p class="section-header__sub">Method / Four Clauses</p>
+        <h2 class="section-header__title">How We Work</h2>
+      </div>
     </div>
     <dl class="section-header__meta">
       <div class="section-header__meta-row"><dt>Phases</dt><dd>04</dd></div>
@@ -2824,12 +2830,13 @@ footer {
      ================================================================ -->
 <section class="section-block" id="work" aria-label="Selected work">
 
-  <div class="section-header">
-    <div class="section-header__label">
-    </div>
-    <div>
-      <p class="section-header__sub">Portfolio / Case Studies</p>
-      <h2 class="section-header__title">Selected Work</h2>
+  <div class="section-header section-header--packed">
+    <div class="section-header__lead">
+      <span class="section-header__bigfact" aria-hidden="true">·06<span class="section-header__bigfact-unit">CH</span></span>
+      <div class="section-header__titleblock">
+        <p class="section-header__sub">Portfolio / Case Studies</p>
+        <h2 class="section-header__title">Selected Work</h2>
+      </div>
     </div>
     <dl class="section-header__meta">
       <div class="section-header__meta-row"><dt>Projects</dt><dd>03</dd></div>
@@ -2948,12 +2955,13 @@ footer {
      ================================================================ -->
 <section class="beforeafter-section section-block" id="beforeafter" aria-label="Before and after">
 
-  <div class="section-header">
-    <div class="section-header__label">
-    </div>
-    <div>
-      <p class="section-header__sub">Portfolio / Side-by-Side</p>
-      <h2 class="section-header__title">Before / After</h2>
+  <div class="section-header section-header--packed">
+    <div class="section-header__lead">
+      <span class="section-header__bigfact" aria-hidden="true">42<span class="section-header__bigfact-unit">DOORS</span></span>
+      <div class="section-header__titleblock">
+        <p class="section-header__sub">Portfolio / Side-by-Side</p>
+        <h2 class="section-header__title">Before / After</h2>
+      </div>
     </div>
     <dl class="section-header__meta">
       <div class="section-header__meta-row"><dt>Case</dt><dd>Granite Ridge</dd></div>
@@ -3008,12 +3016,13 @@ footer {
      ================================================================ -->
 <section class="reviews-section section-block" id="reviews" aria-label="Reviews and testimonials">
 
-  <div class="section-header">
-    <div class="section-header__label">
-    </div>
-    <div>
-      <p class="section-header__sub">Reviews / On the Record</p>
-      <h2 class="section-header__title">What clients say.</h2>
+  <div class="section-header section-header--packed">
+    <div class="section-header__lead">
+      <span class="section-header__bigfact" aria-hidden="true">5.0<span class="section-header__bigfact-unit">★</span></span>
+      <div class="section-header__titleblock">
+        <p class="section-header__sub">Reviews / On the Record</p>
+        <h2 class="section-header__title">What clients say.</h2>
+      </div>
     </div>
     <dl class="section-header__meta">
       <div class="section-header__meta-row"><dt>Rating</dt><dd>5.0 ★</dd></div>
@@ -3085,12 +3094,13 @@ footer {
      ================================================================ -->
 <section class="journal-section section-block" id="journal" aria-label="From the studio archive">
 
-  <div class="section-header">
-    <div class="section-header__label">
-    </div>
-    <div>
-      <p class="section-header__sub">Studio archive · Phase 1 blog</p>
-      <h2 class="section-header__title">From the archive.</h2>
+  <div class="section-header section-header--packed">
+    <div class="section-header__lead">
+      <span class="section-header__bigfact" aria-hidden="true">·08<span class="section-header__bigfact-unit">CH</span></span>
+      <div class="section-header__titleblock">
+        <p class="section-header__sub">Studio archive · Phase 1 blog</p>
+        <h2 class="section-header__title">From the archive.</h2>
+      </div>
     </div>
     <dl class="section-header__meta">
       <div class="section-header__meta-row"><dt>Latest</dt><dd>Spring 2026</dd></div>
@@ -3114,12 +3124,13 @@ footer {
 
 <section class="area-section section-block" id="area" aria-label="Service area">
 
-  <div class="section-header">
-    <div class="section-header__label">
-    </div>
-    <div>
-      <p class="section-header__sub">Geographic / Coverage · ~60 mi radius</p>
-      <h2 class="section-header__title">Where We Work</h2>
+  <div class="section-header section-header--packed">
+    <div class="section-header__lead">
+      <span class="section-header__bigfact" aria-hidden="true">60<span class="section-header__bigfact-unit">MI</span></span>
+      <div class="section-header__titleblock">
+        <p class="section-header__sub">Geographic / Coverage · ~60 mi radius</p>
+        <h2 class="section-header__title">Where We Work</h2>
+      </div>
     </div>
     <dl class="section-header__meta">
       <div class="section-header__meta-row"><dt>Radius</dt><dd>~60 mi</dd></div>
@@ -3208,12 +3219,13 @@ footer {
      ================================================================ -->
 <section class="faq-section section-block" id="faq" aria-label="Frequently asked questions">
 
-  <div class="section-header">
-    <div class="section-header__label">
-    </div>
-    <div>
-      <p class="section-header__sub">Reference / Questions On File</p>
-      <h2 class="section-header__title">Frequently Asked.</h2>
+  <div class="section-header section-header--packed">
+    <div class="section-header__lead">
+      <span class="section-header__bigfact" aria-hidden="true">·10<span class="section-header__bigfact-unit">CH</span></span>
+      <div class="section-header__titleblock">
+        <p class="section-header__sub">Reference / Questions On File</p>
+        <h2 class="section-header__title">Frequently Asked.</h2>
+      </div>
     </div>
     <dl class="section-header__meta">
       <div class="section-header__meta-row"><dt>Questions</dt><dd>08</dd></div>
@@ -3315,12 +3327,13 @@ footer {
      ================================================================ -->
 <section class="manifest-section section-block" id="manifest" aria-label="Written promises">
 
-  <div class="section-header">
-    <div class="section-header__label">
-    </div>
-    <div>
-      <p class="section-header__sub">Standards / Commitments · in writing</p>
-      <h2 class="section-header__title">Written Promises</h2>
+  <div class="section-header section-header--packed">
+    <div class="section-header__lead">
+      <span class="section-header__bigfact" aria-hidden="true">·11<span class="section-header__bigfact-unit">CH</span></span>
+      <div class="section-header__titleblock">
+        <p class="section-header__sub">Standards / Commitments · in writing</p>
+        <h2 class="section-header__title">Written Promises</h2>
+      </div>
     </div>
     <dl class="section-header__meta">
       <div class="section-header__meta-row"><dt>Clauses</dt><dd>06</dd></div>
@@ -3416,12 +3429,13 @@ footer {
      ================================================================ -->
 <section class="cta-section" id="contact" aria-label="Get a quote">
 
-  <div class="section-header">
-    <div class="section-header__label">
-    </div>
-    <div>
-      <p class="section-header__sub">Contact / Quote · Phase 2 Jobber form</p>
-      <h2 class="section-header__title">Start a project.</h2>
+  <div class="section-header section-header--packed">
+    <div class="section-header__lead">
+      <span class="section-header__bigfact" aria-hidden="true">48<span class="section-header__bigfact-unit">HR</span></span>
+      <div class="section-header__titleblock">
+        <p class="section-header__sub">Contact / Quote · Phase 2 Jobber form</p>
+        <h2 class="section-header__title">Start a project.</h2>
+      </div>
     </div>
     <dl class="section-header__meta">
       <div class="section-header__meta-row"><dt>Open</dt><dd>Mon–Fri · 7–6</dd></div>
@@ -3490,15 +3504,9 @@ footer {
 </main>
 
 <!-- ================================================================
-     TIDIO CHAT WIDGET — Phase 2 placeholder
+     TIDIO CHAT WIDGET — Phase 2 placeholder mount point
      ================================================================ -->
 <!-- TODO: Tidio Free chatbot widget embed (Phase 2) -->
-<button class="chat-fab" aria-label="Open chat" type="button">
-  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M21 12a9 9 0 1 1-3.5-7.1L21 3v6h-6"/>
-  </svg>
-  <span class="chat-fab__tooltip">Get in contact</span>
-</button>
 
 <!-- ================================================================
      FOOTER
@@ -3510,15 +3518,8 @@ footer {
       <span class="footer-col__label">Spanier Painting · NAP</span>
       <p><span class="dot" aria-hidden="true"></span>Spanier<br>Painting</p>
       <p class="footer-brand__bio">
-        St. Cloud, Minnesota · 320-250-9100 · lukas@spanierpainting.com<br>
-        Mon–Fri 7–6 · Sat by appointment<br>
-        Licensed + insured · EPA RRP certified · Est. 2014
+        St. Cloud, Minnesota · <a href="tel:+13202509100">320-250-9100</a> · <a href="mailto:lukas@spanierpainting.com">lukas@spanierpainting.com</a>
       </p>
-      <div class="footer-brand__contact">
-        <a href="tel:+13202509100">320·250·9100</a>
-        <a href="tel:+13202909516">320·290·9516</a>
-        <a href="mailto:lukas@spanierpainting.com">lukas@spanierpainting.com</a>
-      </div>
     </div>
 
     <div class="footer-col">
@@ -3566,7 +3567,7 @@ footer {
   </div>
 
   <div class="footer-bottom">
-    <span class="footer-bottom__copy">© 2026 Spanier Painting — St. Cloud, MN — Licensed + Insured</span>
+    <span class="footer-bottom__copy">© 2026 Spanier Painting</span>
     <nav class="footer-bottom__legal" aria-label="Legal">
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
